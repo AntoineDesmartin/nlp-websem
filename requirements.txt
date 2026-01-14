@@ -1,0 +1,15 @@
+requests
+
+
+
+#pour linked predictions
+pykeen 
+torch 
+pandas 
+tqdm
+
+#pour l'ui
+fastapi 
+"uvicorn[standard]" 
+httpx 
+rdflib

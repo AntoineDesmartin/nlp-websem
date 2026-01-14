@@ -1,0 +1,198 @@
+@base <https://example.org/tourguide/mappings/> .
+@prefix rr:  <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql:  <http://semweb.mmlab.be/ns/ql#> .
+@prefix tg:  <https://example.org/tourguide#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+#########
+# CITY  #
+#########
+
+<#CityFromAttraction> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source "data/subset/paris-attraction.subset.csv" ;
+    rml:referenceFormulation ql:CSV
+  ] ;
+  rr:subjectMap [
+    rr:template "https://example.org/tourguide/city/{location}" ;
+    rr:class tg:City
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate tg:cityName ;
+    rr:objectMap [ rr:column "location" ]
+  ] .
+
+<#CityFromPOI> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source "data/subset/paris-poi.subset.csv" ;
+    rml:referenceFormulation ql:CSV
+  ] ;
+  rr:subjectMap [
+    rr:template "https://example.org/tourguide/city/{location}" ;
+    rr:class tg:City
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate tg:cityName ;
+    rr:objectMap [ rr:column "location" ]
+  ] .
+
+<#CityFromRestaurant> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source "data/subset/paris-restaurant.subset.csv" ;
+    rml:referenceFormulation ql:CSV
+  ] ;
+  rr:subjectMap [
+    rr:template "https://example.org/tourguide/city/{location}" ;
+    rr:class tg:City
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate tg:cityName ;
+    rr:objectMap [ rr:column "location" ]
+  ] .
+
+#############
+# PLACES    #
+#############
+
+<#AttractionMap> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source "data/subset/paris-attraction.subset.csv" ;
+    rml:referenceFormulation ql:CSV
+  ] ;
+
+  rr:subjectMap [
+    rr:template "https://example.org/tourguide/place/{id}" ;
+    rr:class tg:Place ;
+    rr:class tg:Attraction
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:placeId ;
+    rr:objectMap [ rr:column "id" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:name ;
+    rr:objectMap [ rr:column "name" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:address ;
+    rr:objectMap [ rr:column "address" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:locatedIn ;
+    rr:objectMap [ rr:template "https://example.org/tourguide/city/{location}" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:lat ;
+    rr:objectMap [ rr:column "lat" ; rr:datatype xsd:decimal ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:lng ;
+    rr:objectMap [ rr:column "lng" ; rr:datatype xsd:decimal ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:polarity ;
+    rr:objectMap [ rr:column "polarity" ; rr:datatype xsd:decimal ]
+  ] .
+
+<#POIMap> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source "data/subset/paris-poi.subset.csv" ;
+    rml:referenceFormulation ql:CSV
+  ] ;
+
+  rr:subjectMap [
+    rr:template "https://example.org/tourguide/place/{id}" ;
+    rr:class tg:Place ;
+    rr:class tg:POI
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:placeId ;
+    rr:objectMap [ rr:column "id" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:name ;
+    rr:objectMap [ rr:column "name" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:address ;
+    rr:objectMap [ rr:column "address" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:locatedIn ;
+    rr:objectMap [ rr:template "https://example.org/tourguide/city/{location}" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:lat ;
+    rr:objectMap [ rr:column "lat" ; rr:datatype xsd:decimal ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:lng ;
+    rr:objectMap [ rr:column "lng" ; rr:datatype xsd:decimal ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:polarity ;
+    rr:objectMap [ rr:column "polarity" ; rr:datatype xsd:decimal ]
+  ] .
+
+<#RestaurantMap> a rr:TriplesMap ;
+  rml:logicalSource [
+    rml:source "data/subset/paris-restaurant.subset.csv" ;
+    rml:referenceFormulation ql:CSV
+  ] ;
+
+  rr:subjectMap [
+    rr:template "https://example.org/tourguide/place/{id}" ;
+    rr:class tg:Place ;
+    rr:class tg:Restaurant
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:placeId ;
+    rr:objectMap [ rr:column "id" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:name ;
+    rr:objectMap [ rr:column "name" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:address ;
+    rr:objectMap [ rr:column "address" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:locatedIn ;
+    rr:objectMap [ rr:template "https://example.org/tourguide/city/{location}" ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:lat ;
+    rr:objectMap [ rr:column "lat" ; rr:datatype xsd:decimal ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:lng ;
+    rr:objectMap [ rr:column "lng" ; rr:datatype xsd:decimal ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:polarity ;
+    rr:objectMap [ rr:column "polarity" ; rr:datatype xsd:decimal ]
+  ] .

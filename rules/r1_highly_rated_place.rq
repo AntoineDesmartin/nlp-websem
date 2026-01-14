@@ -1,0 +1,15 @@
+PREFIX tg:  <https://example.org/tourguide#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT {
+  ?p rdf:type tg:HighlyRatedPlace .
+  ?p tg:inferenceReason ?reason .
+}
+WHERE {
+  ?p rdf:type tg:Place ;
+     tg:polarity ?pol ;
+     tg:numReviews ?n .
+  FILTER(xsd:decimal(?pol) >= 7.0 && xsd:integer(?n) >= 20)
+  BIND(CONCAT("HighlyRatedPlace: polarity=", STR(?pol), ", numReviews=", STR(?n), " (>=7.0 & >=20)") AS ?reason)
+}

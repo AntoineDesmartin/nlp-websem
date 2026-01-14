@@ -1,0 +1,111 @@
+@prefix tg:   <https://example.org/tourguide#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+
+tg: a owl:Ontology .
+
+###########
+# Classes #
+###########
+
+tg:City a owl:Class .
+tg:Tourist a owl:Class .
+tg:Place a owl:Class .
+tg:Attraction a owl:Class ; rdfs:subClassOf tg:Place .
+tg:Restaurant a owl:Class ; rdfs:subClassOf tg:Place .
+tg:POI a owl:Class ; rdfs:subClassOf tg:Place .
+
+tg:Review a owl:Class .
+tg:Itinerary a owl:Class .
+tg:ItineraryStep a owl:Class .
+
+# Disjonctions (modèle “propre”)
+tg:Attraction owl:disjointWith tg:Restaurant, tg:POI .
+tg:Restaurant owl:disjointWith tg:POI .
+
+################
+# ObjectProps   #
+################
+
+tg:locatedIn a owl:ObjectProperty ;
+  rdfs:domain tg:Place ; rdfs:range tg:City ;
+  a owl:FunctionalProperty ;
+  owl:inverseOf tg:hasPlace .
+
+tg:hasPlace a owl:ObjectProperty ;
+  rdfs:domain tg:City ; rdfs:range tg:Place .
+
+tg:aboutPlace a owl:ObjectProperty ;
+  rdfs:domain tg:Review ; rdfs:range tg:Place ;
+  a owl:FunctionalProperty ;
+  owl:inverseOf tg:hasReview .
+
+tg:hasReview a owl:ObjectProperty ;
+  rdfs:domain tg:Place ; rdfs:range tg:Review .
+
+tg:authoredBy a owl:ObjectProperty ;
+  rdfs:domain tg:Review ; rdfs:range tg:Tourist ;
+  a owl:FunctionalProperty ;
+  owl:inverseOf tg:wroteReview .
+
+tg:wroteReview a owl:ObjectProperty ;
+  rdfs:domain tg:Tourist ; rdfs:range tg:Review .
+
+# Liens avec SKOS (tes “catégories”)
+tg:hasTopic a owl:ObjectProperty ;
+  rdfs:domain tg:Place ; rdfs:range skos:Concept .
+
+tg:prefersTopic a owl:ObjectProperty ;
+  rdfs:domain tg:Tourist ; rdfs:range skos:Concept .
+
+################
+# DataProps     #
+################
+
+tg:placeId a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:string .
+tg:name a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:string .
+tg:address a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:string .
+
+tg:lat a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:decimal .
+tg:lng a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:decimal .
+
+tg:numReviews a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:integer .
+tg:polarity a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:decimal .
+
+tg:rating a owl:DatatypeProperty ; rdfs:domain tg:Review ; rdfs:range xsd:decimal .
+tg:reviewText a owl:DatatypeProperty ; rdfs:domain tg:Review ; rdfs:range xsd:string .
+tg:reviewDate a owl:DatatypeProperty ; rdfs:domain tg:Review ; rdfs:range xsd:date .
+
+########################
+# Class “definitions”  #
+########################
+
+# Review = 1 place + 1 auteur + 1 note
+tg:Review rdfs:subClassOf
+  [ a owl:Restriction ; owl:onProperty tg:aboutPlace ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass tg:Place ],
+  [ a owl:Restriction ; owl:onProperty tg:authoredBy ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass tg:Tourist ],
+  [ a owl:Restriction ; owl:onProperty tg:rating ; owl:someValuesFrom xsd:decimal ] .
+
+# Place = 1 ville + 1 nom + coords
+tg:Place rdfs:subClassOf
+  [ a owl:Restriction ; owl:onProperty tg:locatedIn ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass tg:City ],
+  [ a owl:Restriction ; owl:onProperty tg:name ; owl:someValuesFrom xsd:string ],
+  [ a owl:Restriction ; owl:onProperty tg:lat ; owl:someValuesFrom xsd:decimal ],
+  [ a owl:Restriction ; owl:onProperty tg:lng ; owl:someValuesFrom xsd:decimal ] .
+
+
+
+
+
+tg:HighlyRatedPlace a owl:Class ; rdfs:subClassOf tg:Place .
+tg:TopRestaurant    a owl:Class ; rdfs:subClassOf tg:Restaurant .
+tg:PopularPlace     a owl:Class ; rdfs:subClassOf tg:Place .
+tg:HiddenGem        a owl:Class ; rdfs:subClassOf tg:Place .
+
+tg:inferenceReason a owl:DatatypeProperty ;
+  rdfs:domain tg:Place ;
+  rdfs:range  xsd:string .

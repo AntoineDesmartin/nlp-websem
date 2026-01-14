@@ -1,0 +1,11 @@
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?type (COUNT(DISTINCT ?place) AS ?count)
+WHERE {
+  ?place a tg:Place ;
+         rdf:type ?type .
+  FILTER(?type != tg:Place)
+}
+GROUP BY ?type
+ORDER BY DESC(?count)

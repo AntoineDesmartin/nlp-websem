@@ -1,0 +1,18 @@
+@prefix tg:   <https://example.org/tourguide#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+tg:Topics a skos:ConceptScheme ;
+  skos:prefLabel "Tourism topics"@en .
+
+tg:Museum a skos:Concept ;
+  skos:inScheme tg:Topics ;
+  skos:prefLabel "Museum"@en ;
+  skos:broader tg:Culture .
+
+tg:Culture a skos:Concept ;
+  skos:inScheme tg:Topics ;
+  skos:prefLabel "Culture"@en .
+
+tg:Food a skos:Concept ;
+  skos:inScheme tg:Topics ;
+  skos:prefLabel "Food"@en .

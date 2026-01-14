@@ -1,0 +1,194 @@
+@prefix tg:   <https://example.org/tourguide#> .
+@prefix tgsh: <https://example.org/tourguide/shapes#> .
+@prefix sh:   <http://www.w3.org/ns/shacl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+########################
+# City
+########################
+
+tgsh:CityShape a sh:NodeShape ;
+  sh:targetClass tg:City ;
+
+  sh:property [
+    sh:path tg:cityName ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:minLength 1 ;
+    sh:message "City must have a non-empty tg:cityName." ;
+  ] .
+
+########################
+# Place (core item)
+########################
+
+tgsh:PlaceShape a sh:NodeShape ;
+  sh:targetClass tg:Place ;
+
+  # placeId sometimes comes as xsd:string (JSON) and sometimes as xsd:integer (CSV),
+  # so we accept either.
+  sh:property [
+    sh:path tg:placeId ;
+    sh:minCount 1 ;
+    sh:message "Place must have a tg:placeId (Tourpedia id) as string or integer." ;
+    sh:or (
+      [ sh:datatype xsd:string ; sh:minLength 1 ]
+      [ sh:datatype xsd:integer ]
+    ) ;
+  ] ;
+
+  sh:property [
+    sh:path tg:name ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:minLength 1 ;
+    sh:message "Place must have a non-empty tg:name." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:address ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+  ] ;
+
+  sh:property [
+    sh:path tg:locatedIn ;
+    sh:nodeKind sh:IRI ;
+    sh:class tg:City ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Place must be locatedIn exactly 1 City." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:lat ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 1 ;
+    sh:minInclusive -90 ;
+    sh:maxInclusive 90 ;
+    sh:message "lat must be a decimal in [-90, 90]." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:lng ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 1 ;
+    sh:minInclusive -180 ;
+    sh:maxInclusive 180 ;
+    sh:message "lng must be a decimal in [-180, 180]." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:numReviews ;
+    sh:datatype xsd:integer ;
+    sh:minCount 0 ;
+    sh:minInclusive 0 ;
+    sh:message "numReviews must be an integer >= 0." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:hasTopic ;
+    sh:nodeKind sh:IRI ;
+    sh:class skos:Concept ;
+    sh:minCount 0 ;
+    sh:message "hasTopic values must be SKOS Concepts." ;
+  ] .
+
+########################
+# Place type exclusivity (advanced constraint)
+# We want each Place to be classified as exactly ONE of:
+# tg:Attraction OR tg:Restaurant OR tg:POI
+########################
+
+tgsh:PlaceTypeExclusivityShape a sh:NodeShape ;
+  sh:targetClass tg:Place ;
+  sh:sparql [
+    sh:message "Each Place must have exactly one type among {Attraction, Restaurant, POI}." ;
+    sh:select """
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX tg:  <https://example.org/tourguide#>
+
+  SELECT $this WHERE {
+    BIND(
+      ( IF(EXISTS { $this rdf:type tg:Attraction }, 1, 0) +
+        IF(EXISTS { $this rdf:type tg:Restaurant }, 1, 0) +
+        IF(EXISTS { $this rdf:type tg:POI }, 1, 0)
+      ) AS ?n
+    )
+    FILTER(?n != 1)
+  }
+""" ;
+
+  ] .
+
+########################
+# Tourist
+########################
+
+tgsh:TouristShape a sh:NodeShape ;
+  sh:targetClass tg:Tourist ;
+
+  sh:property [
+    sh:path tg:touristId ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:minLength 1 ;
+    sh:message "Tourist must have a non-empty tg:touristId." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:prefersTopic ;
+    sh:nodeKind sh:IRI ;
+    sh:class skos:Concept ;
+    sh:minCount 0 ;
+  ] .
+
+########################
+# Review (users who reviewed items)
+########################
+
+tgsh:ReviewShape a sh:NodeShape ;
+  sh:targetClass tg:Review ;
+
+  sh:property [
+    sh:path tg:aboutPlace ;
+    sh:nodeKind sh:IRI ;
+    sh:class tg:Place ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Review must be about exactly 1 Place." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:authoredBy ;
+    sh:nodeKind sh:IRI ;
+    sh:class tg:Tourist ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Review must have exactly 1 author (Tourist)." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:rating ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 1 ;
+    sh:minInclusive 0 ;
+    sh:maxInclusive 5 ;
+    sh:message "rating must be a decimal in [0, 5]." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:reviewText ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:minLength 20 ;
+    sh:message "If present, reviewText should be at least 20 chars." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:reviewDate ;
+    sh:datatype xsd:date ;
+    sh:minCount 0 ;
+  ] .

@@ -1,0 +1,15 @@
+PREFIX tg:  <https://example.org/tourguide#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+CONSTRUCT {
+  ?p rdf:type tg:HiddenGem .
+  ?p tg:inferenceReason ?reason .
+}
+WHERE {
+  ?p rdf:type tg:Place ;
+     tg:polarity ?pol ;
+     tg:numReviews ?n .
+  FILTER(xsd:decimal(?pol) >= 8.5 && xsd:integer(?n) <= 5)
+  BIND(CONCAT("HiddenGem: polarity=", STR(?pol), ", numReviews=", STR(?n), " (>=8.5 & <=5)") AS ?reason)
+}

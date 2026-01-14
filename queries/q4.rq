@@ -1,0 +1,11 @@
+PREFIX tg: <https://example.org/tourguide#>
+
+SELECT ?place ?name ?lat ?lng
+WHERE {
+  ?place a tg:Place ;
+         tg:name ?name ;
+         tg:lat ?lat ;
+         tg:lng ?lng .
+  FILTER(?lat >= 48.84 && ?lat <= 48.90 && ?lng >= 2.28 && ?lng <= 2.36)
+}
+LIMIT 50
