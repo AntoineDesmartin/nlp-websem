@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗼 TourGuide Paris - Assistant Intelligent</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .tab {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .tab:hover {
+            color: #667eea;
+        }
+        
+        .tab.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+            font-weight: bold;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .question-box {
+            margin-bottom: 30px;
+        }
+        
+        .question-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+        
+        .question-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .results {
+            margin-top: 30px;
+        }
+        
+        .result-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .result-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .result-card h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .result-card p {
+            color: #666;
+            margin: 5px 0;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        
+        .sparql-box {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .explanation {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+            margin: 15px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-card h2 {
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+        
+        .stat-card p {
+            opacity: 0.9;
+        }
+        
+        .examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .example-btn {
+            padding: 8px 16px;
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+        
+        .example-btn:hover {
+            background: #2196f3;
+            color: white;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #667eea;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #c62828;
+            margin: 15px 0;
+        }
+        
+        .link {
+            color: #667eea;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        
+        .link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Styles pour la comparaison */
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .comparison-panel {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .comparison-panel h3 {
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .approach-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .approach-sparql {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .approach-embeddings {
+            background: #e8f5e9;
+            color: #388e3c;
+        }
+        
+        .metrics {
+            background: #fff3e0;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        @media (max-width: 768px) {
+            .comparison-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗼 TourGuide Paris</h1>
+            <p>Assistant Touristique Intelligent avec Knowledge Graph & IA</p>
+        </header>
+        
+        <div class="main-content">
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('comparison')">⚖️ Comparaison GraphRAG</button>
+                <button class="tab" onclick="switchTab('question')">💬 GraphRAG (SPARQL)</button>
+                <button class="tab" onclick="switchTab('embeddings')">🧠 GraphRAG (Embeddings)</button>
+                <button class="tab" onclick="switchTab('reco')">🎯 Recommandations IA</button>
+                <button class="tab" onclick="switchTab('explore')">🔍 Explorer</button>
+                <button class="tab" onclick="switchTab('stats')">📊 Statistiques</button>
+            </div>
+            
+            <!-- Tab 0: Comparaison -->
+            <div id="comparison-tab" class="tab-content active">
+                <h2>⚖️ Comparaison des 2 Approches GraphRAG</h2>
+                <p style="margin: 15px 0; color: #666;">
+                    Compare les deux approches GraphRAG côte à côte : transformation en SPARQL vs. recherche par embeddings.
+                </p>
+                
+                <div class="examples">
+                    <p style="width: 100%; margin-bottom: 10px; font-weight: bold;">Exemples de questions à comparer :</p>
+                    <button class="example-btn" onclick="setComparisonQuestion('Quels sont les meilleurs restaurants ?')">Meilleurs restaurants</button>
+                    <button class="example-btn" onclick="setComparisonQuestion('Je cherche une attraction touristique populaire')">Attractions populaires</button>
+                    <button class="example-btn" onclick="setComparisonQuestion('Où puis-je manger de la cuisine française ?')">Cuisine française</button>
+                    <button class="example-btn" onclick="setComparisonQuestion('Trouve des lieux bien notés avec beaucoup d\'avis')">Lieux populaires</button>
+                </div>
+                
+                <div class="question-box">
+                    <input type="text" 
+                           id="comparison-question-input" 
+                           class="question-input" 
+                           placeholder="Ex: Quels sont les meilleurs restaurants à Paris ?"
+                           onkeypress="if(event.key==='Enter') compareApproaches()">
+                    <button class="btn" onclick="compareApproaches()">⚖️ Comparer les 2 Approches</button>
+                </div>
+                
+                <div id="comparison-results"></div>
+            </div>
+            
+            <!-- Tab 1: Questions -->
+            <div id="question-tab" class="tab-content">
+                <h2>🤖 GraphRAG Approche 1 : Question → SPARQL</h2>
+                <p style="margin: 15px 0; color: #666;">
+                    Pose une question en langage naturel. Elle sera automatiquement convertie en requête SPARQL et exécutée sur le graphe de connaissances !
+                </p>
+                
+                <div class="examples">
+                    <p style="width: 100%; margin-bottom: 10px; font-weight: bold;">Exemples de questions :</p>
+                    <button class="example-btn" onclick="setQuestion('Quels sont les meilleurs restaurants ?')">Meilleurs restaurants</button>
+                    <button class="example-btn" onclick="setQuestion('Trouve des attractions à visiter')">Attractions touristiques</button>
+                    <button class="example-btn" onclick="setQuestion('Cherche Tour Eiffel')">Rechercher un lieu</button>
+                    <button class="example-btn" onclick="setQuestion('Montre les liens vers Wikidata')">Données liées</button>
+                </div>
+                
+                <div class="question-box">
+                    <input type="text" 
+                           id="question-input" 
+                           class="question-input" 
+                           placeholder="Ex: Quels sont les meilleurs restaurants à Paris ?"
+                           onkeypress="if(event.key==='Enter') askQuestion()">
+                    <button class="btn" onclick="askQuestion()">🔍 Rechercher</button>
+                </div>
+                
+                <div id="question-results"></div>
+            </div>
+            
+            <!-- Tab 2: Embeddings -->
+            <div id="embeddings-tab" class="tab-content">
+                <h2>🧠 GraphRAG Approche 2 : Embeddings + Réponse NL</h2>
+                <p style="margin: 15px 0; color: #666;">
+                    Pose une question en langage naturel. Le système utilise des embeddings pour trouver les entités pertinentes et génère une réponse conversationnelle !
+                </p>
+                
+                <div class="examples">
+                    <p style="width: 100%; margin-bottom: 10px; font-weight: bold;">Exemples de questions :</p>
+                    <button class="example-btn" onclick="setEmbeddingQuestion('Quels sont les meilleurs restaurants ?')">Meilleurs restaurants</button>
+                    <button class="example-btn" onclick="setEmbeddingQuestion('Je cherche une attraction touristique populaire')">Attractions</button>
+                    <button class="example-btn" onclick="setEmbeddingQuestion('Où puis-je manger de la cuisine française ?')">Cuisine française</button>
+                    <button class="example-btn" onclick="setEmbeddingQuestion('Recommande-moi un lieu avec une bonne note')">Lieux bien notés</button>
+                </div>
+                
+                <div class="question-box">
+                    <input type="text" 
+                           id="embedding-question-input" 
+                           class="question-input" 
+                           placeholder="Ex: Recommande-moi les meilleurs endroits à Paris"
+                           onkeypress="if(event.key==='Enter') askEmbeddingQuestion()">
+                    <button class="btn" onclick="askEmbeddingQuestion()">🧠 Demander à l'IA</button>
+                </div>
+                
+                <div id="embedding-results"></div>
+            </div>
+            
+            <!-- Tab 3: Recommandations -->
+            <div id="reco-tab" class="tab-content">
+                <h2>🎯 Recommandations personnalisées (TransE)</h2>
+                <p style="margin: 15px 0; color: #666;">
+                    Ces recommandations sont générées par un modèle d'IA (TransE) entraîné sur le graphe de connaissances.
+                    Il prédit les lieux qu'un touriste pourrait aimer en fonction des patterns appris.
+                </p>
+                
+                <button class="btn" onclick="getSampleRecommendation()">🎲 Voir un exemple de recommandation</button>
+                
+                <div id="reco-results"></div>
+            </div>
+            
+            <!-- Tab 3: Explorer -->
+            <div id="explore-tab" class="tab-content">
+                <h2>🔍 Explorer le graphe</h2>
+                
+                <div style="margin: 20px 0;">
+                    <button class="btn" onclick="getTopPlaces()" style="margin-right: 10px;">⭐ Top Lieux</button>
+                    <button class="btn" onclick="getPlacesByType('Restaurant')" style="margin-right: 10px;">🍽️ Restaurants</button>
+                    <button class="btn" onclick="getPlacesByType('Attraction')" style="margin-right: 10px;">🎭 Attractions</button>
+                    <button class="btn" onclick="getLinkedData()">🔗 Web de Données</button>
+                </div>
+                
+                <div id="explore-results"></div>
+            </div>
+            
+            <!-- Tab 4: Stats -->
+            <div id="stats-tab" class="tab-content">
+                <h2>📊 Statistiques du Projet</h2>
+                <div id="stats-results">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>Chargement des statistiques...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Variables globales
+        let currentTab = 'question';
+        
+        // Gestion des tabs
+        function switchTab(tabName) {
+            // Cacher tous les tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Afficher le tab sélectionné
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+            currentTab = tabName;
+            
+            // Charger les stats si nécessaire
+            if (tabName === 'stats') {
+                loadStats();
+            }
+        }
+        
+        // Définir une question exemple
+        function setQuestion(question) {
+            document.getElementById('question-input').value = question;
+        }
+        
+        // Définir une question pour embeddings
+        function setEmbeddingQuestion(question) {
+            document.getElementById('embedding-question-input').value = question;
+        }
+        
+        // Définir une question pour comparaison
+        function setComparisonQuestion(question) {
+            document.getElementById('comparison-question-input').value = question;
+        }
+        
+        // Comparer les deux approches
+        async function compareApproaches() {
+            const question = document.getElementById('comparison-question-input').value;
+            if (!question.trim()) {
+                alert('Veuillez entrer une question !');
+                return;
+            }
+            
+            const resultsDiv = document.getElementById('comparison-results');
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div><p>Comparaison des deux approches en cours...</p></div>';
+            
+            // Appeler les deux APIs en parallèle
+            const startTime = Date.now();
+            
+            try {
+                const [sparqlResponse, embeddingResponse] = await Promise.all([
+                    fetch('/api/ask', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ question })
+                    }),
+                    fetch('/api/ask_nl', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ question })
+                    })
+                ]);
+                
+                const totalTime = Date.now() - startTime;
+                
+                const sparqlData = await sparqlResponse.json();
+                const embeddingData = await embeddingResponse.json();
+                
+                // Générer l'affichage comparatif
+                let html = '<div class="comparison-container">';
+                
+                // Colonne 1: Approche SPARQL
+                html += '<div class="comparison-panel">';
+                html += '<span class="approach-badge approach-sparql">📊 Approche 1 : SPARQL</span>';
+                html += '<h3>Question → Requête Structurée</h3>';
+                
+                if (sparqlData.error) {
+                    html += '<div class="error">❌ Erreur : ' + escapeHtml(sparqlData.explanation || 'Erreur inconnue') + '</div>';
+                } else {
+                    html += '<div class="metrics">⏱️ Résultats : ' + sparqlData.count + ' trouvé(s)</div>';
+                    html += '<div class="explanation"><strong>💡 Méthode :</strong> ' + escapeHtml(sparqlData.explanation) + '</div>';
+                    html += '<details><summary style="cursor: pointer; font-weight: bold; margin: 10px 0;">📝 Requête SPARQL</summary>';
+                    html += '<div class="sparql-box">' + escapeHtml(sparqlData.sparql) + '</div></details>';
+                    
+                    html += '<h4 style="margin-top: 15px;">Résultats (' + Math.min(sparqlData.count, 5) + ' premiers) :</h4>';
+                    sparqlData.results.slice(0, 5).forEach((result, index) => {
+                        html += '<div class="result-card" style="margin: 10px 0; padding: 10px;">';
+                        html += '<strong>' + (index + 1) + '. ' + (result.name || result.place || 'Lieu') + '</strong><br>';
+                        if (result.polarity) html += '⭐ Note : ' + result.polarity + '<br>';
+                        if (result.reviewCount) html += '💬 Avis : ' + result.reviewCount;
+                        html += '</div>';
+                    });
+                }
+                
+                html += '</div>';
+                
+                // Colonne 2: Approche Embeddings
+                html += '<div class="comparison-panel">';
+                html += '<span class="approach-badge approach-embeddings">🧠 Approche 2 : Embeddings</span>';
+                html += '<h3>Question → Réponse Naturelle</h3>';
+                
+                if (embeddingData.error) {
+                    html += '<div class="error">❌ ' + escapeHtml(embeddingData.answer || 'Erreur inconnue') + '</div>';
+                } else {
+                    html += '<div class="metrics">⏱️ Entités trouvées : ' + embeddingData.entities.length + '</div>';
+                    html += '<div style="background: #e8f5e9; padding: 15px; border-radius: 8px; margin: 10px 0; border-left: 4px solid #4caf50;">';
+                    html += '<strong>💬 Réponse :</strong><br><br>';
+                    html += escapeHtml(embeddingData.answer).replace(/\n/g, '<br>');
+                    html += '</div>';
+                    
+                    html += '<details><summary style="cursor: pointer; font-weight: bold; margin: 10px 0;">📊 Entités par similarité</summary>';
+                    embeddingData.entities.slice(0, 5).forEach((entity, index) => {
+                        html += '<div class="result-card" style="margin: 10px 0; padding: 10px;">';
+                        html += '<strong>' + (index + 1) + '. ' + (entity.name || 'Inconnu') + '</strong><br>';
+                        html += '🎯 Similarité : ' + (entity.score || 0).toFixed(3) + '<br>';
+                        if (entity.info && entity.info.polarity) html += '⭐ Note : ' + entity.info.polarity;
+                        html += '</div>';
+                    });
+                    html += '</details>';
+                }
+                
+                html += '</div>';
+                html += '</div>'; // Fin comparison-container
+                
+                // Tableau comparatif
+                html += '<div style="margin-top: 30px; background: #f8f9fa; padding: 20px; border-radius: 10px;">';
+                html += '<h3>📊 Analyse Comparative</h3>';
+                html += '<table style="width: 100%; border-collapse: collapse; margin-top: 15px;">';
+                html += '<tr style="background: #667eea; color: white;">';
+                html += '<th style="padding: 10px; text-align: left;">Critère</th>';
+                html += '<th style="padding: 10px; text-align: left;">Approche 1 (SPARQL)</th>';
+                html += '<th style="padding: 10px; text-align: left;">Approche 2 (Embeddings)</th>';
+                html += '</tr>';
+                
+                html += '<tr style="background: white;"><td style="padding: 10px; border: 1px solid #ddd;"><strong>Type de sortie</strong></td>';
+                html += '<td style="padding: 10px; border: 1px solid #ddd;">Données structurées (JSON)</td>';
+                html += '<td style="padding: 10px; border: 1px solid #ddd;">Texte en langage naturel</td></tr>';
+                
+                html += '<tr style="background: #f8f9fa;"><td style="padding: 10px; border: 1px solid #ddd;"><strong>Précision</strong></td>';
+                html += '<td style="padding: 10px; border: 1px solid #ddd;">✅ Exacte (requête SQL-like)</td>';
+                html += '<td style="padding: 10px; border: 1px solid #ddd;">⚡ Approximative (similarité)</td></tr>';
+                
+                html += '<tr style="background: white;"><td style="padding: 10px; border: 1px solid #ddd;"><strong>Flexibilité</strong></td>';
+                html += '<td style="padding: 10px; border: 1px solid #ddd;">⚡ Limitée par l\'ontologie</td>';
+                html += '<td style="padding: 10px; border: 1px solid #ddd;">✅ Très flexible (sémantique)</td></tr>';
+                
+                html += '<tr style="background: #f8f9fa;"><td style="padding: 10px; border: 1px solid #ddd;"><strong>Lisibilité</strong></td>';
+                html += '<td style="padding: 10px; border: 1px solid #ddd;">⚡ Nécessite interprétation</td>';
+                html += '<td style="padding: 10px; border: 1px solid #ddd;">✅ Immédiatement compréhensible</td></tr>';
+                
+                html += '<tr style="background: white;"><td style="padding: 10px; border: 1px solid #ddd;"><strong>Temps total</strong></td>';
+                html += '<td style="padding: 10px; border: 1px solid #ddd;" colspan="2">' + (totalTime / 1000).toFixed(2) + 's (les deux en parallèle)</td></tr>';
+                
+                html += '</table>';
+                html += '</div>';
+                
+                resultsDiv.innerHTML = html;
+                
+            } catch (error) {
+                resultsDiv.innerHTML = '<div class="error">❌ Erreur : ' + escapeHtml(error.message) + '</div>';
+            }
+        }
+        
+        // Poser une question avec embeddings (Approche 2)
+        async function askEmbeddingQuestion() {
+            const question = document.getElementById('embedding-question-input').value;
+            if (!question.trim()) {
+                alert('Veuillez entrer une question !');
+                return;
+            }
+            
+            const resultsDiv = document.getElementById('embedding-results');
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div><p>Recherche sémantique en cours...</p></div>';
+            
+            try {
+                const response = await fetch('/api/ask_nl', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question })
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Erreur serveur: ' + response.status);
+                }
+                
+                const data = await response.json();
+                
+                // Vérifier si la réponse contient une erreur
+                if (data.error) {
+                    resultsDiv.innerHTML = '<div class="error">❌ ' + escapeHtml(data.answer || 'Erreur inconnue') + '</div>';
+                    return;
+                }
+                
+                if (!data.answer) {
+                    throw new Error('Réponse vide du serveur');
+                }
+                
+                let html = '<div style="background: #e8f5e9; padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50; margin: 20px 0;">';
+                html += '<h3 style="color: #2e7d32; margin-bottom: 15px;">💬 Réponse de l\'IA :</h3>';
+                html += '<div style="font-size: 16px; line-height: 1.8; color: #333;">' + escapeHtml(data.answer).replace(/\n/g, '<br>') + '</div>';
+                html += '</div>';
+                
+                if (data.entities && data.entities.length > 0) {
+                    html += '<details open><summary style="cursor: pointer; font-weight: bold; margin: 20px 0;">📊 Entités utilisées (' + data.entities.length + ')</summary>';
+                    
+                    data.entities.forEach((entity, index) => {
+                        html += '<div class="result-card">';
+                        html += '<span class="badge">#' + (index + 1) + '</span>';
+                        html += '<h3>' + (entity.name || 'Inconnu') + '</h3>';
+                        html += '<p><strong>Type :</strong> ' + (entity.type || 'N/A') + '</p>';
+                        html += '<p><strong>Score de similarité :</strong> ' + (entity.score || 0).toFixed(3) + '</p>';
+                        
+                        if (entity.info && entity.info.polarity) {
+                            html += '<p><strong>Note :</strong> ' + entity.info.polarity + '</p>';
+                        }
+                        if (entity.info && entity.info.category) {
+                            html += '<p><strong>Catégorie :</strong> ' + entity.info.category + '</p>';
+                        }
+                        
+                        html += '</div>';
+                    });
+                    
+                    html += '</details>';
+                    
+                    html += '<div style="background: #fff3e0; padding: 15px; border-radius: 8px; border-left: 4px solid #ff9800; margin-top: 20px;">';
+                    html += '<strong>ℹ️ Comment ça marche :</strong><br>';
+                    html += '1. Votre question est transformée en vecteur (embedding)<br>';
+                    html += '2. Le système trouve les entités les plus similaires du graphe<br>';
+                    html += '3. GPT-4o-mini génère une réponse naturelle basée sur ces entités';
+                    html += '</div>';
+                }
+                
+                resultsDiv.innerHTML = html;
+            } catch (error) {
+                resultsDiv.innerHTML = '<div class="error">❌ Erreur : ' + escapeHtml(error.message) + '</div>';
+            }
+        }
+        
+        // Poser une question
+        async function askQuestion() {
+            const question = document.getElementById('question-input').value;
+            if (!question.trim()) {
+                alert('Veuillez entrer une question !');
+                return;
+            }
+            
+            const resultsDiv = document.getElementById('question-results');
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div><p>Analyse de votre question...</p></div>';
+            
+            try {
+                const response = await fetch('/api/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question })
+                });
+                
+                const data = await response.json();
+                
+                let html = '<div class="explanation"><strong>💡 Explication :</strong> ' + data.explanation + '</div>';
+                html += '<details><summary style="cursor: pointer; font-weight: bold;">📝 Requête SPARQL générée (cliquer pour voir)</summary>';
+                html += '<div class="sparql-box">' + escapeHtml(data.sparql) + '</div></details>';
+                html += '<h3 style="margin: 20px 0;">📋 Résultats (' + data.count + ')</h3>';
+                
+                if (data.results.length === 0) {
+                    html += '<p style="color: #999;">Aucun résultat trouvé.</p>';
+                } else {
+                    data.results.forEach((result, index) => {
+                        html += '<div class="result-card">';
+                        html += '<h3>' + (index + 1) + '. ' + (result.name || result.place || 'Lieu') + '</h3>';
+                        
+                        Object.keys(result).forEach(key => {
+                            if (key !== 'name' && key !== 'place') {
+                                html += '<p><strong>' + key + ':</strong> ';
+                                if (result[key].startsWith('http')) {
+                                    html += '<a href="' + result[key] + '" target="_blank" class="link">' + result[key] + '</a>';
+                                } else {
+                                    html += result[key];
+                                }
+                                html += '</p>';
+                            }
+                        });
+                        
+                        html += '</div>';
+                    });
+                }
+                
+                resultsDiv.innerHTML = html;
+            } catch (error) {
+                resultsDiv.innerHTML = '<div class="error">❌ Erreur : ' + error.message + '</div>';
+            }
+        }
+        
+        // Recommandation exemple
+        async function getSampleRecommendation() {
+            const resultsDiv = document.getElementById('reco-results');
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div><p>Génération des recommandations...</p></div>';
+            
+            try {
+                const response = await fetch('/api/recommendations/sample');
+                const data = await response.json();
+                
+                let html = '<div class="explanation">';
+                html += '<strong>🤖 Touriste :</strong> ' + data.tourist.split('#')[1] + '<br>';
+                html += '<strong>📊 Modèle :</strong> TransE (Link Prediction)<br>';
+                html += '<strong>🎯 Nombre de recommandations :</strong> ' + data.count;
+                html += '</div>';
+                
+                html += '<h3 style="margin: 20px 0;">🏆 Top Recommandations</h3>';
+                
+                data.recommendations.forEach((rec, index) => {
+                    html += '<div class="result-card">';
+                    html += '<span class="badge">#' + (index + 1) + '</span>';
+                    html += '<h3>' + rec.place_name + '</h3>';
+                    html += '<p><strong>Score IA :</strong> ' + rec.score.toFixed(4) + '</p>';
+                    html += '<p><strong>Note utilisateurs :</strong> ' + rec.polarity + '</p>';
+                    html += '</div>';
+                });
+                
+                resultsDiv.innerHTML = html;
+            } catch (error) {
+                resultsDiv.innerHTML = '<div class="error">❌ Erreur : ' + error.message + '</div>';
+            }
+        }
+        
+        // Explorer - Top Places
+        async function getTopPlaces() {
+            const resultsDiv = document.getElementById('explore-results');
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div><p>Chargement...</p></div>';
+            
+            try {
+                const response = await fetch('/api/places/top?limit=15');
+                const data = await response.json();
+                
+                let html = '<h3>⭐ Top ' + data.count + ' Lieux</h3>';
+                data.results.forEach((place, index) => {
+                    html += '<div class="result-card">';
+                    html += '<h3>' + (index + 1) + '. ' + place.name + '</h3>';
+                    html += '<p><strong>Note :</strong> ' + place.polarity + '</p>';
+                    if (place.category) html += '<p><strong>Catégorie :</strong> ' + place.category + '</p>';
+                    html += '</div>';
+                });
+                
+                resultsDiv.innerHTML = html;
+            } catch (error) {
+                resultsDiv.innerHTML = '<div class="error">❌ Erreur : ' + error.message + '</div>';
+            }
+        }
+        
+        // Explorer par type
+        async function getPlacesByType(type) {
+            const resultsDiv = document.getElementById('explore-results');
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div><p>Chargement...</p></div>';
+            
+            try {
+                const response = await fetch('/api/places/type/' + type);
+                const data = await response.json();
+                
+                const emoji = type === 'Restaurant' ? '🍽️' : type === 'Attraction' ? '🎭' : '📍';
+                let html = '<h3>' + emoji + ' ' + data.count + ' ' + type + 's</h3>';
+                
+                data.results.forEach((place, index) => {
+                    html += '<div class="result-card">';
+                    html += '<h3>' + (index + 1) + '. ' + place.name + '</h3>';
+                    if (place.polarity) html += '<p><strong>Note :</strong> ' + place.polarity + '</p>';
+                    if (place.category) html += '<p><strong>Catégorie :</strong> ' + place.category + '</p>';
+                    html += '</div>';
+                });
+                
+                resultsDiv.innerHTML = html;
+            } catch (error) {
+                resultsDiv.innerHTML = '<div class="error">❌ Erreur : ' + error.message + '</div>';
+            }
+        }
+        
+        // Linked Data
+        async function getLinkedData() {
+            const resultsDiv = document.getElementById('explore-results');
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div><p>Chargement...</p></div>';
+            
+            try {
+                const response = await fetch('/api/linked-data');
+                const data = await response.json();
+                
+                let html = '<h3>🔗 Lieux liés au Web de Données (' + data.count + ')</h3>';
+                html += '<p style="margin: 15px 0; color: #666;">Ces lieux sont connectés à Wikidata, Wikipedia et DBpedia.</p>';
+                
+                data.results.forEach((place, index) => {
+                    html += '<div class="result-card">';
+                    html += '<h3>' + (index + 1) + '. ' + place.name + '</h3>';
+                    if (place.wikidata) html += '<p>🔗 <strong>Wikidata :</strong> <a href="' + place.wikidata + '" target="_blank" class="link">' + place.wikidata + '</a></p>';
+                    if (place.wikipedia) html += '<p>📖 <strong>Wikipedia :</strong> <a href="' + place.wikipedia + '" target="_blank" class="link">' + place.wikipedia + '</a></p>';
+                    if (place.dbpedia) html += '<p>🗃️ <strong>DBpedia :</strong> <a href="' + place.dbpedia + '" target="_blank" class="link">' + place.dbpedia + '</a></p>';
+                    html += '</div>';
+                });
+                
+                resultsDiv.innerHTML = html;
+            } catch (error) {
+                resultsDiv.innerHTML = '<div class="error">❌ Erreur : ' + error.message + '</div>';
+            }
+        }
+        
+        // Charger les stats
+        async function loadStats() {
+            const resultsDiv = document.getElementById('stats-results');
+            
+            try {
+                const response = await fetch('/api/stats');
+                const data = await response.json();
+                
+                let html = '<div class="stats-grid">';
+                html += '<div class="stat-card"><h2>' + data.total_triples.toLocaleString() + '</h2><p>Triples RDF</p></div>';
+                html += '<div class="stat-card"><h2>' + data.total_tourists + '</h2><p>Touristes simulés</p></div>';
+                html += '<div class="stat-card"><h2>' + data.model_metrics.model + '</h2><p>Modèle IA</p></div>';
+                html += '</div>';
+                
+                html += '<div style="margin-top: 30px;">';
+                html += '<h3>📈 Métriques du modèle TransE</h3>';
+                html += '<div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-top: 15px;">';
+                
+                const metrics = data.model_metrics.metrics;
+                for (const [key, value] of Object.entries(metrics)) {
+                    if (key.includes('hits_at_10')) {
+                        html += '<p><strong>' + key + ':</strong> ' + (value * 100).toFixed(2) + '%</p>';
+                    }
+                }
+                
+                html += '</div></div>';
+                
+                html += '<div style="margin-top: 30px; background: #e3f2fd; padding: 20px; border-radius: 10px;">';
+                html += '<h3>ℹ️ À propos du projet</h3>';
+                html += '<p style="margin: 10px 0;"><strong>🎯 Objectif :</strong> Créer un assistant touristique intelligent pour Paris</p>';
+                html += '<p style="margin: 10px 0;"><strong>🧠 Technologies :</strong> Knowledge Graph (RDF), SPARQL, Link Prediction (TransE), GraphRAG</p>';
+                html += '<p style="margin: 10px 0;"><strong>📊 Sources :</strong> TourPedia + Wikivoyage + Wikidata + DBpedia</p>';
+                html += '<p style="margin: 10px 0;"><strong>🔗 Liage :</strong> 27 ressources liées à Wikidata, 40 liens Wikipedia, 40 liens DBpedia</p>';
+                html += '</div>';
+                
+                resultsDiv.innerHTML = html;
+            } catch (error) {
+                resultsDiv.innerHTML = '<div class="error">❌ Erreur : ' + error.message + '</div>';
+            }
+        }
+        
+        // Utilitaire
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+        
+        // Charger les stats au démarrage
+        window.addEventListener('load', () => {
+            console.log('🗼 TourGuide Paris chargé !');
+        });
+    </script>
+</body>
+</html>
