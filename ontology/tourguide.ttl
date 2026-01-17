@@ -4,6 +4,7 @@
 @prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
 
 
 tg: a owl:Ontology .
@@ -12,20 +13,89 @@ tg: a owl:Ontology .
 # Classes #
 ###########
 
-tg:City a owl:Class .
-tg:Tourist a owl:Class .
-tg:Place a owl:Class .
-tg:Attraction a owl:Class ; rdfs:subClassOf tg:Place .
-tg:Restaurant a owl:Class ; rdfs:subClassOf tg:Place .
-tg:POI a owl:Class ; rdfs:subClassOf tg:Place .
+tg:City a owl:Class ;
+  rdfs:label "City"@en, "Ville"@fr ;
+  rdfs:comment "A city where places are located"@en .
 
-tg:Review a owl:Class .
-tg:Itinerary a owl:Class .
-tg:ItineraryStep a owl:Class .
+tg:Tourist a owl:Class ;
+  rdfs:label "Tourist"@en, "Touriste"@fr ;
+  rdfs:comment "A person visiting places and writing reviews"@en .
 
-# Disjonctions (modèle “propre”)
-tg:Attraction owl:disjointWith tg:Restaurant, tg:POI .
-tg:Restaurant owl:disjointWith tg:POI .
+tg:Place a owl:Class ;
+  rdfs:label "Place"@en, "Lieu"@fr ;
+  rdfs:comment "A generic place of interest in a city"@en .
+
+tg:Attraction a owl:Class ; 
+  rdfs:subClassOf tg:Place ;
+  rdfs:label "Attraction"@en, "Attraction touristique"@fr .
+
+tg:Restaurant a owl:Class ; 
+  rdfs:subClassOf tg:Place ;
+  rdfs:label "Restaurant"@en, "Restaurant"@fr .
+
+tg:POI a owl:Class ; 
+  rdfs:subClassOf tg:Place ;
+  rdfs:label "Point of Interest"@en, "Point d'intérêt"@fr .
+
+tg:Review a owl:Class ;
+  rdfs:label "Review"@en, "Avis"@fr .
+
+tg:Itinerary a owl:Class ;
+  rdfs:label "Itinerary"@en, "Itinéraire"@fr .
+
+tg:ItineraryStep a owl:Class ;
+  rdfs:label "Itinerary Step"@en, "Étape d'itinéraire"@fr .
+
+# Classes définies par union (UnionOf)
+tg:CulinaryOrCulturalPlace a owl:Class ;
+  owl:unionOf (tg:Restaurant tg:Attraction) ;
+  rdfs:label "Culinary or Cultural Place"@en ;
+  rdfs:comment "A place that is either a restaurant or an attraction"@en .
+
+# Classe définie par intersection (IntersectionOf)
+tg:HighlyRatedRestaurant a owl:Class ;
+  owl:intersectionOf (
+    tg:Restaurant
+    [ a owl:Restriction ;
+      owl:onProperty tg:polarity ;
+      owl:someValuesFrom [
+        a rdfs:Datatype ;
+        owl:onDatatype xsd:decimal ;
+        owl:withRestrictions ([ xsd:minInclusive "0.8"^^xsd:decimal ])
+      ]
+    ]
+  ) ;
+  rdfs:label "Highly Rated Restaurant"@en .
+
+# Classe définie par énumération (OneOf)
+tg:PriceRange a owl:Class ;
+  owl:oneOf (tg:Cheap tg:Moderate tg:Expensive tg:Luxury) ;
+  rdfs:label "Price Range"@en .
+
+tg:Cheap a owl:NamedIndividual, tg:PriceRange ;
+  rdfs:label "Cheap"@en, "Bon marché"@fr .
+
+tg:Moderate a owl:NamedIndividual, tg:PriceRange ;
+  rdfs:label "Moderate"@en, "Modéré"@fr .
+
+tg:Expensive a owl:NamedIndividual, tg:PriceRange ;
+  rdfs:label "Expensive"@en, "Cher"@fr .
+
+tg:Luxury a owl:NamedIndividual, tg:PriceRange ;
+  rdfs:label "Luxury"@en, "Luxe"@fr .
+
+# Classe définie par complément (ComplementOf)
+tg:NonRestaurant a owl:Class ;
+  owl:complementOf tg:Restaurant ;
+  rdfs:label "Non-Restaurant"@en ;
+  rdfs:comment "Any place that is not a restaurant"@en .
+
+# Disjonction complète entre plusieurs classes (AllDisjointClasses)
+[] a owl:AllDisjointClasses ;
+  owl:members (tg:Attraction tg:Restaurant tg:POI) .
+
+# Union disjointe (DisjointUnionOf) - partition complète
+tg:Place owl:disjointUnionOf (tg:Attraction tg:Restaurant tg:POI) .
 
 ################
 # ObjectProps   #
@@ -55,40 +125,187 @@ tg:authoredBy a owl:ObjectProperty ;
 tg:wroteReview a owl:ObjectProperty ;
   rdfs:domain tg:Tourist ; rdfs:range tg:Review .
 
-# Liens avec SKOS (tes “catégories”)
+# Liens avec SKOS (tes "catégories")
 tg:hasTopic a owl:ObjectProperty ;
   rdfs:domain tg:Place ; rdfs:range skos:Concept .
 
 tg:prefersTopic a owl:ObjectProperty ;
   rdfs:domain tg:Tourist ; rdfs:range skos:Concept .
 
+# Propriétés symétriques (relation bidirectionnelle)
+tg:nearPlace a owl:ObjectProperty ;
+  rdfs:domain tg:Place ; rdfs:range tg:Place ;
+  a owl:SymmetricProperty ;
+  rdfs:label "near place"@en, "proche de"@fr ;
+  rdfs:comment "Symmetric relation: if A is near B, then B is near A."@en .
+
+tg:sameOwner a owl:ObjectProperty ;
+  rdfs:domain tg:Place ; rdfs:range tg:Place ;
+  a owl:SymmetricProperty, owl:TransitiveProperty ;
+  rdfs:label "same owner"@en, "même propriétaire"@fr .
+
+# Propriété transitive (propagation)
+tg:partOfPlace a owl:ObjectProperty ;
+  rdfs:domain tg:Place ; rdfs:range tg:Place ;
+  a owl:TransitiveProperty, owl:IrreflexiveProperty ;
+  rdfs:label "part of place"@en, "partie de"@fr .
+
+# Propriétés sociales entre touristes
+tg:friendOf a owl:ObjectProperty ;
+  rdfs:domain tg:Tourist ; rdfs:range tg:Tourist ;
+  a owl:SymmetricProperty, owl:IrreflexiveProperty ;
+  rdfs:label "friend of"@en, "ami de"@fr .
+
+tg:knows a owl:ObjectProperty ;
+  rdfs:domain tg:Tourist ; rdfs:range tg:Tourist ;
+  rdfs:label "knows"@en, "connaît"@fr .
+
+tg:recommendsPlace a owl:ObjectProperty ;
+  rdfs:domain tg:Tourist ; rdfs:range tg:Place ;
+  rdfs:label "recommends place"@en, "recommande"@fr .
+
+# Property chain axiom: knows + recommendsPlace => interestedIn
+tg:interestedIn a owl:ObjectProperty ;
+  rdfs:domain tg:Tourist ; rdfs:range tg:Place ;
+  owl:propertyChainAxiom (tg:knows tg:recommendsPlace) ;
+  rdfs:label "interested in"@en, "intéressé par"@fr .
+
+# Propriétés disjointes
+tg:likes a owl:ObjectProperty ;
+  rdfs:domain tg:Tourist ; rdfs:range tg:Place ;
+  owl:propertyDisjointWith tg:dislikes ;
+  rdfs:label "likes"@en, "aime"@fr .
+
+tg:dislikes a owl:ObjectProperty ;
+  rdfs:domain tg:Tourist ; rdfs:range tg:Place ;
+  rdfs:label "dislikes"@en, "n'aime pas"@fr .
+
 ################
 # DataProps     #
 ################
 
-tg:placeId a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:string .
-tg:name a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:string .
-tg:address a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:string .
+tg:placeId a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain tg:Place ; rdfs:range xsd:string ;
+  rdfs:label "place identifier"@en .
 
-tg:lat a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:decimal .
-tg:lng a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:decimal .
+tg:name a owl:DatatypeProperty ; 
+  rdfs:domain tg:Place ; rdfs:range xsd:string ;
+  rdfs:label "name"@en, "nom"@fr .
 
-tg:numReviews a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:integer .
-tg:polarity a owl:DatatypeProperty ; rdfs:domain tg:Place ; rdfs:range xsd:decimal .
+tg:address a owl:DatatypeProperty ; 
+  rdfs:domain tg:Place ; rdfs:range xsd:string ;
+  rdfs:label "address"@en, "adresse"@fr .
 
-tg:rating a owl:DatatypeProperty ; rdfs:domain tg:Review ; rdfs:range xsd:decimal .
-tg:reviewText a owl:DatatypeProperty ; rdfs:domain tg:Review ; rdfs:range xsd:string .
-tg:reviewDate a owl:DatatypeProperty ; rdfs:domain tg:Review ; rdfs:range xsd:date .
+tg:lat a owl:DatatypeProperty, owl:FunctionalProperty ; 
+  rdfs:domain tg:Place ; rdfs:range xsd:decimal ;
+  rdfs:label "latitude"@en .
+
+tg:lng a owl:DatatypeProperty, owl:FunctionalProperty ; 
+  rdfs:domain tg:Place ; rdfs:range xsd:decimal ;
+  rdfs:label "longitude"@en .
+
+tg:numReviews a owl:DatatypeProperty ; 
+  rdfs:domain tg:Place ; rdfs:range xsd:integer ;
+  rdfs:label "number of reviews"@en .
+
+tg:polarity a owl:DatatypeProperty, owl:FunctionalProperty ; 
+  rdfs:domain tg:Place ; rdfs:range xsd:decimal ;
+  rdfs:label "average rating"@en, "note moyenne"@fr .
+
+tg:avgRating a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain tg:Place ; rdfs:range xsd:decimal ;
+  rdfs:label "aggregated average rating"@en, "note moyenne agrégée"@fr ;
+  rdfs:comment "Average rating calculated from fetched reviews (0-5 scale)"@en .
+
+tg:reviewsCount a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain tg:Place ; rdfs:range xsd:integer ;
+  rdfs:label "reviews count"@en, "nombre d'avis"@fr ;
+  rdfs:comment "Total number of fetched reviews for this place"@en .
+
+tg:rating a owl:DatatypeProperty, owl:FunctionalProperty ; 
+  rdfs:domain tg:Review ; rdfs:range xsd:decimal ;
+  rdfs:label "rating"@en, "note"@fr .
+
+tg:reviewText a owl:DatatypeProperty ; 
+  rdfs:domain tg:Review ; rdfs:range xsd:string ;
+  rdfs:label "review text"@en, "texte de l'avis"@fr .
+
+tg:reviewDate a owl:DatatypeProperty, owl:FunctionalProperty ; 
+  rdfs:domain tg:Review ; rdfs:range xsd:date ;
+  rdfs:label "review date"@en, "date de l'avis"@fr .
+
+tg:reviewLanguage a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain tg:Review ; rdfs:range xsd:string ;
+  rdfs:label "review language"@en, "langue de l'avis"@fr ;
+  rdfs:comment "Language code of the review (e.g., en, fr, es)"@en .
+
+tg:reviewSource a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain tg:Review ; rdfs:range xsd:string ;
+  rdfs:label "review source"@en, "source de l'avis"@fr ;
+  rdfs:comment "Source platform of the review (e.g., Foursquare, Google)"@en .
+
+tg:wordsCount a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain tg:Review ; rdfs:range xsd:integer ;
+  rdfs:label "words count"@en, "nombre de mots"@fr ;
+  rdfs:comment "Number of words in the review text"@en .
+
+tg:reviewDetailsURL a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain tg:Review ; rdfs:range xsd:anyURI ;
+  rdfs:label "review details URL"@en, "URL des détails de l'avis"@fr .
+
+# Nouvelles propriétés pour enrichir le modèle
+tg:priceLevel a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain tg:Restaurant ; rdfs:range xsd:integer ;
+  rdfs:label "price level"@en, "niveau de prix"@fr ;
+  rdfs:comment "Price level from 1 (cheap) to 4 (luxury)"@en .
+
+tg:cuisineType a owl:DatatypeProperty ;
+  rdfs:domain tg:Restaurant ; rdfs:range xsd:string ;
+  rdfs:label "cuisine type"@en, "type de cuisine"@fr .
+
+tg:openingHours a owl:DatatypeProperty ;
+  rdfs:domain tg:Place ; rdfs:range xsd:string ;
+  rdfs:label "opening hours"@en, "horaires d'ouverture"@fr .
+
+tg:website a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain tg:Place ; rdfs:range xsd:anyURI ;
+  rdfs:label "website"@en, "site web"@fr .
+
+tg:phoneNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain tg:Place ; rdfs:range xsd:string ;
+  rdfs:label "phone number"@en, "numéro de téléphone"@fr .
+
+# Propriété inverse fonctionnelle (InverseFunctionalProperty) - identifiant unique
+tg:email a owl:DatatypeProperty, owl:InverseFunctionalProperty ;
+  rdfs:domain tg:Tourist ; rdfs:range xsd:string ;
+  rdfs:label "email"@en, "courriel"@fr ;
+  rdfs:comment "Unique email identifier for a tourist"@en .
+
+# Clé (hasKey) pour identifier de manière unique les places
+tg:Place owl:hasKey (tg:placeId) .
+
+# Clé composite pour identifier de manière unique les avis
+tg:Review owl:hasKey (tg:authoredBy tg:aboutPlace tg:reviewDate) .
+
+# Alignement avec schema.org pour interopérabilité
+tg:Review owl:equivalentClass schema:Review .
+tg:reviewText owl:equivalentProperty schema:reviewBody .
+tg:rating owl:equivalentProperty schema:reviewRating .
+tg:authoredBy owl:equivalentProperty schema:author .
+tg:reviewDate owl:equivalentProperty schema:datePublished .
 
 ########################
 # Class “definitions”  #
 ########################
 
-# Review = 1 place + 1 auteur + 1 note
+# Review = 1 place + texte + métadonnées
 tg:Review rdfs:subClassOf
   [ a owl:Restriction ; owl:onProperty tg:aboutPlace ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass tg:Place ],
-  [ a owl:Restriction ; owl:onProperty tg:authoredBy ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onClass tg:Tourist ],
-  [ a owl:Restriction ; owl:onProperty tg:rating ; owl:someValuesFrom xsd:decimal ] .
+  [ a owl:Restriction ; owl:onProperty tg:reviewText ; owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onDataRange xsd:string ],
+  [ a owl:Restriction ; owl:onProperty tg:reviewDate ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onDataRange xsd:date ],
+  [ a owl:Restriction ; owl:onProperty tg:reviewLanguage ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onDataRange xsd:string ],
+  [ a owl:Restriction ; owl:onProperty tg:reviewSource ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onDataRange xsd:string ],
+  [ a owl:Restriction ; owl:onProperty tg:wordsCount ; owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ; owl:onDataRange xsd:integer ] .
 
 # Place = 1 ville + 1 nom + coords
 tg:Place rdfs:subClassOf

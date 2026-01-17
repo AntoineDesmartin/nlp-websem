@@ -1,0 +1,12 @@
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX schema: <http://schema.org/>
+
+# Q1: Vue d'ensemble du graphe - Statistiques générales (SIMPLIFIÉ)
+SELECT 
+  (COUNT(DISTINCT ?place) AS ?totalPlaces)
+  (COUNT(DISTINCT ?review) AS ?totalReviews)
+WHERE {
+  {?place a tg:Place .}
+  UNION
+  {?review a schema:Review .}
+}

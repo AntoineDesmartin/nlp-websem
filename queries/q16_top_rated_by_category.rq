@@ -1,0 +1,30 @@
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX schema: <http://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# Q16: Top lieux par catégorie avec moyenne des notes
+# Utile pour recommander les meilleurs endroits par type (restaurants, attractions, etc.)
+SELECT ?type ?place ?name ?avgRating ?reviewCount ?lat ?lng
+WHERE {
+  ?place a tg:Place ;
+         a ?type ;
+         tg:name ?name ;
+         tg:lat ?lat ;
+         tg:lng ?lng .
+  
+  FILTER(?type != tg:Place)
+  
+  # Calcul de la moyenne des notes
+  {
+    SELECT ?place (AVG(?rating) AS ?avgRating) (COUNT(?review) AS ?reviewCount)
+    WHERE {
+      ?review schema:about ?place ;
+              schema:reviewRating ?rating .
+    }
+    GROUP BY ?place
+  }
+  
+  # Filtre: au moins 5 avis et note >= 4.0
+  FILTER(?reviewCount >= 5 && ?avgRating >= 4.0)
+}
+ORDER BY ?type DESC(?avgRating)

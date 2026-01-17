@@ -3,11 +3,15 @@ import sys
 import time
 import re
 import requests
+import urllib3
 from urllib.parse import quote, unquote
 from typing import Optional, List, Dict
 
 from rdflib import Graph, URIRef
 from rdflib.namespace import OWL, RDFS
+
+# Disable SSL warnings
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 QID_RE = re.compile(r"/(Q\d+)$")
@@ -87,7 +91,7 @@ def fetch_wikipedia_sitelinks(qids: List[str]) -> Dict[str, Dict[str, str]]:
         "User-Agent": "tourguide-project/1.0 (Wikidata->DBpedia linking)"
     }
 
-    r = requests.get(WIKIDATA_SPARQL, params={"query": query}, headers=headers, timeout=60)
+    r = requests.get(WIKIDATA_SPARQL, params={"query": query}, headers=headers, timeout=60, verify=False)
     r.raise_for_status()
     data = r.json()
 

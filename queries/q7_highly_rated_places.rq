@@ -1,0 +1,17 @@
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# Q7: Lieux très bien notés (polarity >= 7.0 et nombreux avis)
+SELECT ?place ?name ?polarity ?numReviews ?type
+WHERE {
+  ?place a tg:Place ;
+         tg:name ?name ;
+         tg:polarity ?polarity ;
+         tg:numReviews ?numReviews ;
+         rdf:type ?type .
+  
+  FILTER(?polarity >= 7.0 && ?numReviews >= 20)
+  FILTER(?type IN (tg:Attraction, tg:Restaurant, tg:POI))
+}
+ORDER BY DESC(?polarity) DESC(?numReviews)
+LIMIT 30

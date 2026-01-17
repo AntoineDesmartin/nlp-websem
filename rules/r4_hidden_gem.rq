@@ -1,15 +1,42 @@
 PREFIX tg:  <https://example.org/tourguide#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
+
+# R4: HiddenGem - Pépites cachées (excellentes mais peu connues)
+# Source 1: tg:polarity + tg:numReviews
+# Source 2: Calcul dynamique depuis reviews
 
 CONSTRUCT {
   ?p rdf:type tg:HiddenGem .
   ?p tg:inferenceReason ?reason .
+  ?p tg:inferredRating ?avgRating .
+  ?p tg:inferredReviewCount ?count .
 }
 WHERE {
-  ?p rdf:type tg:Place ;
-     tg:polarity ?pol ;
-     tg:numReviews ?n .
-  FILTER(xsd:decimal(?pol) >= 8.5 && xsd:integer(?n) <= 5)
-  BIND(CONCAT("HiddenGem: polarity=", STR(?pol), ", numReviews=", STR(?n), " (>=8.5 & <=5)") AS ?reason)
+  {
+    # Source 1: Propriétés existantes
+    ?p rdf:type tg:Place ;
+       tg:polarity ?pol ;
+       tg:numReviews ?n .
+    FILTER(xsd:decimal(?pol) >= 8.5 && xsd:integer(?n) >= 3 && xsd:integer(?n) <= 15)
+    BIND(?pol AS ?avgRating)
+    BIND(?n AS ?count)
+    BIND(CONCAT("HiddenGem: polarity=", STR(?pol), ", numReviews=", STR(?n), " (>=8.5 & 3-15 reviews) [Source: TourPedia]") AS ?reason)
+  }
+  UNION
+  {
+    # Source 2: Reviews enrichies
+    ?p rdf:type tg:Place .
+    {
+      SELECT ?p (AVG(?rating) AS ?avgRating) (COUNT(?review) AS ?count)
+      WHERE {
+        ?review schema:about ?p ;
+                schema:reviewRating ?rating .
+      }
+      GROUP BY ?p
+      HAVING(AVG(?rating) >= 4.5 && COUNT(?review) >= 3 && COUNT(?review) <= 15)
+    }
+    BIND(CONCAT("HiddenGem: avgRating=", STR(?avgRating), ", reviewCount=", STR(?count), " (>=4.5 & 3-15 reviews) [Source: Reviews]") AS ?reason)
+  }
 }

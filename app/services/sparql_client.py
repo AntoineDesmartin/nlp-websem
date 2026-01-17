@@ -121,22 +121,28 @@ class SPARQLClient:
         """
         return self.query(query)
     
-    def get_linked_data_info(self) -> Dict[str, Any]:
+    def get_linked_data_info(self) -> List[Dict[str, Any]]:
         """Récupère les informations sur les liens vers le web de données"""
         query = """
         PREFIX owl: <http://www.w3.org/2002/07/owl#>
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX tg: <https://example.org/tourguide#>
         
-        SELECT ?place ?name ?wikidata ?wikipedia ?dbpedia
+        SELECT ?place ?name ?link
         WHERE {
             ?place a tg:Place ;
                    tg:name ?name .
-            OPTIONAL { ?place owl:sameAs ?wikidata . FILTER(CONTAINS(STR(?wikidata), "wikidata.org")) }
-            OPTIONAL { ?place rdfs:seeAlso ?wikipedia . FILTER(CONTAINS(STR(?wikipedia), "wikipedia.org")) }
-            OPTIONAL { ?place owl:sameAs ?dbpedia . FILTER(CONTAINS(STR(?dbpedia), "dbpedia.org")) }
-            FILTER(BOUND(?wikidata) || BOUND(?wikipedia) || BOUND(?dbpedia))
+            {
+                ?place owl:sameAs ?link .
+                FILTER(CONTAINS(STR(?link), "wikidata.org") || CONTAINS(STR(?link), "dbpedia.org"))
+            }
+            UNION
+            {
+                ?place rdfs:seeAlso ?link .
+                FILTER(CONTAINS(STR(?link), "wikipedia.org"))
+            }
         }
-        LIMIT 50
+        ORDER BY ?name
+        LIMIT 100
         """
         return self.query(query)

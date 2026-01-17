@@ -1,0 +1,218 @@
+{
+  "Attraction": [
+    {
+      "rank": 1,
+      "uri": "http://tour-guide.org/resource/review/83523_r93",
+      "name": "83523_r93",
+      "type": "Unknown",
+      "score": 80.48981475830078
+    },
+    {
+      "rank": 2,
+      "uri": "http://tour-guide.org/resource/place/91564",
+      "name": "La Mécanique Ondulatoire",
+      "type": "Place",
+      "score": 80.41342163085938
+    },
+    {
+      "rank": 3,
+      "uri": "http://tour-guide.org/resource/place/84526",
+      "name": "La Place Verte",
+      "type": "Place",
+      "score": 80.37519836425781
+    },
+    {
+      "rank": 4,
+      "uri": "http://tour-guide.org/resource/review/85878_r2",
+      "name": "85878_r2",
+      "type": "Unknown",
+      "score": 80.3663101196289
+    },
+    {
+      "rank": 5,
+      "uri": "http://tour-guide.org/resource/place/84357",
+      "name": "Métro Malesherbes [3]",
+      "type": "Place",
+      "score": 80.36589050292969
+    },
+    {
+      "rank": 6,
+      "uri": "http://tour-guide.org/resource/review/83785_r109",
+      "name": "83785_r109",
+      "type": "Unknown",
+      "score": 80.34477233886719
+    },
+    {
+      "rank": 7,
+      "uri": "http://tour-guide.org/resource/review/90689_r13",
+      "name": "90689_r13",
+      "type": "Unknown",
+      "score": 80.31571960449219
+    },
+    {
+      "rank": 8,
+      "uri": "http://tour-guide.org/resource/review/83481_r5",
+      "name": "83481_r5",
+      "type": "Unknown",
+      "score": 80.30856323242188
+    },
+    {
+      "rank": 9,
+      "uri": "http://tour-guide.org/resource/review/85143_r9",
+      "name": "85143_r9",
+      "type": "Unknown",
+      "score": 80.28591918945312
+    },
+    {
+      "rank": 10,
+      "uri": "http://tour-guide.org/resource/review/89931_r49",
+      "name": "89931_r49",
+      "type": "Unknown",
+      "score": 80.26107025146484
+    }
+  ],
+  "City": [
+    {
+      "rank": 1,
+      "uri": "http://tour-guide.org/resource/review/83523_r93",
+      "name": "83523_r93",
+      "type": "Unknown",
+      "score": 77.73348999023438
+    },
+    {
+      "rank": 2,
+      "uri": "http://tour-guide.org/resource/place/91564",
+      "name": "La Mécanique Ondulatoire",
+      "type": "Place",
+      "score": 77.65711975097656
+    },
+    {
+      "rank": 3,
+      "uri": "http://tour-guide.org/resource/place/84526",
+      "name": "La Place Verte",
+      "type": "Place",
+      "score": 77.61890411376953
+    },
+    {
+      "rank": 4,
+      "uri": "http://tour-guide.org/resource/review/85878_r2",
+      "name": "85878_r2",
+      "type": "Unknown",
+      "score": 77.61000061035156
+    },
+    {
+      "rank": 5,
+      "uri": "http://tour-guide.org/resource/place/84357",
+      "name": "Métro Malesherbes [3]",
+      "type": "Place",
+      "score": 77.6095962524414
+    },
+    {
+      "rank": 6,
+      "uri": "http://tour-guide.org/resource/review/83785_r109",
+      "name": "83785_r109",
+      "type": "Unknown",
+      "score": 77.58845520019531
+    },
+    {
+      "rank": 7,
+      "uri": "http://tour-guide.org/resource/review/90689_r13",
+      "name": "90689_r13",
+      "type": "Unknown",
+      "score": 77.55939483642578
+    },
+    {
+      "rank": 8,
+      "uri": "http://tour-guide.org/resource/review/83481_r5",
+      "name": "83481_r5",
+      "type": "Unknown",
+      "score": 77.55227661132812
+    },
+    {
+      "rank": 9,
+      "uri": "http://tour-guide.org/resource/review/85143_r9",
+      "name": "85143_r9",
+      "type": "Unknown",
+      "score": 77.52959442138672
+    },
+    {
+      "rank": 10,
+      "uri": "http://tour-guide.org/resource/review/89931_r49",
+      "name": "89931_r49",
+      "type": "Unknown",
+      "score": 77.50473022460938
+    }
+  ],
+  "Culture": [
+    {
+      "rank": 1,
+      "uri": "http://tour-guide.org/resource/review/83523_r93",
+      "name": "83523_r93",
+      "type": "Unknown",
+      "score": 69.46135711669922
+    },
+    {
+      "rank": 2,
+      "uri": "http://tour-guide.org/resource/place/91564",
+      "name": "La Mécanique Ondulatoire",
+      "type": "Place",
+      "score": 69.38495635986328
+    },
+    {
+      "rank": 3,
+      "uri": "http://tour-guide.org/resource/place/84526",
+      "name": "La Place Verte",
+      "type": "Place",
+      "score": 69.34674072265625
+    },
+    {
+      "rank": 4,
+      "uri": "http://tour-guide.org/resource/review/85878_r2",
+      "name": "85878_r2",
+      "type": "Unknown",
+      "score": 69.33782196044922
+    },
+    {
+      "rank": 5,
+      "uri": "http://tour-guide.org/resource/place/84357",
+      "name": "Métro Malesherbes [3]",
+      "type": "Place",
+      "score": 69.3374252319336
+    },
+    {
+      "rank": 6,
+      "uri": "http://tour-guide.org/resource/review/83785_r109",
+      "name": "83785_r109",
+      "type": "Unknown",
+      "score": 69.3163070678711
+    },
+    {
+      "rank": 7,
+      "uri": "http://tour-guide.org/resource/review/90689_r13",
+      "name": "90689_r13",
+      "type": "Unknown",
+      "score": 69.28724670410156
+    },
+    {
+      "rank": 8,
+      "uri": "http://tour-guide.org/resource/review/83481_r5",
+      "name": "83481_r5",
+      "type": "Unknown",
+      "score": 69.28012084960938
+    },
+    {
+      "rank": 9,
+      "uri": "http://tour-guide.org/resource/review/85143_r9",
+      "name": "85143_r9",
+      "type": "Unknown",
+      "score": 69.2574691772461
+    },
+    {
+      "rank": 10,
+      "uri": "http://tour-guide.org/resource/review/89931_r49",
+      "name": "89931_r49",
+      "type": "Unknown",
+      "score": 69.23261260986328
+    }
+  ]
+}

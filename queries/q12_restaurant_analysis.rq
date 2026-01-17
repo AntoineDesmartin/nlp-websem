@@ -1,0 +1,17 @@
+PREFIX tg: <https://example.org/tourguide#>
+
+# Q12: Analyse des restaurants - Top restaurants par note et popularité
+SELECT ?name ?polarity ?numReviews ?address
+       ((?polarity * 0.7 + (?numReviews / 100.0) * 0.3) AS ?score)
+WHERE {
+  ?place a tg:Restaurant ;
+         tg:name ?name ;
+         tg:polarity ?polarity ;
+         tg:numReviews ?numReviews .
+  
+  OPTIONAL { ?place tg:address ?address }
+  
+  FILTER(?polarity >= 5.0 && ?numReviews >= 10)
+}
+ORDER BY DESC(?score)
+LIMIT 30

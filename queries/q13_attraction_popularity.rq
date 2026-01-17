@@ -1,0 +1,17 @@
+PREFIX tg: <https://example.org/tourguide#>
+
+# Q13: Attractions les plus populaires (nombreux avis + bonne note)
+SELECT ?name ?polarity ?numReviews ?lat ?lng
+       (?numReviews * ?polarity AS ?popularityScore)
+WHERE {
+  ?place a tg:Attraction ;
+         tg:name ?name ;
+         tg:polarity ?polarity ;
+         tg:numReviews ?numReviews ;
+         tg:lat ?lat ;
+         tg:lng ?lng .
+  
+  FILTER(?numReviews >= 15)
+}
+ORDER BY DESC(?popularityScore)
+LIMIT 40

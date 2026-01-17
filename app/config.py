@@ -8,8 +8,13 @@ from pathlib import Path
 BASE_DIR = Path(__file__).parent.parent
 DATA_DIR = BASE_DIR / "data"
 
-# Fichier du graphe de connaissances (le plus enrichi)
-KG_FILE = DATA_DIR / "kg_linked.ttl"
+# Fichier du graphe de connaissances (VERSION ENRICHIE avec inférences)
+KG_FILE = DATA_DIR / "kg_inferred.ttl"
+
+# Fichiers intermédiaires disponibles (pour tests/comparaisons)
+KG_LINKED_FILE = DATA_DIR / "kg_linked.ttl"  # Avant inférence
+KG_ENRICHED_FILE = DATA_DIR / "kg_enriched.ttl"  # Avec reviews
+KG_FINAL_FILE = DATA_DIR / "kg_final.ttl"  # Base TourPedia + Wikivoyage
 
 # Fichier des recommandations TransE
 RECOMMENDATIONS_FILE = DATA_DIR / "recommendations_transe.json"

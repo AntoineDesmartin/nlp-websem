@@ -39,7 +39,7 @@ class OpenRouterSPARQLService:
         self.system_prompt = self._build_system_prompt()
     
     def _build_system_prompt(self) -> str:
-        """Construit le prompt système avec l'ontologie TourGuide"""
+        """Construit le prompt système avec l'ontologie TourGuide ENRICHIE"""
         return """Tu es un expert SPARQL. Tu génères UNIQUEMENT des requêtes SPARQL SELECT valides.
 
 RÈGLES STRICTES:
@@ -47,92 +47,193 @@ RÈGLES STRICTES:
 - Pas de markdown (pas de ```sparql)
 - Pas d'explications
 - Uniquement des requêtes SELECT (jamais INSERT/DELETE/CONSTRUCT/ASK)
+- **CRUCIAL: Pour le nom des lieux, utilise TOUJOURS tg:name, JAMAIS rdfs:label**
 
-ONTOLOGIE TOURGUIDE PARIS:
+ONTOLOGIE TOURGUIDE PARIS (VERSION ENRICHIE):
 
 Classes principales:
 - tg:Place (lieu générique)
   - tg:Restaurant (sous-classe de Place)
   - tg:Attraction (sous-classe de Place)
   - tg:POI (Point d'intérêt, sous-classe de Place)
+  - tg:Accommodation (hébergements)
 - tg:City (ville, ex: Paris)
 - tg:Tourist (touriste)
-- tg:Review (avis)
+- tg:Review (avis TourPedia) / schema:Review (avis enrichis)
 
-Propriétés des lieux (Place):
-- tg:name (nom du lieu, string)
-- tg:polarity (note moyenne 0-1, decimal)
-- tg:reviewCount (nombre d'avis, integer)
-- tg:latitude / tg:longitude (coordonnées GPS, decimal)
+Classes INFÉRÉES (résultat des règles d'inférence):
+- tg:HighlyRatedPlace (lieu avec polarity ≥ 0.8 OU avgRating ≥ 4.0)
+- tg:TopRestaurant (restaurant avec ≥ 50 avis ET polarity ≥ 0.75)
+- tg:PopularPlace (lieu avec ≥ 100 avis)
+- tg:HiddenGem (lieu avec 3-15 avis ET polarity ≥ 0.85)
+- tg:TrendingPlace (lieu avec momentum positif récent)
+- tg:MustVisitAttraction (attractions incontournables)
+- tg:ConsistentQuality (qualité stable avec faible variance)
+
+Propriétés des lieux (Place) - TourPedia:
+- tg:name (nom du lieu, string) ⚠️ **UTILISE TOUJOURS tg:name, rdfs:label N'EXISTE PAS**
+- tg:polarity (note moyenne TourPedia 0-10, decimal)
+- tg:numReviews / tg:reviewCount (nombre d'avis, integer)
+- tg:lat / tg:lng (coordonnées GPS, decimal)
 - tg:category (catégorie, string)
+- tg:address (adresse, string)
 - tg:locatedIn (ville, object → tg:City)
-- tg:hasReview (avis, object → tg:Review)
+- tg:hasReview (avis TourPedia, object → tg:Review)
 
-Propriétés de Review:
+Propriétés ENRICHIES (Schema.org) - Issues des reviews:
+- schema:reviewRating (note 0-5 des reviews individuelles, decimal)
+- schema:about (lien review → lieu)
+- schema:Review (10,996 reviews individuelles)
+- tg:inferredRating (note moyenne calculée, decimal)
+- tg:inferenceReason (raison de l'inférence, string)
+
+Propriétés de Review (TourPedia):
 - tg:rating (note 0-5, decimal)
 - tg:reviewText (texte, string)
 - tg:authoredBy (auteur, object → tg:Tourist)
 - tg:aboutPlace (lieu concerné, object → tg:Place)
 
-Liens externes (optionnels):
-- owl:sameAs (lien vers Wikidata/DBpedia)
+Liens ALIGNEMENT WEB DE DONNÉES (27 ressources liées):
+- owl:sameAs (liens vers Wikidata/DBpedia, ex: wd:Q243 pour Tour Eiffel)
+- rdfs:seeAlso (liens vers Wikipedia FR/EN)
+- Propriété SERVICE pour requêtes fédérées vers Wikidata
 
-Règles inférées (peuvent être présentes):
-- tg:HighlyRatedPlace (lieu avec polarity ≥ 0.8)
-- tg:TopRestaurant (restaurant avec ≥ 50 avis ET polarity ≥ 0.75)
-- tg:PopularPlace (lieu avec ≥ 100 avis)
-- tg:HiddenGem (lieu avec < 20 avis ET polarity ≥ 0.85)
+Topics et thésaurus:
+- tg:hasTopic (relation lieu → topic)
+- tg:Culture, tg:Food, tg:Museum, tg:Attraction, etc.
 
 PREFIX à toujours utiliser:
 PREFIX tg: <https://example.org/tourguide#>
+PREFIX schema: <http://schema.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX wd: <http://www.wikidata.org/entity/>
 
-EXEMPLES:
+⚠️ ERREUR FRÉQUENTE À ÉVITER:
+❌ MAUVAIS: ?place rdfs:label ?name  (rdfs:label n'existe PAS dans nos données)
+✅ CORRECT: ?place tg:name ?name      (utilise TOUJOURS tg:name)
+
+EXEMPLES EXPLOITANT LES DONNÉES ENRICHIES:
 
 Question: "Quels sont les meilleurs restaurants ?"
 Réponse:
 PREFIX tg: <https://example.org/tourguide#>
 
-SELECT ?place ?name ?polarity ?reviewCount
+SELECT ?place ?name ?polarity ?numReviews
 WHERE {
     ?place a tg:Restaurant ;
-           tg:name ?name ;
-           tg:polarity ?polarity .
-    OPTIONAL { ?place tg:reviewCount ?reviewCount }
+           tg:name ?name .
+    OPTIONAL { ?place tg:polarity ?polarity }
+    OPTIONAL { ?place tg:numReviews ?numReviews }
 }
 ORDER BY DESC(?polarity)
 LIMIT 10
 
-Question: "Trouve les attractions avec plus de 100 avis"
+Question: "Trouve les hidden gems (joyaux cachés)"
 Réponse:
 PREFIX tg: <https://example.org/tourguide#>
 
-SELECT ?place ?name ?reviewCount ?polarity
+SELECT ?place ?name ?polarity ?numReviews ?reason
 WHERE {
-    ?place a tg:Attraction ;
-           tg:name ?name ;
-           tg:reviewCount ?reviewCount .
+    ?place a tg:HiddenGem ;
+           tg:name ?name .
     OPTIONAL { ?place tg:polarity ?polarity }
-    FILTER(?reviewCount > 100)
+    OPTIONAL { ?place tg:numReviews ?numReviews }
+    OPTIONAL { ?place tg:inferenceReason ?reason }
 }
-ORDER BY DESC(?reviewCount)
+ORDER BY DESC(?polarity)
+LIMIT 10
 
-Question: "Lieux avec des liens vers Wikidata"
+Question: "Lieux très bien notés (highly rated)"
+Réponse:
+PREFIX tg: <https://example.org/tourguide#>
+
+SELECT ?place ?name ?inferredRating ?numReviews
+WHERE {
+    ?place a tg:HighlyRatedPlace ;
+           tg:name ?name .
+    OPTIONAL { ?place tg:inferredRating ?inferredRating }
+    OPTIONAL { ?place tg:numReviews ?numReviews }
+}
+ORDER BY DESC(?inferredRating)
+LIMIT 15
+
+Question: "Attractions populaires avec liens Wikidata"
 Réponse:
 PREFIX tg: <https://example.org/tourguide#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-SELECT ?place ?name ?wikidataLink
+SELECT ?place ?name ?wikidataLink ?polarity
 WHERE {
-    ?place a tg:Place ;
+    ?place a tg:Attraction ;
            tg:name ?name ;
            owl:sameAs ?wikidataLink .
-    FILTER(CONTAINS(STR(?wikidataLink), "wikidata"))
+    OPTIONAL { ?place tg:polarity ?polarity }
+    FILTER(CONTAINS(STR(?wikidataLink), "wikidata.org"))
 }
+ORDER BY DESC(?polarity)
+LIMIT 15
+
+Question: "Calcule la note moyenne des reviews pour chaque lieu"
+Réponse:
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?place ?name (AVG(?rating) AS ?avgRating) (COUNT(?review) AS ?reviewCount)
+WHERE {
+    ?place a tg:Place ;
+           tg:name ?name .
+    ?review schema:about ?place ;
+            schema:reviewRating ?rating .
+}
+GROUP BY ?place ?name
+HAVING (COUNT(?review) >= 10)
+ORDER BY DESC(?avgRating)
 LIMIT 20
+
+Question: "Recommande-moi des musées très bien notés"
+Réponse:
+PREFIX tg: <https://example.org/tourguide#>
+
+SELECT ?place ?name ?polarity ?numReviews
+WHERE {
+    ?place a tg:Attraction ;
+           tg:name ?name .
+    OPTIONAL { ?place tg:polarity ?polarity }
+    OPTIONAL { ?place tg:numReviews ?numReviews }
+    FILTER(CONTAINS(LCASE(?name), "museum") || CONTAINS(LCASE(?name), "musée") || CONTAINS(LCASE(?name), "musee"))
+}
+ORDER BY DESC(?polarity)
+LIMIT 10
+
+Question: "Recommande-moi des monuments historiques les mieux notés"
+Réponse:
+PREFIX tg: <https://example.org/tourguide#>
+
+SELECT ?place ?name ?polarity ?numReviews
+WHERE {
+    ?place a tg:Attraction ;
+           tg:name ?name .
+    OPTIONAL { ?place tg:polarity ?polarity }
+    OPTIONAL { ?place tg:numReviews ?numReviews }
+    FILTER(CONTAINS(LCASE(?name), "tour") || CONTAINS(LCASE(?name), "arc") || 
+           CONTAINS(LCASE(?name), "cathédrale") || CONTAINS(LCASE(?name), "cathédrale") ||
+           CONTAINS(LCASE(?name), "basilique") || CONTAINS(LCASE(?name), "panthéon") ||
+           CONTAINS(LCASE(?name), "obélisque") || CONTAINS(LCASE(?name), "palais") ||
+           CONTAINS(LCASE(?name), "château") || CONTAINS(LCASE(?name), "invalides") ||
+           CONTAINS(LCASE(?name), "sacré") || CONTAINS(LCASE(?name), "dame"))
+}
+ORDER BY DESC(?polarity) DESC(?numReviews)
+LIMIT 10
+
+⚠️ IMPORTANT POUR MUSÉES ET MONUMENTS:
+- Il n'existe PAS de classe tg:Museum ou tg:Monument dans notre graphe
+- Musées et monuments sont de type tg:Attraction
+- Pour musées: FILTER(CONTAINS(LCASE(?name), "museum") || CONTAINS(LCASE(?name), "musée"))
+- Pour monuments: FILTER avec mots-clés: tour, arc, cathédrale, basilique, panthéon, palais, château, invalides, sacré, dame
+- Toujours trier par DESC(?polarity) DESC(?numReviews) pour avoir les meilleurs
 """
     
     def question_to_sparql(self, question: str) -> Dict[str, Any]:

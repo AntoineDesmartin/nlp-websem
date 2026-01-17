@@ -1,14 +1,38 @@
 PREFIX tg:  <https://example.org/tourguide#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
+
+# R3: PopularPlace - Lieux très populaires (nombreux avis)
+# Source 1: tg:numReviews
+# Source 2: Comptage dynamique des reviews
 
 CONSTRUCT {
   ?p rdf:type tg:PopularPlace .
   ?p tg:inferenceReason ?reason .
+  ?p tg:inferredReviewCount ?count .
 }
 WHERE {
-  ?p rdf:type tg:Place ;
-     tg:numReviews ?n .
-  FILTER(xsd:integer(?n) >= 50)
-  BIND(CONCAT("PopularPlace: numReviews=", STR(?n), " (>=50)") AS ?reason)
+  {
+    # Source 1: Propriété existante
+    ?p rdf:type tg:Place ;
+       tg:numReviews ?n .
+    FILTER(xsd:integer(?n) >= 50)
+    BIND(?n AS ?count)
+    BIND(CONCAT("PopularPlace: numReviews=", STR(?n), " (>=50) [Source: TourPedia]") AS ?reason)
+  }
+  UNION
+  {
+    # Source 2: Comptage depuis reviews enrichies
+    ?p rdf:type tg:Place .
+    {
+      SELECT ?p (COUNT(?review) AS ?count)
+      WHERE {
+        ?review schema:about ?p .
+      }
+      GROUP BY ?p
+      HAVING(COUNT(?review) >= 40)
+    }
+    BIND(CONCAT("PopularPlace: reviewCount=", STR(?count), " (>=40) [Source: Reviews]") AS ?reason)
+  }
 }

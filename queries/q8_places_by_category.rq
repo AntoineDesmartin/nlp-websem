@@ -1,0 +1,15 @@
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# Q8: Places groupées par topics SKOS du thésaurus
+SELECT ?topicLabel (COUNT(DISTINCT ?place) AS ?placeCount)
+WHERE {
+  ?place a tg:Place ;
+         tg:hasTopic ?topic .
+  
+  ?topic skos:prefLabel ?topicLabel .
+  FILTER(LANG(?topicLabel) = "fr" || LANG(?topicLabel) = "en" || LANG(?topicLabel) = "")
+}
+GROUP BY ?topicLabel
+ORDER BY DESC(?placeCount)
+LIMIT 30

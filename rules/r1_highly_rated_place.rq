@@ -1,15 +1,42 @@
 PREFIX tg:  <https://example.org/tourguide#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
+
+# R1: HighlyRatedPlace - Lieux excellents avec beaucoup d'avis
+# Source 1: tg:polarity + tg:numReviews (données TourPedia originales)
+# Source 2: Calcul dynamique depuis schema:reviewRating (reviews enrichies)
 
 CONSTRUCT {
   ?p rdf:type tg:HighlyRatedPlace .
   ?p tg:inferenceReason ?reason .
+  ?p tg:inferredRating ?avgRating .
+  ?p tg:inferredReviewCount ?count .
 }
 WHERE {
-  ?p rdf:type tg:Place ;
-     tg:polarity ?pol ;
-     tg:numReviews ?n .
-  FILTER(xsd:decimal(?pol) >= 7.0 && xsd:integer(?n) >= 20)
-  BIND(CONCAT("HighlyRatedPlace: polarity=", STR(?pol), ", numReviews=", STR(?n), " (>=7.0 & >=20)") AS ?reason)
+  {
+    # Source 1: Utiliser les propriétés existantes
+    ?p rdf:type tg:Place ;
+       tg:polarity ?pol ;
+       tg:numReviews ?n .
+    FILTER(xsd:decimal(?pol) >= 7.0 && xsd:integer(?n) >= 20)
+    BIND(?pol AS ?avgRating)
+    BIND(?n AS ?count)
+    BIND(CONCAT("HighlyRatedPlace: polarity=", STR(?pol), ", numReviews=", STR(?n), " (>=7.0 & >=20) [Source: TourPedia]") AS ?reason)
+  }
+  UNION
+  {
+    # Source 2: Calculer depuis les reviews enrichies
+    ?p rdf:type tg:Place .
+    {
+      SELECT ?p (AVG(?rating) AS ?avgRating) (COUNT(?review) AS ?count)
+      WHERE {
+        ?review schema:about ?p ;
+                schema:reviewRating ?rating .
+      }
+      GROUP BY ?p
+      HAVING(AVG(?rating) >= 4.0 && COUNT(?review) >= 20)
+    }
+    BIND(CONCAT("HighlyRatedPlace: avgRating=", STR(?avgRating), ", reviewCount=", STR(?count), " (>=4.0 & >=20) [Source: Reviews]") AS ?reason)
+  }
 }

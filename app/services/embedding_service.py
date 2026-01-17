@@ -6,7 +6,7 @@ import os
 import pickle
 import numpy as np
 from pathlib import Path
-from typing import Dict, List, Any, Tuple
+from typing import Dict, List, Any, Tuple, Optional
 import requests
 from rdflib import Graph, URIRef, Literal
 from rdflib.namespace import RDF, RDFS
@@ -121,77 +121,227 @@ class EmbeddingGraphRAGService:
     
     def _extract_entity_info(self, entity_uri: str) -> Dict[str, Any]:
         """
-        Extrait les informations d'une entité du graphe
+        Extrait les informations ENRICHIES d'une entité du graphe
         
         Args:
             entity_uri: URI de l'entité
             
         Returns:
-            Dict avec les propriétés de l'entité
+            Dict avec toutes les propriétés de l'entité (TourPedia + Schema.org + inférées)
         """
         entity = URIRef(entity_uri)
         info = {"uri": entity_uri}
         
-        # Propriétés communes
-        for prop in ["name", "polarity", "reviewCount", "category", "latitude", "longitude"]:
-            prop_uri = URIRef(self.tg + prop)
+        # Propriétés TourPedia de base
+        tg_props = {
+            "name": "name",
+            "polarity": "polarity",
+            "numReviews": "numReviews",  # Garder le nom original pour le frontend
+            "category": "category",
+            "lat": "latitude",
+            "lng": "longitude",
+            "address": "address"
+        }
+        
+        for prop_name, info_key in tg_props.items():
+            prop_uri = URIRef(self.tg + prop_name)
             values = list(self.graph.objects(entity, prop_uri))
             if values:
-                info[prop] = str(values[0])
+                # Pour polarity et numReviews : prendre la valeur maximale (ignorer les 0)
+                if prop_name in ["polarity", "numReviews"]:
+                    numeric_values = []
+                    for v in values:
+                        try:
+                            num_val = float(str(v))
+                            if num_val > 0:  # Ignorer les valeurs nulles
+                                numeric_values.append(num_val)
+                        except:
+                            pass
+                    if numeric_values:
+                        info[info_key] = str(max(numeric_values))  # Prendre la valeur maximale
+                    else:
+                        # Si pas de valeurs > 0, prendre la première valeur quand même
+                        info[info_key] = str(values[0])
+                else:
+                    info[info_key] = str(values[0])
         
-        # Type (Restaurant, Attraction, POI)
+        # Essayer rdfs:label si pas de tg:name
+        if "name" not in info:
+            label_uri = URIRef("http://www.w3.org/2000/01/rdf-schema#label")
+            labels = list(self.graph.objects(entity, label_uri))
+            if labels:
+                info["name"] = str(labels[0])
+        
+        # Propriétés d'inférence (issues des règles SPARQL)
+        inference_props = {
+            "inferredRating": "inferredRating",
+            "inferenceReason": "inferenceReason"
+        }
+        
+        for prop_name, info_key in inference_props.items():
+            prop_uri = URIRef(self.tg + prop_name)
+            values = list(self.graph.objects(entity, prop_uri))
+            if values:
+                info[info_key] = str(values[0])
+        
+        # Types (classes de base + classes inférées)
         types = list(self.graph.objects(entity, RDF.type))
-        if types:
-            type_str = str(types[0]).replace(self.tg, "")
-            info["type"] = type_str
+        type_list = []
+        inferred_classes = []
+        
+        # Priorité des types (plus spécifique = priorité plus élevée)
+        type_priority = {
+            "Restaurant": 3,
+            "Attraction": 3,
+            "POI": 3,
+            "HighlyRatedPlace": 2,
+            "TopRestaurant": 2,
+            "PopularPlace": 2,
+            "HiddenGem": 2,
+            "TrendingPlace": 2,
+            "MustVisitAttraction": 2,
+            "ConsistentQuality": 2,
+            "Place": 1  # Type générique (priorité la plus basse)
+        }
+        
+        for t in types:
+            type_str = str(t).replace(self.tg, "")
+            type_list.append(type_str)
+            
+            # Classes inférées spéciales
+            if type_str in ["HighlyRatedPlace", "TopRestaurant", "PopularPlace", 
+                           "HiddenGem", "TrendingPlace", "MustVisitAttraction", "ConsistentQuality"]:
+                inferred_classes.append(type_str)
+        
+        # Sélectionner le type le plus spécifique (priorité la plus élevée)
+        if type_list:
+            type_list_sorted = sorted(type_list, key=lambda t: type_priority.get(t, 0), reverse=True)
+            info["type"] = type_list_sorted[0]  # Type principal (plus spécifique)
+            info["allTypes"] = ", ".join(type_list)
+        
+        if inferred_classes:
+            info["inferredClasses"] = ", ".join(inferred_classes)
+        
+        # Compter les reviews Schema.org
+        schema_review_count = len(list(self.graph.subjects(
+            URIRef("http://schema.org/about"),
+            entity
+        )))
+        if schema_review_count > 0:
+            info["schemaReviews"] = str(schema_review_count)
+        
+        # Vérifier les liens externes (Wikidata/DBpedia)
+        owl_same_as = URIRef("http://www.w3.org/2002/07/owl#sameAs")
+        external_links = list(self.graph.objects(entity, owl_same_as))
+        
+        for link in external_links:
+            link_str = str(link)
+            if "wikidata.org" in link_str:
+                info["wikidataLink"] = link_str
+            elif "dbpedia.org" in link_str:
+                info["dbpediaLink"] = link_str
+        
+        # Topics
+        has_topic_uri = URIRef(self.tg + "hasTopic")
+        topics = list(self.graph.objects(entity, has_topic_uri))
+        if topics:
+            topic_names = [str(t).split("#")[-1] for t in topics]
+            info["topics"] = ", ".join(topic_names)
         
         return info
     
     def _build_entity_text(self, info: Dict[str, Any]) -> str:
         """
-        Construit une représentation textuelle d'une entité pour l'embedding
+        Construit une représentation textuelle ENRICHIE d'une entité pour l'embedding
         
         Args:
             info: Informations de l'entité
             
         Returns:
-            Texte décrivant l'entité
+            Texte descriptif riche pour embedding
         """
         parts = []
         
+        # Nom
         if "name" in info:
-            parts.append(info["name"])
+            parts.append(f"Nom: {info['name']}")
         
+        # Type principal
         if "type" in info:
             parts.append(f"Type: {info['type']}")
         
+        # Classes inférées (badges de qualité)
+        if "inferredClasses" in info:
+            parts.append(f"Qualités: {info['inferredClasses']}")
+        
+        # Catégorie
         if "category" in info:
             parts.append(f"Catégorie: {info['category']}")
         
+        # Topics
+        if "topics" in info:
+            parts.append(f"Topics: {info['topics']}")
+        
+        # Notes et avis (TourPedia)
         if "polarity" in info:
-            parts.append(f"Note: {info['polarity']}")
+            rating_text = f"Note TourPedia: {float(info['polarity']):.2f}/1.0"
+            parts.append(rating_text)
+        
+        if "inferredRating" in info:
+            rating_text = f"Note calculée: {float(info['inferredRating']):.2f}/5.0"
+            parts.append(rating_text)
         
         if "reviewCount" in info:
-            parts.append(f"Avis: {info['reviewCount']}")
+            parts.append(f"Avis TourPedia: {info['reviewCount']}")
+        
+        if "schemaReviews" in info:
+            parts.append(f"Reviews enrichies: {info['schemaReviews']}")
+        
+        # Raison d'inférence (contexte sémantique)
+        if "inferenceReason" in info:
+            parts.append(f"Caractéristique: {info['inferenceReason']}")
+        
+        # Localisation
+        if "address" in info:
+            parts.append(f"Adresse: {info['address']}")
+        
+        # Liens externes (signal de qualité/importance)
+        if "wikidataLink" in info:
+            parts.append("Lié à Wikidata")
+        
+        if "dbpediaLink" in info:
+            parts.append("Lié à DBpedia")
         
         return " | ".join(parts)
     
     def build_embeddings(self, limit: int = None):
         """
-        Génère les embeddings pour toutes les entités du graphe
+        Génère les embeddings pour toutes les entités ENRICHIES du graphe
+        Inclut : Places de base + classes inférées
         
         Args:
             limit: Nombre max d'entités (None = toutes)
         """
-        print("\n🔨 Génération des embeddings des entités...")
+        print("\n🔨 Génération des embeddings des entités ENRICHIES...")
         
-        # Récupérer toutes les entités de type Place
+        # Récupérer les entités TRIÉES par qualité (note + nombre d'avis)
+        # Prioriser : 1) Nombre d'avis élevé, 2) Note élevée
         query = f"""
         PREFIX tg: <{self.tg}>
-        SELECT DISTINCT ?place
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+        
+        SELECT DISTINCT ?place ?numReviews ?polarity
         WHERE {{
-            ?place a tg:Place .
+            {{ ?place a tg:Place . }}
+            UNION {{ ?place a tg:Restaurant . }}
+            UNION {{ ?place a tg:Attraction . }}
+            UNION {{ ?place a tg:POI . }}
+            
+            OPTIONAL {{ ?place tg:numReviews ?numReviews }}
+            OPTIONAL {{ ?place tg:polarity ?polarity }}
         }}
+        ORDER BY DESC(?numReviews) DESC(?polarity)
         """
         
         results = self.graph.query(query)
@@ -200,7 +350,7 @@ class EmbeddingGraphRAGService:
         if limit:
             entities = entities[:limit]
         
-        print(f"📊 {len(entities)} entités à traiter")
+        print(f"📊 {len(entities)} entités à traiter (avec classes inférées)")
         
         for i, entity_uri in enumerate(entities, 1):
             if entity_uri in self.entity_embeddings:
@@ -223,11 +373,60 @@ class EmbeddingGraphRAGService:
         print(f"✓ {len(self.entity_embeddings)} embeddings générés")
         self._save_embeddings()
     
-    def _find_similar_entities(self, question_embedding: np.ndarray, top_k: int = 5) -> List[Tuple[str, float, Dict]]:
+    def _detect_entity_type_from_question(self, question: str) -> Optional[str]:
         """
-        Trouve les entités les plus similaires à la question
+        Détecte le type d'entité recherché à partir de la question
         
         Args:
+            question: Question de l'utilisateur
+            
+        Returns:
+            Type d'entité ('Restaurant', 'Attraction', 'POI') ou None si non détecté
+        """
+        question_lower = question.lower()
+        
+        # Mots-clés pour restaurants
+        restaurant_keywords = [
+            "restaurant", "bistrot", "brasserie", "café", "bar", "manger",
+            "repas", "cuisine", "gastronomie", "dîner", "déjeuner"
+        ]
+        
+        # Mots-clés pour attractions (musées, monuments, sites)
+        attraction_keywords = [
+            "musée", "museum", "monument", "cathédrale", "église", "château",
+            "tour", "attraction", "visite", "site", "culturel", "historique",
+            "patrimoine", "art", "exposition", "arc", "triomphe", "basilique",
+            "panthéon", "obélisque", "palais", "invalides", "sacré", "dame",
+            "chapelle", "abbaye", "conciergerie", "opéra"
+        ]
+        
+        # Mots-clés pour POI (points d'intérêt généraux)
+        poi_keywords = [
+            "point d'intérêt", "poi", "lieu", "endroit", "place"
+        ]
+        
+        # Compter les occurrences de chaque catégorie
+        restaurant_count = sum(1 for kw in restaurant_keywords if kw in question_lower)
+        attraction_count = sum(1 for kw in attraction_keywords if kw in question_lower)
+        poi_count = sum(1 for kw in poi_keywords if kw in question_lower)
+        
+        # Retourner le type le plus probable
+        if attraction_count > 0:
+            return "Attraction"
+        elif restaurant_count > 0:
+            return "Restaurant"
+        elif poi_count > 0:
+            return "POI"
+        
+        return None  # Type non détecté, garder tous les résultats
+    
+    def _find_similar_entities(self, question: str, question_embedding: np.ndarray, top_k: int = 5) -> List[Tuple[str, float, Dict]]:
+        """
+        Trouve les entités les plus similaires à la question
+        AVEC FILTRAGE PAR TYPE pour éviter de retourner des restaurants quand on cherche des musées
+        
+        Args:
+            question: Question de l'utilisateur (pour détecter le type)
             question_embedding: Embedding de la question
             top_k: Nombre d'entités à retourner
             
@@ -237,54 +436,119 @@ class EmbeddingGraphRAGService:
         if not self.entity_embeddings:
             return []
         
+        # Détecter le type d'entité recherché
+        target_type = self._detect_entity_type_from_question(question)
+        
+        if target_type:
+            print(f"🎯 Type détecté dans la question : {target_type}")
+        else:
+            print("🔍 Type non détecté, recherche sur tous les types")
+        
         similarities = []
         
         for entity_uri, entity_embedding in self.entity_embeddings.items():
+            entity_info = self.entity_info[entity_uri]
+            entity_type = entity_info.get("type", "")
+            
+            # Filtrer par type si détecté
+            if target_type and entity_type != target_type:
+                continue
+            
             # Similarité cosinus
             similarity = np.dot(question_embedding, entity_embedding)
-            similarities.append((entity_uri, similarity, self.entity_info[entity_uri]))
+            similarities.append((entity_uri, similarity, entity_info))
         
         # Trier par similarité décroissante
         similarities.sort(key=lambda x: x[1], reverse=True)
+        
+        filtered_count = len(similarities)
+        print(f"✓ {filtered_count} entités après filtrage (type={target_type or 'tous'})")
         
         return similarities[:top_k]
     
     def _generate_natural_response(self, question: str, similar_entities: List[Tuple[str, float, Dict]]) -> str:
         """
-        Génère une réponse en langage naturel avec GPT-4o-mini
+        Génère une réponse en langage naturel ENRICHIE avec GPT-4o-mini
+        Exploite toutes les métadonnées : classes inférées, reviews, alignement LOD
         
         Args:
             question: Question de l'utilisateur
             similar_entities: Entités pertinentes trouvées
             
         Returns:
-            Réponse en français
+            Réponse conversationnelle en français
         """
-        # Construire le contexte
+        # Construire le contexte ENRICHI
         context_parts = []
         for uri, score, info in similar_entities:
             name = info.get("name", "Inconnu")
             type_ = info.get("type", "Lieu")
-            polarity = info.get("polarity", "N/A")
-            review_count = info.get("reviewCount", "N/A")
-            category = info.get("category", "N/A")
             
-            context_parts.append(
-                f"- {name} ({type_}): note {polarity}/1.0, {review_count} avis, catégorie {category}"
-            )
+            # Construire description enrichie
+            desc_parts = [f"**{name}** ({type_})"]
+            
+            # Notes multiples
+            if "inferredRating" in info:
+                desc_parts.append(f"Note calculée: {info['inferredRating']}/5.0")
+            elif "polarity" in info:
+                desc_parts.append(f"Note TourPedia: {info['polarity']}/1.0")
+            
+            # Compteurs d'avis
+            review_parts = []
+            if "reviewCount" in info:
+                review_parts.append(f"{info['reviewCount']} avis TourPedia")
+            if "schemaReviews" in info:
+                review_parts.append(f"{info['schemaReviews']} reviews enrichies")
+            if review_parts:
+                desc_parts.append(" + ".join(review_parts))
+            
+            # Classes inférées (badges de qualité)
+            if "inferredClasses" in info:
+                desc_parts.append(f"🏆 Badges: {info['inferredClasses']}")
+            
+            # Raison d'inférence
+            if "inferenceReason" in info:
+                desc_parts.append(f"💡 {info['inferenceReason']}")
+            
+            # Catégorie et topics
+            if "category" in info:
+                desc_parts.append(f"Catégorie: {info['category']}")
+            if "topics" in info:
+                desc_parts.append(f"Topics: {info['topics']}")
+            
+            # Adresse
+            if "address" in info:
+                desc_parts.append(f"📍 {info['address']}")
+            
+            # Liens externes (gage de notoriété)
+            external = []
+            if "wikidataLink" in info:
+                external.append("Wikidata")
+            if "dbpediaLink" in info:
+                external.append("DBpedia")
+            if external:
+                desc_parts.append(f"🌐 Lié à: {', '.join(external)}")
+            
+            context_parts.append(" | ".join(desc_parts))
         
-        context = "\n".join(context_parts)
+        context = "\n\n".join(context_parts)
         
-        # Prompt pour génération
-        prompt = f"""Tu es un assistant touristique pour Paris. Réponds en français de manière naturelle et concise.
+        # Prompt enrichi pour génération
+        prompt = f"""Tu es un assistant touristique expert pour Paris. Réponds en français de manière naturelle, précise et engageante.
 
 Question de l'utilisateur : {question}
 
-Informations pertinentes du graphe de connaissances :
+Informations ENRICHIES du graphe de connaissances (incluant classes inférées, reviews, alignement LOD) :
+
 {context}
 
-Génère une réponse en langage naturel qui répond à la question en utilisant ces informations.
-Sois précis, mentionne les noms, les notes et donne des recommandations utiles.
+Instructions:
+- Réponds de manière conversationnelle et naturelle
+- Mentionne les noms des lieux, leurs notes et leurs caractéristiques spéciales (badges 🏆)
+- Si un lieu a des badges (HighlyRated, TopRestaurant, HiddenGem, etc.), explique pourquoi c'est pertinent
+- Si un lieu est lié à Wikidata/DBpedia, c'est un signe de notoriété
+- Donne des recommandations utiles et contextualisées
+- Sois concis (2-3 paragraphes maximum)
 """
         
         try:
@@ -334,9 +598,9 @@ Sois précis, mentionne les noms, les notes et donne des recommandations utiles.
         print("🔍 Génération de l'embedding de la question...")
         question_embedding = self._get_embedding(question)
         
-        # 2. Trouver entités similaires
+        # 2. Trouver entités similaires (avec filtrage par type)
         print(f"🎯 Recherche des {top_k} entités les plus pertinentes...")
-        similar_entities = self._find_similar_entities(question_embedding, top_k)
+        similar_entities = self._find_similar_entities(question, question_embedding, top_k)
         
         if not similar_entities:
             return {

@@ -2056,3 +2056,15 @@ level: PRIVATE
   Service: /template  Profile: st:sparql  Host: [0:0:0:0:0:0:0:1]
 
 2026-01-14 11:46:28 INFO  workflow.SPARQLProcess.log2:279 [] - Time: 0.005
+2026-01-17 13:23:17 INFO  webservice.EmbeddedJettyServer.main:115 [] - Loading log4j configuration: jar:file:/C:/Users/nkaymakcilar/Desktop/idc/nlp-websem/corese-server-4.5.0.jar!/log4j.properties
+2026-01-17 13:23:17 INFO  webservice.EmbeddedJettyServer.main:116 [] - To override log4j configuration add JVM option: -Dlog4j.configurationFile=file:/home/.../your_log4j2.xml
+2026-01-17 13:23:17 INFO  core.Corese.init:14 [] - Corese, Inria: Sat Jan 17 13:23:17 CET 2026
+2026-01-17 13:23:17 INFO  webservice.EmbeddedJettyServer.main:306 [] - BASE_URI = http://localhost:8080/
+2026-01-17 13:23:17 INFO  webservice.EmbeddedJettyServer.main:308 [] - ----------------------------------------------
+2026-01-17 13:23:17 INFO  webservice.EmbeddedJettyServer.main:309 [] - Corese/KGRAM endpoint started on http://localhost:8080/sparql
+2026-01-17 13:23:17 INFO  vfs.VfsLog.info:122 [] - Using "C:\Users\NKAYMA~1\AppData\Local\Temp\vfs_cache" as temporary files store.
+2026-01-17 13:23:18 INFO  webservice.EmbeddedJettyServer.extractResourceDir:470 [] - Extracting directory webapp to file:///C:/Users/NKAYMA~1/AppData/Local/Temp/nkaymakcilar
+2026-01-17 13:23:19 INFO  webservice.EmbeddedJettyServer.main:325 [] - Corese/KGRAM webapp UI started on http://localhost:8080
+2026-01-17 13:23:19 INFO  webservice.EmbeddedJettyServer.main:326 [] - ----------------------------------------------
+2026-01-17 13:23:19 WARN  handler.ContextHandler.setContextPath:1637 [] - o.e.j.s.ServletContextHandler@5281b134{/,null,STOPPED} contextPath ends with /*
+2026-01-17 13:23:19 WARN  handler.ContextHandler.setContextPath:1648 [] - Empty contextPath

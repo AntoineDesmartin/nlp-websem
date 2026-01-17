@@ -9,131 +9,171 @@
     schema1:url <https://amb-algerie.fr/> ;
     owl:sameAs <http://www.wikidata.org/entity/Q2841572> ;
     tg:address "50, rue de Lisbonne 75008" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.877583 ;
     tg:lng 2.309722 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Algeria" ;
-    tg:placeId "wv:af63a8bedd87" .
+    tg:openingHours "By appointment"^^xsd:string ;
+    tg:phoneNumber "+33 1 53932020"^^xsd:string ;
+    tg:placeId "wv:af63a8bedd87" ;
+    tg:website "https://amb-algerie.fr/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/australia-3600b21889> a tg:POI,
         tg:Place ;
     schema1:url <http://www.france.embassy.gov.au> ;
     owl:sameAs <http://www.wikidata.org/entity/Q2841585> ;
     tg:address "4, rue Jean Rey, 75015 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.855139 ;
     tg:lng 2.290139 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Australia" ;
-    tg:placeId "wv:b8ab3c473132" .
+    tg:phoneNumber "+33 1 40 59 33 00"^^xsd:string ;
+    tg:placeId "wv:b8ab3c473132" ;
+    tg:website "http://www.france.embassy.gov.au"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/austria-283230de30> a tg:POI,
         tg:Place ;
     schema1:url <https://www.bmeia.gv.at/fr/ambassade-dautriche-a-paris/> ;
     owl:sameAs <http://www.wikidata.org/entity/Q15732665> ;
     tg:address "6, rue Fabert 75007 Paris / consular office at 17, avenue de Villars, 75007 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.861333 ;
     tg:lng 2.311278 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Austria" ;
-    tg:placeId "wv:a9a3a3d76277" .
+    tg:phoneNumber "+33 1 40 63 30 63, +33 1 40 63 30 90 (consular office)"^^xsd:string ;
+    tg:placeId "wv:a9a3a3d76277" ;
+    tg:website "https://www.bmeia.gv.at/fr/ambassade-dautriche-a-paris/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/blablacar-bus-f509bc63a7> a tg:POI,
         tg:Place ;
     schema1:url <https://www.blablacar.fr/bus> ;
     rdfs:comment "A subsidiary of the SNCF, offering routes between Paris and London, Brussels, Amsterdam, Milan, Turin, along with other cities and towns in France." ;
     tg:address "48 bis Boulevard de Bercy, 75012 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.83835 ;
     tg:lng 2.38258 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Blablacar Bus" ;
-    tg:placeId "wv:0077f2fb0ac2" .
+    tg:placeId "wv:0077f2fb0ac2" ;
+    tg:website "https://www.blablacar.fr/bus"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/burundi-3f0d0d39b2> a tg:POI,
         tg:Place ;
     schema1:url <http://www.ambassade-du-burundi.fr> ;
     owl:sameAs <http://www.wikidata.org/entity/Q15149890> ;
     tg:address "10-12, rue de l'Orme, Quartier d'Amérique, 75019 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.878373 ;
     tg:lng 2.400287 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Burundi" ;
-    tg:placeId "wv:e05a4f499717" .
+    tg:openingHours "M–Th 09:00–13:00 14:00–17:00, F 09:00–13:00"^^xsd:string ;
+    tg:phoneNumber "+33 1 45 20 60 61"^^xsd:string ;
+    tg:placeId "wv:e05a4f499717" ;
+    tg:website "http://www.ambassade-du-burundi.fr"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/canada-4f9712e5a3> a tg:POI,
         tg:Place ;
     schema1:url <https://www.canadainternational.gc.ca/france/> ;
     owl:sameAs <http://www.wikidata.org/entity/Q137798> ;
     tg:address "130 rue du Faubourg Saint-Honoré,75008 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.872393055556 ;
     tg:lng 2.3124016666667 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Canada" ;
-    tg:placeId "wv:f6dc2578bc3f" .
+    tg:phoneNumber "+33 1 44 43 29 02"^^xsd:string ;
+    tg:placeId "wv:f6dc2578bc3f" ;
+    tg:website "https://www.canadainternational.gc.ca/france/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/china-147c6cee9c> a tg:POI,
         tg:Place ;
     schema1:url <http://www.amb-chine.fr> ;
     owl:sameAs <http://www.wikidata.org/entity/Q19951337> ;
     tg:address "111, avenue George V, 75008 Paris / consular office at 20, rue Washington 75008 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8662 ;
     tg:lng 2.301 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "China" ;
-    tg:placeId "wv:4405f3dbef11" .
+    tg:phoneNumber "+33 1 49 52 19 50, +33 1 47 36 77 90 (consular office)"^^xsd:string ;
+    tg:placeId "wv:4405f3dbef11" ;
+    tg:website "http://www.amb-chine.fr"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/egypt-5aea996407> a tg:POI,
         tg:Place ;
     schema1:url <http://www.mfa.gov.eg/french/embassies/Egyptian_Embassy_Paris/Pages/default.aspx> ;
     owl:sameAs <http://www.wikidata.org/entity/Q30737434> ;
     tg:address "56, avenue d'Iéna, 75116 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8678 ;
     tg:lng 2.2962 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Egypt" ;
-    tg:placeId "wv:ac9ff90752cc" .
+    tg:openingHours "09:30-17:30"^^xsd:string ;
+    tg:phoneNumber "+33 1 53678830"^^xsd:string ;
+    tg:placeId "wv:ac9ff90752cc" ;
+    tg:website "http://www.mfa.gov.eg/french/embassies/Egyptian_Embassy_Paris/Pages/default.aspx"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/ethiopia-47af207e14> a tg:POI,
         tg:Place ;
     schema1:url <https://www.ambassade-ethiopie.fr/> ;
     owl:sameAs <http://www.wikidata.org/entity/Q16303650> ;
     tg:address "35, avenue Charles Floquet, Quartier du Gros-Caillou, 75007 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8534 ;
     tg:lng 2.29897 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Ethiopia" ;
-    tg:placeId "wv:c8354fa9b2f2" .
+    tg:openingHours "M–Tu Th–F 09:00–13:00 14:00-17:00, W 09:00–13:00 14:00–16:00 (visa request deposit on morning, withdrawal on afternoon)"^^xsd:string ;
+    tg:phoneNumber "+33 1 47 83 25 05"^^xsd:string ;
+    tg:placeId "wv:c8354fa9b2f2" ;
+    tg:website "https://www.ambassade-ethiopie.fr/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/finland-494061a121> a tg:POI,
         tg:Place ;
     schema1:url <https://finlandabroad.fi/web/fra> ;
     owl:sameAs <http://www.wikidata.org/entity/Q2841610> ;
     tg:address "place de Finlande, 75007 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.862222 ;
     tg:lng 2.311389 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Finland" ;
-    tg:placeId "wv:93b6aa5dfc97" .
+    tg:openingHours "M-F 09:00-13:00, 14:00-17:15"^^xsd:string ;
+    tg:phoneNumber "+33 1 44 18 19 20"^^xsd:string ;
+    tg:placeId "wv:93b6aa5dfc97" ;
+    tg:website "https://finlandabroad.fi/web/fra"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/flixbus-f83d3a1cf2> a tg:POI,
         tg:Place ;
     schema1:url <https://www.flixbus.fr/bus/paris> ;
     rdfs:comment "Originally a German company, they serve many routes in and out of Paris, both domestic and international with destinations in Germany, Belgium or even London. Note that although their main hub is Bercy Seine, some buses also go to other places in Paris." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.83606 ;
     tg:lng 2.37965 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Flixbus" ;
-    tg:placeId "wv:5d8c08c6eedb" .
+    tg:phoneNumber "+49 30 300 137 300"^^xsd:string ;
+    tg:placeId "wv:5d8c08c6eedb" ;
+    tg:website "https://www.flixbus.fr/bus/paris"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/greece-121d162732> a tg:POI,
         tg:Place ;
     schema1:url <http://www.mfa.gr/france/> ;
     owl:sameAs <http://www.wikidata.org/entity/Q17346973> ;
     tg:address "17, rue Auguste Vacquerie, 75016 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8697 ;
     tg:lng 2.29472 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Greece" ;
-    tg:placeId "wv:250da8bf21e4" .
+    tg:phoneNumber "+33 1 47 23 72 28, +33 1 47 23 98 92 (emergencies)"^^xsd:string ;
+    tg:placeId "wv:250da8bf21e4" ;
+    tg:website "http://www.mfa.gr/france/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/india-52213cbf66> a tg:POI,
         tg:Place ;
@@ -141,59 +181,76 @@
     rdfs:comment "For emergency related to passport or other distress, Indians can call +33 1 64 83 40 063." ;
     owl:sameAs <http://www.wikidata.org/entity/Q20669700> ;
     tg:address "13-15 Rue Alfred Dehodencq, 75016 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8607 ;
     tg:lng 2.27067 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "India" ;
-    tg:placeId "wv:efc21d01e66a" .
+    tg:phoneNumber "+33 1 40 50 70 70"^^xsd:string ;
+    tg:placeId "wv:efc21d01e66a" ;
+    tg:website "https://www.eoiparis.gov.in/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/indonesia-91382abae1> a tg:POI,
         tg:Place ;
     schema1:url <https://kemlu.go.id/paris/> ;
     owl:sameAs <http://www.wikidata.org/entity/Q2841589> ;
     tg:address "47, rue Cortambert, 75116 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.86025 ;
     tg:lng 2.278417 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Indonesia" ;
-    tg:placeId "wv:0b03ee885226" .
+    tg:openingHours "0900 to 1730 hours"^^xsd:string ;
+    tg:phoneNumber "+33 1 45 03 07 60"^^xsd:string ;
+    tg:placeId "wv:0b03ee885226" ;
+    tg:website "https://kemlu.go.id/paris/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/japan-c8c3bba387> a tg:POI,
         tg:Place ;
     schema1:url <https://www.fr.emb-japan.go.jp/> ;
     owl:sameAs <http://www.wikidata.org/entity/Q2841871> ;
     tg:address "7, avenue Hoche, 75008 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.877306 ;
     tg:lng 2.304083 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Japan" ;
-    tg:placeId "wv:6abc420e5868" .
+    tg:phoneNumber "+33 1 48 88 62 00"^^xsd:string ;
+    tg:placeId "wv:6abc420e5868" ;
+    tg:website "https://www.fr.emb-japan.go.jp/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/madagascar-869ee987c1> a tg:POI,
         tg:Place ;
     schema1:url <http://www.ambassade-madagascar.fr> ;
     owl:sameAs <http://www.wikidata.org/entity/Q2841813> ;
     tg:address "4, avenue Raphaël, 75016 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.860917 ;
     tg:lng 2.267667 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Madagascar" ;
-    tg:placeId "wv:96319fff2e3f" .
+    tg:phoneNumber "+33 1 45 04 62 11"^^xsd:string ;
+    tg:placeId "wv:96319fff2e3f" ;
+    tg:website "http://www.ambassade-madagascar.fr"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/maison-europeene-de-la-photographie-58a0fc1b59> a tg:POI,
         tg:Place ;
     schema1:url <https://www.mep-fr.org/english/> ;
     rdfs:comment "Important center for contemporary photography with a large exposition area having three or four major expositions per year dedicated to contemporary photography. Housed in an updated hôtel particulier built in 1706. There is a large library, auditorium and café. Their archive houses over twenty thousand works of art. Admission is free every Wednesday from 17:00 to 20:00." ;
     tg:address "5/7 Rue de Fourcy" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8551395 ;
     tg:lng 2.3567364 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Maison Européene de la Photographie" ;
-    tg:placeId "wv:75d1d60889db" .
+    tg:openingHours "W-Su 11:00-20:00"^^xsd:string ;
+    tg:placeId "wv:75d1d60889db" ;
+    tg:website "https://www.mep-fr.org/english/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/paris-14th-arrondissement-q28924-627f5cf3a5> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Used to store the exhumed bones from the overflowing Paris cemetery. The bones of more than 6 million bodies lie here." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.83397 ;
     tg:lng 2.33245 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -203,6 +260,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-16th-arrondissement-q1327886-674831d487> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Over 300 paintings of Claude Monet. Also, the works of Berthe Morisot, Edgar Degas, Édouard Manet and Pierre-Auguste Renoir. \"Impression Soleil Levant\" by Monet is on display." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.859361 ;
     tg:lng 2.2675 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -212,6 +270,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-16th-arrondissement-q43605-dab089a680> a tg:Attraction,
         tg:Place ;
     rdfs:comment "One of the four [[Tennis" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.84716 ;
     tg:lng 2.24924 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -221,6 +280,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-16th-arrondissement-q860994-bbb531a82c> a tg:Attraction,
         tg:Place ;
     rdfs:comment "One of the largest collections outside Asia of Southeast Asian, Indian, Afghan, Chinese, Japanese, and Korean art." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.86527777777778 ;
     tg:lng 2.2938888888888886 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -230,6 +290,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-18th-arrondissement-q28785-8d7ff5b36a> a tg:Attraction,
         tg:Place ;
     rdfs:comment "A church perched on top of the highest point in Paris. Behind the church is the artists' area, in front are spectacular views of the whole city." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.886694 ;
     tg:lng 2.343 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -239,6 +300,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-19th-arrondissement-q1094338-12d525a679> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Science museum primarily for children." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.895556 ;
     tg:lng 2.388056 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -248,6 +310,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-1st-arrondissement-q1319378-cbc05cb6a3> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Showcasing eight centuries of French savoir-faire." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.862783 ;
     tg:lng 2.334108 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -257,6 +320,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-1st-arrondissement-q193193-3629dfdd1a> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Exquisite stained glass chapel. More beautiful interior than the gloomy Notre Dame Cathedral." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.855369 ;
     tg:lng 2.345028 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -266,6 +330,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-1st-arrondissement-q19675-fe607f467c> a tg:Attraction,
         tg:Place ;
     rdfs:comment "One of the finest museums in the world of art and culture. Home of the Mona Lisa and innumerable others. Enormous building and collection, plan at least two visits.." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.861089 ;
     tg:lng 2.33575 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -275,6 +340,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-1st-arrondissement-q726781-824feafdb4> a tg:Attraction,
         tg:Place ;
     rdfs:comment "[Jardin des Tuileries] Houses \"The Water Lilies\" (or \"Nymphéas\") - a 360 degree depiction of Monet's flower garden at Giverny. Also, impressionist and post-Impressionist paintings by Cézanne, Matisse, Modigliani, Picasso, Renoir, Rousseau, Soutine, Sisley and others." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.863833 ;
     tg:lng 2.32225 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -284,6 +350,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-20th-arrondissement-q311-de415a849c> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Unlike any cemetery in the world. Ornate grave stones, monuments set among tree lined lanes. See the graves of Jim Morrison, Oscar Wilde, and Frédéric Chopin, among many others." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.861944 ;
     tg:lng 2.394167 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -293,6 +360,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-3rd-arrondissement-q640447-95d1f84408> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Museum of Paris history; exhibitions are permanent and free. Renovated 2017–2021." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8575 ;
     tg:lng 2.362222 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -302,6 +370,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-3rd-arrondissement-q743206-63838f27dd> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Contains the master's own collection." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.859731 ;
     tg:lng 2.362439 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -311,6 +380,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-4th-arrondissement-q178065-7073e24580> a tg:Attraction,
         tg:Place ;
     rdfs:comment "The museum of modern art. The building and adjoining Stravinsky Fountain are attractions in themselves. Closed for renovation until 2030." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.860653 ;
     tg:lng 2.352411 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -320,6 +390,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-4th-arrondissement-q2981-670cc48ec8> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Impressive [[Gothic architecture" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.853 ;
     tg:lng 2.3498 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -329,6 +400,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-4th-arrondissement-q479218-5650942a58> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Paris's Holocaust Memorial Museum, in the heart of the Marais on rue Geoffroy l'Asnier. Free Entry, weekly guided tours. Second Sunday of the month there is a free tour in English." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.854846 ;
     tg:lng 2.356196 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -338,6 +410,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-5th-arrondissement-q1124095-f091f6b07e> a tg:Attraction,
         tg:Place ;
     rdfs:comment "A medieval museum exhibiting the five \"The Lady and the Unicorn\" tapestries, housed in a part Roman, part medieval building." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.850556 ;
     tg:lng 2.343333 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -348,15 +421,18 @@
         tg:Place ;
     schema1:url <https://pantheon.monuments-nationaux.fr/fr/> ;
     rdfs:comment "Underneath, the final resting place for the great heroes of the French Republic including Voltaire, Victor Hugo, and Marie Skłodowska-Curie; above, a marvellous view of the city." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.846111 ;
     tg:lng 2.345833 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "[[Paris/5th arrondissement#Q188856" ;
-    tg:placeId "wv:4b58d7ad8cd4" .
+    tg:placeId "wv:4b58d7ad8cd4" ;
+    tg:website "https://pantheon.monuments-nationaux.fr/fr/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/paris-6th-arrondissement-q1782606-115f207185> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Housed in the home of painter Eugène Delacroix." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8546 ;
     tg:lng 2.3354 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -366,6 +442,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-7th-arrondissement-q188977-85f2fc13b0> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Very impressive museum of arms and armor from the Middle Ages to today. Also contains the tomb of Napoleon Bonaparte." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.855 ;
     tg:lng 2.3125 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -375,6 +452,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-7th-arrondissement-q23402-968c5ee068> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Incredible collection housed in a former railway station. Works by the great artists of the 19th century (1848-1914) including Monet's \"Blue Water Lilies, Renoir's \"Bal du moulin de la Galette\", van Gogh's \"Bedroom in Arles\", Whistler's \"The Artists Mother\", etc." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.86 ;
     tg:lng 2.326389 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -385,6 +463,7 @@
         tg:Place ;
     rdfs:comment "No other monument better symbolizes Paris." ;
     owl:sameAs <http://www.wikidata.org/entity/Q243> ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.858 ;
     tg:lng 2.2953 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -394,6 +473,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-7th-arrondissement-q650519-01e0d22546> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Collection and archives dedicated to the sculptor Auguste Rodin, in a charming home with garden." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.855356 ;
     tg:lng 2.315819 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -403,6 +483,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-8th-arrondissement-q1165526-9b2d2bb064> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Private collection of French, Italian, and Dutch masterpieces in a typical 19th-century mansion." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.87543 ;
     tg:lng 2.31055 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -412,6 +493,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-8th-arrondissement-q550-fad79a4490> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Widely regarded to be one of the most recognizable avenues in the world" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.86967 ;
     tg:lng 2.30786 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -421,6 +503,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-8th-arrondissement-q64436-3beece2b7a> a tg:Attraction,
         tg:Place ;
     rdfs:comment "The Arc de Triomphe exudes grandeur and offers a central view of the city." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8738 ;
     tg:lng 2.295 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -430,6 +513,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-9th-arrondissement-q187840-f05eb8a91e> a tg:Attraction,
         tg:Place ;
     rdfs:comment "Masterpiece of theatre architecture of the 19th century built by Charles Garnier and inaugurated in 1875 housing the Paris Opera since it was founded by Louis XIV." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.871944 ;
     tg:lng 2.331667 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -439,6 +523,7 @@
 <https://example.org/tourguide/wikivoyage/place/paris-la-defense-q216357-bc4785a17c> a tg:Attraction,
         tg:Place ;
     rdfs:comment "A modern office-building variant of the Arc de Triomphe." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.892778 ;
     tg:lng 2.235833 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -450,33 +535,42 @@
     schema1:url <http://parispe.dfa.gov.ph> ;
     owl:sameAs <http://www.wikidata.org/entity/Q20669713> ;
     tg:address "45, rue du Ranelagh / 4, Hameau de Boulainvilliers" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8538 ;
     tg:lng 2.27475 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Philippines" ;
-    tg:placeId "wv:cc242489f212" .
+    tg:phoneNumber "+33 1 44 14 57 00"^^xsd:string ;
+    tg:placeId "wv:cc242489f212" ;
+    tg:website "http://parispe.dfa.gov.ph"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/poland-df85355344> a tg:POI,
         tg:Place ;
     schema1:url <https://www.gov.pl/web/france> ;
     owl:sameAs <http://www.wikidata.org/entity/Q2841831> ;
     tg:address "1, rue de Talleyrand / 3, rue de Talleyrand, 75007 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.858889 ;
     tg:lng 2.315556 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Poland" ;
-    tg:placeId "wv:846dee2049bd" .
+    tg:phoneNumber "+33 1 43 17 34 00"^^xsd:string ;
+    tg:placeId "wv:846dee2049bd" ;
+    tg:website "https://www.gov.pl/web/france"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/regiojet-b0698f340c> a tg:POI,
         tg:Place ;
     schema1:url <https://www.regiojet.com/> ;
     rdfs:comment "A Czech company, offers connections to Paris from Prague and via Prague from Berlin and other cities. Good service and economical." ;
     tg:address "bus stop along Rue du Faubourg near Château-Landon Metro stop" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.87839 ;
     tg:lng 2.36179 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Regiojet" ;
-    tg:placeId "wv:b0d7f00b251c" .
+    tg:phoneNumber "+420 222 222 221"^^xsd:string ;
+    tg:placeId "wv:b0d7f00b251c" ;
+    tg:website "https://www.regiojet.com/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/romania-569dbe9a1c> a tg:POI,
         tg:Place ;
@@ -484,15 +578,19 @@
     rdfs:comment "Also covers as the embassy of Romania for Andorra and Monaco." ;
     owl:sameAs <http://www.wikidata.org/entity/Q20051110> ;
     tg:address "5, rue de l'Exposition" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8576 ;
     tg:lng 2.303 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Romania" ;
-    tg:placeId "wv:f713efee47ea" .
+    tg:phoneNumber "+33 1 47 05 29 66"^^xsd:string ;
+    tg:placeId "wv:f713efee47ea" ;
+    tg:website "http://paris.mae.ro/fr"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/saint-denis-ile-de-france-q13205-3e9a059f3c> a tg:Attraction,
         tg:Place ;
     rdfs:comment "France's national stadium has a capacity of 81,338, and hosts concerts and various events. Soccer clubs sometimes play here when their home stadium is unavailable." ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.924438 ;
     tg:lng 2.360104 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
@@ -504,99 +602,129 @@
     schema1:url <https://embassies.mofa.gov.sa/sites/France> ;
     owl:sameAs <http://www.wikidata.org/entity/Q1862835> ;
     tg:address "5, avenue Hoche 75008 Paris / consulate at 29, rue des Graviers, 92200 Neuilly-sur-Seine" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.877444 ;
     tg:lng 2.304417 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Saudi Arabia" ;
-    tg:placeId "wv:bb38d98d7f3b" .
+    tg:phoneNumber "+33 1 56 79 40 00"^^xsd:string ;
+    tg:placeId "wv:bb38d98d7f3b" ;
+    tg:website "https://embassies.mofa.gov.sa/sites/France"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/south-korea-e020585c3d> a tg:POI,
         tg:Place ;
     schema1:url <http://overseas.mofa.go.kr/fr-fr/index.do> ;
     owl:sameAs <http://www.wikidata.org/entity/Q15695344> ;
     tg:address "125, rue de Grenelle" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8576 ;
     tg:lng 2.31631 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "South Korea" ;
-    tg:placeId "wv:701702086c58" .
+    tg:phoneNumber "+33 1 47 53 01 01"^^xsd:string ;
+    tg:placeId "wv:701702086c58" ;
+    tg:website "http://overseas.mofa.go.kr/fr-fr/index.do"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/spain-e89cfc8446> a tg:POI,
         tg:Place ;
     schema1:url <http://www.exteriores.gob.es/Embajadas/PARIS/fr/Pages/inicio.aspx> ;
     owl:sameAs <http://www.wikidata.org/entity/Q17346971> ;
     tg:address "22, Avenue Marceau.- 75008 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8664 ;
     tg:lng 2.30111 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Spain" ;
-    tg:placeId "wv:119b626b51b2" .
+    tg:openingHours "M-F 09:00-13:30, 15:00-18:00"^^xsd:string ;
+    tg:phoneNumber "+33 1 47 23 59 55"^^xsd:string ;
+    tg:placeId "wv:119b626b51b2" ;
+    tg:website "http://www.exteriores.gob.es/Embajadas/PARIS/fr/Pages/inicio.aspx"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/taiwan-3fc35729a7> a tg:POI,
         tg:Place ;
     schema1:url <https://www.roc-taiwan.org/fr_fr/> ;
     owl:sameAs <http://www.wikidata.org/entity/Q24970318> ;
     tg:address "78, rue de l'Université, 75008 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.858984 ;
     tg:lng 2.324613 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Taiwan" ;
-    tg:placeId "wv:42c463812ab5" .
+    tg:phoneNumber "+33 1 44 39 88 20"^^xsd:string ;
+    tg:placeId "wv:42c463812ab5" ;
+    tg:website "https://www.roc-taiwan.org/fr_fr/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/the-netherlands-cae8f5eb51> a tg:POI,
         tg:Place ;
     schema1:url <https://www.paysbasmondial.nl/pays/france> ;
     owl:sameAs <http://www.wikidata.org/entity/Q2841848> ;
     tg:address "Rue Eblé 7-9, 75007 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.849028 ;
     tg:lng 2.314167 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "The Netherlands" ;
-    tg:placeId "wv:b38bd1196ea5" .
+    tg:openingHours "M-F 09:00-17:00"^^xsd:string ;
+    tg:phoneNumber "+33 1 40 62 33 00"^^xsd:string ;
+    tg:placeId "wv:b38bd1196ea5" ;
+    tg:website "https://www.paysbasmondial.nl/pays/france"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/turkey-e224fa0ff6> a tg:POI,
         tg:Place ;
     schema1:url <https://paris-be.mfa.gov.tr/> ;
     owl:sameAs <http://www.wikidata.org/entity/Q2464752> ;
     tg:address "16, avenue de Lamballe, 75016 Paris / consulate at 44, rue de Sèvres, 92100 Boulogne-Billancourt" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8549 ;
     tg:lng 2.281 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Turkey" ;
-    tg:placeId "wv:d8a21bc1a14e" .
+    tg:openingHours "08:30 -13:00"^^xsd:string ;
+    tg:phoneNumber "+33 1 47 12 30 30"^^xsd:string ;
+    tg:placeId "wv:d8a21bc1a14e" ;
+    tg:website "https://paris-be.mfa.gov.tr/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/united-kingdom-f99e19f5a8> a tg:POI,
         tg:Place ;
     schema1:url <https://www.gov.uk/world/organisations/british-embassy-paris> ;
     owl:sameAs <http://www.wikidata.org/entity/Q18794353> ;
     tg:address "35, rue du Faubourg St Honoré, 75008 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.8692 ;
     tg:lng 2.31884 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "United Kingdom" ;
-    tg:placeId "wv:938d6b3f838e" .
+    tg:phoneNumber "+33 1 44 51 31 00"^^xsd:string ;
+    tg:placeId "wv:938d6b3f838e" ;
+    tg:website "https://www.gov.uk/world/organisations/british-embassy-paris"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/united-states-85c4d8a02b> a tg:POI,
         tg:Place ;
     schema1:url <https://fr.usembassy.gov/> ;
     owl:sameAs <http://www.wikidata.org/entity/Q894836> ;
     tg:address "2, avenue Gabriel, 75008 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.867778 ;
     tg:lng 2.320556 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "United States" ;
-    tg:placeId "wv:01207333f358" .
+    tg:phoneNumber "+33 1 43 12 22 22"^^xsd:string ;
+    tg:placeId "wv:01207333f358" ;
+    tg:website "https://fr.usembassy.gov/"^^xsd:anyURI .
 
 <https://example.org/tourguide/wikivoyage/place/vietnam-22c319fc3e> a tg:POI,
         tg:Place ;
     schema1:url <http://ambassade-vietnam.com> ;
     owl:sameAs <http://www.wikidata.org/entity/Q20127469> ;
     tg:address "62, rue Boileau, 75016 Paris" ;
+    tg:hasTopic tg:Culture ;
     tg:lat 48.876039 ;
     tg:lng 2.315585 ;
     tg:locatedIn <https://example.org/tourguide/city/Paris> ;
     tg:name "Vietnam" ;
-    tg:placeId "wv:a4a5c8f1d169" .
+    tg:phoneNumber "+33 1 44 14 64 00"^^xsd:string ;
+    tg:placeId "wv:a4a5c8f1d169" ;
+    tg:website "http://ambassade-vietnam.com"^^xsd:anyURI .
 
 <https://example.org/tourguide/city/Paris> a tg:City ;
     tg:cityName "Paris" .

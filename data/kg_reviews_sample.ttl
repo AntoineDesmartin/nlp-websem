@@ -1,0 +1,1221 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix tg: <http://tour-guide.org/ontology#> .
+@prefix place: <http://tour-guide.org/resource/place/> .
+@prefix review: <http://tour-guide.org/resource/review/> .
+
+# Generated: 2026-01-16T12:24:54.221038
+# Source: data/reviews/paris-attraction-sample.json
+
+place:83256 a tg:Place ;
+    rdfs:label "Hôtel Amour" ;
+    schema:aggregateRating [
+        a schema:AggregateRating ;
+        schema:ratingCount 60 ;
+        schema:ratingValue 0.00 ;
+    ] ;
+    schema:review review:83256_r0 ;
+
+review:83256_r0 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "don't forget to book an after diner room at the hotel" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r1 ;
+
+review:83256_r1 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Yeah" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r2 ;
+
+review:83256_r2 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Je vais vous raconter l’histoire de ce malade qui s’est pointé un soir dans ma chambre d’hôtel. Un putain d'énergumène." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r3 ;
+
+review:83256_r3 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "This place RAWKS! Be sure to request the courtyard when making a dinner reso." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r4 ;
+
+review:83256_r4 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "love this small hotel, only thing is the rooms don't have phones. each room is designed uniquely by local designers. great bistro in the hotel" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r5 ;
+
+review:83256_r5 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "PARIS. Sit outside for a fun and lovely late night dinner." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r6 ;
+
+review:83256_r6 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Personnel pourri !" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r7 ;
+
+review:83256_r7 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Bel endroit, mais bruyant sur la terrasse. A préférer pour les soirées entre amis plutôt que les dîners intimistes." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r8 ;
+
+review:83256_r8 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Room 301 is fab! Very atmospheric lighting and LOTS of black gloss paint EVERYWHERE, display case on one wall filled with issues of photo, zoom, SAS novels and Bruce 0ss 117 novels. Very cool." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r9 ;
+
+review:83256_r9 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Carte peu fournie et service atroce et hyper loooonnng!" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r10 ;
+
+review:83256_r10 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Très sympa sauf le service !!" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r11 ;
+
+review:83256_r11 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Great shooting in the Green Room with Airway+TheSponk" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r12 ;
+
+review:83256_r12 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Loving the \"Parra\" room... the art is amazing. Staff super kind." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r13 ;
+
+review:83256_r13 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Les meilleures tables sont dans le jardin du fond." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r14 ;
+
+review:83256_r14 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Toujours aussi bien...verrière du fond un peu bruyante..." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r15 ;
+
+review:83256_r15 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "J'aime : le poulet & ses légumes rotis, et aussi la salade de fruits : yummy!" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r16 ;
+
+review:83256_r16 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Aussi magique que le nom qu'il porte le bar de cet hôtel et sa terrasse sont tout simplement majestueux les nuits d'étés" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r17 ;
+
+review:83256_r17 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Ils sont desagréable et se la pétent grave. Les chambres sont sweet. C'est vrai..." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r18 ;
+
+review:83256_r18 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Best french toasts in town... Great terrasse for brunchs. Staff is nice, prices are reasonnable" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r19 ;
+
+review:83256_r19 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Accueil & service à revoir... Dommage car le cadre est sympa !" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r20 ;
+
+review:83256_r20 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Si les serveuses etaient aussi sympa que le lieu est beau, ce serait parfait! Malheureusement, elles gachent tout!" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r21 ;
+
+review:83256_r21 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Ya eu un incendie et les pompiers sont vite venus a bout des feux de l'Amour." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r22 ;
+
+review:83256_r22 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "boho-chic and young hollywood out-of-work actor types - i dig it" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r23 ;
+
+review:83256_r23 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "<3 this place..." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r24 ;
+
+review:83256_r24 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Ne prend pas les tickets restaurant !" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r25 ;
+
+review:83256_r25 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "La terrasse, juste à coté de la fontaine c'est un coin de paradis dans Paris!!" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r26 ;
+
+review:83256_r26 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Very nice patio during the summer. Food ok." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r27 ;
+
+review:83256_r27 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Excellent brunch, nice terrasse and lovely staff" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r28 ;
+
+review:83256_r28 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Terrasse ; 35€" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r29 ;
+
+review:83256_r29 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "hamburger tres moyen mais superbe sandwich au homard! Aussi les macaronis n cheese meilleurs qu'aux US. Fondant chocolat fleur de sel curieux mais fait bien mal!" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r30 ;
+
+review:83256_r30 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Any room. Dinner and drinks in terrace" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r31 ;
+
+review:83256_r31 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Nice terrasse for an excellent brunch" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r32 ;
+
+review:83256_r32 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Totally overrated. Pah!" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r33 ;
+
+review:83256_r33 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "It’s one of our favorite alfresco drink spots in the summer months (and even into the winter, thanks to patio heaters)." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r34 ;
+
+review:83256_r34 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Bon Brunch, saucisse aux herbes mémorable, un peu blindé et bruyant, véranda dans la verdure, décor sympa, service souriant. Un endroit qui donne envie de revenir !" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r35 ;
+
+review:83256_r35 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Lunch or dinner in the garden." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r36 ;
+
+review:83256_r36 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "L'Hotel Amour, c'est plus ce que c'était..." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r37 ;
+
+review:83256_r37 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Et le pain perdu est une grosse grosse blague." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r38 ;
+
+review:83256_r38 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Une adresse à retenir." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r39 ;
+
+review:83256_r39 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Taniere a bobos menu 30-40€" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r40 ;
+
+review:83256_r40 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Pour boire un verre dans le jardin. Nourriture bof." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r41 ;
+
+review:83256_r41 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Belle adresse branchee, artistes et bobos. 50€ par personne a diner." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r42 ;
+
+review:83256_r42 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "La terrasse, la terrasse, la terrasse !" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r43 ;
+
+review:83256_r43 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Cadre superbe et repas délicieux mais service plus que moyen ! Surveillez la note et les vins... :-(" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r44 ;
+
+review:83256_r44 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Go for the courtyard in the back and the cool setting. The food is ok, but if you go in for the right reasons you won't be disappointed" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r45 ;
+
+review:83256_r45 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Un endroit destiné aux amoureux en manque d’intimité ou à ceux qui sont à la recherche de sensations fortes ! C’est aussi une parfaite thérapie pour les couples en période difficile…" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r46 ;
+
+review:83256_r46 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Endroit un peu bruyant ms agréable" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r47 ;
+
+review:83256_r47 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Great brunch on Sunday, also good hangout place with wifi all day long..." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r48 ;
+
+review:83256_r48 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "La chambre Disco est absolument fabuleuse... Un souvenir mémorable !" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r49 ;
+
+review:83256_r49 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Meilleur coca du quartier" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r50 ;
+
+review:83256_r50 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Wifi: paris2012" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r51 ;
+
+review:83256_r51 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "C'est la terrasse branchée du quartier ! L'endroit est tellement agréable qu'on oublie rapidement les serveurs un peu pète-sec" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r52 ;
+
+review:83256_r52 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "They have a beautiful outdoor courtyard but be sure to reserve ahead." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r53 ;
+
+review:83256_r53 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Lunch in the garden." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r54 ;
+
+review:83256_r54 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Définitivement une des terrasses les plus agréables du quartier ! On ne se croirait pas a Paris." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r55 ;
+
+review:83256_r55 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "C'est bon et on s'y sent bien. Surtout dans les arbres dehors. Prevoyez d'y aller en debut de mois car l'addition monte vite. 😉 Par contre c'est assez bruyant et les serveuses sont un peu speed." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r56 ;
+
+review:83256_r56 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Pour en diner en amoureux sur le patio" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r57 ;
+
+review:83256_r57 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Parfait pour brunch" ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r58 ;
+
+review:83256_r58 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Cet hôtel est juste génial... Le personnel est sympathique et disponible... Le petit déjeuner est copieux... On y retournera car cet endroit est vraiment sympa..." ;
+    schema:about place:83256 .
+
+    schema:review review:83256_r59 ;
+
+review:83256_r59 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Slacker service but a great French Breakfast tea + mixed fruit salad." ;
+    schema:about place:83256 . .
+
+place:83321 a tg:Place ;
+    rdfs:label "Pershing Hall" ;
+    schema:aggregateRating [
+        a schema:AggregateRating ;
+        schema:ratingCount 61 ;
+        schema:ratingValue 0.00 ;
+    ] ;
+    schema:review review:83321_r0 ;
+
+review:83321_r0 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "New Bellini Cocktail > good !" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r1 ;
+
+review:83321_r1 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Pink pool is very good too !" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r2 ;
+
+review:83321_r2 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Amazing design in the rest rooms" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r3 ;
+
+review:83321_r3 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "lounge , nice , dream ;)" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r4 ;
+
+review:83321_r4 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Un des bars d'hôtel que je préfère à Paris, cadre magnifique, la terrasse avec le mur de verdure vaut le détour" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r5 ;
+
+review:83321_r5 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Formule brunch à 59€... un peu chéro dans la mesure où vers 15h on commence à vous mettre dehors.. Puis pas de réassort de macarons c'est couillon.. perso je préfère celui du Murano pour 20€ de moins" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r6 ;
+
+review:83321_r6 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Je recommande le filet de boeuf (la sauce est délicieuse) accompagné d'un Bordeaux XX (St Emilion)" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r7 ;
+
+review:83321_r7 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "L'un des plus beaux décors de Paris. Étonnement, on y mange pas si mal que ça !" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r8 ;
+
+review:83321_r8 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Je conseil la daurade Roti!! Miam miam" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r9 ;
+
+review:83321_r9 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Hors de prix, mauvais service, sombre, très déçu par la nourriture : Cuisson désastreuse, arrive froid a table, bref, a éviter absolument !!!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r10 ;
+
+review:83321_r10 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Mauvais service, viande pas cuite, et prix beaucoup trop cher par rapport a la qualité!!!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r11 ;
+
+review:83321_r11 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Seu pátio interno tem um jardim vertical muito bonito e agradável, onde se pode almoçar e jantar nos dias mais quentes." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r12 ;
+
+review:83321_r12 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "fin de reunion" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r13 ;
+
+review:83321_r13 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Don't eat here.. I got violently ill after eating there last night.." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r14 ;
+
+review:83321_r14 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "the most romantic place EVER!!!!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r15 ;
+
+review:83321_r15 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Les Tatakis de Saumon avec leur sauce au sésame sont a tester !" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r16 ;
+
+review:83321_r16 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Superbe endroit ! ;)" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r17 ;
+
+review:83321_r17 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Amazing atmosphere, desin and music. Also Mojito was nice. Price x cocktail 18€" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r18 ;
+
+review:83321_r18 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Plats prétentieux mais pas à la hauteur. Service prétentieux mais de niveau amateur. Le cadre est magnifique mais cela ne suffit pas pour justifier les prix. Je n'y retournerai plus." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r19 ;
+
+review:83321_r19 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Le service le plus inexistant dans un hotel de luxe parisien. Venez patients" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r20 ;
+
+review:83321_r20 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Cadre sympathique, cosy et relativement lounge; service à désirer (à moins de sortir l'Amex); les tatakis au saumon ont sauvé la soirée..." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r21 ;
+
+review:83321_r21 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Service à chier... À oublier !" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r22 ;
+
+review:83321_r22 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "One of my favorite places in Paris. So loungy, a bit exclusive, amazing design. Sipping a wonderfull drink or eating refined food there is a pure pleasure ! Expensive, but it's worth the price !" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r23 ;
+
+review:83321_r23 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "This is one of the prettiest places I've ever been. Go here and impress your company, order a bottle of wine and live the luxury Paris live to the max!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r24 ;
+
+review:83321_r24 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Private and strategically located in the capital’s Golden Triangle, Pershing Hall is a small, luxurious boutique hotel that loves to be different." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r25 ;
+
+review:83321_r25 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Pershing Hall Bar & Lounge is a great spot for stylish early evening drinks. The area near the hanging gardens is definitely the coolest, so we do what we can to score a view of the greenery." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r26 ;
+
+review:83321_r26 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "No possibility to smoke inside" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r27 ;
+
+review:83321_r27 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "VSOP Cucumber : A must !" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r28 ;
+
+review:83321_r28 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Un Sancerre blanc fort sympathique, un bien joli lieu et des serveuses dont on se demande quand même si elles sont toujours mannequins... Juste pour le fun! #LaProchaineFoisJePoseLaQuestion :))" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r29 ;
+
+review:83321_r29 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Sexy waitresses" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r30 ;
+
+review:83321_r30 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Amazing place to have dinner in Paris! I love it!!!!!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r31 ;
+
+review:83321_r31 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Cadre très agréable  Excellent tartare de saumon en entrée... Mais service trop long !" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r32 ;
+
+review:83321_r32 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Simply sublime if you're crazy about interior design, sexy cocktails, underground music and Parisian couture." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r33 ;
+
+review:83321_r33 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Had an amazing cocktail with rose petals and champagne at the bar. Not my type of drink usually, but this was awesome :)" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r34 ;
+
+review:83321_r34 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Great atmosphere, nice bar, fantastic brunch on Sunday." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r35 ;
+
+review:83321_r35 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Really nice place!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r36 ;
+
+review:83321_r36 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Celebrated its 10 Year Anniversary with French Tuesdays in Oct 2011, and just received another star joining the little family of 5 star hotels! Huge congratulations!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r37 ;
+
+review:83321_r37 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Veeeeeerry nice and warm atmosphere , food is average not even" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r38 ;
+
+review:83321_r38 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "great location.. yet it's not worth the price tag.." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r39 ;
+
+review:83321_r39 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "[( T O D A Y I S A G O O D D A Y )]]" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r40 ;
+
+review:83321_r40 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Super expensive for low quality food and awful and nasty service." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r41 ;
+
+review:83321_r41 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Try their brand new food and cocktails specials. We recommend!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r42 ;
+
+review:83321_r42 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Brunch is perfect!!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r43 ;
+
+review:83321_r43 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Wonderful experience!! Loved specially the venue! Will def come back again and recommend it to all my friends! Greeeeeeat" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r44 ;
+
+review:83321_r44 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "They have an amazing green wall that changes the whole environment. More than a hotel, they have the great overpriced cocktails!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r45 ;
+
+review:83321_r45 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "wifi pass: 0158365800" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r46 ;
+
+review:83321_r46 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Like this place! delicious fish ❤" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r47 ;
+
+review:83321_r47 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Cadre exceptionnel, très bonne cuisine et ambiance très parisienne. L'un de mes endroits préférés surtout en semaine où on s'y sent complètement déconnecté du monde extérieur" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r48 ;
+
+review:83321_r48 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "C'est dans le cadre magnifique du patio central de l'hôtel, au pied d'un jardin vertical, que vous pourrez déguster un brunch à 59 € de 11h30 à 16h. Il y a aussi un atelier du Sushi Chef." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r49 ;
+
+review:83321_r49 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Un endroit de classe...what else?" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r50 ;
+
+review:83321_r50 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Hors de prix. Service minable, peu de choix et qualité moyenne. A éviter." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r51 ;
+
+review:83321_r51 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "A faire une fois pour dîner dans un cadre élégant et moderne avec son mur végétal Effet waouhh garanti ! Sinon un peu cher rapport qualité/prix" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r52 ;
+
+review:83321_r52 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "The restaurant is expensive, but the food doesn't live up to expectations, in my humble opinion. The place is still worth going to even if just for the design - the plant wall is truly spectacular!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r53 ;
+
+review:83321_r53 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Stylish decor plus the food and drinks are excellent" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r54 ;
+
+review:83321_r54 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Fabulous green & relaxing surroundings. Appetizers are great too 👍" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r55 ;
+
+review:83321_r55 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Невероятно вкусная кухня, очень милые балкончики на втором этаже!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r56 ;
+
+review:83321_r56 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Lieu, patio et mur végétalisé incroyables, mais faites-vous inviter ou commandez un verre d'eau (27€ le petit déj)." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r57 ;
+
+review:83321_r57 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Excellent food and fun atmosphere. Beef tartar appetizer and black cod main dish was incredible! Highly recommend it. Wine is very pricey though..." ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r58 ;
+
+review:83321_r58 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Amazing food, the veggie maki fruit roll is a must try!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r59 ;
+
+review:83321_r59 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Black cod is perfect! And take plateau d'envie for taste all the delicious starters!" ;
+    schema:about place:83321 .
+
+    schema:review review:83321_r60 ;
+
+review:83321_r60 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Не верьте фото на сайте. В спортзале такие же старые тренажеры, как и в других отелях." ;
+    schema:about place:83321 . .
+
+place:83355 a tg:Place ;
+    rdfs:label "Mécano-Bar" ;
+    schema:aggregateRating [
+        a schema:AggregateRating ;
+        schema:ratingCount 10 ;
+        schema:ratingValue 0.00 ;
+    ] ;
+    schema:review review:83355_r0 ;
+
+review:83355_r0 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Bonne musique mais chaleur de malade" ;
+    schema:about place:83355 .
+
+    schema:review review:83355_r1 ;
+
+review:83355_r1 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Vraiment cool en début de soirée en groupe. Prix raisonnables, décor sympa - on se croit dans un garage des 50's. A recommander!" ;
+    schema:about place:83355 .
+
+    schema:review review:83355_r2 ;
+
+review:83355_r2 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "DLC was here!" ;
+    schema:about place:83355 .
+
+    schema:review review:83355_r3 ;
+
+review:83355_r3 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Lucky Black jusqu'à 2h du mat" ;
+    schema:about place:83355 .
+
+    schema:review review:83355_r4 ;
+
+review:83355_r4 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Commande avant d'aller pisser" ;
+    schema:about place:83355 .
+
+    schema:review review:83355_r5 ;
+
+review:83355_r5 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Nul ! ! ! Il faut une femme pour entrer... Booouuuuhhh ! ! !" ;
+    schema:about place:83355 .
+
+    schema:review review:83355_r6 ;
+
+review:83355_r6 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Brunch le dimanche : une valeurs sûre dans le quartier !" ;
+    schema:about place:83355 .
+
+    schema:review review:83355_r7 ;
+
+review:83355_r7 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Bar typique de la rue Oberkampf : prix raisonnable & bonne ambiance !" ;
+    schema:about place:83355 .
+
+    schema:review review:83355_r8 ;
+
+review:83355_r8 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Accueil détestable !" ;
+    schema:about place:83355 .
+
+    schema:review review:83355_r9 ;
+
+review:83355_r9 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "On s'est fait voler sur la monnaie + le serveur le plus teubé de Paris ! A éviter !" ;
+    schema:about place:83355 . .
+
+place:83358 a tg:Place ;
+    rdfs:label "Le Baron Rouge" ;
+    schema:aggregateRating [
+        a schema:AggregateRating ;
+        schema:ratingCount 26 ;
+        schema:ratingValue 0.00 ;
+    ] ;
+    schema:review review:83358_r0 ;
+
+review:83358_r0 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "stop by after Marche Aligre to try wine by the glass with some yummy cheese & terrine, or oysters in winter" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r1 ;
+
+review:83358_r1 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "samedi et dimanche, d'octobre à mars, venez deguster quelques huitres avec un petit muscadet !" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r2 ;
+
+review:83358_r2 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Le chalereux brouhaha du marché, la douceur de l'été le dimanche, un plateau de fromage, de charcuterie ...et la suave rondeur d'un Domaine du Seigneur ... Joie !" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r3 ;
+
+review:83358_r3 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Really cool place ! Good vines and French tappas. Not exepensive for Paris" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r4 ;
+
+review:83358_r4 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Stop by here on a Sunday afternoon for the wine, a mixed plate and a fun atmosphere." ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r5 ;
+
+review:83358_r5 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Try the Cheese Plate and spot it on Foodspotting!" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r6 ;
+
+review:83358_r6 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Parfait!!" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r7 ;
+
+review:83358_r7 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Goûtez-vite les coups de coeur affichés sur les ardoises !" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r8 ;
+
+review:83358_r8 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Pivot du quartier. Du mardi au dimanche, jusqu'à 22h. Fréquenté par populations toutes différentes et sympa (riverains, manants, artistes maudits, étudiants, jeunes actifs, vieux typiques, touristes)" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r9 ;
+
+review:83358_r9 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Fun wine bar" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r10 ;
+
+review:83358_r10 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Have your oysters at the zinc bar, and order wine, too, they have a wide selection." ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r11 ;
+
+review:83358_r11 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Super pour un apéro du dimanche apres le marche ! Service au comptoir uniquement les serveurs sont adorables surtout le moustachu !!!" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r12 ;
+
+review:83358_r12 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Amazing Wine Bar! A MUST SEE" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r13 ;
+
+review:83358_r13 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Conseil pour les filles: allez-y la vessie vide! Pour le reste C fidèle à sa réputation" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r14 ;
+
+review:83358_r14 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Merveilleux bar à vin où tu dégustes de très bons crus en toute convivialité, adossé à un tonneau, assis sur le trottoir ou accoudé à une poubelle !" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r15 ;
+
+review:83358_r15 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Super accueil, Bonne sélection de vins et une excellente charcuterie. Foncez!" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r16 ;
+
+review:83358_r16 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Fixez-vous sur un vin et choisissez une planche parmi les grands classiques du genre (fromage, charcut’ ou mixte) et vous voilà parrés pour passer un début de soirée très agréable." ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r17 ;
+
+review:83358_r17 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Chose a wine and a \"planche\" of delicatessen/cheese and you'll be all set for a great evening. Beware, bar closes at 10pm." ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r18 ;
+
+review:83358_r18 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "C’est l’un des meilleurs bars à vin de Paris alors attention, l’adresse est victime de son succès et l’établissement est souvent bondé." ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r19 ;
+
+review:83358_r19 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Order your oysters and ask the owner to propose a wine for you!" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r20 ;
+
+review:83358_r20 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Le rdv incontournable des adeptes de vins et des visiteurs du marché d'Aligre. Vin tiré directement du tonneau le tout accompagné de charcuterie ou d'huîtres. Bouteilles remplies à la barrique !" ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r21 ;
+
+review:83358_r21 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Attention, ça ferme à 22h..." ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r22 ;
+
+review:83358_r22 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Bartender was really friendly & understood a little English. We had the cheese and cold cuts platter with a glass of wine. Sheer rustic, Parisian charm. A quintessential Parisian experience." ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r23 ;
+
+review:83358_r23 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "La bouteille est pas mal et beaucoup moins chère que le verre." ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r24 ;
+
+review:83358_r24 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "If you're not a friend of the bar staff, don't expect to be served or have them treat you with any basic courtesy. Utterly shocking and sadly; the Parisian attitude we'd been warned of." ;
+    schema:about place:83358 .
+
+    schema:review review:83358_r25 ;
+
+review:83358_r25 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Лучший винный бар. Утром в воскресенье - устрицы" ;
+    schema:about place:83358 . .
+
+place:83363 a tg:Place ;
+    rdfs:label "Glazart" ;
+    schema:aggregateRating [
+        a schema:AggregateRating ;
+        schema:ratingCount 11 ;
+        schema:ratingValue 0.00 ;
+    ] ;
+    schema:review review:83363_r0 ;
+
+review:83363_r0 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Visit of the new exhibition Maze after \"Labyrinth\", followed by a good restaurant, accompanied by Petite Amande ^ ^" ;
+    schema:about place:83363 .
+
+    schema:review review:83363_r1 ;
+
+review:83363_r1 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Really nice place for good music!!Listen to the gigs in real-time streaming on Awdio.com" ;
+    schema:about place:83363 .
+
+    schema:review review:83363_r2 ;
+
+review:83363_r2 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Great place to have fun..." ;
+    schema:about place:83363 .
+
+    schema:review review:83363_r3 ;
+
+review:83363_r3 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Go there in order to find a rnr fun n8" ;
+    schema:about place:83363 .
+
+    schema:review review:83363_r4 ;
+
+review:83363_r4 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "@electrelane" ;
+    schema:about place:83363 .
+
+    schema:review review:83363_r5 ;
+
+review:83363_r5 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Cet établissement est signataire de la charte Fêtez Clairs: tu peux y trouver des préservatifs, des éthylotests, des bouchons d'oreilles et des documents de prévention http://www.fetez-clairs.org" ;
+    schema:about place:83363 .
+
+    schema:review review:83363_r6 ;
+
+review:83363_r6 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Du 28 juin 2012 au 15 juillet, 3e édition du festival LaPlage, l'oasis de concert à Paris.. pour un début d’été exotique, décalé et rafraîchissant. N’oubliez pas votre crème sonore…" ;
+    schema:about place:83363 .
+
+    schema:review review:83363_r7 ;
+
+review:83363_r7 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "L'impression d'être ailleurs dans un endroit coupé du monde." ;
+    schema:about place:83363 .
+
+    schema:review review:83363_r8 ;
+
+review:83363_r8 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "La plage, le club, le son, l'ambiance, je prends tout ! " ;
+    schema:about place:83363 .
+
+    schema:review review:83363_r9 ;
+
+review:83363_r9 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Prévoir la monnaie pas de cb à moins de  16€ et des bouchons !" ;
+    schema:about place:83363 .
+
+    schema:review review:83363_r10 ;
+
+review:83363_r10 a schema:Review ;
+    schema:author "Anonymous" ;
+    schema:reviewBody "Chaleur insoutenable dans cette salle" ;
+    schema:about place:83363 . .

@@ -1,15 +1,42 @@
 PREFIX tg:  <https://example.org/tourguide#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
+
+# R2: TopRestaurant - Meilleurs restaurants avec nombreux avis positifs
+# Source 1: tg:polarity + tg:numReviews
+# Source 2: Calcul dynamique depuis reviews
 
 CONSTRUCT {
   ?p rdf:type tg:TopRestaurant .
   ?p tg:inferenceReason ?reason .
+  ?p tg:inferredRating ?avgRating .
+  ?p tg:inferredReviewCount ?count .
 }
 WHERE {
-  ?p rdf:type tg:Restaurant ;
-     tg:polarity ?pol ;
-     tg:numReviews ?n .
-  FILTER(xsd:decimal(?pol) >= 7.0 && xsd:integer(?n) >= 30)
-  BIND(CONCAT("TopRestaurant: polarity=", STR(?pol), ", numReviews=", STR(?n), " (Restaurant, >=7.0 & >=30)") AS ?reason)
+  {
+    # Source 1: Propriétés existantes
+    ?p rdf:type tg:Restaurant ;
+       tg:polarity ?pol ;
+       tg:numReviews ?n .
+    FILTER(xsd:decimal(?pol) >= 7.0 && xsd:integer(?n) >= 30)
+    BIND(?pol AS ?avgRating)
+    BIND(?n AS ?count)
+    BIND(CONCAT("TopRestaurant: polarity=", STR(?pol), ", numReviews=", STR(?n), " (>=7.0 & >=30) [Source: TourPedia]") AS ?reason)
+  }
+  UNION
+  {
+    # Source 2: Reviews enrichies
+    ?p rdf:type tg:Restaurant .
+    {
+      SELECT ?p (AVG(?rating) AS ?avgRating) (COUNT(?review) AS ?count)
+      WHERE {
+        ?review schema:about ?p ;
+                schema:reviewRating ?rating .
+      }
+      GROUP BY ?p
+      HAVING(AVG(?rating) >= 4.2 && COUNT(?review) >= 25)
+    }
+    BIND(CONCAT("TopRestaurant: avgRating=", STR(?avgRating), ", reviewCount=", STR(?count), " (>=4.2 & >=25) [Source: Reviews]") AS ?reason)
+  }
 }

@@ -54,6 +54,32 @@ tgsh:PlaceShape a sh:NodeShape ;
   ] ;
 
   sh:property [
+    sh:path tg:openingHours ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:message "openingHours should be a string describing business hours." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:website ;
+    sh:or (
+      [ sh:nodeKind sh:IRI ]
+      [ sh:datatype xsd:anyURI ]
+    ) ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:message "website must be a valid URI (IRI or xsd:anyURI literal)." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:phoneNumber ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:message "phoneNumber must be a string." ;
+  ] ;
+
+  sh:property [
     sh:path tg:locatedIn ;
     sh:nodeKind sh:IRI ;
     sh:class tg:City ;
@@ -91,9 +117,53 @@ tgsh:PlaceShape a sh:NodeShape ;
   sh:property [
     sh:path tg:hasTopic ;
     sh:nodeKind sh:IRI ;
-    sh:class skos:Concept ;
+    # Relaxed: not enforcing sh:class skos:Concept (some topics like tg:Culture, tg:Food not in thesaurus)
     sh:minCount 0 ;
-    sh:message "hasTopic values must be SKOS Concepts." ;
+    sh:message "hasTopic values must be IRIs (topics from thesaurus or general categories)." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:avgRating ;
+    sh:datatype xsd:decimal ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:minInclusive 0 ;
+    sh:maxInclusive 5 ;
+    sh:message "avgRating must be a decimal in [0, 5]." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:reviewsCount ;
+    sh:datatype xsd:integer ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:minInclusive 0 ;
+    sh:message "reviewsCount must be a non-negative integer." ;
+  ] .
+
+########################
+# Restaurant-specific properties
+########################
+
+tgsh:RestaurantShape a sh:NodeShape ;
+  sh:targetClass tg:Restaurant ;
+
+  sh:property [
+    sh:path tg:cuisineType ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:minLength 1 ;
+    sh:message "cuisineType must be a non-empty string." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:priceLevel ;
+    sh:datatype xsd:integer ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:minInclusive 1 ;
+    sh:maxInclusive 4 ;
+    sh:message "priceLevel must be an integer between 1 (cheap) and 4 (luxury)." ;
   ] .
 
 ########################
@@ -121,6 +191,27 @@ tgsh:PlaceTypeExclusivityShape a sh:NodeShape ;
   }
 """ ;
 
+  ] .
+
+########################
+# SKOS Concept validation
+########################
+
+tgsh:SKOSConceptShape a sh:NodeShape ;
+  sh:targetClass skos:Concept ;
+
+  sh:property [
+    sh:path skos:prefLabel ;
+    sh:minCount 1 ;
+    sh:message "Every SKOS Concept must have at least one skos:prefLabel." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:inScheme ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "Every Concept must be in exactly one ConceptScheme (tg:TourismTopics)." ;
   ] .
 
 ########################
@@ -191,4 +282,39 @@ tgsh:ReviewShape a sh:NodeShape ;
     sh:path tg:reviewDate ;
     sh:datatype xsd:date ;
     sh:minCount 0 ;
+  ] ;
+
+  sh:property [
+    sh:path tg:reviewLanguage ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:pattern "^[a-z]{2}$" ;
+    sh:message "reviewLanguage must be a 2-letter language code (e.g., en, fr, es)." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:reviewSource ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:minLength 1 ;
+    sh:message "reviewSource must be a non-empty string (e.g., Foursquare, Google)." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:wordsCount ;
+    sh:datatype xsd:integer ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:minInclusive 0 ;
+    sh:message "wordsCount must be a non-negative integer." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:reviewDetailsURL ;
+    sh:nodeKind sh:IRI ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:message "reviewDetailsURL must be a valid URI." ;
   ] .

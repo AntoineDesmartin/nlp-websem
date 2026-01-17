@@ -22,6 +22,46 @@ TEMPLATE_TYPES = {
     "listing": TG.POI,
 }
 
+# Alignement OWL+SKOS : on associe un topic (skos:Concept) selon le type Wikivoyage.
+# Ces IRIs existent dans `thesaurus/topics.ttl`.
+TEMPLATE_TOPICS = {
+    "see": TG.Culture,
+    "do": TG.Culture,
+    "eat": TG.Food,
+    "drink": TG.Food,
+    "buy": TG.Shopping,
+    "sleep": TG.Accommodation,
+    "listing": TG.Culture,
+}
+
+
+def normalize_price_level(raw: str) -> int | None:
+    """Best-effort mapping to tg:priceLevel in [1..4]."""
+    if not raw:
+        return None
+    s = strip_wiki_markup(raw).strip().lower()
+
+    # common patterns: $, $$, $$$, $$$$
+    dollars = re.findall(r"\$+", s)
+    if dollars:
+        n = max(len(d) for d in dollars)
+        return max(1, min(4, n))
+
+    # textual levels
+    if any(w in s for w in ("cheap", "budget", "low")):
+        return 1
+    if any(w in s for w in ("moderate", "mid", "medium")):
+        return 2
+    if any(w in s for w in ("expensive", "high")):
+        return 3
+    if any(w in s for w in ("luxury", "fine", "premium")):
+        return 4
+
+    m = re.search(r"\b([1-4])\b", s)
+    if m:
+        return int(m.group(1))
+    return None
+
 def slugify(s: str) -> str:
     s = unicodedata.normalize("NFKD", s).encode("ascii", "ignore").decode("ascii")
     s = re.sub(r"[^a-zA-Z0-9]+", "-", s).strip("-").lower()
@@ -192,6 +232,11 @@ def main():
         G.add((uri, TG.lat, Literal(lat_f, datatype=XSD.decimal)))
         G.add((uri, TG.lng, Literal(lng_f, datatype=XSD.decimal)))
 
+        # Topic SKOS (alignement OWL/SKOS/SHACL)
+        topic = TEMPLATE_TOPICS.get(tname)
+        if topic is not None:
+            G.add((uri, TG.hasTopic, topic))
+
         addr = params.get("address")
         if addr:
             G.add((uri, TG.address, Literal(strip_wiki_markup(addr))))
@@ -205,6 +250,40 @@ def main():
         url = (params.get("url") or "").strip()
         if url.startswith("http://") or url.startswith("https://"):
             G.add((uri, SCHEMA.url, URIRef(url)))
+            # Alignement OWL: tg:website est une DatatypeProperty (xsd:anyURI)
+            G.add((uri, TG.website, Literal(url, datatype=XSD.anyURI)))
+
+        # Champs optionnels (si présents dans le template)
+        phone = (params.get("phone") or params.get("tel") or params.get("telephone") or "").strip()
+        if phone:
+            G.add((uri, TG.phoneNumber, Literal(strip_wiki_markup(phone), datatype=XSD.string)))
+
+        hours = (
+            params.get("hours")
+            or params.get("openinghours")
+            or params.get("opening_hours")
+            or params.get("opening hours")
+            or ""
+        ).strip()
+        if hours:
+            G.add((uri, TG.openingHours, Literal(strip_wiki_markup(hours), datatype=XSD.string)))
+
+        # Restaurant-specific enrichment (best-effort)
+        if cls == TG.Restaurant:
+            cuisine = (
+                params.get("cuisine")
+                or params.get("type")
+                or params.get("food")
+                or params.get("cuisinetype")
+                or ""
+            ).strip()
+            if cuisine:
+                G.add((uri, TG.cuisineType, Literal(strip_wiki_markup(cuisine), datatype=XSD.string)))
+
+            price_raw = (params.get("price") or params.get("pricerange") or params.get("price range") or "").strip()
+            pl = normalize_price_level(price_raw)
+            if pl is not None:
+                G.add((uri, TG.priceLevel, Literal(pl, datatype=XSD.integer)))
 
         content = params.get("content") or params.get("description") or ""
         content = strip_wiki_markup(content)

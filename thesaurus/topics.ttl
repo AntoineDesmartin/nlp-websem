@@ -1,18 +1,1461 @@
 @prefix tg:   <https://example.org/tourguide#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xl:   <http://www.w3.org/2008/05/skos-xl#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-tg:Topics a skos:ConceptScheme ;
-  skos:prefLabel "Tourism topics"@en .
+#####################
+# Concept Scheme    #
+#####################
 
-tg:Museum a skos:Concept ;
-  skos:inScheme tg:Topics ;
-  skos:prefLabel "Museum"@en ;
-  skos:broader tg:Culture .
+tg:TourismTopics a skos:ConceptScheme ;
+  skos:prefLabel "Paris Tourism Topics"@en, "Thèmes Touristiques Paris"@fr ;
+  skos:altLabel "Thésaurus du Tourisme Parisien"@fr ;
+  skos:altLabel "Paris Tour Taxonomy"@en ;
+  dct:title "Comprehensive taxonomy of tourism topics in Paris"@en ;
+  dct:description "SKOS thesaurus enrichi démontrant tous les concepts SKOS avancés"@fr ;
+  dct:creator "TourGuide Project"@en ;
+  dct:created "2026-01-15"^^xsd:date ;
+  dct:modified "2026-01-16"^^xsd:date ;
+  skos:hasTopConcept tg:Culture ;
+  skos:hasTopConcept tg:Food ;
+  skos:hasTopConcept tg:Entertainment ;
+  skos:hasTopConcept tg:Nature ;
+  skos:hasTopConcept tg:Shopping ;
+  skos:hasTopConcept tg:Sports ;
+  skos:hasTopConcept tg:Accommodation ;
+  skos:hasTopConcept tg:Transport ;
+  skos:hasTopConcept tg:PublicService ;
+  skos:scopeNote "Thésaurus spécifique au tourisme parisien, couvrant attractions, gastronomie, hébergement, transport et services publics"@fr ;
+  skos:historyNote "Créé en 2026 pour le projet TourGuide NLP-WebSem"@fr ;
+  skos:editorialNote "Validé par l'équipe TourGuide - Version enrichie SKOS"@fr .
+
+#####################
+# Top-Level Concepts#
+#####################
 
 tg:Culture a skos:Concept ;
-  skos:inScheme tg:Topics ;
-  skos:prefLabel "Culture"@en .
+  skos:inScheme tg:TourismTopics ;
+  skos:topConceptOf tg:TourismTopics ;
+  skos:prefLabel "Culture"@en, "Culture"@fr ;
+  skos:altLabel "Patrimoine Culturel"@fr ;
+  skos:altLabel "Cultural Heritage"@en ;
+  skos:altLabel "Cultura"@es ;
+  skos:hiddenLabel "cultura"@es ;
+  skos:hiddenLabel "patrimoine"@fr ;
+  skos:notation "TG-CULT-001"^^xsd:string ;
+  skos:notation "C01"^^tg:TopicCode ;
+  skos:definition "Cultural activities and heritage including museums, monuments, and artistic venues"@en ;
+  skos:definition "Activités culturelles et patrimoine incluant musées, monuments et lieux artistiques"@fr ;
+  skos:scopeNote "Concerne uniquement les activités culturelles touristiques, pas l'anthropologie"@fr ;
+  skos:historyNote "Concept créé initialement comme 'Arts & Culture', renommé en 'Culture' pour simplification"@fr ;
+  skos:changeNote "2026-01-15: Séparation du concept Theater en sous-concept distinct"@fr ;
+  skos:editorialNote "Validé par le comité éditorial TourGuide - Concept racine majeur"@fr ;
+  skos:example "Le Louvre, Notre-Dame, Opéra Garnier"@fr ;
+  skos:example "The Louvre, Notre-Dame Cathedral, Garnier Opera"@en ;
+  skos:narrower tg:Museum ;
+  skos:narrower tg:Monument ;
+  skos:narrower tg:Architecture ;
+  skos:narrower tg:ReligiousHeritage ;
+  skos:narrower tg:ModernArt ;
+  skos:narrower tg:ClassicalArt ;
+  skos:narrower tg:Theater ;
+  skos:narrowerTransitive tg:Museum, tg:ArtMuseum, tg:HistoricalMuseum, tg:ScienceMuseum ;
+  skos:narrowerTransitive tg:ReligiousHeritage, tg:Church, tg:Cathedral ;
+  skos:related tg:Entertainment ;
+  skos:related tg:Historic ;
+  xl:prefLabel tg:CultureEnLabel ;
+  xl:altLabel tg:CultureFrAltLabel .
 
 tg:Food a skos:Concept ;
-  skos:inScheme tg:Topics ;
-  skos:prefLabel "Food"@en .
+  skos:inScheme tg:TourismTopics ;
+  skos:topConceptOf tg:TourismTopics ;
+  skos:prefLabel "Food & Dining"@en, "Gastronomie"@fr ;
+  skos:altLabel "Culinary"@en ;
+  skos:altLabel "Cuisine"@fr ;
+  skos:altLabel "Restauration"@fr ;
+  skos:hiddenLabel "food"@en ;
+  skos:hiddenLabel "dining"@en ;
+  skos:hiddenLabel "gastronomie"@fr ;
+  skos:notation "TG-FOOD-001"^^xsd:string ;
+  skos:notation "F01"^^tg:TopicCode ;
+  skos:definition "Culinary experiences and dining establishments"@en ;
+  skos:definition "Expériences culinaires et établissements de restauration"@fr ;
+  skos:scopeNote "Inclut uniquement les restaurants et expériences gastronomiques, pas la production alimentaire"@fr ;
+  skos:historyNote "Étendu de 'Restaurants' à 'Gastronomie' en 2026 pour couvrir street food et marchés"@fr ;
+  skos:editorialNote "Concept enrichi avec sous-catégories végétariennes et internationales"@fr ;
+  skos:example "Le Jules Verne, L'Ami Jean, Street food marchés"@fr ;
+  skos:narrower tg:FrenchCuisine ;
+  skos:narrower tg:FineDining ;
+  skos:narrower tg:BistroFood ;
+  skos:narrower tg:InternationalCuisine ;
+  skos:narrowerTransitive tg:FineDining, tg:MichelinStar ;
+  skos:narrowerTransitive tg:InternationalCuisine, tg:ItalianFood, tg:AsianFood ;
+  skos:narrowerTransitive tg:Vegetarian, tg:Vegan ;
+  skos:related tg:Culture ;
+  skos:related tg:RomanticSpot ;
+  xl:prefLabel tg:FoodEnLabel ;
+  xl:altLabel tg:FoodFrAltLabel .
+
+tg:Entertainment a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:topConceptOf tg:TourismTopics ;
+  skos:prefLabel "Entertainment"@en, "Divertissement"@fr ;
+  skos:altLabel "Leisure"@en ;
+  skos:altLabel "Loisirs"@fr ;
+  skos:altLabel "Entertainment Activities"@en ;
+  skos:hiddenLabel "divertissement"@fr ;
+  skos:hiddenLabel "leisure"@en ;
+  skos:notation "TG-ENT-001"^^xsd:string ;
+  skos:notation "E01"^^tg:TopicCode ;
+  skos:definition "Entertainment and leisure activities including nightlife, shows, and venues"@en ;
+  skos:scopeNote "Couvre spectacles, vie nocturne et activités récréatives pour touristes"@fr ;
+  skos:historyNote "Anciennement fusionné avec Culture, séparé en 2026"@fr ;
+  skos:editorialNote "Ajout des concepts Cabaret et MusicVenue en 2026"@fr ;
+  skos:example "Moulin Rouge, cinémas d'art, clubs de jazz"@fr ;
+  skos:narrower tg:Nightlife ;
+  skos:narrower tg:Cinema ;
+  skos:narrower tg:MusicVenue ;
+  skos:narrower tg:CabaretShow ;
+  skos:narrowerTransitive tg:Nightlife, tg:Cinema, tg:MusicVenue, tg:CabaretShow ;
+  skos:related tg:Culture ;
+  skos:related tg:RomanticSpot ;
+  xl:prefLabel tg:EntertainmentEnLabel .
+
+tg:Nature a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:topConceptOf tg:TourismTopics ;
+  skos:prefLabel "Nature & Outdoors"@en, "Nature & Plein Air"@fr ;
+  skos:altLabel "Outdoor Activities"@en ;
+  skos:altLabel "Espaces Verts"@fr ;
+  skos:altLabel "Green Spaces"@en ;
+  skos:hiddenLabel "nature"@en ;
+  skos:hiddenLabel "outdoors"@en ;
+  skos:notation "TG-NAT-001"^^xsd:string ;
+  skos:notation "N01"^^tg:TopicCode ;
+  skos:definition "Natural spaces and outdoor activities including parks, gardens, and rivers"@en ;
+  skos:scopeNote "Espaces naturels urbains et semi-urbains accessibles aux touristes"@fr ;
+  skos:historyNote "Extension du concept pour inclure places publiques en 2026"@fr ;
+  skos:example "Jardin du Luxembourg, Parc des Buttes-Chaumont, Seine riverside"@fr ;
+  skos:narrower tg:Park ;
+  skos:narrower tg:PublicSquare ;
+  skos:narrower tg:RiverSeine ;
+  skos:narrowerTransitive tg:Park, tg:Garden, tg:BotanicalGarden ;
+  skos:related tg:FamilyFriendly ;
+  skos:related tg:Photography ;
+  xl:prefLabel tg:NatureEnLabel .
+
+tg:Shopping a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:topConceptOf tg:TourismTopics ;
+  skos:prefLabel "Shopping"@en, "Shopping"@fr ;
+  skos:altLabel "Retail"@en ;
+  skos:altLabel "Commerce"@fr ;
+  skos:altLabel "Boutiques"@fr ;
+  skos:hiddenLabel "shopping"@en ;
+  skos:notation "TG-SHOP-001"^^xsd:string ;
+  skos:notation "S01"^^tg:TopicCode ;
+  skos:definition "Shopping and commercial activities including boutiques, markets, and luxury stores"@en ;
+  skos:scopeNote "Commerce de détail touristique, inclut marchés et boutiques spécialisées"@fr ;
+  skos:historyNote "Ajout des marchés aux puces en 2026"@fr ;
+  skos:example "Champs-Élysées, Marais boutiques, Marché aux Puces de Saint-Ouen"@fr ;
+  skos:narrower tg:LuxuryShopping ;
+  skos:narrower tg:FashionBoutique ;
+  skos:narrower tg:BookStore ;
+  skos:narrower tg:Market ;
+  skos:narrowerTransitive tg:Market, tg:FleaMarket ;
+  skos:related tg:Culture ;
+  xl:prefLabel tg:ShoppingEnLabel .
+
+tg:Accommodation a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:topConceptOf tg:TourismTopics ;
+  skos:prefLabel "Accommodation"@en, "Hébergement"@fr ;
+  skos:altLabel "Lodging"@en ;
+  skos:altLabel "Hotels"@en ;
+  skos:altLabel "Hôtels"@fr ;
+  skos:hiddenLabel "accommodation"@en ;
+  skos:hiddenLabel "hebergement"@fr ;
+  skos:notation "TG-ACC-001"^^xsd:string ;
+  skos:notation "A01"^^tg:TopicCode ;
+  skos:definition "Places to stay including hotels, hostels, and lodging facilities"@en ;
+  skos:scopeNote "Hébergement touristique uniquement, pas résidentiel"@fr ;
+  skos:historyNote "Étendu pour inclure auberges de jeunesse en 2026"@fr ;
+  skos:example "Ritz Paris, Ibis Budget, Generator Hostel"@fr ;
+  skos:narrower tg:LuxuryHotel ;
+  skos:narrower tg:BudgetHotel ;
+  skos:narrower tg:Hostel ;
+  skos:narrowerTransitive tg:LuxuryHotel, tg:BudgetHotel, tg:Hostel ;
+  xl:prefLabel tg:AccommodationEnLabel .
+
+#####################
+# Culture Hierarchy #
+#####################
+
+tg:Museum a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Culture ;
+  skos:broaderTransitive tg:Culture ;
+  skos:prefLabel "Museum"@en, "Musée"@fr ;
+  skos:altLabel "Musée"@fr, "Museo"@es ;
+  skos:altLabel "Cultural Institution"@en ;
+  skos:hiddenLabel "musee"@fr ;
+  skos:hiddenLabel "museum"@en ;
+  skos:notation "TG-MUS-001"^^xsd:string ;
+  skos:notation "C02"^^tg:TopicCode ;
+  skos:definition "Institution housing collections of artifacts, artworks, and historical objects"@en ;
+  skos:definition "Institution abritant des collections d'artefacts, œuvres d'art et objets historiques"@fr ;
+  skos:scopeNote "Inclut uniquement musées publics et privés ouverts aux touristes"@fr ;
+  skos:historyNote "Catégorie étendue en 2026 pour inclure musées scientifiques"@fr ;
+  skos:example "Louvre, Musée d'Orsay, Centre Pompidou"@fr ;
+  skos:narrower tg:ArtMuseum ;
+  skos:narrower tg:HistoricalMuseum ;
+  skos:narrower tg:ScienceMuseum ;
+  skos:narrowerTransitive tg:ArtMuseum, tg:HistoricalMuseum, tg:ScienceMuseum .
+
+tg:ArtMuseum a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Museum ;
+  skos:broaderTransitive tg:Museum, tg:Culture ;
+  skos:prefLabel "Art Museum"@en, "Musée d'Art"@fr ;
+  skos:altLabel "Gallery"@en ;
+  skos:altLabel "Galerie d'Art"@fr ;
+  skos:hiddenLabel "art gallery"@en ;
+  skos:notation "TG-MUS-ART-001"^^xsd:string ;
+  skos:definition "Museum specializing in visual arts and artistic works"@en ;
+  skos:scopeNote "Art classique, moderne et contemporain"@fr ;
+  skos:example "Louvre, Musée d'Orsay, Musée Rodin"@fr ;
+  skos:related tg:ModernArt, tg:ClassicalArt .
+
+tg:HistoricalMuseum a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Museum ;
+  skos:prefLabel "History Museum"@en, "Musée d'Histoire"@fr .
+
+tg:ScienceMuseum a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Museum ;
+  skos:prefLabel "Science Museum"@en, "Musée de Science"@fr .
+
+tg:Monument a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Culture ;
+  skos:broaderTransitive tg:Culture ;
+  skos:prefLabel "Monument"@en, "Monument"@fr ;
+  skos:altLabel "Landmark"@en ;
+  skos:altLabel "Historical Monument"@en ;
+  skos:altLabel "Monument Historique"@fr ;
+  skos:hiddenLabel "monument"@en ;
+  skos:notation "TG-MON-001"^^xsd:string ;
+  skos:definition "Historic or architectural landmark of cultural significance"@en ;
+  skos:definition "Lieu historique ou architectural d'importance culturelle"@fr ;
+  skos:scopeNote "Monuments classés ou reconnus patrimoine UNESCO"@fr ;
+  skos:historyNote "Critères élargis en 2026 pour inclure architecture moderne"@fr ;
+  skos:example "Tour Eiffel, Arc de Triomphe, Notre-Dame"@fr ;
+  skos:related tg:Architecture ;
+  skos:related tg:Historic ;
+  skos:related tg:Photography .
+
+tg:Architecture a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Culture ;
+  skos:prefLabel "Architecture"@en, "Architecture"@fr ;
+  skos:related tg:Monument .
+
+tg:ReligiousHeritage a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Culture ;
+  skos:prefLabel "Religious Heritage"@en, "Patrimoine Religieux"@fr .
+
+tg:Church a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:ReligiousHeritage ;
+  skos:broaderTransitive tg:ReligiousHeritage, tg:Culture ;
+  skos:prefLabel "Church"@en, "Église"@fr ;
+  skos:altLabel "Chapel"@en ;
+  skos:altLabel "Chapelle"@fr ;
+  skos:hiddenLabel "eglise"@fr ;
+  skos:hiddenLabel "church"@en ;
+  skos:notation "TG-REL-CHU-001"^^xsd:string ;
+  skos:definition "Christian place of worship with architectural and historical value"@en ;
+  skos:scopeNote "Églises ouvertes aux visiteurs touristiques"@fr ;
+  skos:example "Saint-Sulpice, Saint-Étienne-du-Mont, Sainte-Chapelle"@fr ;
+  skos:narrower tg:Cathedral ;
+  skos:narrowerTransitive tg:Cathedral .
+
+tg:Cathedral a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Church ;
+  skos:broaderTransitive tg:Church, tg:ReligiousHeritage, tg:Culture ;
+  skos:prefLabel "Cathedral"@en, "Cathédrale"@fr ;
+  skos:altLabel "Basilica"@en ;
+  skos:altLabel "Basilique"@fr ;
+  skos:hiddenLabel "cathedrale"@fr ;
+  skos:hiddenLabel "cathedral"@en ;
+  skos:notation "TG-REL-CAT-001"^^xsd:string ;
+  skos:definition "Principal church of a diocese, often with significant architectural value"@en ;
+  skos:definition "Principale église d'un diocèse, souvent d'importance architecturale majeure"@fr ;
+  skos:scopeNote "Cathédrales gothiques et romanes principalement"@fr ;
+  skos:historyNote "Catégorie étendue pour inclure basiliques en 2026"@fr ;
+  skos:example "Notre-Dame de Paris, Sacré-Cœur"@fr ;
+  skos:related tg:Monument ;
+  skos:related tg:Historic ;
+  skos:related tg:Photography .
+
+tg:ModernArt a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Culture ;
+  skos:prefLabel "Modern Art"@en, "Art Moderne"@fr .
+
+tg:ClassicalArt a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Culture ;
+  skos:prefLabel "Classical Art"@en, "Art Classique"@fr .
+
+tg:Theater a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Culture ;
+  skos:prefLabel "Theater"@en, "Théâtre"@fr .
+
+# Nouveaux concepts culturels identifiés
+tg:ArtGallery a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Art Gallery"@en, "Galerie d'Art"@fr ;
+  skos:broader tg:Culture ;
+  skos:related tg:ModernArt, tg:ClassicalArt .
+
+tg:PerformingArtsVenue a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Performing Arts Venue"@en, "Lieu de Spectacle"@fr ;
+  skos:broader tg:Culture ;
+  skos:narrower tg:Theater, tg:ConcertHall .
+
+tg:ConcertHall a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Concert Hall"@en, "Salle de Concert"@fr ;
+  skos:broader tg:PerformingArtsVenue ;
+  skos:related tg:MusicVenue .
+
+tg:EventSpace a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Event Space"@en, "Espace Événementiel"@fr ;
+  skos:broader tg:Entertainment ;
+  skos:narrower tg:ConventionCenter, tg:Auditorium .
+
+tg:ConventionCenter a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Convention Center"@en, "Centre de Congrès"@fr ;
+  skos:broader tg:EventSpace .
+
+tg:Auditorium a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Auditorium"@en, "Auditorium"@fr ;
+  skos:broader tg:EventSpace .
+
+tg:MovieTheater a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Movie Theater"@en, "Cinéma"@fr ;
+  skos:altLabel "Multiplex"@en, "Cinéma Multiplexe"@fr ;
+  skos:broader tg:Cinema .
+
+tg:PublicArt a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Public Art"@en, "Art Public"@fr ;
+  skos:broader tg:Culture ;
+  skos:related tg:SculptureGarden, tg:Monument .
+
+tg:ReligiousSite a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Religious Site"@en, "Site Religieux"@fr ;
+  skos:broader tg:ReligiousHeritage ;
+  skos:narrower tg:Mosque, tg:Synagogue, tg:Temple .
+
+tg:Mosque a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Mosque"@en, "Mosquée"@fr ;
+  skos:broader tg:ReligiousSite .
+
+tg:Synagogue a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Synagogue"@en, "Synagogue"@fr ;
+  skos:broader tg:ReligiousSite .
+
+tg:Temple a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Temple"@en, "Temple"@fr ;
+  skos:broader tg:ReligiousSite .
+
+tg:Cemetery a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Cemetery"@en, "Cimetière"@fr ;
+  skos:broader tg:Historic ;
+  skos:related tg:Culture ;
+  skos:example "Père Lachaise, Montparnasse"@fr .
+
+tg:DanceStudio a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Dance Studio"@en, "École de Danse"@fr ;
+  skos:broader tg:Culture .
+
+#####################
+# Food Hierarchy    #
+#####################
+
+tg:FrenchCuisine a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Food ;
+  skos:prefLabel "French Cuisine"@en, "Cuisine Française"@fr ;
+  skos:definition "Traditional French culinary heritage"@en .
+
+tg:FineDining a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Food ;
+  skos:prefLabel "Fine Dining"@en, "Haute Gastronomie"@fr ;
+  skos:related tg:MichelinStar .
+
+tg:MichelinStar a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:FineDining ;
+  skos:prefLabel "Michelin Star"@en, "Étoile Michelin"@fr .
+
+tg:BistroFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Food ;
+  skos:prefLabel "Bistro"@en, "Bistrot"@fr .
+
+tg:CafeRestaurant a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Food ;
+  skos:prefLabel "Cafe"@en, "Café"@fr .
+
+tg:FastFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Fast Food"@en, "Restauration Rapide"@fr ;
+  skos:altLabel "Quick Service Restaurant"@en ;
+  skos:broader tg:Food ;
+  skos:narrower tg:BurgerJoint, tg:FoodTruck ;
+  skos:definition "Quick-service restaurant with counter service"@en ;
+  skos:notation "TG-FAST-001"^^xsd:string .
+
+tg:BurgerJoint a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Burger Joint"@en, "Burger"@fr ;
+  skos:broader tg:FastFood ;
+  skos:definition "Restaurant specializing in hamburgers"@en .
+
+tg:FoodTruck a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Food Truck"@en, "Camion-Restaurant"@fr ;
+  skos:broader tg:FastFood ;
+  skos:definition "Mobile food service vehicle"@en .
+
+tg:CoffeeConcept a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Coffee Shop"@en, "Café"@fr ;
+  skos:broader tg:Food ;
+  skos:definition "Establishment specializing in coffee beverages"@en .
+
+tg:Bakery a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Bakery"@en, "Boulangerie"@fr ;
+  skos:broader tg:Food ;
+  skos:definition "Shop selling bread and pastries"@en .
+
+tg:SandwichPlace a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Sandwich Place"@en, "Sandwicherie"@fr ;
+  skos:broader tg:FastFood ;
+  skos:definition "Restaurant specializing in sandwiches"@en .
+
+tg:Diner a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Diner"@en, "Restaurant Américain"@fr ;
+  skos:broader tg:Food ;
+  skos:definition "Casual American-style restaurant"@en .
+
+tg:StreetFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Food ;
+  skos:prefLabel "Street Food"@en, "Cuisine de Rue"@fr .
+
+tg:InternationalCuisine a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Food ;
+  skos:prefLabel "International Cuisine"@en, "Cuisine Internationale"@fr .
+
+tg:ItalianFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:InternationalCuisine ;
+  skos:prefLabel "Italian"@en, "Italienne"@fr .
+
+tg:AsianFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:InternationalCuisine ;
+  skos:prefLabel "Asian"@en, "Asiatique"@fr .
+
+tg:Vegetarian a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Food ;
+  skos:prefLabel "Vegetarian"@en, "Végétarien"@fr .
+
+tg:Vegan a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Vegetarian ;
+  skos:prefLabel "Vegan"@en, "Végétalien"@fr .
+
+# Nouvelles cuisines internationales identifiées dans les reviews
+tg:AmericanFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "American Cuisine"@en, "Cuisine Américaine"@fr ;
+  skos:broader tg:InternationalCuisine .
+
+tg:JapaneseFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Japanese Cuisine"@en, "Cuisine Japonaise"@fr ;
+  skos:broader tg:AsianFood ;
+  skos:narrower tg:SushiRestaurant, tg:RamenRestaurant .
+
+tg:SushiRestaurant a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Sushi Restaurant"@en, "Restaurant Sushi"@fr ;
+  skos:broader tg:JapaneseFood .
+
+tg:RamenRestaurant a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Ramen Restaurant"@en, "Restaurant Ramen"@fr ;
+  skos:broader tg:JapaneseFood .
+
+tg:IndianFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Indian Cuisine"@en, "Cuisine Indienne"@fr ;
+  skos:broader tg:InternationalCuisine .
+
+tg:MexicanFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Mexican Cuisine"@en, "Cuisine Mexicaine"@fr ;
+  skos:broader tg:InternationalCuisine .
+
+tg:ThaiFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Thai Cuisine"@en, "Cuisine Thaïlandaise"@fr ;
+  skos:broader tg:AsianFood .
+
+tg:KoreanFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Korean Cuisine"@en, "Cuisine Coréenne"@fr ;
+  skos:broader tg:AsianFood .
+
+tg:MiddleEasternFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Middle Eastern Cuisine"@en, "Cuisine Moyen-Orientale"@fr ;
+  skos:broader tg:InternationalCuisine ;
+  skos:narrower tg:MoroccanFood .
+
+tg:MoroccanFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Moroccan Cuisine"@en, "Cuisine Marocaine"@fr ;
+  skos:broader tg:MiddleEasternFood .
+
+tg:VietnameseFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Vietnamese Cuisine"@en, "Cuisine Vietnamienne"@fr ;
+  skos:broader tg:AsianFood .
+
+tg:TapasRestaurant a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Tapas Restaurant"@en, "Restaurant Tapas"@fr ;
+  skos:broader tg:InternationalCuisine .
+
+tg:Steakhouse a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Steakhouse"@en, "Steakhouse"@fr ;
+  skos:broader tg:FineDining .
+
+# Types de restaurants spécifiques
+tg:FastFood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Fast Food"@en, "Restauration Rapide"@fr ;
+  skos:broader tg:Food ;
+  skos:narrower tg:BurgerJoint, tg:PizzaPlace .
+
+tg:BurgerJoint a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Burger Joint"@en, "Restaurant Burgers"@fr ;
+  skos:broader tg:FastFood .
+
+tg:PizzaPlace a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Pizza Place"@en, "Pizzeria"@fr ;
+  skos:broader tg:FastFood ;
+  skos:related tg:ItalianFood .
+
+tg:FoodTruck a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Food Truck"@en, "Camion Restaurant"@fr ;
+  skos:broader tg:StreetFood .
+
+tg:Bakery a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Bakery"@en, "Boulangerie"@fr ;
+  skos:broader tg:Food ;
+  skos:related tg:FrenchCuisine .
+
+tg:TeaRoom a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Tea Room"@en, "Salon de Thé"@fr ;
+  skos:broader tg:CafeRestaurant .
+
+tg:Deli a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Delicatessen"@en, "Épicerie Fine"@fr ;
+  skos:broader tg:Food .
+
+tg:SandwichPlace a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Sandwich Place"@en, "Sandwicherie"@fr ;
+  skos:broader tg:FastFood .
+
+tg:BagelShop a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Bagel Shop"@en, "Bagel Shop"@fr ;
+  skos:broader tg:FastFood .
+
+tg:Diner a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Diner"@en, "Restaurant Américain"@fr ;
+  skos:broader tg:AmericanFood .
+
+tg:CoffeeShop a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Coffee Shop"@en, "Café"@fr ;
+  skos:broader tg:CafeRestaurant ;
+  skos:related tg:Bakery .
+
+tg:Gastropub a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Gastropub"@en, "Gastropub"@fr ;
+  skos:broader tg:BistroFood ;
+  skos:related tg:Nightlife .
+
+#####################
+# Nature Hierarchy  #
+#####################
+
+tg:Park a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Nature ;
+  skos:prefLabel "Park"@en, "Parc"@fr .
+
+tg:Garden a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Park ;
+  skos:prefLabel "Garden"@en, "Jardin"@fr .
+
+tg:BotanicalGarden a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Garden ;
+  skos:prefLabel "Botanical Garden"@en, "Jardin Botanique"@fr .
+
+tg:PublicSquare a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Nature ;
+  skos:prefLabel "Public Square"@en, "Place Publique"@fr ;
+  skos:altLabel "Plaza"@en, "Esplanade"@fr ;
+  skos:related tg:Monument .
+
+tg:Neighborhood a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Nature ;
+  skos:prefLabel "Neighborhood"@en, "Quartier"@fr ;
+  skos:related tg:PublicSquare .
+
+tg:Lake a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Nature ;
+  skos:prefLabel "Lake"@en, "Lac"@fr ;
+  skos:related tg:Park .
+
+tg:Pool a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Nature ;
+  skos:prefLabel "Pool"@en, "Bassin"@fr ;
+  skos:related tg:SwimmingPool, tg:Park .
+
+tg:RiverSeine a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Nature ;
+  skos:prefLabel "Seine River"@en, "La Seine"@fr .
+
+# Nouveaux concepts Nature
+tg:SculptureGarden a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Sculpture Garden"@en, "Jardin de Sculptures"@fr ;
+  skos:broader tg:Garden ;
+  skos:related tg:ModernArt .
+
+tg:ScenicLookout a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Scenic Lookout"@en, "Point de Vue"@fr ;
+  skos:broader tg:Nature ;
+  skos:related tg:Photography .
+
+tg:Bridge a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Bridge"@en, "Pont"@fr ;
+  skos:broader tg:Architecture ;
+  skos:related tg:Historic, tg:RiverSeine .
+
+tg:Harbor a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Harbor / Marina"@en, "Port / Marina"@fr ;
+  skos:broader tg:Nature ;
+  skos:related tg:RiverSeine .
+
+tg:Island a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Island"@en, "Île"@fr ;
+  skos:broader tg:Nature ;
+  skos:example "Île de la Cité, Île Saint-Louis"@fr .
+
+tg:Playground a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Playground"@en, "Aire de Jeux"@fr ;
+  skos:broader tg:Park ;
+  skos:related tg:FamilyFriendly .
+
+tg:Trail a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Trail"@en, "Sentier"@fr ;
+  skos:broader tg:Nature .
+
+tg:Zoo a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Zoo"@en, "Zoo"@fr ;
+  skos:broader tg:Nature ;
+  skos:related tg:FamilyFriendly .
+
+#####################
+# Entertainment     #\n#####################
+
+tg:Nightlife a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Entertainment ;
+  skos:prefLabel "Nightlife"@en, "Vie Nocturne"@fr .
+
+tg:Bar a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Nightlife ;
+  skos:prefLabel "Bar"@en, "Bar"@fr ;
+  skos:narrower tg:WineBar, tg:CocktailBar, tg:SportsBar, tg:Lounge .
+
+tg:Pub a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Nightlife ;
+  skos:prefLabel "Pub"@en, "Pub"@fr ;
+  skos:related tg:Bar, tg:BeerGarden .
+
+tg:CocktailBar a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Bar ;
+  skos:prefLabel "Cocktail Bar"@en, "Bar à Cocktails"@fr .
+
+tg:Lounge a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Bar ;
+  skos:prefLabel "Lounge"@en, "Salon"@fr ;
+  skos:related tg:CocktailBar .
+
+tg:HotelBar a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Bar ;
+  skos:prefLabel "Hotel Bar"@en, "Bar d'Hôtel"@fr ;
+  skos:related tg:LuxuryHotel .
+
+tg:Cinema a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Entertainment ;
+  skos:prefLabel "Cinema"@en, "Cinéma"@fr .
+
+tg:MusicVenue a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Entertainment ;
+  skos:prefLabel "Music Venue"@en, "Salle de Concert"@fr .
+
+tg:CabaretShow a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Entertainment ;
+  skos:prefLabel "Cabaret"@en, "Cabaret"@fr .
+
+# Nouveaux lieux de divertissement et nightlife
+tg:ComedyClub a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Comedy Club"@en, "Club de Comédie"@fr ;
+  skos:broader tg:Entertainment .
+
+tg:OperaHouse a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Opera House"@en, "Opéra"@fr ;
+  skos:broader tg:Entertainment ;
+  skos:related tg:Culture, tg:ClassicalArt .
+
+tg:RockClub a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Rock Club"@en, "Club Rock"@fr ;
+  skos:broader tg:MusicVenue .
+
+tg:Nightclub a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Nightclub"@en, "Boîte de Nuit"@fr ;
+  skos:broader tg:Nightlife .
+
+tg:WineBar a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Wine Bar"@en, "Bar à Vin"@fr ;
+  skos:broader tg:Nightlife ;
+  skos:related tg:FrenchCuisine .
+
+tg:WhiskyBar a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Whisky Bar"@en, "Bar à Whisky"@fr ;
+  skos:broader tg:Nightlife .
+
+tg:SportsBar a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Sports Bar"@en, "Bar Sportif"@fr ;
+  skos:broader tg:Nightlife .
+
+tg:HookahBar a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Hookah Bar"@en, "Bar à Chicha"@fr ;
+  skos:broader tg:Nightlife .
+
+tg:Speakeasy a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Speakeasy"@en, "Bar Clandestin"@fr ;
+  skos:broader tg:Nightlife ;
+  skos:hiddenLabel "hidden bar"@en, "bar caché"@fr .
+
+tg:BeerGarden a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Beer Garden"@en, "Jardin à Bière"@fr ;
+  skos:broader tg:Nightlife ;
+  skos:related tg:Nature .
+
+tg:Brewery a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Brewery"@en, "Brasserie Artisanale"@fr ;
+  skos:broader tg:Nightlife ;
+  skos:related tg:Food .
+
+tg:ThemePark a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Theme Park"@en, "Parc d'Attractions"@fr ;
+  skos:broader tg:Entertainment ;
+  skos:related tg:FamilyFriendly .
+
+#####################
+# Transport & Infrastructure
+#####################
+
+tg:Transport a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:topConceptOf tg:TourismTopics ;
+  skos:prefLabel "Transport"@en, "Transport"@fr ;
+  skos:definition "Transportation infrastructure and services"@en .
+
+tg:Subway a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport ;
+  skos:prefLabel "Subway"@en, "Métro"@fr ;
+  skos:altLabel "Metro"@en, "Underground"@en .
+
+tg:TrainStation a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport ;
+  skos:prefLabel "Train Station"@en, "Gare"@fr ;
+  skos:altLabel "Railway Station"@en .
+
+tg:BusStation a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport ;
+  skos:prefLabel "Bus Station"@en, "Gare Routière"@fr ;
+  skos:altLabel "Bus Terminal"@en .
+
+tg:BusLine a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport ;
+  skos:prefLabel "Bus Line"@en, "Ligne de Bus"@fr ;
+  skos:related tg:BusStation .
+
+tg:LightRail a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport ;
+  skos:prefLabel "Light Rail"@en, "Tramway"@fr ;
+  skos:altLabel "Tram"@en .
+
+tg:BoatFerry a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport ;
+  skos:prefLabel "Boat or Ferry"@en, "Bateau ou Ferry"@fr ;
+  skos:related tg:RiverSeine, tg:Harbor .
+
+tg:BikeRental a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport ;
+  skos:prefLabel "Bike Rental"@en, "Location de Vélo"@fr ;
+  skos:altLabel "Bike Share"@en, "Vélib"@fr .
+
+tg:Road a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport ;
+  skos:prefLabel "Road"@en, "Route"@fr ;
+  skos:altLabel "Street"@en, "Rue"@fr .
+
+#####################
+# Public Services
+#####################
+
+tg:PublicService a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:topConceptOf tg:TourismTopics ;
+  skos:prefLabel "Public Service"@en, "Service Public"@fr .
+
+tg:GovernmentBuilding a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:PublicService ;
+  skos:prefLabel "Government Building"@en, "Bâtiment Gouvernemental"@fr .
+
+tg:CityHall a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:GovernmentBuilding ;
+  skos:prefLabel "City Hall"@en, "Mairie"@fr ;
+  skos:altLabel "Town Hall"@en, "Hôtel de Ville"@fr .
+
+tg:Embassy a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:GovernmentBuilding ;
+  skos:prefLabel "Embassy"@en, "Ambassade"@fr ;
+  skos:altLabel "Consulate"@en, "Consulat"@fr .
+
+tg:PoliceStation a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:PublicService ;
+  skos:prefLabel "Police Station"@en, "Commissariat"@fr .
+
+tg:Library a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:PublicService ;
+  skos:prefLabel "Library"@en, "Bibliothèque"@fr ;
+  skos:related tg:BookStore .
+
+tg:MedicalCenter a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:PublicService ;
+  skos:prefLabel "Medical Center"@en, "Centre Médical"@fr .
+
+tg:Hospital a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:MedicalCenter ;
+  skos:prefLabel "Hospital"@en, "Hôpital"@fr .
+
+tg:Office a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:PublicService ;
+  skos:prefLabel "Office"@en, "Bureau"@fr .
+
+tg:MeetingRoom a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Office ;
+  skos:prefLabel "Meeting Room"@en, "Salle de Réunion"@fr ;
+  skos:related tg:ConventionCenter .
+
+#####################
+# Shopping Hierarchy#
+#####################
+
+tg:LuxuryShopping a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Shopping ;
+  skos:prefLabel "Luxury Shopping"@en, "Shopping de Luxe"@fr .
+
+tg:FashionBoutique a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Shopping ;
+  skos:prefLabel "Fashion Boutique"@en, "Boutique de Mode"@fr .
+
+tg:BookStore a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Shopping ;
+  skos:prefLabel "Book Store"@en, "Librairie"@fr .
+
+tg:Market a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Shopping ;
+  skos:prefLabel "Market"@en, "Marché"@fr .
+
+tg:FleaMarket a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Market ;
+  skos:prefLabel "Flea Market"@en, "Marché aux Puces"@fr .
+
+tg:ClothingStore a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Shopping ;
+  skos:prefLabel "Clothing Store"@en, "Magasin de Vêtements"@fr ;
+  skos:related tg:FashionBoutique .
+
+#####################
+# Accommodation     #
+#####################
+
+tg:LuxuryHotel a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Accommodation ;
+  skos:prefLabel "Luxury Hotel"@en, "Hôtel de Luxe"@fr .
+
+tg:BudgetHotel a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Accommodation ;
+  skos:prefLabel "Budget Hotel"@en, "Hôtel Économique"@fr .
+
+tg:Hostel a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Accommodation ;
+  skos:prefLabel "Hostel"@en, "Auberge de Jeunesse"@fr .
+
+#####################
+# Transport & Infrastructure
+#####################
+
+tg:Transport a skos:Concept ;
+  skos:prefLabel "Transport"@en, "Transport"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:topConceptOf tg:TourismTopics ;
+  skos:definition "Transportation infrastructure and services"@en ;
+  skos:narrower tg:Subway, tg:TrainStation, tg:BusStation .
+
+tg:Subway a skos:Concept ;
+  skos:prefLabel "Subway"@en, "Métro"@fr ;
+  skos:altLabel "Metro"@en, "Underground"@en ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport .
+
+tg:TrainStation a skos:Concept ;
+  skos:prefLabel "Train Station"@en, "Gare"@fr ;
+  skos:altLabel "Railway Station"@en, "Gare ferroviaire"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport .
+
+tg:BusStation a skos:Concept ;
+  skos:prefLabel "Bus Station"@en, "Gare routière"@fr ;
+  skos:altLabel "Bus Terminal"@en ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport .
+
+tg:BusLine a skos:Concept ;
+  skos:prefLabel "Bus Line"@en, "Ligne de bus"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport ;
+  skos:related tg:BusStation .
+
+tg:LightRail a skos:Concept ;
+  skos:prefLabel "Light Rail"@en, "Tramway"@fr ;
+  skos:altLabel "Tram"@en ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport .
+
+tg:BoatFerry a skos:Concept ;
+  skos:prefLabel "Boat or Ferry"@en, "Bateau ou ferry"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport ;
+  skos:related tg:RiverSeine, tg:Harbor .
+
+tg:BikeRental a skos:Concept ;
+  skos:prefLabel "Bike Rental"@en, "Location de vélo"@fr ;
+  skos:altLabel "Bike Share"@en, "Vélib"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport .
+
+tg:Road a skos:Concept ;
+  skos:prefLabel "Road"@en, "Route"@fr ;
+  skos:altLabel "Street"@en, "Rue"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Transport .
+
+#####################
+# Public Services
+#####################
+
+tg:PublicService a skos:Concept ;
+  skos:prefLabel "Public Service"@en, "Service public"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:topConceptOf tg:TourismTopics .
+
+tg:GovernmentBuilding a skos:Concept ;
+  skos:prefLabel "Government Building"@en, "Bâtiment gouvernemental"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:PublicService .
+
+tg:CityHall a skos:Concept ;
+  skos:prefLabel "City Hall"@en, "Mairie"@fr ;
+  skos:altLabel "Town Hall"@en, "Hôtel de ville"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:GovernmentBuilding .
+
+tg:Embassy a skos:Concept ;
+  skos:prefLabel "Embassy"@en, "Ambassade"@fr ;
+  skos:altLabel "Consulate"@en, "Consulat"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:GovernmentBuilding .
+
+tg:PoliceStation a skos:Concept ;
+  skos:prefLabel "Police Station"@en, "Commissariat"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:PublicService .
+
+tg:Library a skos:Concept ;
+  skos:prefLabel "Library"@en, "Bibliothèque"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:PublicService ;
+  skos:related tg:BookStore .
+
+tg:MedicalCenter a skos:Concept ;
+  skos:prefLabel "Medical Center"@en, "Centre médical"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:PublicService .
+
+tg:Hospital a skos:Concept ;
+  skos:prefLabel "Hospital"@en, "Hôpital"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:MedicalCenter .
+
+tg:Office a skos:Concept ;
+  skos:prefLabel "Office"@en, "Bureau"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:PublicService .
+
+tg:MeetingRoom a skos:Concept ;
+  skos:prefLabel "Meeting Room"@en, "Salle de réunion"@fr ;
+  skos:inScheme tg:TourismTopics ;
+  skos:broader tg:Office ;
+  skos:related tg:ConventionCenter .
+
+#####################
+# Sports & Recreation#
+#####################
+
+tg:Sports a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:topConceptOf tg:TourismTopics ;
+  skos:prefLabel "Sports & Recreation"@en, "Sports & Loisirs"@fr ;
+  skos:altLabel "Athletic Activities"@en ;
+  skos:definition "Sports venues, facilities, and athletic activities"@en ;
+  skos:narrower tg:Stadium, tg:GymFitness, tg:GolfCourse, tg:BowlingAlley, tg:SkatePark .
+
+tg:Stadium a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Stadium"@en, "Stade"@fr ;
+  skos:broader tg:Sports ;
+  skos:narrower tg:BasketballStadium, tg:TrackStadium, tg:Racetrack .
+
+tg:BasketballStadium a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Basketball Stadium"@en, "Stade de Basketball"@fr ;
+  skos:broader tg:Stadium .
+
+tg:TrackStadium a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Track Stadium"@en, "Stade d'Athlétisme"@fr ;
+  skos:broader tg:Stadium .
+
+tg:Racetrack a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Racetrack"@en, "Circuit de Course"@fr ;
+  skos:broader tg:Stadium .
+
+tg:GymFitness a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Gym & Fitness"@en, "Gym & Fitness"@fr ;
+  skos:broader tg:Sports ;
+  skos:narrower tg:SwimmingPool, tg:TennisCourt .
+
+tg:SwimmingPool a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Swimming Pool"@en, "Piscine"@fr ;
+  skos:broader tg:GymFitness .
+
+tg:TennisCourt a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Tennis Court"@en, "Court de Tennis"@fr ;
+  skos:broader tg:GymFitness .
+
+tg:GolfCourse a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Golf Course"@en, "Terrain de Golf"@fr ;
+  skos:broader tg:Sports .
+
+tg:BowlingAlley a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Bowling Alley"@en, "Bowling"@fr ;
+  skos:broader tg:Sports .
+
+tg:SkatePark a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Skate Park"@en, "Skate Park"@fr ;
+  skos:broader tg:Sports .
+
+#####################
+# Cross-cutting     #\n#####################
+
+tg:FamilyFriendly a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Family Friendly"@en, "Adapté aux Familles"@fr ;
+  skos:related tg:Park, tg:Museum .
+
+tg:RomanticSpot a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Romantic"@en, "Romantique"@fr ;
+  skos:related tg:FineDining, tg:RiverSeine .
+
+tg:Accessible a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Accessible"@en, "Accessible"@fr ;
+  skos:definition "Wheelchair accessible places"@en .
+
+tg:Historic a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Historic"@en, "Historique"@fr ;
+  skos:related tg:Monument, tg:Museum .
+
+tg:Photography a skos:Concept ;
+  skos:inScheme tg:TourismTopics ;
+  skos:prefLabel "Photography"@en, "Photographie"@fr ;
+  skos:related tg:Monument, tg:Park .
+
+#####################
+# SKOS-XL Labels    #
+#####################
+
+# Labels complexes pour Culture
+tg:CultureEnLabel a xl:Label ;
+  xl:literalForm "Culture"@en ;
+  rdfs:comment "Primary English label for cultural activities"@en .
+
+tg:CultureFrAltLabel a xl:Label ;
+  xl:literalForm "Patrimoine Culturel"@fr ;
+  rdfs:comment "Alternative French label emphasizing heritage"@fr ;
+  tg:acronymOf tg:CultureEnLabel .
+
+# Labels complexes pour Food
+tg:FoodEnLabel a xl:Label ;
+  xl:literalForm "Food & Dining"@en ;
+  rdfs:comment "Primary English label for culinary experiences"@en .
+
+tg:FoodFrAltLabel a xl:Label ;
+  xl:literalForm "Gastronomie"@fr ;
+  rdfs:comment "French label highlighting gastronomic aspect"@fr .
+
+# Labels complexes pour Entertainment
+tg:EntertainmentEnLabel a xl:Label ;
+  xl:literalForm "Entertainment"@en ;
+  rdfs:comment "Primary label for entertainment activities"@en .
+
+# Labels complexes pour Nature
+tg:NatureEnLabel a xl:Label ;
+  xl:literalForm "Nature & Outdoors"@en ;
+  rdfs:comment "Label for natural and outdoor spaces"@en .
+
+# Labels complexes pour Shopping
+tg:ShoppingEnLabel a xl:Label ;
+  xl:literalForm "Shopping"@en ;
+  rdfs:comment "Commercial and retail activities label"@en .
+
+# Labels complexes pour Accommodation
+tg:AccommodationEnLabel a xl:Label ;
+  xl:literalForm "Accommodation"@en ;
+  rdfs:comment "Lodging and hotel services label"@en .
+
+#####################
+# Propriété personnalisée pour acronymes (SKOS-XL extension)
+#####################
+
+tg:acronymOf a rdf:Property ;
+  rdfs:subPropertyOf xl:labelRelation ;
+  rdfs:label "acronym of"@en ;
+  rdfs:label "acronyme de"@fr ;
+  rdfs:comment "Indicates that a label is an acronym of another label"@en .
+
+#####################
+# Mapping Relations #
+#####################
+
+# Alignements avec Schema.org
+tg:Museum skos:exactMatch <http://schema.org/Museum> ;
+  skos:scopeNote "Mapping exact avec Schema.org pour interopérabilité"@fr .
+
+tg:Restaurant skos:exactMatch <http://schema.org/Restaurant> .
+
+tg:Park skos:exactMatch <http://schema.org/Park> .
+
+tg:Hotel skos:exactMatch <http://schema.org/Hotel> .
+
+# Alignements avec DBpedia
+tg:Culture skos:closeMatch <http://dbpedia.org/resource/Culture> ;
+  skos:scopeNote "Similarité forte mais pas équivalence exacte"@fr .
+
+tg:Monument skos:closeMatch <http://dbpedia.org/resource/Monument> .
+
+# Mapping hiérarchiques entre schémas
+tg:ArtMuseum skos:broadMatch <http://dbpedia.org/resource/Museum> ;
+  skos:narrowMatch <http://dbpedia.org/resource/Art_museum> .
+
+tg:FrenchCuisine skos:narrowMatch <http://dbpedia.org/resource/French_cuisine> .
+
+# Mapping associatifs
+tg:RomanticSpot skos:relatedMatch <http://schema.org/TouristAttraction> .
+
+tg:FamilyFriendly skos:relatedMatch <http://schema.org/childFriendly> .
+
+#####################
+# Collections       #
+#####################
+
+# Collection simple
+tg:TopRatedPlaces a skos:Collection ;
+  skos:prefLabel "Top Rated Places"@en, "Lieux les Mieux Notés"@fr ;
+  skos:definition "Collection of highly-rated tourist destinations"@en ;
+  skos:member tg:Museum ;
+  skos:member tg:FineDining ;
+  skos:member tg:Monument ;
+  skos:member tg:Park ;
+  skos:scopeNote "Places avec notation moyenne > 4.5/5"@fr .
+
+tg:IndoorActivities a skos:Collection ;
+  skos:prefLabel "Indoor Activities"@en, "Activités Intérieures"@fr ;
+  skos:definition "Tourist activities suitable for bad weather"@en ;
+  skos:member tg:Museum ;
+  skos:member tg:Cinema ;
+  skos:member tg:Theater ;
+  skos:member tg:Shopping ;
+  skos:scopeNote "Activités praticables par temps de pluie"@fr .
+
+#####################
+# Ordered Collections#
+#####################
+
+# Collection ordonnée par priorité touristique
+tg:MustSeeParis a skos:OrderedCollection ;
+  skos:prefLabel "Must-See Paris Attractions"@en, "Incontournables de Paris"@fr ;
+  skos:definition "Ordered list of essential Parisian attractions"@en ;
+  skos:memberList ( 
+    tg:Monument 
+    tg:Museum 
+    tg:FrenchCuisine 
+    tg:Park 
+    tg:Shopping 
+  ) ;
+  skos:scopeNote "Ordre basé sur popularité et importance culturelle"@fr ;
+  skos:editorialNote "Liste validée par l'office du tourisme de Paris"@fr .
+
+# Collection ordonnée par catégorie de prix
+tg:BudgetTourism a skos:OrderedCollection ;
+  skos:prefLabel "Budget Tourism Options"@en, "Tourisme Économique"@fr ;
+  skos:definition "Ordered activities from cheapest to moderate price"@en ;
+  skos:memberList (
+    tg:Park
+    tg:PublicSquare
+    tg:StreetFood
+    tg:BudgetHotel
+    tg:Market
+  ) ;
+  skos:scopeNote "Activités classées par coût croissant"@fr .
+
+# Collection ordonnée par expérience culinaire
+tg:CulinaryJourney a skos:OrderedCollection ;
+  skos:prefLabel "Culinary Journey"@en, "Parcours Gastronomique"@fr ;
+  skos:definition "Ordered progression through Paris culinary scene"@en ;
+  skos:memberList (
+    tg:StreetFood
+    tg:BistroFood
+    tg:FrenchCuisine
+    tg:FineDining
+    tg:MichelinStar
+  ) ;
+  skos:scopeNote "Progression du street food à la haute gastronomie"@fr ;
+  skos:historyNote "Créé en 2026 pour promouvoir la diversité gastronomique parisienne"@fr .
+
+#####################
+# Notations Étendues#
+#####################
+
+# Définition du datatype personnalisé
+tg:TopicCode a rdfs:Datatype ;
+  rdfs:label "Topic Code"@en ;
+  rdfs:comment "Internal topic identification code"@en .
+
+# Concepts avec notations multiples
+tg:MuseumArtMuseum 
+  skos:notation "MSM-ART-001"^^xsd:string ;
+  skos:notation "A12"^^tg:TopicCode ;
+  skos:notation "700.1"^^tg:DeweyCode .
+
+tg:DeweyCode a rdfs:Datatype ;
+  rdfs:label "Dewey Decimal Code"@en ;
+  rdfs:comment "Classification décimale Dewey pour catégorisation"@fr .
+
+#####################
+# Propriétés de Label Étendues
+#####################
+
+tg:labelSource a rdf:Property ;
+  rdfs:subPropertyOf xl:labelRelation ;
+  rdfs:label "label source"@en ;
+  rdfs:comment "Indicates the source or origin of a label"@en .
+
+tg:CultureEnLabel tg:labelSource <https://www.larousse.fr/> ;
+  dct:created "2026-01-15"^^xsd:date ;
+  dct:creator "TourGuide Editorial Team"@en .
+
+#####################
+# Concepts Transversaux Enrichis
+#####################
+
+tg:Accessible 
+  skos:altLabel "Wheelchair Accessible"@en ;
+  skos:altLabel "PMR"@fr ;
+  skos:hiddenLabel "handicap"@fr ;
+  skos:hiddenLabel "accessibility"@en ;
+  skos:notation "ACC-001"^^tg:TopicCode ;
+  skos:scopeNote "Accessibilité physique pour personnes à mobilité réduite"@fr ;
+  skos:example "Louvre (ascenseurs), Musée d'Orsay (rampes)"@fr .
+
+tg:Historic
+  skos:altLabel "Historical"@en ;
+  skos:altLabel "Historique"@fr ;
+  skos:altLabel "Patrimoine"@fr ;
+  skos:hiddenLabel "histoire"@fr ;
+  skos:notation "HIST-001"^^tg:TopicCode ;
+  skos:definition "Sites with significant historical importance"@en ;
+  skos:scopeNote "Importance historique avérée, datant de plus de 50 ans"@fr ;
+  skos:historyNote "Critère temporel ajusté en 2026: > 50 ans"@fr ;
+  skos:broaderTransitive tg:Culture .
+
+#####################
+# Relations Symétriques et Transitives
+#####################
+
+# Démonstration: skos:related est symétrique
+# Si tg:Culture skos:related tg:Entertainment,
+# alors tg:Entertainment skos:related tg:Culture (implicite)
+
+# Démonstration: skos:broaderTransitive est transitive
+# tg:Cathedral skos:broader tg:Church
+# tg:Church skos:broader tg:ReligiousHeritage
+# tg:ReligiousHeritage skos:broader tg:Culture
+# => tg:Cathedral skos:broaderTransitive tg:Culture
+
+#####################
+# FIN DU THESAURUS  #
+#####################

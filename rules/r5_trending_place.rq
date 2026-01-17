@@ -1,0 +1,29 @@
+PREFIX tg:  <https://example.org/tourguide#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX schema: <http://schema.org/>
+
+# R5: TrendingPlace - Lieux en tendance (beaucoup de reviews récentes)
+# Utilise uniquement les reviews enrichies (pas dans TourPedia original)
+
+CONSTRUCT {
+  ?p rdf:type tg:TrendingPlace .
+  ?p tg:inferenceReason ?reason .
+  ?p tg:inferredReviewCount ?count .
+  ?p tg:inferredAvgRating ?avgRating .
+}
+WHERE {
+  ?p rdf:type tg:Place .
+  
+  # Comptage des reviews
+  {
+    SELECT ?p (AVG(?rating) AS ?avgRating) (COUNT(?review) AS ?count)
+    WHERE {
+      ?review schema:about ?p ;
+              schema:reviewRating ?rating .
+    }
+    GROUP BY ?p
+    HAVING(COUNT(?review) >= 15 && AVG(?rating) >= 3.5)
+  }
+  
+  BIND(CONCAT("TrendingPlace: ", STR(?count), " reviews, avgRating=", STR(?avgRating), " (>=15 reviews & >=3.5 rating)") AS ?reason)
+}

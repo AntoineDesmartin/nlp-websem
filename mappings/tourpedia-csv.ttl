@@ -3,6 +3,8 @@
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
 @prefix ql:  <http://semweb.mmlab.be/ns/ql#> .
 @prefix tg:  <https://example.org/tourguide#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
@@ -101,6 +103,29 @@
   rr:predicateObjectMap [
     rr:predicate tg:polarity ;
     rr:objectMap [ rr:column "polarity" ; rr:datatype xsd:decimal ]
+  ] ;
+
+  # Alignement avec OWL+SKOS : un topic SKOS connu (pas besoin de parsing du subCategory)
+  rr:predicateObjectMap [
+    rr:predicate tg:hasTopic ;
+    rr:objectMap [ rr:constant tg:Culture ]
+  ] ;
+
+  # Alignement OWL/SHACL : tg:website (anyURI) à partir du lien API "details"
+  rr:predicateObjectMap [
+    rr:predicate tg:website ;
+    rr:objectMap [ rr:column "details" ; rr:datatype xsd:anyURI ]
+  ] ;
+
+  # Liens sortants utiles pour le linking
+  rr:predicateObjectMap [
+    rr:predicate rdfs:seeAlso ;
+    rr:objectMap [ rr:column "details" ; rr:datatype xsd:anyURI ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:seeAlso ;
+    rr:objectMap [ rr:column "reviews" ; rr:datatype xsd:anyURI ]
   ] .
 
 <#POIMap> a rr:TriplesMap ;
@@ -148,6 +173,26 @@
   rr:predicateObjectMap [
     rr:predicate tg:polarity ;
     rr:objectMap [ rr:column "polarity" ; rr:datatype xsd:decimal ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:hasTopic ;
+    rr:objectMap [ rr:constant tg:Culture ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:website ;
+    rr:objectMap [ rr:column "details" ; rr:datatype xsd:anyURI ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:seeAlso ;
+    rr:objectMap [ rr:column "details" ; rr:datatype xsd:anyURI ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:seeAlso ;
+    rr:objectMap [ rr:column "reviews" ; rr:datatype xsd:anyURI ]
   ] .
 
 <#RestaurantMap> a rr:TriplesMap ;
@@ -195,4 +240,30 @@
   rr:predicateObjectMap [
     rr:predicate tg:polarity ;
     rr:objectMap [ rr:column "polarity" ; rr:datatype xsd:decimal ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:hasTopic ;
+    rr:objectMap [ rr:constant tg:Food ]
+  ] ;
+
+  # Enrichissement OWL : tg:cuisineType peut être alimenté depuis subCategory (texte)
+  rr:predicateObjectMap [
+    rr:predicate tg:cuisineType ;
+    rr:objectMap [ rr:column "subCategory" ; rr:datatype xsd:string ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate tg:website ;
+    rr:objectMap [ rr:column "details" ; rr:datatype xsd:anyURI ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:seeAlso ;
+    rr:objectMap [ rr:column "details" ; rr:datatype xsd:anyURI ]
+  ] ;
+
+  rr:predicateObjectMap [
+    rr:predicate rdfs:seeAlso ;
+    rr:objectMap [ rr:column "reviews" ; rr:datatype xsd:anyURI ]
   ] .
