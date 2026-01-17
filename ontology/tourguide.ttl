@@ -318,11 +318,29 @@ tg:Place rdfs:subClassOf
 
 
 
-tg:HighlyRatedPlace a owl:Class ; rdfs:subClassOf tg:Place .
-tg:TopRestaurant    a owl:Class ; rdfs:subClassOf tg:Restaurant .
-tg:PopularPlace     a owl:Class ; rdfs:subClassOf tg:Place .
-tg:HiddenGem        a owl:Class ; rdfs:subClassOf tg:Place .
+# Classes inférées par règles R1-R4
+tg:HighlyRatedPlace a owl:Class ; 
+  rdfs:subClassOf tg:Place ;
+  rdfs:label "Highly Rated Place"@en, "Lieu très bien noté"@fr ;
+  rdfs:comment "Place with high rating and sufficient reviews"@en .
+
+tg:TopRestaurant a owl:Class ; 
+  rdfs:subClassOf tg:Restaurant ;
+  rdfs:label "Top Restaurant"@en, "Restaurant de premier choix"@fr ;
+  rdfs:comment "Restaurant with exceptional rating and popularity"@en .
+
+tg:PopularPlace a owl:Class ; 
+  rdfs:subClassOf tg:Place ;
+  rdfs:label "Popular Place"@en, "Lieu populaire"@fr ;
+  rdfs:comment "Place with high number of reviews"@en .
+
+tg:HiddenGem a owl:Class ; 
+  rdfs:subClassOf tg:Place ;
+  rdfs:label "Hidden Gem"@en, "Pépite cachée"@fr ;
+  rdfs:comment "Excellent place with relatively few reviews"@en .
 
 tg:inferenceReason a owl:DatatypeProperty ;
   rdfs:domain tg:Place ;
-  rdfs:range  xsd:string .
+  rdfs:range  xsd:string ;
+  rdfs:label "inference reason"@en, "raison de l'inférence"@fr ;
+  rdfs:comment "Textual explanation of why a class was inferred"@en .

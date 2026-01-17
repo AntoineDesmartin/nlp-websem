@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TourGuide Paris - Graphe de Connaissances Enrichi</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             background: #f5f5f5;
             color: #333;
             line-height: 1.6;
         }
-        
+
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 1.5rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
-        
+
         header h1 {
             font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 0.3rem;
         }
-        
+
         header p {
             opacity: 0.9;
             font-size: 0.9rem;
         }
-        
+
         .stats-bar {
             background: white;
             padding: 1rem 2rem;
@@ -40,48 +45,48 @@
             border-bottom: 1px solid #e0e0e0;
             flex-wrap: wrap;
         }
-        
+
         .stat {
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .stat-icon {
             font-size: 1.5rem;
         }
-        
+
         .stat-info {
             display: flex;
             flex-direction: column;
         }
-        
+
         .stat-label {
             font-size: 0.75rem;
             color: #666;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        
+
         .stat-value {
             font-size: 1.2rem;
             font-weight: 700;
             color: #667eea;
         }
-        
+
         main {
             max-width: 1400px;
             margin: 2rem auto;
             padding: 0 2rem;
         }
-        
+
         .tabs {
             display: flex;
             gap: 0.5rem;
             margin-bottom: 1.5rem;
             border-bottom: 2px solid #e0e0e0;
         }
-        
+
         .tab {
             padding: 0.75rem 1.5rem;
             background: none;
@@ -93,52 +98,60 @@
             border-bottom: 3px solid transparent;
             transition: all 0.2s;
         }
-        
+
         .tab:hover {
             color: #667eea;
         }
-        
+
         .tab.active {
             color: #667eea;
             border-bottom-color: #667eea;
         }
-        
+
         .tab-content {
             display: none;
         }
-        
+
         .tab-content.active {
             display: block;
             animation: fadeIn 0.3s;
         }
-        
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .card {
             background: white;
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
-        
+
         .card-title {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: #333;
         }
-        
+
         .search-box {
             display: flex;
             gap: 0.5rem;
             margin-bottom: 1rem;
         }
-        
-        input[type="text"], textarea {
+
+        input[type="text"],
+        textarea {
             flex: 1;
             padding: 0.75rem;
             border: 2px solid #e0e0e0;
@@ -146,18 +159,19 @@
             font-size: 0.95rem;
             transition: border-color 0.2s;
         }
-        
-        input[type="text"]:focus, textarea:focus {
+
+        input[type="text"]:focus,
+        textarea:focus {
             outline: none;
             border-color: #667eea;
         }
-        
+
         textarea {
             min-height: 100px;
             resize: vertical;
             font-family: inherit;
         }
-        
+
         button {
             padding: 0.75rem 1.5rem;
             background: #667eea;
@@ -169,29 +183,29 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        
+
         button:hover {
             background: #5568d3;
             transform: translateY(-1px);
         }
-        
+
         button:disabled {
             background: #ccc;
             cursor: not-allowed;
             transform: none;
         }
-        
+
         .loading {
             display: none;
             text-align: center;
             padding: 2rem;
             color: #667eea;
         }
-        
+
         .loading.show {
             display: block;
         }
-        
+
         .result-card {
             background: #f9fafb;
             border-left: 4px solid #667eea;
@@ -199,20 +213,20 @@
             margin-bottom: 1rem;
             border-radius: 4px;
         }
-        
+
         .result-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 0.5rem;
         }
-        
+
         .result-name {
             font-weight: 600;
             color: #333;
             font-size: 1.05rem;
         }
-        
+
         .badge {
             display: inline-block;
             padding: 0.25rem 0.75rem;
@@ -223,12 +237,23 @@
             font-weight: 500;
             margin-left: 0.5rem;
         }
-        
-        .badge.green { background: #10b981; }
-        .badge.orange { background: #f59e0b; }
-        .badge.red { background: #ef4444; }
-        .badge.purple { background: #8b5cf6; }
-        
+
+        .badge.green {
+            background: #10b981;
+        }
+
+        .badge.orange {
+            background: #f59e0b;
+        }
+
+        .badge.red {
+            background: #ef4444;
+        }
+
+        .badge.purple {
+            background: #8b5cf6;
+        }
+
         .result-details {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -237,13 +262,13 @@
             font-size: 0.9rem;
             color: #666;
         }
-        
+
         .detail-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .enrichment-badge {
             display: inline-flex;
             align-items: center;
@@ -256,7 +281,7 @@
             color: #667eea;
             margin-right: 0.5rem;
         }
-        
+
         .sparql-query {
             background: #1e293b;
             color: #e2e8f0;
@@ -268,24 +293,24 @@
             line-height: 1.5;
             margin: 1rem 0;
         }
-        
+
         .comparison-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1.5rem;
         }
-        
+
         @media (max-width: 768px) {
             .comparison-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .stats-bar {
                 flex-direction: column;
                 gap: 1rem;
             }
         }
-        
+
         .nl-response {
             background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
             border-left: 4px solid #667eea;
@@ -294,7 +319,7 @@
             margin: 1rem 0;
             line-height: 1.8;
         }
-        
+
         .approach-label {
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -303,43 +328,44 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
-        
+
         .enrichment-section {
             margin-top: 1rem;
             padding-top: 1rem;
             border-top: 1px solid #e0e0e0;
         }
-        
+
         .enrichment-title {
             font-size: 0.85rem;
             font-weight: 600;
             color: #666;
             margin-bottom: 0.5rem;
         }
-        
+
         .empty-state {
             text-align: center;
             padding: 3rem;
             color: #999;
         }
-        
+
         .link-external {
             color: #667eea;
             text-decoration: none;
             font-weight: 500;
         }
-        
+
         .link-external:hover {
             text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>🗼 TourGuide Paris - Graphe de Connaissances Enrichi</h1>
         <p>Démonstration d'un graphe sémantique complet : OWL, SKOS, SHACL, RML, LOD, Inférence, GraphRAG</p>
     </header>
-    
+
     <div class="stats-bar" id="statsBar">
         <div class="stat">
             <span class="stat-icon">📊</span>
@@ -377,111 +403,147 @@
             </div>
         </div>
     </div>
-    
+
     <main>
         <div class="tabs">
-            <button class="tab active" onclick="switchTab('graphrag')">🤖 GraphRAG Comparaison</button>
-            <button class="tab" onclick="switchTab('inference')">🏆 Classes Inférées</button>
-            <button class="tab" onclick="switchTab('lod')">🌐 Alignement LOD</button>
+            <button class="tab active" onclick="switchTab('app1')">🤖 Approche 1 (SPARQL)</button>
+            <button class="tab" onclick="switchTab('app2')">🧠 Approche 2 (Embeddings)</button>
+            <button class="tab" onclick="switchTab('compare')">⚖️ Comparaison</button>
+            <button class="tab" onclick="switchTab('inference')">🏆 Inférence & Requêtes</button>
             <button class="tab" onclick="switchTab('reco')">💡 Recommandations</button>
-            <button class="tab" onclick="switchTab('sparql')">📝 Requêtes SPARQL</button>
+            <button class="tab" onclick="switchTab('lod')">🌐 Web de Données</button>
         </div>
-        
-        <!-- TAB 1: GraphRAG -->
-        <div id="tab-graphrag" class="tab-content active">
+
+        <!-- TAB 1: GraphRAG Approche 1 (SPARQL) -->
+        <div id="tab-app1" class="tab-content active">
             <div class="card">
-                <div class="card-title">🤖 Comparaison des 2 Approches GraphRAG</div>
+                <div class="card-title">🤖 GraphRAG: Approche 1 (Question → SPARQL)</div>
                 <p style="color: #666; margin-bottom: 1rem;">
-                    <strong>Approche 1:</strong> Question → SPARQL (GPT-4o-mini) → Exécution<br>
-                    <strong>Approche 2:</strong> Question → Embeddings → Similarité → Réponse NL (GPT-4o-mini)
+                    Transforme la question en requête SPARQL avec GPT-4o-mini, puis exécute sur le graphe
                 </p>
-                
+
                 <div class="search-box">
-                    <input type="text" id="graphragQuestion" placeholder="Ex: Trouve les hidden gems, Quels sont les TopRestaurant ?" 
-                           value="Recommande-moi des lieux très bien notés avec leurs qualités">
-                    <button onclick="compareGraphRAG()">Comparer</button>
+                    <input type="text" id="app1Question" placeholder="Ex: Trouve les restaurants les mieux notés"
+                        value="Trouve les PopularPlace avec leurs raisons d'inférence">
+                    <button onclick="askApp1()">Générer SPARQL</button>
                 </div>
-                
-                <div id="graphragLoading" class="loading">
-                    <div>⏳ Génération des réponses avec GPT-4o-mini...</div>
+
+                <div id="app1Loading" class="loading"></div>
+                <div id="app1Results"></div>
+            </div>
+        </div>
+
+        <!-- TAB 2: GraphRAG Approche 2 (Embeddings) -->
+        <div id="tab-app2" class="tab-content">
+            <div class="card">
+                <div class="card-title">🧠 GraphRAG: Approche 2 (Question → Embeddings → Réponse NL)</div>
+                <p style="color: #666; margin-bottom: 1rem;">
+                    Trouve les entités similaires par embeddings, puis génère une réponse en langage naturel
+                </p>
+
+                <div class="search-box">
+                    <input type="text" id="app2Question" placeholder="Ex: Recommande-moi un bon restaurant"
+                        value="Où puis-je trouver de bons restaurants français ?">
+                    <button onclick="askApp2()">Réponse NL</button>
                 </div>
-                
+
+                <div id="app2Loading" class="loading"></div>
+                <div id="app2Results"></div>
+            </div>
+        </div>
+
+        <!-- TAB 3: GraphRAG Comparaison -->
+        <div id="tab-compare" class="tab-content">
+            <div class="card">
+                <div class="card-title">⚖️ Comparaison des 2 Approches GraphRAG</div>
+                <p style="color: #666; margin-bottom: 1rem;">
+                    Compare CÔTE-À-CÔTE les résultats des 2 approches sur la même question
+                </p>
+
+                <div class="search-box">
+                    <input type="text" id="graphragQuestion" placeholder="Ex: Recommande-moi des lieux bien notés"
+                        value="Recommande-moi des lieux très bien notés avec leurs qualités">
+                    <button onclick="compareGraphRAG()">⚖️ Comparer</button>
+                </div>
+
+                <div id="graphragLoading" class="loading"></div>
                 <div class="comparison-grid" id="graphragResults"></div>
             </div>
         </div>
-        
-        <!-- TAB 2: Classes Inférées -->
+
+        <!-- TAB 4: Inférence & Requêtes SPARQL -->
         <div id="tab-inference" class="tab-content">
             <div class="card">
-                <div class="card-title">🏆 Exploration des Classes Inférées (Règles SPARQL)</div>
+                <div class="card-title">🏆 Classes Inférées par Règles SPARQL (R1-R4)</div>
                 <p style="color: #666; margin-bottom: 1rem;">
-                    7 règles d'inférence appliquées pour enrichir le graphe avec des classes qualitatives
+                    4 règles d'inférence CONSTRUCT SPARQL pour enrichir le graphe
                 </p>
-                
+
                 <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
                     <button onclick="queryInferredClass('HiddenGem')">🎯 HiddenGem</button>
                     <button onclick="queryInferredClass('HighlyRatedPlace')">⭐ HighlyRated</button>
                     <button onclick="queryInferredClass('TopRestaurant')">🍽️ TopRestaurant</button>
-                    <button onclick="queryInferredClass('PopularPlace')">📈 PopularPlace</button>
+                    <button onclick="queryInferredClass('PopularPlace')">📈 Popular</button>
                 </div>
-                
+
                 <div id="inferenceLoading" class="loading"></div>
                 <div id="inferenceResults"></div>
             </div>
-        </div>
-        
-        <!-- TAB 3: LOD -->
-        <div id="tab-lod" class="tab-content">
-            <div class="card">
-                <div class="card-title">🌐 Alignement avec le Web de Données Liées</div>
+
+            <div class="card" style="margin-top: 1.5rem;">
+                <div class="card-title">📝 Requêtes SPARQL Prédéfinies</div>
                 <p style="color: #666; margin-bottom: 1rem;">
-                    Liens vers Wikidata, DBpedia, Wikipedia + Schema.org (27 Wikidata, 40 DBpedia, 40 Wikipedia)
+                    Questions complexes exploitant le graphe enrichi (schema:Review, LOD, etc.)
                 </p>
-                <button onclick="queryLinkedData()">Afficher les Liens LOD</button>
-                
-                <div id="lodLoading" class="loading"></div>
-                <div id="lodResults"></div>
-            </div>
-        </div>
-        
-        <!-- TAB 4: Recommandations -->
-        <div id="tab-reco" class="tab-content">
-            <div class="card">
-                <div class="card-title">💡 Recommandations par Link Prediction (TransE)</div>
-                <p style="color: #666; margin-bottom: 1rem;">
-                    Prédiction de liens likesPlace pour touristes synthétiques (18,151 entités, 63,948 triplets)
-                </p>
-                <button onclick="getSampleRecommendation()">Obtenir Recommandation Exemple</button>
-                
-                <div id="recoLoading" class="loading"></div>
-                <div id="recoResults"></div>
-            </div>
-        </div>
-        
-        <!-- TAB 5: SPARQL -->
-        <div id="tab-sparql" class="tab-content">
-            <div class="card">
-                <div class="card-title">📝 Requêtes SPARQL Complexes</div>
-                <p style="color: #666; margin-bottom: 1rem;">
-                    Questions prédéfinies exploitant toute la richesse du graphe enrichi
-                </p>
-                
+
                 <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-                    <button onclick="askPredefined('Lieux avec reviews Schema.org et note calculée')">📊 Reviews Agrégées</button>
+                    <button onclick="askPredefined('Lieux avec reviews Schema.org et note calculée')">📊 Reviews
+                        Agrégées</button>
                     <button onclick="askPredefined('TopRestaurant avec raisons inférence')">🍽️ Top Restaurants</button>
-                    <button onclick="askPredefined('Lieux liés à Wikidata')">🌐 Liens Wikidata</button>
+                    <button onclick="askPredefined('Lieux liés à Wikidata')">🌐 Wikidata</button>
                     <button onclick="askPredefined('HiddenGem avec inference reasons')">🎯 Hidden Gems</button>
+                    <button onclick="askPredefined('Enrichir attractions avec Wikidata (requête fédérée)')">🌍 Fédérée
+                        Wikidata</button>
                 </div>
-                
-                <textarea id="customSparql" placeholder="Ou pose ta propre question en langage naturel..."></textarea>
+
+                <textarea id="customSparql" placeholder="Ou pose ta propre question en langage naturel..."
+                    style="margin-top: 1rem;"></textarea>
                 <button onclick="askCustom()" style="margin-top: 0.5rem;">Exécuter</button>
-                
+
                 <div id="sparqlLoading" class="loading"></div>
                 <div id="sparqlResults"></div>
             </div>
         </div>
+
+        <!-- TAB 3: Recommandations -->
+        <div id="tab-reco" class="tab-content">
+            <div class="card">
+                <div class="card-title">💡 Recommandations par Link Prediction (TransE)</div>
+                <p style="color: #666; margin-bottom: 1rem;">
+                    Prédiction de liens <code>likesPlace</code> avec TransE (18,151 entités, 63,948 triplets)
+                </p>
+                <button onclick="getSampleRecommendation()">Obtenir Recommandation Exemple</button>
+
+                <div id="recoLoading" class="loading"></div>
+                <div id="recoResults"></div>
+            </div>
+        </div>
+
+        <!-- TAB 4: Web de Données Liées -->
+        <div id="tab-lod" class="tab-content">
+            <div class="card">
+                <div class="card-title">🌐 Alignement avec le Web de Données Liées</div>
+                <p style="color: #666; margin-bottom: 1rem;">
+                    Liens <code>owl:sameAs</code> et <code>rdfs:seeAlso</code> vers Wikidata, DBpedia, Wikipedia
+                </p>
+                <button onclick="queryLinkedData()">Afficher les Liens LOD</button>
+
+                <div id="lodLoading" class="loading"></div>
+                <div id="lodResults"></div>
+            </div>
+        </div>
     </main>
-    
+
     <script>
         // Chargement des stats au démarrage
         fetch('/api/stats')
@@ -489,46 +551,46 @@
             .then(data => {
                 document.getElementById('statTriples').textContent = data.total_triples.toLocaleString();
             });
-        
+
         // Gestion des tabs
         function switchTab(tabName) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            
+
             event.target.classList.add('active');
             document.getElementById(`tab-${tabName}`).classList.add('active');
         }
-        
+
         // GraphRAG Comparison
         async function compareGraphRAG() {
             const question = document.getElementById('graphragQuestion').value;
             if (!question.trim()) return;
-            
+
             const loading = document.getElementById('graphragLoading');
             const results = document.getElementById('graphragResults');
-            
+
             loading.classList.add('show');
             results.innerHTML = '';
-            
+
             try {
                 // Approche 1: SPARQL
                 const approach1Promise = fetch('/api/ask', {
                     method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({question, mode: 'openrouter'})
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question, mode: 'openrouter' })
                 }).then(r => r.json());
-                
+
                 // Approche 2: Embeddings
                 const approach2Promise = fetch('/api/ask_nl', {
                     method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({question})
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question })
                 }).then(r => r.json());
-                
+
                 const [approach1, approach2] = await Promise.all([approach1Promise, approach2Promise]);
-                
+
                 loading.classList.remove('show');
-                
+
                 // Afficher Approche 1
                 results.innerHTML += `
                     <div class="card">
@@ -540,7 +602,7 @@
                         ${renderResults(approach1.results.slice(0, 5))}
                     </div>
                 `;
-                
+
                 // Afficher Approche 2
                 results.innerHTML += `
                     <div class="card">
@@ -554,127 +616,29 @@
                 results.innerHTML = `<div class="card" style="color: #ef4444;">❌ Erreur: ${error.message}</div>`;
             }
         }
-        
-        // Classes Inférées
-        async function queryInferredClass(className) {
-            const loading = document.getElementById('inferenceLoading');
-            const results = document.getElementById('inferenceResults');
-            
+
+        // GraphRAG Approche 1 (SPARQL uniquement)
+        async function askApp1() {
+            const question = document.getElementById('app1Question').value;
+            if (!question.trim()) return;
+
+            const loading = document.getElementById('app1Loading');
+            const results = document.getElementById('app1Results');
+
             loading.classList.add('show');
-            loading.textContent = `⏳ Recherche des ${className}...`;
+            loading.textContent = '⏳ Génération de la requête SPARQL...';
             results.innerHTML = '';
-            
+
             try {
                 const response = await fetch('/api/ask', {
                     method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        question: `Trouve les ${className} avec leurs raisons d'inférence`,
-                        mode: 'openrouter'
-                    })
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question, mode: 'openrouter' })
                 });
-                
+
                 const data = await response.json();
                 loading.classList.remove('show');
-                
-                if (data.count === 0) {
-                    results.innerHTML = '<div class="empty-state">Aucun résultat trouvé</div>';
-                    return;
-                }
-                
-                results.innerHTML = `
-                    <div style="margin-bottom: 1rem;">
-                        <strong>✅ ${data.count} ${className} trouvés</strong>
-                        <span class="enrichment-badge">🧠 Inféré par règles SPARQL</span>
-                    </div>
-                    ${renderResults(data.results.slice(0, 10))}
-                `;
-            } catch (error) {
-                loading.classList.remove('show');
-                results.innerHTML = `<div style="color: #ef4444;">❌ ${error.message}</div>`;
-            }
-        }
-        
-        // LOD
-        async function queryLinkedData() {
-            const loading = document.getElementById('lodLoading');
-            const results = document.getElementById('lodResults');
-            
-            loading.classList.add('show');
-            loading.textContent = '⏳ Chargement des liens LOD...';
-            results.innerHTML = '';
-            
-            try {
-                const response = await fetch('/api/linked-data');
-                const data = await response.json();
-                
-                loading.classList.remove('show');
-                
-                const wikidataLinks = data.results.filter(r => r.link && r.link.includes('wikidata'));
-                const dbpediaLinks = data.results.filter(r => r.link && r.link.includes('dbpedia'));
-                const wikipediaLinks = data.results.filter(r => r.link && r.link.includes('wikipedia'));
-                
-                results.innerHTML = `
-                    <div class="result-details" style="margin-top: 1rem;">
-                        <div><strong>Wikidata:</strong> ${wikidataLinks.length} liens</div>
-                        <div><strong>DBpedia:</strong> ${dbpediaLinks.length} liens</div>
-                        <div><strong>Wikipedia:</strong> ${wikipediaLinks.length} liens</div>
-                    </div>
-                    ${renderLODResults(data.results.slice(0, 20))}
-                `;
-            } catch (error) {
-                loading.classList.remove('show');
-                results.innerHTML = `<div style="color: #ef4444;">❌ ${error.message}</div>`;
-            }
-        }
-        
-        // Recommandations
-        async function getSampleRecommendation() {
-            const loading = document.getElementById('recoLoading');
-            const results = document.getElementById('recoResults');
-            
-            loading.classList.add('show');
-            loading.textContent = '⏳ Génération des recommandations TransE...';
-            results.innerHTML = '';
-            
-            try {
-                const response = await fetch('/api/recommendations/sample');
-                const data = await response.json();
-                
-                loading.classList.remove('show');
-                
-                results.innerHTML = `
-                    <div style="margin-bottom: 1rem;">
-                        <strong>Recommandations pour:</strong> ${data.tourist}
-                        <span class="enrichment-badge">🔮 Link Prediction (TransE)</span>
-                    </div>
-                    ${renderRecommendations(data.recommendations.slice(0, 10))}
-                `;
-            } catch (error) {
-                loading.classList.remove('show');
-                results.innerHTML = `<div style="color: #ef4444;">❌ ${error.message}</div>`;
-            }
-        }
-        
-        // SPARQL
-        async function askPredefined(question) {
-            const loading = document.getElementById('sparqlLoading');
-            const results = document.getElementById('sparqlResults');
-            
-            loading.classList.add('show');
-            loading.textContent = '⏳ Exécution de la requête SPARQL...';
-            results.innerHTML = '';
-            
-            try {
-                const response = await fetch('/api/ask', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({question, mode: 'openrouter'})
-                });
-                
-                const data = await response.json();
-                loading.classList.remove('show');
-                
+
                 results.innerHTML = `
                     <div class="sparql-query">${escapeHtml(data.sparql)}</div>
                     <div style="margin: 1rem 0;">
@@ -688,25 +652,191 @@
                 results.innerHTML = `<div style="color: #ef4444;">❌ ${error.message}</div>`;
             }
         }
-        
+
+        // GraphRAG Approche 2 (Embeddings uniquement)
+        async function askApp2() {
+            const question = document.getElementById('app2Question').value;
+            if (!question.trim()) return;
+
+            const loading = document.getElementById('app2Loading');
+            const results = document.getElementById('app2Results');
+
+            loading.classList.add('show');
+            loading.textContent = '⏳ Recherche par embeddings...';
+            results.innerHTML = '';
+
+            try {
+                const response = await fetch('/api/ask_nl', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question })
+                });
+
+                const data = await response.json();
+                loading.classList.remove('show');
+
+                results.innerHTML = `
+                    <div class="nl-response">${data.answer}</div>
+                    ${renderEnrichedEntities(data.entities)}
+                `;
+            } catch (error) {
+                loading.classList.remove('show');
+                results.innerHTML = `<div style="color: #ef4444;">❌ ${error.message}</div>`;
+            }
+        }
+
+        // Classes Inférées
+        async function queryInferredClass(className) {
+            const loading = document.getElementById('inferenceLoading');
+            const results = document.getElementById('inferenceResults');
+
+            loading.classList.add('show');
+            loading.textContent = `⏳ Recherche des ${className}...`;
+            results.innerHTML = '';
+
+            try {
+                const response = await fetch('/api/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        question: `Trouve les ${className} avec leurs raisons d'inférence`,
+                        mode: 'openrouter'
+                    })
+                });
+
+                const data = await response.json();
+                loading.classList.remove('show');
+
+                if (data.count === 0) {
+                    results.innerHTML = '<div class="empty-state">Aucun résultat trouvé</div>';
+                    return;
+                }
+
+                results.innerHTML = `
+                    <div style="margin-bottom: 1rem;">
+                        <strong>✅ ${data.count} ${className} trouvés</strong>
+                        <span class="enrichment-badge">🧠 Inféré par règles SPARQL</span>
+                    </div>
+                    ${renderResults(data.results.slice(0, 10))}
+                `;
+            } catch (error) {
+                loading.classList.remove('show');
+                results.innerHTML = `<div style="color: #ef4444;">❌ ${error.message}</div>`;
+            }
+        }
+
+        // LOD
+        async function queryLinkedData() {
+            const loading = document.getElementById('lodLoading');
+            const results = document.getElementById('lodResults');
+
+            loading.classList.add('show');
+            loading.textContent = '⏳ Chargement des liens LOD...';
+            results.innerHTML = '';
+
+            try {
+                const response = await fetch('/api/linked-data');
+                const data = await response.json();
+
+                loading.classList.remove('show');
+
+                const wikidataLinks = data.results.filter(r => r.link && r.link.includes('wikidata'));
+                const dbpediaLinks = data.results.filter(r => r.link && r.link.includes('dbpedia'));
+                const wikipediaLinks = data.results.filter(r => r.link && r.link.includes('wikipedia'));
+
+                results.innerHTML = `
+                    <div class="result-details" style="margin-top: 1rem;">
+                        <div><strong>Wikidata:</strong> ${wikidataLinks.length} liens</div>
+                        <div><strong>DBpedia:</strong> ${dbpediaLinks.length} liens</div>
+                        <div><strong>Wikipedia:</strong> ${wikipediaLinks.length} liens</div>
+                    </div>
+                    ${renderLODResults(data.results.slice(0, 20))}
+                `;
+            } catch (error) {
+                loading.classList.remove('show');
+                results.innerHTML = `<div style="color: #ef4444;">❌ ${error.message}</div>`;
+            }
+        }
+
+        // Recommandations
+        async function getSampleRecommendation() {
+            const loading = document.getElementById('recoLoading');
+            const results = document.getElementById('recoResults');
+
+            loading.classList.add('show');
+            loading.textContent = '⏳ Génération des recommandations TransE...';
+            results.innerHTML = '';
+
+            try {
+                const response = await fetch('/api/recommendations/sample');
+                const data = await response.json();
+
+                loading.classList.remove('show');
+
+                results.innerHTML = `
+                    <div style="margin-bottom: 1rem;">
+                        <strong>Recommandations pour:</strong> ${data.tourist}
+                        <span class="enrichment-badge">🔮 Link Prediction (TransE)</span>
+                    </div>
+                    ${renderRecommendations(data.recommendations.slice(0, 10))}
+                `;
+            } catch (error) {
+                loading.classList.remove('show');
+                results.innerHTML = `<div style="color: #ef4444;">❌ ${error.message}</div>`;
+            }
+        }
+
+        // SPARQL
+        async function askPredefined(question) {
+            const loading = document.getElementById('sparqlLoading');
+            const results = document.getElementById('sparqlResults');
+
+            loading.classList.add('show');
+            loading.textContent = '⏳ Exécution de la requête SPARQL...';
+            results.innerHTML = '';
+
+            try {
+                const response = await fetch('/api/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question, mode: 'openrouter' })
+                });
+
+                const data = await response.json();
+                loading.classList.remove('show');
+
+                results.innerHTML = `
+                    <div class="sparql-query">${escapeHtml(data.sparql)}</div>
+                    <div style="margin: 1rem 0;">
+                        <strong>✅ ${data.count} résultats</strong>
+                        <span class="badge">${data.provider || 'SPARQL'}</span>
+                    </div>
+                    ${renderResults(data.results.slice(0, 15))}
+                `;
+            } catch (error) {
+                loading.classList.remove('show');
+                results.innerHTML = `<div style="color: #ef4444;">❌ ${error.message}</div>`;
+            }
+        }
+
         async function askCustom() {
             const question = document.getElementById('customSparql').value;
             if (!question.trim()) return;
             await askPredefined(question);
         }
-        
+
         // Fonctions de rendu
         function renderResults(results) {
             if (!results || results.length === 0) return '<div class="empty-state">Aucun résultat</div>';
-            
+
             return results.map(r => {
                 const name = r.name || r.placeName || r.label || 'Sans nom';
                 const badges = [];
-                
+
                 // Badges pour classes inférées
                 if (r.inferredClass) badges.push(`<span class="badge green">${r.inferredClass}</span>`);
                 if (r.reason || r.inferenceReason) badges.push(`<span class="badge purple">Inféré</span>`);
-                
+
                 // Détails
                 const details = [];
                 if (r.polarity) details.push(`<div class="detail-item">⭐ Note: ${r.polarity}/10</div>`);
@@ -714,7 +844,7 @@
                 if (r.numReviews || r.reviewCount) details.push(`<div class="detail-item">📝 ${r.numReviews || r.reviewCount} avis</div>`);
                 if (r.avgRating) details.push(`<div class="detail-item">📊 Moyenne: ${parseFloat(r.avgRating).toFixed(1)}</div>`);
                 if (r.wikidataLink) details.push(`<div class="detail-item">🌐 <a href="${r.wikidataLink}" class="link-external" target="_blank">Wikidata</a></div>`);
-                
+
                 // Raison d'inférence
                 let reasonSection = '';
                 if (r.reason || r.inferenceReason) {
@@ -725,7 +855,7 @@
                         </div>
                     `;
                 }
-                
+
                 return `
                     <div class="result-card">
                         <div class="result-header">
@@ -737,33 +867,31 @@
                 `;
             }).join('');
         }
-        
+
         function renderEnrichedEntities(entities) {
             if (!entities || entities.length === 0) return '';
-            
+
             return `
                 <div class="enrichment-section">
                     <div class="enrichment-title">📊 Entités Utilisées (Embeddings):</div>
                     ${entities.slice(0, 5).map(e => {
-                        const info = e.info || {};
-                        const badges = [];
-                        if (info.inferredClasses) badges.push(`<span class="badge green">${info.inferredClasses}</span>`);
-                        
-                        return `
-                            <div class="result-card" style="margin-top: 0.5rem;">
-                                <div class="result-name">${info.name || 'N/A'} ${badges.join(' ')}</div>
-                                <div class="result-details">
-                                    <div>⭐ ${info.polarity || 'N/A'}/10</div>
-                                    <div>📝 ${info.numReviews || 0} avis</div>
-                                    ${info.wikidataLink ? `<div>🌐 <a href="${info.wikidataLink}" class="link-external" target="_blank">Wikidata</a></div>` : ''}
-                                </div>
+                const info = e.info || {};
+                const badges = [];
+                if (info.inferredClasses) badges.push(`<span class="badge green">${info.inferredClasses}</span>`);
+
+                return `
+                            <div class="entity-card">
+                                <div class="entity-name">${e.name} ${badges.join(' ')}</div>
+                                ${info.polarity ? `<div class="entity-detail">⭐ ${parseFloat(info.polarity).toFixed(1)}/10</div>` : ''}
+                                ${info.numReviews ? `<div class="entity-detail">📝 ${info.numReviews} avis</div>` : ''}
+                                ${info.wikidataLink ? `<div class="entity-detail">🌐 <a href="${info.wikidataLink}" class="link-external" target="_blank">Wikidata</a></div>` : ''}
                             </div>
                         `;
-                    }).join('')}
+            }).join('')}
                 </div>
             `;
         }
-        
+
         function renderLODResults(results) {
             return results.map(r => `
                 <div class="result-card">
@@ -774,7 +902,7 @@
                 </div>
             `).join('');
         }
-        
+
         function renderRecommendations(recs) {
             return recs.map(r => `
                 <div class="result-card">
@@ -789,10 +917,11 @@
                 </div>
             `).join('');
         }
-        
+
         function escapeHtml(text) {
             return text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }
     </script>
 </body>
+
 </html>

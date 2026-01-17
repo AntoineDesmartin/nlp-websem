@@ -284,7 +284,7 @@ class EmbeddingGraphRAGService:
         
         # Notes et avis (TourPedia)
         if "polarity" in info:
-            rating_text = f"Note TourPedia: {float(info['polarity']):.2f}/1.0"
+            rating_text = f"Note TourPedia: {float(info['polarity']):.1f}/10"
             parts.append(rating_text)
         
         if "inferredRating" in info:
@@ -491,7 +491,7 @@ class EmbeddingGraphRAGService:
             if "inferredRating" in info:
                 desc_parts.append(f"Note calculée: {info['inferredRating']}/5.0")
             elif "polarity" in info:
-                desc_parts.append(f"Note TourPedia: {info['polarity']}/1.0")
+                desc_parts.append(f"Note TourPedia: {info['polarity']}/10")
             
             # Compteurs d'avis
             review_parts = []

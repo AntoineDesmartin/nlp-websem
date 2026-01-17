@@ -192,59 +192,12 @@ async def ask_question(request: QuestionRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Erreur : {str(e)}")
 
-@app.get("/api/places/top")
-async def get_top_places(limit: int = 10):
-    """Récupère les lieux les mieux notés"""
-    try:
-        results = sparql_client.get_top_rated_places(limit)
-        return {"results": results, "count": len(results)}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@app.get("/api/places/type/{place_type}")
-async def get_places_by_type(place_type: str):
-    """Récupère les lieux par type (Restaurant, Attraction, POI)"""
-    try:
-        if place_type not in ["Restaurant", "Attraction", "POI"]:
-            raise HTTPException(status_code=400, detail="Type invalide")
-        results = sparql_client.get_places_by_type(place_type)
-        return {"results": results, "count": len(results)}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@app.get("/api/places/search")
-async def search_places(q: str):
-    """Recherche des lieux par nom"""
-    try:
-        results = sparql_client.search_places_by_name(q)
-        return {"results": results, "count": len(results)}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@app.get("/api/places/map")
-async def get_places_map():
-    """Récupère tous les lieux avec coordonnées pour affichage carte"""
-    try:
-        results = sparql_client.get_places_with_coordinates()
-        return {"results": results, "count": len(results)}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
 @app.get("/api/linked-data")
 async def get_linked_data():
     """Récupère les informations sur les liens vers le web de données"""
     try:
         results = sparql_client.get_linked_data_info()
         return {"results": results, "count": len(results)}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@app.get("/api/recommendations/tourists")
-async def get_tourists():
-    """Liste tous les touristes disponibles"""
-    try:
-        tourists = reco_service.get_all_tourists()
-        return {"tourists": tourists, "count": len(tourists)}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -283,48 +236,6 @@ async def get_sample_recommendation():
             "recommendations": enriched_recs,
             "count": len(enriched_recs)
         }
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-@app.get("/api/recommendations/{tourist_id}")
-async def get_recommendations(tourist_id: str, top_k: int = 10):
-    """Récupère les recommandations pour un touriste spécifique"""
-    try:
-        # Le tourist_id doit être l'URI complète
-        if not tourist_id.startswith("http"):
-            tourist_id = f"https://example.org/tourguide#{tourist_id}"
-        
-        recommendations = reco_service.get_recommendations_for_tourist(tourist_id, top_k)
-        
-        if not recommendations:
-            raise HTTPException(status_code=404, detail="Touriste non trouvé ou pas de recommandations")
-        
-        # Enrichir avec les infos des lieux
-        enriched_recs = []
-        for rec in recommendations:
-            place_uri = rec["place_uri"]
-            if place_uri:
-                try:
-                    place_details = sparql_client.get_place_details(place_uri)
-                    enriched_recs.append({
-                        **rec,
-                        "place_name": place_details.get("name", place_details.get("http://www.w3.org/2000/01/rdf-schema#label", "Inconnu")),
-                        "polarity": place_details.get("polarity", place_details.get("https://example.org/tourguide#polarity", "N/A"))
-                    })
-                except Exception:
-                    enriched_recs.append({
-                        **rec,
-                        "place_name": "Lieu inconnu",
-                        "polarity": "N/A"
-                    })
-        
-        return {
-            "tourist": tourist_id,
-            "recommendations": enriched_recs,
-            "count": len(enriched_recs)
-        }
-    except HTTPException:
-        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

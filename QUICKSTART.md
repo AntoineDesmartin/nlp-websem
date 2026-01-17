@@ -5,8 +5,11 @@
 ### 1. Configurer la clé API
 
 ```powershell
-$env:OPENROUTER_API_KEY="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"
+$env:OPENROUTER_API_KEY=""
 ```
+
+export OPENROUTER_API_KEY=""
+
 
 ### 2. Lancer l'application
 
