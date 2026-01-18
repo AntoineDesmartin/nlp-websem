@@ -324,8 +324,8 @@ class EmbeddingGraphRAGService:
         """
         print("\n🔨 Génération des embeddings des entités ENRICHIES...")
         
-        # Récupérer les entités TRIÉES par qualité (note + nombre d'avis)
-        # Prioriser : 1) Nombre d'avis élevé, 2) Note élevée
+        # Récupérer les entités TRIÉES par qualité (note PUIS nombre d'avis)
+        # FIX: Prioriser 1) Note élevée, 2) Nombre d'avis (au lieu de l'inverse)
         query = f"""
         PREFIX tg: <{self.tg}>
         PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -341,7 +341,7 @@ class EmbeddingGraphRAGService:
             OPTIONAL {{ ?place tg:numReviews ?numReviews }}
             OPTIONAL {{ ?place tg:polarity ?polarity }}
         }}
-        ORDER BY DESC(?numReviews) DESC(?polarity)
+        ORDER BY DESC(?polarity) DESC(?numReviews)
         """
         
         results = self.graph.query(query)
@@ -454,6 +454,16 @@ class EmbeddingGraphRAGService:
             if target_type and entity_type != target_type:
                 continue
             
+            # FIX: Filtrer les lieux mal notés (polarity < 6.5)
+            # Pour éviter de retourner des lieux 4-5/10 quand on demande "bien notés"
+            polarity = entity_info.get("polarity")
+            if polarity:
+                try:
+                    if float(polarity) < 6.5:
+                        continue  # Skip les lieux mal notés
+                except ValueError:
+                    pass  # Si conversion échoue, garder l'entité
+            
             # Similarité cosinus
             similarity = np.dot(question_embedding, entity_embedding)
             similarities.append((entity_uri, similarity, entity_info))
@@ -487,11 +497,11 @@ class EmbeddingGraphRAGService:
             # Construire description enrichie
             desc_parts = [f"**{name}** ({type_})"]
             
-            # Notes multiples
-            if "inferredRating" in info:
-                desc_parts.append(f"Note calculée: {info['inferredRating']}/5.0")
-            elif "polarity" in info:
+            # Notes multiples (priorité à polarity/10 pour cohérence visuelle)
+            if "polarity" in info:
                 desc_parts.append(f"Note TourPedia: {info['polarity']}/10")
+            elif "inferredRating" in info:
+                desc_parts.append(f"Note calculée: {info['inferredRating']}/5.0")
             
             # Compteurs d'avis
             review_parts = []

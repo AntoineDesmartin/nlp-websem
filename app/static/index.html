@@ -13,47 +13,50 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            background: #f5f5f5;
-            color: #333;
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
             line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2c3e50;
             color: white;
-            padding: 1.5rem 2rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1.2rem 2rem;
+            border-bottom: 3px solid #34495e;
         }
 
         header h1 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 0.3rem;
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            letter-spacing: -0.02em;
         }
 
         header p {
-            opacity: 0.9;
-            font-size: 0.9rem;
+            opacity: 0.85;
+            font-size: 0.85rem;
+            font-weight: 300;
         }
 
         .stats-bar {
             background: white;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             display: flex;
             gap: 2rem;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 1px solid #ddd;
             flex-wrap: wrap;
         }
 
         .stat {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
 
         .stat-icon {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
+            color: #555;
         }
 
         .stat-info {
@@ -62,16 +65,16 @@
         }
 
         .stat-label {
-            font-size: 0.75rem;
-            color: #666;
+            font-size: 0.7rem;
+            color: #777;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
         }
 
         .stat-value {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #667eea;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
         }
 
         main {
@@ -88,24 +91,24 @@
         }
 
         .tab {
-            padding: 0.75rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             color: #666;
-            border-bottom: 3px solid transparent;
-            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s;
         }
 
         .tab:hover {
-            color: #667eea;
+            color: #2c3e50;
         }
 
         .tab.active {
-            color: #667eea;
-            border-bottom-color: #667eea;
+            color: #2c3e50;
+            border-bottom-color: #2c3e50;
         }
 
         .tab-content {
@@ -114,34 +117,23 @@
 
         .tab-content.active {
             display: block;
-            animation: fadeIn 0.3s;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .card {
             background: white;
-            border-radius: 8px;
+            border-radius: 3px;
             padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.2rem;
+            border: 1px solid #e5e5e5;
         }
 
         .card-title {
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-size: 1.1rem;
+            font-weight: 500;
             margin-bottom: 1rem;
-            color: #333;
+            color: #1a1a1a;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
         }
 
         .search-box {
@@ -173,26 +165,25 @@
         }
 
         button {
-            padding: 0.75rem 1.5rem;
-            background: #667eea;
+            padding: 0.5rem 1rem;
+            background: #34495e;
             color: white;
             border: none;
-            border-radius: 6px;
-            font-size: 0.95rem;
-            font-weight: 500;
+            border-radius: 2px;
             cursor: pointer;
-            transition: all 0.2s;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background 0.15s;
         }
 
         button:hover {
-            background: #5568d3;
-            transform: translateY(-1px);
+            background: #2c3e50;
         }
 
         button:disabled {
-            background: #ccc;
+            background: #bbb;
             cursor: not-allowed;
-            transform: none;
+            opacity: 0.6;
         }
 
         .loading {
@@ -362,62 +353,26 @@
 
 <body>
     <header>
-        <h1>🗼 TourGuide Paris - Graphe de Connaissances Enrichi</h1>
+        <h1>TourGuide Paris - Graphe de Connaissances Enrichi</h1>
         <p>Démonstration d'un graphe sémantique complet : OWL, SKOS, SHACL, RML, LOD, Inférence, GraphRAG</p>
     </header>
 
-    <div class="stats-bar" id="statsBar">
-        <div class="stat">
-            <span class="stat-icon">📊</span>
-            <div class="stat-info">
-                <span class="stat-label">Triples RDF</span>
-                <span class="stat-value" id="statTriples">-</span>
-            </div>
-        </div>
-        <div class="stat">
-            <span class="stat-icon">🏆</span>
-            <div class="stat-info">
-                <span class="stat-label">Classes Inférées</span>
-                <span class="stat-value">7 types</span>
-            </div>
-        </div>
-        <div class="stat">
-            <span class="stat-icon">⭐</span>
-            <div class="stat-info">
-                <span class="stat-label">Reviews Schema.org</span>
-                <span class="stat-value">10,996</span>
-            </div>
-        </div>
-        <div class="stat">
-            <span class="stat-icon">🌐</span>
-            <div class="stat-info">
-                <span class="stat-label">Liens LOD</span>
-                <span class="stat-value">107 liens</span>
-            </div>
-        </div>
-        <div class="stat">
-            <span class="stat-icon">🤖</span>
-            <div class="stat-info">
-                <span class="stat-label">GraphRAG</span>
-                <span class="stat-value">2 approches</span>
-            </div>
-        </div>
-    </div>
+
 
     <main>
         <div class="tabs">
-            <button class="tab active" onclick="switchTab('app1')">🤖 Approche 1 (SPARQL)</button>
-            <button class="tab" onclick="switchTab('app2')">🧠 Approche 2 (Embeddings)</button>
-            <button class="tab" onclick="switchTab('compare')">⚖️ Comparaison</button>
-            <button class="tab" onclick="switchTab('inference')">🏆 Inférence & Requêtes</button>
-            <button class="tab" onclick="switchTab('reco')">💡 Recommandations</button>
-            <button class="tab" onclick="switchTab('lod')">🌐 Web de Données</button>
+            <button class="tab active" onclick="switchTab('app1')">Approche 1 (SPARQL)</button>
+            <button class="tab" onclick="switchTab('app2')"> Approche 2 (Embeddings)</button>
+            <button class="tab" onclick="switchTab('compare')">Comparaison</button>
+            <button class="tab" onclick="switchTab('inference')">Inférence & Requêtes</button>
+            <button class="tab" onclick="switchTab('reco')">Recommandations</button>
+            <button class="tab" onclick="switchTab('lod')">Web de Données</button>
         </div>
 
         <!-- TAB 1: GraphRAG Approche 1 (SPARQL) -->
         <div id="tab-app1" class="tab-content active">
             <div class="card">
-                <div class="card-title">🤖 GraphRAG: Approche 1 (Question → SPARQL)</div>
+                <div class="card-title">GraphRAG: Approche 1 (Question → SPARQL)</div>
                 <p style="color: #666; margin-bottom: 1rem;">
                     Transforme la question en requête SPARQL avec GPT-4o-mini, puis exécute sur le graphe
                 </p>
@@ -436,7 +391,7 @@
         <!-- TAB 2: GraphRAG Approche 2 (Embeddings) -->
         <div id="tab-app2" class="tab-content">
             <div class="card">
-                <div class="card-title">🧠 GraphRAG: Approche 2 (Question → Embeddings → Réponse NL)</div>
+                <div class="card-title"> GraphRAG: Approche 2 (Question → Embeddings → Réponse NL)</div>
                 <p style="color: #666; margin-bottom: 1rem;">
                     Trouve les entités similaires par embeddings, puis génère une réponse en langage naturel
                 </p>
@@ -455,7 +410,7 @@
         <!-- TAB 3: GraphRAG Comparaison -->
         <div id="tab-compare" class="tab-content">
             <div class="card">
-                <div class="card-title">⚖️ Comparaison des 2 Approches GraphRAG</div>
+                <div class="card-title">Comparaison des 2 Approches GraphRAG</div>
                 <p style="color: #666; margin-bottom: 1rem;">
                     Compare CÔTE-À-CÔTE les résultats des 2 approches sur la même question
                 </p>
@@ -463,7 +418,7 @@
                 <div class="search-box">
                     <input type="text" id="graphragQuestion" placeholder="Ex: Recommande-moi des lieux bien notés"
                         value="Recommande-moi des lieux très bien notés avec leurs qualités">
-                    <button onclick="compareGraphRAG()">⚖️ Comparer</button>
+                    <button onclick="compareGraphRAG()">Comparer</button>
                 </div>
 
                 <div id="graphragLoading" class="loading"></div>
@@ -474,7 +429,7 @@
         <!-- TAB 4: Inférence & Requêtes SPARQL -->
         <div id="tab-inference" class="tab-content">
             <div class="card">
-                <div class="card-title">📝 Requêtes SPARQL</div>
+                <div class="card-title">Requêtes SPARQL</div>
                 <p style="color: #666; margin-bottom: 0.5rem;">
                     Exploitation du graphe de connaissances par requêtes SPARQL complexes
                 </p>
@@ -483,10 +438,10 @@
                 <div style="margin-top: 1.5rem; margin-bottom: 1rem;">
                     <div style="font-weight: 600; color: #4f46e5; margin-bottom: 0.5rem;">Classes Inférées</div>
                     <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                        <button onclick="queryInferredClass('HiddenGem')">🎯 HiddenGem</button>
-                        <button onclick="queryInferredClass('HighlyRatedPlace')">⭐ HighlyRated</button>
-                        <button onclick="queryInferredClass('TopRestaurant')">🍽️ TopRestaurant</button>
-                        <button onclick="queryInferredClass('PopularPlace')">📈 Popular</button>
+                        <button onclick="queryInferredClass('HiddenGem')">HiddenGem</button>
+                        <button onclick="queryInferredClass('HighlyRatedPlace')">HighlyRated</button>
+                        <button onclick="queryInferredClass('TopRestaurant')">TopRestaurant</button>
+                        <button onclick="queryInferredClass('PopularPlace')">Popular</button>
                     </div>
                 </div>
 
@@ -495,14 +450,14 @@
 
                 <!-- Requêtes Prédéfinies Complexes -->
                 <div style="margin-bottom: 1rem;">
-                    <div style="font-weight: 600; color: #059669; margin-bottom: 0.5rem;">🔍 Requêtes Complexes
+                    <div style="font-weight: 600; color: #059669; margin-bottom: 0.5rem;">Requêtes Complexes
                         (Schema.org, LOD, Fédérée)</div>
                     <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
-                        <button onclick="askPredefined('reviews_aggregees')">📊 Reviews Comptées</button>
-                        <!-- <button onclick="askPredefined('top_restaurants')">🍽️ Top Restaurants</button> -->
-                        <button onclick="askPredefined('federated_wikidata')">🌍 Fédérée Wikidata</button>
-                        <!-- <button onclick="askPredefined('top_rated')">⭐ Highly Rated</button> -->
-                        <button onclick="askPredefined('attractions_populaires')">📈 Attractions Populaires</button>
+                        <button onclick="askPredefined('reviews_aggregees')">Reviews Comptées</button>
+                        <!-- <button onclick="askPredefined('top_restaurants')">Top Restaurants</button> -->
+                        <button onclick="askPredefined('federated_wikidata')">Fédérée Wikidata</button>
+                        <!-- <button onclick="askPredefined('top_rated')">Highly Rated</button> -->
+                        <button onclick="askPredefined('attractions_populaires')">Attractions Populaires</button>
                     </div>
                 </div>
 
@@ -520,7 +475,7 @@
         <!-- TAB 3: Recommandations -->
         <div id="tab-reco" class="tab-content">
             <div class="card">
-                <div class="card-title">💡 Recommandations par Link Prediction (TransE)</div>
+                <div class="card-title">Recommandations par Link Prediction (TransE)</div>
                 <p style="color: #666; margin-bottom: 1rem;">
                     Prédiction de liens <code>likesPlace</code> avec TransE (18,151 entités, 63,948 triplets)
                 </p>
@@ -534,7 +489,7 @@
         <!-- TAB 4: Web de Données Liées -->
         <div id="tab-lod" class="tab-content">
             <div class="card">
-                <div class="card-title">🌐 Alignement avec le Web de Données Liées</div>
+                <div class="card-title">Alignement avec le Web de Données Liées</div>
                 <p style="color: #666; margin-bottom: 1rem;">
                     Liens <code>owl:sameAs</code> et <code>rdfs:seeAlso</code> vers Wikidata, DBpedia, Wikipedia
                 </p>
@@ -715,7 +670,7 @@
                 results.innerHTML = `
                     <div style="margin-bottom: 1rem;">
                         <strong>✅ ${data.count} ${className} trouvés</strong>
-                        <span class="enrichment-badge">🧠 Inféré par règles SPARQL</span>
+                        <span class="enrichment-badge"> Inféré par règles SPARQL</span>
                     </div>
                     ${renderResults(data.results.slice(0, 10))}
                 `;
@@ -839,18 +794,18 @@
 
                 // Détails
                 const details = [];
-                if (r.polarity) details.push(`<div class="detail-item">⭐ Note: ${r.polarity}/10</div>`);
-                if (r.inferredRating) details.push(`<div class="detail-item">🧠 Note calculée: ${r.inferredRating}/5</div>`);
-                if (r.numReviews || r.reviewCount) details.push(`<div class="detail-item">📝 ${r.numReviews || r.reviewCount} avis</div>`);
-                if (r.avgRating) details.push(`<div class="detail-item">📊 Moyenne: ${parseFloat(r.avgRating).toFixed(1)}</div>`);
-                if (r.wikidataLink) details.push(`<div class="detail-item">🌐 <a href="${r.wikidataLink}" class="link-external" target="_blank">Wikidata</a></div>`);
+                if (r.polarity) details.push(`<div class="detail-item">Note: ${r.polarity}/10</div>`);
+                if (r.inferredRating) details.push(`<div class="detail-item"> Note calculée: ${r.inferredRating}/5</div>`);
+                if (r.numReviews || r.reviewCount) details.push(`<div class="detail-item">${r.numReviews || r.reviewCount} avis</div>`);
+                if (r.avgRating) details.push(`<div class="detail-item">Moyenne: ${parseFloat(r.avgRating).toFixed(1)}</div>`);
+                if (r.wikidataLink) details.push(`<div class="detail-item"><a href="${r.wikidataLink}" class="link-external" target="_blank">Wikidata</a></div>`);
 
                 // Raison d'inférence
                 let reasonSection = '';
                 if (r.reason || r.inferenceReason) {
                     reasonSection = `
                         <div class="enrichment-section">
-                            <div class="enrichment-title">💡 Raison de l'inférence:</div>
+                            <div class="enrichment-title">Raison de l'inférence:</div>
                             <div style="font-size: 0.85rem; color: #666;">${r.reason || r.inferenceReason}</div>
                         </div>
                     `;
@@ -873,7 +828,7 @@
 
             return `
                 <div class="enrichment-section">
-                    <div class="enrichment-title">📊 Entités Utilisées (Embeddings):</div>
+                    <div class="enrichment-title">Entités Utilisées (Embeddings):</div>
                     ${entities.slice(0, 5).map(e => {
                 const info = e.info || {};
                 const badges = [];
@@ -882,9 +837,9 @@
                 return `
                             <div class="entity-card">
                                 <div class="entity-name">${e.name} ${badges.join(' ')}</div>
-                                ${info.polarity ? `<div class="entity-detail">⭐ ${parseFloat(info.polarity).toFixed(1)}/10</div>` : ''}
-                                ${info.numReviews ? `<div class="entity-detail">📝 ${info.numReviews} avis</div>` : ''}
-                                ${info.wikidataLink ? `<div class="entity-detail">🌐 <a href="${info.wikidataLink}" class="link-external" target="_blank">Wikidata</a></div>` : ''}
+                                ${info.polarity ? `<div class="entity-detail">${parseFloat(info.polarity).toFixed(1)}/10</div>` : ''}
+                                ${info.numReviews ? `<div class="entity-detail">${info.numReviews} avis</div>` : ''}
+                                ${info.wikidataLink ? `<div class="entity-detail"><a href="${info.wikidataLink}" class="link-external" target="_blank">Wikidata</a></div>` : ''}
                             </div>
                         `;
             }).join('')}
@@ -897,7 +852,7 @@
                 <div class="result-card">
                     <div class="result-name">${r.name || 'N/A'}</div>
                     <div class="detail-item">
-                        🌐 <a href="${r.link}" class="link-external" target="_blank">${r.link}</a>
+                        <a href="${r.link}" class="link-external" target="_blank">${r.link}</a>
                     </div>
                 </div>
             `).join('');
@@ -911,7 +866,7 @@
                         <span class="badge">${(r.score * 100).toFixed(1)}%</span>
                     </div>
                     <div class="result-details">
-                        <div>⭐ Note: ${r.polarity || 'N/A'}</div>
+                        <div>Note: ${r.polarity || 'N/A'}</div>
                         <div>🔮 Score: ${r.score.toFixed(3)}</div>
                     </div>
                 </div>
