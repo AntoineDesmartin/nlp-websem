@@ -141,3 +141,16 @@ pip install pyshacl
 ```
 
 
+
+
+
+
+
+
+
+
+
+17) Enrichissement SKOS
+```
+python3 scripts/enrich_skos.py --backup
+```
