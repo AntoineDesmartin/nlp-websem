@@ -1,11 +1,10 @@
 PREFIX tg: <https://example.org/tourguide#>
-PREFIX schema: <http://schema.org/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-# Q16: Requête fédérée complexe - Enrichissement des lieux avec Wikidata
-# Récupère les informations Wikidata (label, instance de, coordonnées) pour nos lieux
-SELECT ?place ?name ?lat ?lng ?wd ?wdLabel ?instanceOfLabel ?wikidataLat ?wikidataLng
+# Q16: Requête fédérée - Enrichissement des lieux avec Wikidata
+# Récupère les labels français depuis Wikidata pour nos lieux alignés
+SELECT ?place ?name ?lat ?lng ?wd ?wdLabel ?instanceOfLabel
 WHERE {
   # Nos données locales
   ?place a tg:Place ;
@@ -27,13 +26,6 @@ WHERE {
       ?instanceOf rdfs:label ?instanceOfLabel .
       FILTER(LANG(?instanceOfLabel) = "fr")
     }
-    
-    # Coordonnées géographiques depuis Wikidata
-    OPTIONAL {
-      ?wd <http://www.wikidata.org/prop/direct/P625> ?coords .
-      BIND(geof:latitude(?coords) AS ?wikidataLat)
-      BIND(geof:longitude(?coords) AS ?wikidataLng)
-    }
   }
 }
-LIMIT 30
+LIMIT 15

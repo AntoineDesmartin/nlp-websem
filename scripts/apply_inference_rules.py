@@ -32,9 +32,6 @@ def apply_rules(input_file, output_file, rules_dir='rules'):
         'r2_top_restaurant.rq',
         'r3_popular_place.rq',
         'r4_hidden_gem.rq',
-        'r5_trending_place.rq',
-        'r6_must_visit_attraction.rq',
-        'r7_consistent_quality.rq'
     ]
     
     total_inferred = 0
@@ -81,9 +78,6 @@ def apply_rules(input_file, output_file, rules_dir='rules'):
         TG.TopRestaurant,
         TG.PopularPlace,
         TG.HiddenGem,
-        TG.TrendingPlace,
-        TG.MustVisitAttraction,
-        TG.ConsistentQuality
     ]
     
     for inf_type in inferred_types:

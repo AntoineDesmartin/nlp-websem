@@ -1,0 +1,14 @@
+PREFIX tg: <https://example.org/tourguide#>
+
+# PopularPlace : lieux avec numReviews >= 50
+SELECT ?place ?name ?polarity ?numReviews ?inferenceReason
+WHERE {
+  ?place a tg:PopularPlace ;
+         tg:name ?name .
+  
+  OPTIONAL { ?place tg:polarity ?polarity }
+  OPTIONAL { ?place tg:numReviews ?numReviews }
+  OPTIONAL { ?place tg:inferenceReason ?inferenceReason }
+}
+ORDER BY DESC(?numReviews)
+LIMIT 30

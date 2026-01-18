@@ -1,0 +1,14 @@
+PREFIX tg: <https://example.org/tourguide#>
+
+# HighlyRatedPlace : lieux avec polarity >= 7.0 ET numReviews >= 20
+SELECT ?place ?name ?polarity ?numReviews ?inferenceReason
+WHERE {
+  ?place a tg:HighlyRatedPlace ;
+         tg:name ?name ;
+         tg:polarity ?polarity ;
+         tg:numReviews ?numReviews .
+  
+  OPTIONAL { ?place tg:inferenceReason ?inferenceReason }
+}
+ORDER BY DESC(?polarity) DESC(?numReviews)
+LIMIT 30

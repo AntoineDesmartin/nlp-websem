@@ -144,6 +144,60 @@ async def ask_question_nl(request: QuestionRequest):
             error=True
         )
 
+@app.get("/api/predefined-query/{query_name}")
+async def get_predefined_query(query_name: str):
+    """
+    Exécute des requêtes SPARQL prédéfinies depuis /queries/*.rq
+    Charge et exécute le fichier correspondant SANS passer par le LLM
+    """
+    try:
+        # Mapping des noms vers les fichiers .rq
+        # 6 requêtes essentielles couvrant toutes les exigences du projet
+        query_files = {
+            # Requêtes complexes Section 2
+            "reviews_aggregees": "reviews_aggregees.rq",  # Reviews comptées (Schema.org)
+            "top_restaurants": "q12_restaurant_analysis.rq",  # Analyse restaurants (score combiné)
+            "attractions_populaires": "q13_attraction_popularity.rq",  # Attractions populaires
+            "federated_wikidata": "q16_federated_enrichment.rq",  # ⭐ REQUÊTE FÉDÉRÉE (SERVICE)
+            "hidden_gems": "hidden_gems.rq",  # Hidden Gems (classe inférée)
+            "top_rated": "q7_highly_rated_places.rq",  # Top rated (polarity >= 7.0)
+            
+            # Classes inférées Section 1 (résultats des règles SPARQL R1-R4)
+            "HiddenGem": "hidden_gems.rq",
+            "HighlyRatedPlace": "highly_rated_class.rq",
+            "TopRestaurant": "top_restaurant_class.rq",
+            "PopularPlace": "popular_place_class.rq",
+        }
+        
+        if query_name not in query_files:
+            raise HTTPException(status_code=404, detail=f"Requête '{query_name}' non trouvée")
+        
+        # Charger le fichier .rq
+        queries_dir = Path(__file__).parent.parent / "queries"
+        query_file = queries_dir / query_files[query_name]
+        
+        if not query_file.exists():
+            raise HTTPException(status_code=404, detail=f"Fichier {query_files[query_name]} introuvable")
+        
+        sparql_query = query_file.read_text(encoding='utf-8')
+        
+        # Exécuter la requête
+        results = sparql_client.query(sparql_query)
+        
+        return QuestionResponse(
+            query_type="predefined",
+            sparql=sparql_query,
+            explanation=f"📂 Requête prédéfinie : {query_files[query_name]}",
+            results=results,
+            count=len(results),
+            mode="predefined",
+            provider="file"
+        )
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Erreur : {str(e)}")
+
 @app.post("/api/ask", response_model=QuestionResponse)
 async def ask_question(request: QuestionRequest):
     """

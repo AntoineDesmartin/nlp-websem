@@ -474,42 +474,44 @@
         <!-- TAB 4: Inférence & Requêtes SPARQL -->
         <div id="tab-inference" class="tab-content">
             <div class="card">
-                <div class="card-title">🏆 Classes Inférées par Règles SPARQL (R1-R4)</div>
-                <p style="color: #666; margin-bottom: 1rem;">
-                    4 règles d'inférence CONSTRUCT SPARQL pour enrichir le graphe
+                <div class="card-title">📝 Requêtes SPARQL</div>
+                <p style="color: #666; margin-bottom: 0.5rem;">
+                    Exploitation du graphe de connaissances par requêtes SPARQL complexes
                 </p>
 
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-                    <button onclick="queryInferredClass('HiddenGem')">🎯 HiddenGem</button>
-                    <button onclick="queryInferredClass('HighlyRatedPlace')">⭐ HighlyRated</button>
-                    <button onclick="queryInferredClass('TopRestaurant')">🍽️ TopRestaurant</button>
-                    <button onclick="queryInferredClass('PopularPlace')">📈 Popular</button>
+                <!-- Classes Inférées (R1-R4) -->
+                <div style="margin-top: 1.5rem; margin-bottom: 1rem;">
+                    <div style="font-weight: 600; color: #4f46e5; margin-bottom: 0.5rem;">Classes Inférées</div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button onclick="queryInferredClass('HiddenGem')">🎯 HiddenGem</button>
+                        <button onclick="queryInferredClass('HighlyRatedPlace')">⭐ HighlyRated</button>
+                        <button onclick="queryInferredClass('TopRestaurant')">🍽️ TopRestaurant</button>
+                        <button onclick="queryInferredClass('PopularPlace')">📈 Popular</button>
+                    </div>
                 </div>
+
+                <!-- Séparation visuelle -->
+                <div style="border-top: 1px dashed #e5e7eb; margin: 1.5rem 0;"></div>
+
+                <!-- Requêtes Prédéfinies Complexes -->
+                <div style="margin-bottom: 1rem;">
+                    <div style="font-weight: 600; color: #059669; margin-bottom: 0.5rem;">🔍 Requêtes Complexes
+                        (Schema.org, LOD, Fédérée)</div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                        <button onclick="askPredefined('reviews_aggregees')">📊 Reviews Comptées</button>
+                        <!-- <button onclick="askPredefined('top_restaurants')">🍽️ Top Restaurants</button> -->
+                        <button onclick="askPredefined('federated_wikidata')">🌍 Fédérée Wikidata</button>
+                        <!-- <button onclick="askPredefined('top_rated')">⭐ Highly Rated</button> -->
+                        <button onclick="askPredefined('attractions_populaires')">📈 Attractions Populaires</button>
+                    </div>
+                </div>
+
+                <!-- <textarea id="customSparql" placeholder="Ou pose ta propre question en langage naturel..."
+                    style="margin-top: 1rem;"></textarea>
+                <button onclick="askCustom()" style="margin-top: 0.5rem;">Exécuter</button> -->
 
                 <div id="inferenceLoading" class="loading"></div>
                 <div id="inferenceResults"></div>
-            </div>
-
-            <div class="card" style="margin-top: 1.5rem;">
-                <div class="card-title">📝 Requêtes SPARQL Prédéfinies</div>
-                <p style="color: #666; margin-bottom: 1rem;">
-                    Questions complexes exploitant le graphe enrichi (schema:Review, LOD, etc.)
-                </p>
-
-                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
-                    <button onclick="askPredefined('Lieux avec reviews Schema.org et note calculée')">📊 Reviews
-                        Agrégées</button>
-                    <button onclick="askPredefined('TopRestaurant avec raisons inférence')">🍽️ Top Restaurants</button>
-                    <button onclick="askPredefined('Lieux liés à Wikidata')">🌐 Wikidata</button>
-                    <button onclick="askPredefined('HiddenGem avec inference reasons')">🎯 Hidden Gems</button>
-                    <button onclick="askPredefined('Enrichir attractions avec Wikidata (requête fédérée)')">🌍 Fédérée
-                        Wikidata</button>
-                </div>
-
-                <textarea id="customSparql" placeholder="Ou pose ta propre question en langage naturel..."
-                    style="margin-top: 1rem;"></textarea>
-                <button onclick="askCustom()" style="margin-top: 0.5rem;">Exécuter</button>
-
                 <div id="sparqlLoading" class="loading"></div>
                 <div id="sparqlResults"></div>
             </div>
@@ -685,7 +687,7 @@
             }
         }
 
-        // Classes Inférées
+        // Classes Inférées (utilise requêtes SPARQL directes)
         async function queryInferredClass(className) {
             const loading = document.getElementById('inferenceLoading');
             const results = document.getElementById('inferenceResults');
@@ -695,14 +697,12 @@
             results.innerHTML = '';
 
             try {
-                const response = await fetch('/api/ask', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        question: `Trouve les ${className} avec leurs raisons d'inférence`,
-                        mode: 'openrouter'
-                    })
-                });
+                // Utilise l'endpoint predefined-query au lieu d'OpenRouter
+                const response = await fetch(`/api/predefined-query/${className}`);
+
+                if (!response.ok) {
+                    throw new Error(`Erreur ${response.status}: ${response.statusText}`);
+                }
 
                 const data = await response.json();
                 loading.classList.remove('show');
@@ -786,21 +786,21 @@
             }
         }
 
-        // SPARQL
-        async function askPredefined(question) {
+        // SPARQL Prédéfini (charge fichiers .rq)
+        async function askPredefined(queryName) {
             const loading = document.getElementById('sparqlLoading');
             const results = document.getElementById('sparqlResults');
 
             loading.classList.add('show');
-            loading.textContent = '⏳ Exécution de la requête SPARQL...';
+            loading.textContent = `⏳ Chargement de la requête ${queryName}...`;
             results.innerHTML = '';
 
             try {
-                const response = await fetch('/api/ask', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ question, mode: 'openrouter' })
-                });
+                const response = await fetch(`/api/predefined-query/${queryName}`);
+
+                if (!response.ok) {
+                    throw new Error(`Erreur ${response.status}: ${response.statusText}`);
+                }
 
                 const data = await response.json();
                 loading.classList.remove('show');
@@ -809,9 +809,9 @@
                     <div class="sparql-query">${escapeHtml(data.sparql)}</div>
                     <div style="margin: 1rem 0;">
                         <strong>✅ ${data.count} résultats</strong>
-                        <span class="badge">${data.provider || 'SPARQL'}</span>
+                        <span class="badge">${data.explanation}</span>
                     </div>
-                    ${renderResults(data.results.slice(0, 15))}
+                    ${renderResults(data.results.slice(0, 50))}
                 `;
             } catch (error) {
                 loading.classList.remove('show');

@@ -1,0 +1,16 @@
+PREFIX tg: <https://example.org/tourguide#>
+
+# Lieux avec leur note inférée (calculée depuis reviews)
+# Plus rapide que de compter toutes les reviews
+SELECT ?place ?name ?inferredRating ?numReviews
+WHERE {
+  ?place a tg:Place ;
+         tg:name ?name .
+  
+  OPTIONAL { ?place tg:inferredRating ?inferredRating }
+  OPTIONAL { ?place tg:numReviews ?numReviews }
+  
+  FILTER(BOUND(?inferredRating) || BOUND(?numReviews))
+}
+ORDER BY DESC(?inferredRating) DESC(?numReviews)
+LIMIT 50

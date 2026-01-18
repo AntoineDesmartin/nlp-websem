@@ -1,0 +1,15 @@
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+# Hidden Gems : lieux excellents mais peu connus (polarity élevée, peu d'avis)
+SELECT ?place ?name ?polarity ?numReviews ?inferenceReason
+WHERE {
+  ?place a tg:HiddenGem ;
+         tg:name ?name ;
+         tg:polarity ?polarity ;
+         tg:numReviews ?numReviews .
+  
+  OPTIONAL { ?place tg:inferenceReason ?inferenceReason }
+}
+ORDER BY DESC(?polarity)
+LIMIT 30
