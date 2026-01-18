@@ -1,1 +1,2326 @@
-{}
+{
+  "model": "TransE",
+  "relation": "https://example.org/tourguide#likesPlace",
+  "metrics_table": [
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 17.875758923989586
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 4146.162538981605
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 2784.8524539462487
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 17.875760270539278
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 4146.162526487105
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 2784.8525104116366
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 17.87575706053646
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 4146.162533668214
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 2784.852449008507
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "count",
+      "Value": 3594.0
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "count",
+      "Value": 3594.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "count",
+      "Value": 7188.0
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "count",
+      "Value": 3594.0
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "count",
+      "Value": 3594.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "count",
+      "Value": 7188.0
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "count",
+      "Value": 3594.0
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "count",
+      "Value": 3594.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "count",
+      "Value": 7188.0
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.00025355381657398026
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.3325058156095837
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.009181945250373375
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.00025355370598845184
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.3325057029724121
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.009181942790746689
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.00025355360144464637
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.33250557449245216
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.00918193802598244
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.0031551053386084734
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.657652224765575
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.33042356731923994
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.0031551055762770465
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.6576522227837339
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.3304235740188749
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.003155105009705464
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.6576522239227803
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.3304235667333754
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 5692.451217952259
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 0.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 496.67174319937664
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 5692.451171875
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 0.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 496.6717529296875
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 5692.451217952259
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 0.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 496.67174319937664
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.2738129540185662
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.9996993739050318
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.9820777497115633
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.2738126595082735
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.9996993737440226
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.9820777443431825
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.273812337723803
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.9996993735784377
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.9820777354795772
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "variance",
+      "Value": 20917381.07953774
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "variance",
+      "Value": 3029324.8536325768
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "variance",
+      "Value": 21699375.737960134
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "variance",
+      "Value": 20917386.0
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "variance",
+      "Value": 3029325.75
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "variance",
+      "Value": 21699384.0
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "variance",
+      "Value": 20917392.63477124
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "variance",
+      "Value": 3029326.955101776
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "variance",
+      "Value": 21699393.846933465
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.11628811684188955
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.9635838271633959
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.5820471260261302
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.11628784442509299
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.9635837799905403
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.5820469718789254
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.11628751782473823
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.9635837351575154
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.5820468057134079
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 3943.9359009144578
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 3.0074661947391736
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 108.90938387585528
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 3943.9375
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 3.007467269897461
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 108.90941619873047
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 3943.939247174572
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 3.0074683756097444
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 108.90946956625783
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "arithmetic_mean_rank",
+      "Value": 6568.70061213133
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "arithmetic_mean_rank",
+      "Value": 331.38619922092374
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "arithmetic_mean_rank",
+      "Value": 3450.043405676127
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "arithmetic_mean_rank",
+      "Value": 6568.70263671875
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "arithmetic_mean_rank",
+      "Value": 331.3866271972656
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "arithmetic_mean_rank",
+      "Value": 3450.044677734375
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "arithmetic_mean_rank",
+      "Value": 6568.705063995548
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "arithmetic_mean_rank",
+      "Value": 331.3870339454647
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "arithmetic_mean_rank",
+      "Value": 3450.0460489705065
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "standard_deviation",
+      "Value": 4573.552347960799
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "standard_deviation",
+      "Value": 1740.4955770218369
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "standard_deviation",
+      "Value": 4658.258874081617
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "standard_deviation",
+      "Value": 4573.552734375
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "standard_deviation",
+      "Value": 1740.495849609375
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "standard_deviation",
+      "Value": 4658.259765625
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "standard_deviation",
+      "Value": 4573.553611227405
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "standard_deviation",
+      "Value": 1740.4961807202496
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "standard_deviation",
+      "Value": 4658.260817830348
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_arithmetic_mean_rank",
+      "Value": 0.8837275281107598
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_arithmetic_mean_rank",
+      "Value": 0.03652237027454488
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_arithmetic_mean_rank",
+      "Value": 0.41802339752633916
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_arithmetic_mean_rank",
+      "Value": 0.8837278004909065
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_arithmetic_mean_rank",
+      "Value": 0.036522417442201416
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_arithmetic_mean_rank",
+      "Value": 0.4180235516548669
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_arithmetic_mean_rank",
+      "Value": 0.8837281270473217
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_arithmetic_mean_rank",
+      "Value": 0.03652246227028529
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_arithmetic_mean_rank",
+      "Value": 0.4180237178002509
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.00015223711035835022
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.003017627174429598
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.00028985142573996795
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.0001522370585007593
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.003017623210325837
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.00028985130484215915
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.0001522370071814017
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.003017619573385502
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.0002898512036668032
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_harmonic_mean_rank",
+      "Value": 0.003846689588373862
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_harmonic_mean_rank",
+      "Value": 0.6578481217164249
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_harmonic_mean_rank",
+      "Value": 0.33084740565239945
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "inverse_harmonic_mean_rank",
+      "Value": 0.0038466898258775473
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "inverse_harmonic_mean_rank",
+      "Value": 0.6578481197357178
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "inverse_harmonic_mean_rank",
+      "Value": 0.3308474123477936
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_harmonic_mean_rank",
+      "Value": 0.0038466892596990365
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_harmonic_mean_rank",
+      "Value": 0.6578481208741125
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_harmonic_mean_rank",
+      "Value": 0.3308474050669058
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_median_rank",
+      "Value": 0.00016421709499958947
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_median_rank",
+      "Value": 1.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_median_rank",
+      "Value": 0.002976190476190476
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "inverse_median_rank",
+      "Value": 0.00016421709733549505
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "inverse_median_rank",
+      "Value": 1.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "inverse_median_rank",
+      "Value": 0.0029761905316263437
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_median_rank",
+      "Value": 0.00016421709499958947
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_median_rank",
+      "Value": 1.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_median_rank",
+      "Value": 0.002976190476190476
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 11.982378072424126
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 100.04956966369151
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 84.78622949997295
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 11.98235000247908
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 100.04956476570158
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 84.78620704550198
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 11.982316349436644
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 100.04956011065784
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 84.78618284033531
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "harmonic_mean_rank",
+      "Value": 259.96378886988305
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "harmonic_mean_rank",
+      "Value": 1.5201077072179658
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "harmonic_mean_rank",
+      "Value": 3.0225414584348806
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "harmonic_mean_rank",
+      "Value": 259.9637756347656
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "harmonic_mean_rank",
+      "Value": 1.5201077461242676
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "harmonic_mean_rank",
+      "Value": 3.0225412845611572
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "harmonic_mean_rank",
+      "Value": 259.9638110821147
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "harmonic_mean_rank",
+      "Value": 1.5201077091643203
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "harmonic_mean_rank",
+      "Value": 3.022541463783808
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "median_rank",
+      "Value": 6089.5
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "median_rank",
+      "Value": 1.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "median_rank",
+      "Value": 336.0
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "median_rank",
+      "Value": 6089.5
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "median_rank",
+      "Value": 1.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "median_rank",
+      "Value": 336.0
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "median_rank",
+      "Value": 6089.5
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "median_rank",
+      "Value": 1.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "median_rank",
+      "Value": 336.0
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "z_geometric_mean_rank",
+      "Value": 16.445839926306924
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "z_geometric_mean_rank",
+      "Value": 60.02875234867153
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "z_geometric_mean_rank",
+      "Value": 83.39938241700023
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "z_geometric_mean_rank",
+      "Value": 16.44582223733692
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "z_geometric_mean_rank",
+      "Value": 60.02875233900344
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "z_geometric_mean_rank",
+      "Value": 83.39938196111001
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "z_geometric_mean_rank",
+      "Value": 16.445802910216656
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "z_geometric_mean_rank",
+      "Value": 60.0287523290606
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "z_geometric_mean_rank",
+      "Value": 83.39938120840057
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_1",
+      "Value": 0.0005564830272676684
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_1",
+      "Value": 0.5114079020589872
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_1",
+      "Value": 0.25598219254312743
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_1",
+      "Value": 0.0005564830272676684
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_1",
+      "Value": 0.5114079020589872
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_1",
+      "Value": 0.25598219254312743
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_1",
+      "Value": 0.0005564830272676684
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_1",
+      "Value": 0.5114079020589872
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_1",
+      "Value": 0.25598219254312743
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_3",
+      "Value": 0.00333889816360601
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_3",
+      "Value": 0.7860322760155816
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_3",
+      "Value": 0.3946855870895938
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_3",
+      "Value": 0.00333889816360601
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_3",
+      "Value": 0.7860322760155816
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_3",
+      "Value": 0.3946855870895938
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_3",
+      "Value": 0.00333889816360601
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_3",
+      "Value": 0.7860322760155816
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_3",
+      "Value": 0.3946855870895938
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_5",
+      "Value": 0.0052865887590428495
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_5",
+      "Value": 0.8366722314969394
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_5",
+      "Value": 0.4209794101279911
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_5",
+      "Value": 0.0052865887590428495
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_5",
+      "Value": 0.8366722314969394
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_5",
+      "Value": 0.4209794101279911
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_5",
+      "Value": 0.0052865887590428495
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_5",
+      "Value": 0.8366722314969394
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_5",
+      "Value": 0.4209794101279911
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_10",
+      "Value": 0.00862548692264886
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_10",
+      "Value": 0.8845297718419588
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "hits_at_10",
+      "Value": 0.44657762938230383
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_10",
+      "Value": 0.00862548692264886
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_10",
+      "Value": 0.8845297718419588
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "hits_at_10",
+      "Value": 0.44657762938230383
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_10",
+      "Value": 0.00862548692264886
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_10",
+      "Value": 0.8845297718419588
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "hits_at_10",
+      "Value": 0.44657762938230383
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "z_hits_at_k",
+      "Value": 18.230429935876455
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "z_hits_at_k",
+      "Value": 2258.0901970586447
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "z_hits_at_k",
+      "Value": 1522.7632624551654
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "z_hits_at_k",
+      "Value": 18.230429935876455
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "z_hits_at_k",
+      "Value": 2258.0901970586447
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "z_hits_at_k",
+      "Value": 1522.7632624551654
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "z_hits_at_k",
+      "Value": 18.230429935876455
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "z_hits_at_k",
+      "Value": 2258.0901970586447
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "z_hits_at_k",
+      "Value": 1522.7632624551654
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_hits_at_k",
+      "Value": 0.00794821193826904
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_hits_at_k",
+      "Value": 0.8844661028590146
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_hits_at_k",
+      "Value": 0.4462360162263987
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_hits_at_k",
+      "Value": 0.00794821193826904
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_hits_at_k",
+      "Value": 0.8844661028590146
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_hits_at_k",
+      "Value": 0.4462360162263987
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_hits_at_k",
+      "Value": 0.00794821193826904
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_hits_at_k",
+      "Value": 0.8844661028590146
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_hits_at_k",
+      "Value": 0.4462360162263987
+    }
+  ],
+  "place_filter_mode": "rdf:type tg:Place",
+  "place_candidates_count": 3849,
+  "recommendations": {
+    "https://example.org/tourguide/tourist/1": [
+      {
+        "place": "https://example.org/tourguide/place/84598",
+        "score": -6.782132148742676
+      },
+      {
+        "place": "https://example.org/tourguide/place/303680",
+        "score": -7.183999061584473
+      },
+      {
+        "place": "https://example.org/tourguide/place/251340",
+        "score": -7.4909210205078125
+      },
+      {
+        "place": "https://example.org/tourguide/place/86719",
+        "score": -7.54536771774292
+      },
+      {
+        "place": "https://example.org/tourguide/place/88247",
+        "score": -7.558167457580566
+      },
+      {
+        "place": "https://example.org/tourguide/place/83372",
+        "score": -7.562211036682129
+      },
+      {
+        "place": "https://example.org/tourguide/place/83534",
+        "score": -7.631832599639893
+      },
+      {
+        "place": "https://example.org/tourguide/place/84742",
+        "score": -7.654291152954102
+      },
+      {
+        "place": "https://example.org/tourguide/place/306942",
+        "score": -7.682453632354736
+      },
+      {
+        "place": "https://example.org/tourguide/place/467313",
+        "score": -7.6970534324646
+      }
+    ],
+    "https://example.org/tourguide/tourist/10": [
+      {
+        "place": "https://example.org/tourguide/place/87364",
+        "score": -7.465224266052246
+      },
+      {
+        "place": "https://example.org/tourguide/place/304921",
+        "score": -7.470288276672363
+      },
+      {
+        "place": "https://example.org/tourguide/place/304994",
+        "score": -7.516221046447754
+      },
+      {
+        "place": "https://example.org/tourguide/place/451970",
+        "score": -7.667166709899902
+      },
+      {
+        "place": "https://example.org/tourguide/place/85930",
+        "score": -7.677225112915039
+      },
+      {
+        "place": "https://example.org/tourguide/place/303680",
+        "score": -7.68412971496582
+      },
+      {
+        "place": "https://example.org/tourguide/place/83500",
+        "score": -7.8813276290893555
+      },
+      {
+        "place": "https://example.org/tourguide/place/87046",
+        "score": -7.884936332702637
+      },
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -7.887181282043457
+      },
+      {
+        "place": "https://example.org/tourguide/place/445738",
+        "score": -7.890045166015625
+      }
+    ],
+    "https://example.org/tourguide/tourist/12": [
+      {
+        "place": "https://example.org/tourguide/place/84598",
+        "score": -7.071660041809082
+      },
+      {
+        "place": "https://example.org/tourguide/place/307707",
+        "score": -7.237216472625732
+      },
+      {
+        "place": "https://example.org/tourguide/place/85576",
+        "score": -7.247827053070068
+      },
+      {
+        "place": "https://example.org/tourguide/place/251340",
+        "score": -7.327296733856201
+      },
+      {
+        "place": "https://example.org/tourguide/place/84742",
+        "score": -7.362359046936035
+      },
+      {
+        "place": "https://example.org/tourguide/place/88526",
+        "score": -7.383386611938477
+      },
+      {
+        "place": "https://example.org/tourguide/place/217526",
+        "score": -7.492185592651367
+      },
+      {
+        "place": "https://example.org/tourguide/place/87498",
+        "score": -7.505786895751953
+      },
+      {
+        "place": "https://example.org/tourguide/place/86556",
+        "score": -7.5252532958984375
+      },
+      {
+        "place": "https://example.org/tourguide/place/86023",
+        "score": -7.571172714233398
+      }
+    ],
+    "https://example.org/tourguide/tourist/13": [
+      {
+        "place": "https://example.org/tourguide/place/445738",
+        "score": -6.219760894775391
+      },
+      {
+        "place": "https://example.org/tourguide/place/87498",
+        "score": -7.129611968994141
+      },
+      {
+        "place": "https://example.org/tourguide/place/223036",
+        "score": -7.1415557861328125
+      },
+      {
+        "place": "https://example.org/tourguide/place/217406",
+        "score": -7.141870498657227
+      },
+      {
+        "place": "https://example.org/tourguide/place/83604",
+        "score": -7.168919563293457
+      },
+      {
+        "place": "https://example.org/tourguide/place/86827",
+        "score": -7.223394870758057
+      },
+      {
+        "place": "https://example.org/tourguide/place/83785",
+        "score": -7.226505279541016
+      },
+      {
+        "place": "https://example.org/tourguide/place/90265",
+        "score": -7.227248191833496
+      },
+      {
+        "place": "https://example.org/tourguide/place/217526",
+        "score": -7.241666316986084
+      },
+      {
+        "place": "https://example.org/tourguide/place/87364",
+        "score": -7.256792068481445
+      }
+    ],
+    "https://example.org/tourguide/tourist/14": [
+      {
+        "place": "https://example.org/tourguide/place/87364",
+        "score": -7.850063800811768
+      },
+      {
+        "place": "https://example.org/tourguide/place/91452",
+        "score": -7.9036946296691895
+      },
+      {
+        "place": "https://example.org/tourguide/place/85621",
+        "score": -7.967588424682617
+      },
+      {
+        "place": "https://example.org/tourguide/place/84094",
+        "score": -8.056527137756348
+      },
+      {
+        "place": "https://example.org/tourguide/place/87539",
+        "score": -8.18600845336914
+      },
+      {
+        "place": "https://example.org/tourguide/place/83255",
+        "score": -8.192689895629883
+      },
+      {
+        "place": "https://example.org/tourguide/place/84717",
+        "score": -8.218178749084473
+      },
+      {
+        "place": "https://example.org/tourguide/place/445738",
+        "score": -8.235254287719727
+      },
+      {
+        "place": "https://example.org/tourguide/place/223036",
+        "score": -8.243017196655273
+      },
+      {
+        "place": "https://example.org/tourguide/place/85282",
+        "score": -8.28420352935791
+      }
+    ],
+    "https://example.org/tourguide/tourist/15": [
+      {
+        "place": "https://example.org/tourguide/place/83882",
+        "score": -7.409460067749023
+      },
+      {
+        "place": "https://example.org/tourguide/place/251340",
+        "score": -7.644425392150879
+      },
+      {
+        "place": "https://example.org/tourguide/place/451970",
+        "score": -7.647109031677246
+      },
+      {
+        "place": "https://example.org/tourguide/place/303680",
+        "score": -7.927850723266602
+      },
+      {
+        "place": "https://example.org/tourguide/place/86232",
+        "score": -7.959474563598633
+      },
+      {
+        "place": "https://example.org/tourguide/place/86500",
+        "score": -8.121747016906738
+      },
+      {
+        "place": "https://example.org/tourguide/place/459965",
+        "score": -8.140592575073242
+      },
+      {
+        "place": "https://example.org/tourguide/place/91201",
+        "score": -8.153498649597168
+      },
+      {
+        "place": "https://example.org/tourguide/place/83807",
+        "score": -8.158498764038086
+      },
+      {
+        "place": "https://example.org/tourguide/place/83549",
+        "score": -8.160118103027344
+      }
+    ],
+    "https://example.org/tourguide/tourist/18": [
+      {
+        "place": "https://example.org/tourguide/place/468015",
+        "score": -6.965973854064941
+      },
+      {
+        "place": "https://example.org/tourguide/place/91452",
+        "score": -7.03787088394165
+      },
+      {
+        "place": "https://example.org/tourguide/place/84259",
+        "score": -7.360610008239746
+      },
+      {
+        "place": "https://example.org/tourguide/place/250401",
+        "score": -7.450449466705322
+      },
+      {
+        "place": "https://example.org/tourguide/place/83928",
+        "score": -7.555765151977539
+      },
+      {
+        "place": "https://example.org/tourguide/place/304077",
+        "score": -7.6107306480407715
+      },
+      {
+        "place": "https://example.org/tourguide/place/85933",
+        "score": -7.638465881347656
+      },
+      {
+        "place": "https://example.org/tourguide/place/455089",
+        "score": -7.688495635986328
+      },
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -7.697769641876221
+      },
+      {
+        "place": "https://example.org/tourguide/place/307234",
+        "score": -7.698525428771973
+      }
+    ],
+    "https://example.org/tourguide/tourist/19": [
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -6.889248847961426
+      },
+      {
+        "place": "https://example.org/tourguide/place/87532",
+        "score": -7.822908401489258
+      },
+      {
+        "place": "https://example.org/tourguide/place/459351",
+        "score": -7.833441734313965
+      },
+      {
+        "place": "https://example.org/tourguide/place/87364",
+        "score": -7.936066150665283
+      },
+      {
+        "place": "https://example.org/tourguide/place/308261",
+        "score": -7.963232040405273
+      },
+      {
+        "place": "https://example.org/tourguide/place/468281",
+        "score": -8.090005874633789
+      },
+      {
+        "place": "https://example.org/tourguide/place/84453",
+        "score": -8.095184326171875
+      },
+      {
+        "place": "https://example.org/tourguide/place/84094",
+        "score": -8.149187088012695
+      },
+      {
+        "place": "https://example.org/tourguide/place/85840",
+        "score": -8.16462516784668
+      },
+      {
+        "place": "https://example.org/tourguide/place/250401",
+        "score": -8.234926223754883
+      }
+    ],
+    "https://example.org/tourguide/tourist/2": [
+      {
+        "place": "https://example.org/tourguide/place/84598",
+        "score": -6.684403896331787
+      },
+      {
+        "place": "https://example.org/tourguide/place/85272",
+        "score": -7.083304405212402
+      },
+      {
+        "place": "https://example.org/tourguide/place/223036",
+        "score": -7.109616756439209
+      },
+      {
+        "place": "https://example.org/tourguide/place/251340",
+        "score": -7.11868953704834
+      },
+      {
+        "place": "https://example.org/tourguide/place/463694",
+        "score": -7.224980354309082
+      },
+      {
+        "place": "https://example.org/tourguide/place/468015",
+        "score": -7.290703296661377
+      },
+      {
+        "place": "https://example.org/tourguide/place/87119",
+        "score": -7.38477087020874
+      },
+      {
+        "place": "https://example.org/tourguide/place/305768",
+        "score": -7.4216389656066895
+      },
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -7.456136703491211
+      },
+      {
+        "place": "https://example.org/tourguide/place/84952",
+        "score": -7.4627203941345215
+      }
+    ],
+    "https://example.org/tourguide/tourist/20": [
+      {
+        "place": "https://example.org/tourguide/place/445738",
+        "score": -7.600922107696533
+      },
+      {
+        "place": "https://example.org/tourguide/place/251340",
+        "score": -7.798924446105957
+      },
+      {
+        "place": "https://example.org/tourguide/place/84737",
+        "score": -7.972827434539795
+      },
+      {
+        "place": "https://example.org/tourguide/place/252467",
+        "score": -8.047229766845703
+      },
+      {
+        "place": "https://example.org/tourguide/place/83785",
+        "score": -8.112733840942383
+      },
+      {
+        "place": "https://example.org/tourguide/place/85576",
+        "score": -8.228023529052734
+      },
+      {
+        "place": "https://example.org/tourguide/place/305768",
+        "score": -8.26841926574707
+      },
+      {
+        "place": "https://example.org/tourguide/place/84349",
+        "score": -8.300370216369629
+      },
+      {
+        "place": "https://example.org/tourguide/place/466997",
+        "score": -8.319165229797363
+      },
+      {
+        "place": "https://example.org/tourguide/place/83679",
+        "score": -8.32187271118164
+      }
+    ],
+    "https://example.org/tourguide/tourist/22": [
+      {
+        "place": "https://example.org/tourguide/place/307707",
+        "score": -7.641842842102051
+      },
+      {
+        "place": "https://example.org/tourguide/place/223036",
+        "score": -7.7285614013671875
+      },
+      {
+        "place": "https://example.org/tourguide/place/251340",
+        "score": -7.791015625
+      },
+      {
+        "place": "https://example.org/tourguide/place/250277",
+        "score": -7.909379005432129
+      },
+      {
+        "place": "https://example.org/tourguide/place/86248",
+        "score": -7.984424591064453
+      },
+      {
+        "place": "https://example.org/tourguide/place/304077",
+        "score": -8.003600120544434
+      },
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -8.032044410705566
+      },
+      {
+        "place": "https://example.org/tourguide/place/85531",
+        "score": -8.074979782104492
+      },
+      {
+        "place": "https://example.org/tourguide/place/457924",
+        "score": -8.082986831665039
+      },
+      {
+        "place": "https://example.org/tourguide/place/462447",
+        "score": -8.117822647094727
+      }
+    ],
+    "https://example.org/tourguide/tourist/23": [
+      {
+        "place": "https://example.org/tourguide/place/305768",
+        "score": -6.779760837554932
+      },
+      {
+        "place": "https://example.org/tourguide/place/84094",
+        "score": -7.417745590209961
+      },
+      {
+        "place": "https://example.org/tourguide/place/251340",
+        "score": -7.4428791999816895
+      },
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -7.60620641708374
+      },
+      {
+        "place": "https://example.org/tourguide/place/304994",
+        "score": -7.613644599914551
+      },
+      {
+        "place": "https://example.org/tourguide/place/303680",
+        "score": -7.638031959533691
+      },
+      {
+        "place": "https://example.org/tourguide/place/84856",
+        "score": -7.862622261047363
+      },
+      {
+        "place": "https://example.org/tourguide/place/252467",
+        "score": -7.905259609222412
+      },
+      {
+        "place": "https://example.org/tourguide/place/251370",
+        "score": -7.911196708679199
+      },
+      {
+        "place": "https://example.org/tourguide/place/83882",
+        "score": -7.951663017272949
+      }
+    ],
+    "https://example.org/tourguide/tourist/25": [
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -7.127126693725586
+      },
+      {
+        "place": "https://example.org/tourguide/place/468646",
+        "score": -7.313602447509766
+      },
+      {
+        "place": "https://example.org/tourguide/place/220640",
+        "score": -7.402878284454346
+      },
+      {
+        "place": "https://example.org/tourguide/place/307005",
+        "score": -7.4084062576293945
+      },
+      {
+        "place": "https://example.org/tourguide/place/223038",
+        "score": -7.438938140869141
+      },
+      {
+        "place": "https://example.org/tourguide/place/84866",
+        "score": -7.452871799468994
+      },
+      {
+        "place": "https://example.org/tourguide/place/86314",
+        "score": -7.455636978149414
+      },
+      {
+        "place": "https://example.org/tourguide/place/306564",
+        "score": -7.464616298675537
+      },
+      {
+        "place": "https://example.org/tourguide/place/84869",
+        "score": -7.469419002532959
+      },
+      {
+        "place": "https://example.org/tourguide/place/303680",
+        "score": -7.509070873260498
+      }
+    ],
+    "https://example.org/tourguide/tourist/26": [
+      {
+        "place": "https://example.org/tourguide/place/445738",
+        "score": -6.798791885375977
+      },
+      {
+        "place": "https://example.org/tourguide/place/304077",
+        "score": -7.065954208374023
+      },
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -7.132126808166504
+      },
+      {
+        "place": "https://example.org/tourguide/place/83981",
+        "score": -7.17650842666626
+      },
+      {
+        "place": "https://example.org/tourguide/place/83827",
+        "score": -7.288410663604736
+      },
+      {
+        "place": "https://example.org/tourguide/place/90478",
+        "score": -7.328910827636719
+      },
+      {
+        "place": "https://example.org/tourguide/place/304994",
+        "score": -7.3344831466674805
+      },
+      {
+        "place": "https://example.org/tourguide/place/85840",
+        "score": -7.407054424285889
+      },
+      {
+        "place": "https://example.org/tourguide/place/83679",
+        "score": -7.419490337371826
+      },
+      {
+        "place": "https://example.org/tourguide/place/84117",
+        "score": -7.424339294433594
+      }
+    ],
+    "https://example.org/tourguide/tourist/27": [
+      {
+        "place": "https://example.org/tourguide/place/307707",
+        "score": -7.300877571105957
+      },
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -7.426557540893555
+      },
+      {
+        "place": "https://example.org/tourguide/place/445738",
+        "score": -7.497605323791504
+      },
+      {
+        "place": "https://example.org/tourguide/place/449084",
+        "score": -7.669773578643799
+      },
+      {
+        "place": "https://example.org/tourguide/place/304077",
+        "score": -7.761388301849365
+      },
+      {
+        "place": "https://example.org/tourguide/place/83679",
+        "score": -7.765224456787109
+      },
+      {
+        "place": "https://example.org/tourguide/place/462447",
+        "score": -7.909384250640869
+      },
+      {
+        "place": "https://example.org/tourguide/place/460313",
+        "score": -7.915036678314209
+      },
+      {
+        "place": "https://example.org/tourguide/place/305768",
+        "score": -7.997091293334961
+      },
+      {
+        "place": "https://example.org/tourguide/place/85395",
+        "score": -8.015705108642578
+      }
+    ],
+    "https://example.org/tourguide/tourist/28": [
+      {
+        "place": "https://example.org/tourguide/place/84598",
+        "score": -6.353374004364014
+      },
+      {
+        "place": "https://example.org/tourguide/place/468015",
+        "score": -6.539144515991211
+      },
+      {
+        "place": "https://example.org/tourguide/place/85621",
+        "score": -6.909850120544434
+      },
+      {
+        "place": "https://example.org/tourguide/place/83882",
+        "score": -7.1315107345581055
+      },
+      {
+        "place": "https://example.org/tourguide/place/83603",
+        "score": -7.175753593444824
+      },
+      {
+        "place": "https://example.org/tourguide/place/84020",
+        "score": -7.196130752563477
+      },
+      {
+        "place": "https://example.org/tourguide/place/83583",
+        "score": -7.258388042449951
+      },
+      {
+        "place": "https://example.org/tourguide/place/307856",
+        "score": -7.289872169494629
+      },
+      {
+        "place": "https://example.org/tourguide/place/217406",
+        "score": -7.290996551513672
+      },
+      {
+        "place": "https://example.org/tourguide/place/84166",
+        "score": -7.311896324157715
+      }
+    ],
+    "https://example.org/tourguide/tourist/29": [
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -6.465054512023926
+      },
+      {
+        "place": "https://example.org/tourguide/place/445738",
+        "score": -6.688225269317627
+      },
+      {
+        "place": "https://example.org/tourguide/place/83583",
+        "score": -6.9594550132751465
+      },
+      {
+        "place": "https://example.org/tourguide/place/304921",
+        "score": -7.2515788078308105
+      },
+      {
+        "place": "https://example.org/tourguide/place/466997",
+        "score": -7.289243698120117
+      },
+      {
+        "place": "https://example.org/tourguide/place/88148",
+        "score": -7.289851665496826
+      },
+      {
+        "place": "https://example.org/tourguide/place/84453",
+        "score": -7.333640098571777
+      },
+      {
+        "place": "https://example.org/tourguide/place/84902",
+        "score": -7.344795227050781
+      },
+      {
+        "place": "https://example.org/tourguide/place/251834",
+        "score": -7.409186363220215
+      },
+      {
+        "place": "https://example.org/tourguide/place/89900",
+        "score": -7.423141002655029
+      }
+    ],
+    "https://example.org/tourguide/tourist/4": [
+      {
+        "place": "https://example.org/tourguide/place/83534",
+        "score": -7.074762344360352
+      },
+      {
+        "place": "https://example.org/tourguide/place/251340",
+        "score": -7.107114791870117
+      },
+      {
+        "place": "https://example.org/tourguide/place/83604",
+        "score": -7.3546648025512695
+      },
+      {
+        "place": "https://example.org/tourguide/place/84737",
+        "score": -7.39229679107666
+      },
+      {
+        "place": "https://example.org/tourguide/place/87537",
+        "score": -7.497163772583008
+      },
+      {
+        "place": "https://example.org/tourguide/place/86076",
+        "score": -7.534023761749268
+      },
+      {
+        "place": "https://example.org/tourguide/place/83882",
+        "score": -7.570296764373779
+      },
+      {
+        "place": "https://example.org/tourguide/place/85933",
+        "score": -7.572620868682861
+      },
+      {
+        "place": "https://example.org/tourguide/place/85437",
+        "score": -7.578127384185791
+      },
+      {
+        "place": "https://example.org/tourguide/place/84071",
+        "score": -7.603769302368164
+      }
+    ],
+    "https://example.org/tourguide/tourist/5": [
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -7.586989879608154
+      },
+      {
+        "place": "https://example.org/tourguide/place/87364",
+        "score": -7.828315258026123
+      },
+      {
+        "place": "https://example.org/tourguide/place/252013",
+        "score": -8.012653350830078
+      },
+      {
+        "place": "https://example.org/tourguide/place/220644",
+        "score": -8.177374839782715
+      },
+      {
+        "place": "https://example.org/tourguide/place/251340",
+        "score": -8.229613304138184
+      },
+      {
+        "place": "https://example.org/tourguide/place/251617",
+        "score": -8.259330749511719
+      },
+      {
+        "place": "https://example.org/tourguide/place/85707",
+        "score": -8.298015594482422
+      },
+      {
+        "place": "https://example.org/tourguide/place/88113",
+        "score": -8.313302993774414
+      },
+      {
+        "place": "https://example.org/tourguide/place/454038",
+        "score": -8.314011573791504
+      },
+      {
+        "place": "https://example.org/tourguide/place/251580",
+        "score": -8.347124099731445
+      }
+    ],
+    "https://example.org/tourguide/tourist/6": [
+      {
+        "place": "https://example.org/tourguide/place/445738",
+        "score": -7.23788595199585
+      },
+      {
+        "place": "https://example.org/tourguide/place/252013",
+        "score": -7.299407482147217
+      },
+      {
+        "place": "https://example.org/tourguide/place/223036",
+        "score": -7.4305548667907715
+      },
+      {
+        "place": "https://example.org/tourguide/place/86076",
+        "score": -7.602523326873779
+      },
+      {
+        "place": "https://example.org/tourguide/place/83482",
+        "score": -7.807474136352539
+      },
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -7.880287170410156
+      },
+      {
+        "place": "https://example.org/tourguide/place/87364",
+        "score": -7.886373519897461
+      },
+      {
+        "place": "https://example.org/tourguide/place/250401",
+        "score": -7.888611793518066
+      },
+      {
+        "place": "https://example.org/tourguide/place/84916",
+        "score": -7.889278411865234
+      },
+      {
+        "place": "https://example.org/tourguide/place/85226",
+        "score": -7.915236473083496
+      }
+    ],
+    "https://example.org/tourguide/tourist/7": [
+      {
+        "place": "https://example.org/tourguide/place/85933",
+        "score": -7.324453353881836
+      },
+      {
+        "place": "https://example.org/tourguide/place/304077",
+        "score": -7.675807952880859
+      },
+      {
+        "place": "https://example.org/tourguide/place/451970",
+        "score": -7.759772300720215
+      },
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -7.777869701385498
+      },
+      {
+        "place": "https://example.org/tourguide/place/303680",
+        "score": -7.849602699279785
+      },
+      {
+        "place": "https://example.org/tourguide/place/83785",
+        "score": -7.919455051422119
+      },
+      {
+        "place": "https://example.org/tourguide/place/456077",
+        "score": -7.93627405166626
+      },
+      {
+        "place": "https://example.org/tourguide/place/85840",
+        "score": -8.103523254394531
+      },
+      {
+        "place": "https://example.org/tourguide/place/91358",
+        "score": -8.126288414001465
+      },
+      {
+        "place": "https://example.org/tourguide/place/456459",
+        "score": -8.146685600280762
+      }
+    ],
+    "https://example.org/tourguide/tourist/8": [
+      {
+        "place": "https://example.org/tourguide/place/307707",
+        "score": -7.273125171661377
+      },
+      {
+        "place": "https://example.org/tourguide/place/87537",
+        "score": -7.799221038818359
+      },
+      {
+        "place": "https://example.org/tourguide/place/466189",
+        "score": -7.878870487213135
+      },
+      {
+        "place": "https://example.org/tourguide/place/83887",
+        "score": -8.043460845947266
+      },
+      {
+        "place": "https://example.org/tourguide/place/83785",
+        "score": -8.073657989501953
+      },
+      {
+        "place": "https://example.org/tourguide/place/84853",
+        "score": -8.099520683288574
+      },
+      {
+        "place": "https://example.org/tourguide/place/84717",
+        "score": -8.16494369506836
+      },
+      {
+        "place": "https://example.org/tourguide/place/86314",
+        "score": -8.174337387084961
+      },
+      {
+        "place": "https://example.org/tourguide/place/223036",
+        "score": -8.189895629882812
+      },
+      {
+        "place": "https://example.org/tourguide/place/466997",
+        "score": -8.204407691955566
+      }
+    ],
+    "https://example.org/tourguide/tourist/9": [
+      {
+        "place": "https://example.org/tourguide/place/463789",
+        "score": -6.815711498260498
+      },
+      {
+        "place": "https://example.org/tourguide/place/83604",
+        "score": -6.841020107269287
+      },
+      {
+        "place": "https://example.org/tourguide/place/84393",
+        "score": -7.026821136474609
+      },
+      {
+        "place": "https://example.org/tourguide/place/87416",
+        "score": -7.0490570068359375
+      },
+      {
+        "place": "https://example.org/tourguide/place/86162",
+        "score": -7.111174583435059
+      },
+      {
+        "place": "https://example.org/tourguide/place/85513",
+        "score": -7.152362823486328
+      },
+      {
+        "place": "https://example.org/tourguide/place/86672",
+        "score": -7.16233491897583
+      },
+      {
+        "place": "https://example.org/tourguide/place/86759",
+        "score": -7.225675582885742
+      },
+      {
+        "place": "https://example.org/tourguide/place/83882",
+        "score": -7.246035575866699
+      },
+      {
+        "place": "https://example.org/tourguide/place/85616",
+        "score": -7.246041774749756
+      }
+    ]
+  }
+}
