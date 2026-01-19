@@ -1,0 +1,50 @@
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# 🗼 Hidden Gems près de la Tour Eiffel
+# Requête complexe combinant :
+# - Géolocalisation (filtrage par coordonnées approximatives)
+# - Classe inférée (tg:HiddenGem)
+# - Analyse de sentiment (optionnel)
+# - Filtrage des lieux non pertinents (pharmacies, hôpitaux, etc.)
+# - Zone autour de la Tour Eiffel (48.8584°N, 2.2945°E)
+
+SELECT ?place ?name ?polarity ?numReviews ?inferenceReason 
+       ?avgSentiment ?lat ?lng ?address ?placeType
+WHERE {
+  # Sélectionner uniquement les Hidden Gems
+  ?place a tg:HiddenGem ;
+         tg:name ?name ;
+         tg:polarity ?polarity ;
+         tg:numReviews ?numReviews ;
+         tg:lat ?lat ;
+         tg:lng ?lng .
+  
+  # Déterminer le type de lieu
+  OPTIONAL {
+    ?place a ?type .
+    FILTER(?type IN (tg:Restaurant, tg:Attraction, tg:POI))
+    BIND(REPLACE(STR(?type), ".*#", "") AS ?placeType)
+  }
+  
+  # Raison d'inférence (pourquoi c'est un Hidden Gem)
+  OPTIONAL { ?place tg:inferenceReason ?inferenceReason }
+  
+  # Sentiment analysis (optionnel)
+  OPTIONAL { ?place tg:avgSentiment ?avgSentiment }
+  
+  # Adresse (optionnel)
+  OPTIONAL { ?place tg:address ?address }
+  
+  # Exclure les lieux non pertinents par leur nom
+  FILTER(!REGEX(?name, "pharmacie|pharmacy|hôpital|hospital|clinique|clinic|banque|bank|ATM", "i"))
+  
+  # Filtrage géographique approximatif autour de la Tour Eiffel
+  # Tour Eiffel : 48.8584°N, 2.2945°E
+  # Zone : ±0.015° (environ 1.5 km de rayon)
+  FILTER(?lat >= 48.843 && ?lat <= 48.873)  # ±0.015° en latitude
+  FILTER(?lng >= 2.279 && ?lng <= 2.310)    # ±0.015° en longitude
+}
+ORDER BY DESC(?polarity) DESC(?avgSentiment)
+LIMIT 20

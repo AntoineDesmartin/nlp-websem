@@ -1,0 +1,58 @@
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# ⚠️ Attrape-Touriste : Détection de contradictions
+# Requête complexe combinant :
+# - Contradiction : Note haute (polarity) vs Sentiment textuel négatif
+# - Géolocalisation (zone touristique : Tour Eiffel, Louvre, Champs-Élysées)
+# - Analyse de sentiment (avgSentiment < 0.4 = négatif)
+# - Filtrage : lieux avec beaucoup d'avis (populaires mais problématiques)
+
+SELECT ?place ?name ?polarity ?avgSentiment ?numReviews 
+       ?sentimentPositivePercent ?sentimentNegativePercent
+       ?lat ?lng ?address ?placeType ?contradiction_score
+WHERE {
+  # Sélectionner les lieux avec données de sentiment
+  ?place tg:name ?name ;
+         tg:polarity ?polarity ;
+         tg:avgSentiment ?avgSentiment ;
+         tg:numReviews ?numReviews ;
+         tg:lat ?lat ;
+         tg:lng ?lng .
+  
+  # Déterminer le type de lieu
+  OPTIONAL {
+    ?place a ?type .
+    FILTER(?type IN (tg:Restaurant, tg:Attraction, tg:POI))
+    BIND(REPLACE(STR(?type), ".*#", "") AS ?placeType)
+  }
+  
+  # Récupérer les pourcentages de sentiment
+  OPTIONAL { ?place tg:sentimentPositivePercent ?sentimentPositivePercent }
+  OPTIONAL { ?place tg:sentimentNegativePercent ?sentimentNegativePercent }
+  
+  # Adresse (optionnel)
+  OPTIONAL { ?place tg:address ?address }
+  
+  # CONTRADICTION : Note haute (>= 6.0) MAIS sentiment négatif (< 0.4)
+  FILTER(?polarity >= 6.0)
+  FILTER(?avgSentiment < 0.4)
+  
+  # Lieux populaires (beaucoup d'avis = piège à touristes potentiel)
+  FILTER(?numReviews >= 5)
+  
+  # Filtrage géographique : zones touristiques principales
+  # Tour Eiffel (48.8584, 2.2945), Louvre (48.8606, 2.3376), Champs-Élysées (48.8698, 2.3078)
+  # Zone élargie couvrant les principaux sites touristiques
+  FILTER(
+    (?lat >= 48.84 && ?lat <= 48.88 && ?lng >= 2.28 && ?lng <= 2.36)
+  )
+  
+  # Calculer un score de contradiction (plus c'est élevé, plus c'est suspect)
+  # Score = (polarity / 10) - avgSentiment
+  # Exemple : polarity=8.0, avgSentiment=0.2 → score = 0.8 - 0.2 = 0.6 (forte contradiction)
+  BIND((?polarity / 10.0) - ?avgSentiment AS ?contradiction_score)
+}
+ORDER BY DESC(?contradiction_score) DESC(?numReviews)
+LIMIT 20

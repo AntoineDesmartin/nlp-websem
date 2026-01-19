@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Script d'enrichissement automatique SKOS
 Ajoute des liens tg:hasTopic entre les lieux et les concepts SKOS du thesaurus
@@ -14,11 +13,6 @@ SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 def enrich_with_skos(kg_input: str, topics_file: str, kg_output: str):
     """
     Enrichit le graphe de connaissances avec des topics SKOS
-    
-    Args:
-        kg_input: Chemin vers kg_inferred.ttl
-        topics_file: Chemin vers thesaurus/topics.ttl
-        kg_output: Chemin de sortie (sera kg_inferred.ttl enrichi)
     """
     print(f"\n🔧 Enrichissement SKOS du graphe de connaissances")
     print(f"   Input:  {kg_input}")

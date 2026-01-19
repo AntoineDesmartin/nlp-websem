@@ -1,12 +1,5 @@
-#!/usr/bin/env python3
 """
 Analyse de sentiment avec DistilBERT sur les reviews TourPedia
-Complément au NER pour montrer 2 techniques transformers
-
-Usage:
-    python3 scripts/analyze_sentiment.py [--sample N]
-    
-    --sample N : Analyser N reviews (défaut: 5000)
 """
 
 import json

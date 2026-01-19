@@ -1,15 +1,6 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Construit un graphe de recommandations à partir des VRAIES reviews TourPedia
-au lieu de créer des touristes synthétiques.
 
-Usage:
-    python3 scripts/build_reco_from_real_reviews.py \
-        data/kg_inferred.ttl \
-        data/kg_reco.ttl \
-        --triples_tsv data/reco_triples.tsv \
-        --like_threshold 3
+"""
+Construit un graphe de recommandations à partir reviews TourPedia
 """
 
 import argparse

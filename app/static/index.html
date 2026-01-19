@@ -453,11 +453,21 @@
                     <div style="font-weight: 600; color: #059669; margin-bottom: 0.5rem;">Requêtes Complexes
                         (Schema.org, LOD, Fédérée)</div>
                     <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
-                        <button onclick="askPredefined('reviews_aggregees')">Reviews Comptées</button>
-                        <!-- <button onclick="askPredefined('top_restaurants')">Top Restaurants</button> -->
                         <button onclick="askPredefined('federated_wikidata')">Fédérée Wikidata</button>
                         <!-- <button onclick="askPredefined('top_rated')">Highly Rated</button> -->
-                        <!-- <button onclick="askPredefined('attractions_populaires')">Attractions Populaires</button> -->
+                    </div>
+                </div>
+
+                <!-- Séparation visuelle -->
+                <div style="border-top: 1px dashed #e5e7eb; margin: 1.5rem 0;"></div>
+
+                <!-- 🗼 NOUVEAU : Requêtes Géolocalisées & Complexes -->
+                <div style="margin-bottom: 1rem;">
+                    <div style="font-weight: 600; color: #f59e0b; margin-bottom: 0.5rem;">🗼 Requêtes Géolocalisées &
+                        Complexes</div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                        <button onclick="askPredefined('hidden_gems_eiffel')">🗼 Hidden Gems près Tour Eiffel</button>
+                        <button onclick="askPredefined('tourist_trap')">⚠️ Attrape-Touriste</button>
                     </div>
                 </div>
 
@@ -469,9 +479,7 @@
                     <div style="font-weight: 600; color: #dc2626; margin-bottom: 0.5rem;">🔍 Analyses NER (Named Entity
                         Recognition)</div>
                     <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
-                        <button onclick="askPredefined('ner_top_mentions')">Top Lieux Mentionnés</button>
                         <button onclick="askPredefined('ner_covisitation')">Co-visitation</button>
-                        <button onclick="askPredefined('ner_itineraries')">Itinéraires Découverts</button>
                     </div>
                 </div>
 
@@ -485,7 +493,6 @@
                     <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
                         <button onclick="askPredefined('sentiment_top_positive')">Top Sentiment Positif</button>
                         <button onclick="askPredefined('sentiment_contradictions')">Contradictions Détectées</button>
-                        <button onclick="askPredefined('sentiment_global_stats')">Stats Globales</button>
                     </div>
                 </div>
 
@@ -504,9 +511,7 @@
         <div id="tab-reco" class="tab-content">
             <div class="card">
                 <div class="card-title">Recommandations par Link Prediction (TransE)</div>
-                <p style="color: #666; margin-bottom: 1rem;">
-                    Prédiction de liens <code>likesPlace</code> avec TransE (18,151 entités, 63,948 triplets)
-                </p>
+
                 <button onclick="getSampleRecommendation()">Obtenir Recommandation Exemple</button>
 
                 <div id="recoLoading" class="loading"></div>
@@ -698,7 +703,6 @@
                 results.innerHTML = `
                     <div style="margin-bottom: 1rem;">
                         <strong>✅ ${data.count} ${className} trouvés</strong>
-                        <span class="enrichment-badge"> Inféré par règles SPARQL</span>
                     </div>
                     ${renderResults(data.results.slice(0, 10))}
                 `;
@@ -813,15 +817,53 @@
             if (!results || results.length === 0) return '<div class="empty-state">Aucun résultat</div>';
 
             return results.map(r => {
+                // DÉTECTION SPÉCIALE : Requête fédérée Wikidata
+                // Si le résultat contient wdLabel ou instanceOfLabel, c'est un enrichissement Wikidata
+                if (r.wdLabel || r.instanceOfLabel) {
+                    const localName = r.name || 'Sans nom local';
+                    const enrichedName = r.wdLabel || localName;
+                    const entityType = r.instanceOfLabel || 'Type inconnu';
+                    const wikidataUrl = r.wd || '#';
+
+                    return `
+                        <div class="result-card" style="border-left-color: #3b82f6;">
+                            <div class="result-header">
+                                <div class="result-name">
+                                    ${enrichedName}
+                                    <span class="badge" style="background: #3b82f6;">🌐 Wikidata</span>
+                                </div>
+                            </div>
+                            <div class="result-details">
+                                <div class="detail-item"><strong>Type:</strong> ${entityType}</div>
+                                ${localName !== enrichedName ? `<div class="detail-item"><strong>Nom local:</strong> ${localName}</div>` : ''}
+                                ${r.lat && r.lng ? `<div class="detail-item">📍 Lat: ${parseFloat(r.lat).toFixed(4)}, Lng: ${parseFloat(r.lng).toFixed(4)}</div>` : ''}
+                            </div>
+                            <div class="enrichment-section">
+                                <div class="enrichment-title">✨ Enrichissement externe</div>
+                                <div style="font-size: 0.85rem; color: #666;">
+                                    Les informations ci-dessus proviennent de <strong>Wikidata</strong> via une requête fédérée SPARQL.
+                                    ${wikidataUrl !== '#' ? `<a href="${wikidataUrl}" class="link-external" target="_blank" style="margin-left: 0.5rem;">Voir sur Wikidata →</a>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
                 // Gérer différents formats de noms (standard + NER)
                 const name = r.name || r.placeName || r.label ||
                     r.place1Name || r.place2Name || r.itinerary ||
                     r.reviewId || 'Sans nom';
                 const badges = [];
 
+                // Badge pour le type de lieu (Restaurant / Attraction)
+                if (r.typeLabel) badges.push(`<span class="badge orange">${r.typeLabel}</span>`);
+                if (r.placeType) badges.push(`<span class="badge orange">${r.placeType}</span>`);
+
                 // Badges pour classes inférées
                 if (r.inferredClass) badges.push(`<span class="badge green">${r.inferredClass}</span>`);
-                if (r.reason || r.inferenceReason) badges.push(`<span class="badge purple">Inféré</span>`);
+
+                // Badge pour le quartier
+                if (r.quartier && r.quartier !== 'Autre') badges.push(`<span class="badge" style="background: #3b82f6;">📍 ${r.quartier}</span>`);
 
                 // Détails
                 const details = [];
@@ -829,6 +871,8 @@
                 if (r.inferredRating) details.push(`<div class="detail-item"> Note calculée: ${r.inferredRating}/5</div>`);
                 if (r.numReviews || r.reviewCount) details.push(`<div class="detail-item">${r.numReviews || r.reviewCount} avis</div>`);
                 if (r.avgRating) details.push(`<div class="detail-item">Moyenne: ${parseFloat(r.avgRating).toFixed(1)}</div>`);
+                if (r.avgSentiment) details.push(`<div class="detail-item"> Sentiment: ${(parseFloat(r.avgSentiment) * 100).toFixed(0)}%</div>`);
+                if (r.address) details.push(`<div class="detail-item">📍 ${r.address}</div>`);
                 if (r.wikidataLink) details.push(`<div class="detail-item"><a href="${r.wikidataLink}" class="link-external" target="_blank">Wikidata</a></div>`);
 
                 // NER-specific fields
@@ -926,7 +970,6 @@
                     </div>
                     <div class="result-details">
                         <div>Note: ${r.polarity || 'N/A'}</div>
-                        <div>🔮 Score: ${r.score.toFixed(3)}</div>
                     </div>
                 </div>
             `).join('');

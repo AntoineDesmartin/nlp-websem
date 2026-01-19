@@ -206,22 +206,22 @@ async def get_predefined_query(query_name: str):
         # 6 requêtes essentielles couvrant toutes les exigences du projet
         query_files = {
             # Requêtes complexes Section 2
-            "reviews_aggregees": "reviews_aggregees.rq",  # Reviews comptées (Schema.org)
             "top_restaurants": "q12_restaurant_analysis.rq",  # Analyse restaurants (score combiné)
             "attractions_populaires": "q13_attraction_popularity.rq",  # Attractions populaires
             "federated_wikidata": "q16_federated_enrichment.rq",  # ⭐ REQUÊTE FÉDÉRÉE (SERVICE)
             "hidden_gems": "hidden_gems.rq",  # Hidden Gems (classe inférée)
             "top_rated": "q7_highly_rated_places.rq",  # Top rated (polarity >= 7.0)
             
+            # ✨ Requêtes Géolocalisées & Complexes (NOUVELLES)
+            "hidden_gems_eiffel": "hidden_gems_eiffel.rq",  # 🗼 Hidden Gems près Tour Eiffel
+            "tourist_trap": "tourist_trap.rq",  # ⚠️ Attrape-Touriste (contradictions)
+            
             # ✨ Requêtes NER (Named Entity Recognition)
-            "ner_top_mentions": "ner_top_mentions.rq",
             "ner_covisitation": "ner_covisitation.rq",
-            "ner_itineraries": "ner_itineraries.rq",
             
             # 🧠 Requêtes Sentiment Analysis
             "sentiment_top_positive": "sentiment_top_positive.rq",
             "sentiment_contradictions": "sentiment_contradictions.rq",
-            "sentiment_global_stats": "sentiment_global_stats.rq",
             
             # Classes inférées Section 1 (résultats des règles SPARQL R1-R4)
             "HiddenGem": "hidden_gems.rq",

@@ -1,10 +1,6 @@
-#!/usr/bin/env python3
 """
 Script de nettoyage des extractions NER
 Filtre le bruit et améliore la qualité des mentions
-
-Usage:
-    python3 scripts/filter_ner_noise.py
 """
 
 from rdflib import Graph, Namespace, URIRef, Literal

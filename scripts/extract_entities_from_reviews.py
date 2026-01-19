@@ -1,15 +1,6 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+
 """
 Extraction d'entités (NER) depuis les reviews avec spaCy
-
-Usage:
-    python3 scripts/extract_entities_from_reviews.py \
-        --reviews_dir data/reviews \
-        --kg_input data/kg_inferred.ttl \
-        --output data/kg_reviews_ner.ttl \
-        --stats_output data/ner_stats.json \
-        --sample 0  # 0 = tout, N = N reviews par fichier
 """
 
 import argparse

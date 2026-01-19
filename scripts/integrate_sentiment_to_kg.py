@@ -3,8 +3,6 @@
 Intègre les résultats d'analyse de sentiment dans le graphe de connaissances
 Ajoute les scores de sentiment PAR LIEU pour requêtes SPARQL
 
-Usage:
-    python3 scripts/integrate_sentiment_to_kg.py
 """
 
 import json

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Apply SPARQL CONSTRUCT rules to simulate inference (alternative to Corese)
 """
