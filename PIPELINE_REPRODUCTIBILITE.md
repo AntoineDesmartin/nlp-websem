@@ -221,7 +221,25 @@ python scripts/validate_shacl.py data/kg_linked.ttl
 
 ---
 
-### Étape 14 - Inférence par règles SPARQL
+### Étape 14 - Enrichissement SKOS (annotation thématique)
+
+**But** : Ajouter des liens `tg:hasTopic` entre les lieux et les concepts du thésaurus SKOS pour permettre des recherches thématiques avancées. Le script analyse le type et le nom de chaque lieu pour lui associer automatiquement les topics pertinents (ex: `tg:Museum`, `tg:FrenchCuisine`, `tg:Monument`).
+
+```powershell
+python scripts/enrich_skos.py --backup
+```
+
+**Exemples d'enrichissement** :
+- Restaurants → `tg:Food`, `tg:FrenchCuisine`
+- Attractions → `tg:Culture`, `tg:Monument`
+- "Louvre" → `tg:Museum`, `tg:ArtMuseum`, `tg:Culture`
+- "Notre-Dame" → `tg:Cathedral`, `tg:ReligiousHeritage`, `tg:Monument`
+
+**Résultat** : `data/kg_inferred.ttl` enrichi avec annotations SKOS (sauvegarde automatique créée).
+
+---
+
+### Étape 15 - Inférence par règles SPARQL
 
 **But** : Ajouter une couche d'intelligence sémantique automatique (classes inférées).
 
