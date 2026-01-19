@@ -212,7 +212,7 @@ python scripts/apply_inference_rules.py data/kg_skos.ttl data/kg_inferred.ttl
 
 Résultat : `data/kg_inferred.ttl`.
 
-### Étape 16 — Recommandation par profils (TransE) (optionnel)
+### Étape 16 — Recommandation par profils (TransE) 
 
 But : générer des recommandations personnalisées à partir d’un graphe de recommandation dérivé du KG, en entraînant un modèle TransE sur des profils utilisateurs synthétiques (nationalité/langue + saison + budget) et des relations de type `tg:likesPlace`.
 
