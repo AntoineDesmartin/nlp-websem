@@ -212,6 +212,122 @@ python scripts/apply_inference_rules.py data/kg_skos.ttl data/kg_inferred.ttl
 
 Résultat : `data/kg_inferred.ttl`.
 
+### Étape 16 — Recommandation par profils (TransE) (optionnel)
+
+But : générer des recommandations personnalisées à partir d’un graphe de recommandation dérivé du KG, en entraînant un modèle TransE sur des profils utilisateurs synthétiques (nationalité/langue + saison + budget) et des relations de type `tg:likesPlace`.
+
+#### 16.1 Générer les profils (nationalité/langue + saison + budget)
+
+Principe : on crée des profils discrets combinant :
+
+- Langue / nationalité (proxy comportemental)
+- Saison (proxy contexte de visite)
+- Budget (proxy préférences de gamme)
+
+Commandes (exemple) :
+
+```powershell
+# Génère les profils et les triples de recommandation à partir du KG
+python scripts/build_reco_profiles.py --kg data/kg_inferred.ttl --out data/kg_reco.ttl --tsv data/reco_triples.tsv
+```
+
+Résultats :
+
+- `data/kg_reco.ttl` : graphe dédié recommandation (entités profils + relations)
+- `data/reco_triples.tsv` : triples au format entraînement (TransE)
+
+#### 16.2 Entraîner TransE sur les triples profils → lieux
+
+But : apprendre des embeddings (profils et lieux) pour produire des recommandations.
+
+```powershell
+python scripts/train_transe.py --triples data/reco_triples.tsv --out data/recommendations_transe.json --epochs 150
+```
+
+Résultat :
+
+- `data/recommendations_transe.json` : top recommandations par profil
+
+#### 16.3 Évaluer le modèle (MRR / Hits@K)
+
+```powershell
+python scripts/evaluate_transe.py --triples data/reco_triples.tsv --model data/recommendations_transe.json
+```
+
+Résultat attendu :
+
+- MRR ≈ 60.6% (selon ton état actuel)
+
+But : permettre à l’API de servir les recommandations.
+
+### Étape 17 — Enrichissement NLP (NER + Sentiment DistilBERT) (optionnel)
+
+But : exploiter le texte des reviews pour ajouter :
+
+- des relations (NER : “ce lieu mentionne X”)
+- une opinion (Sentiment : score moyen par lieu)
+
+#### 17.1 NER sur reviews (spaCy transformers)
+
+##### 17.1.1 Extraction brute d’entités
+
+```powershell
+python scripts/extract_entities_from_reviews.py
+```
+
+Résultat (ex.) : `data/kg_reviews_ner.ttl` (mentions brutes)
+
+##### 17.1.2 Nettoyage anti-bruit (filtrage)
+
+```powershell
+python scripts/filter_ner_noise.py
+```
+
+Résultat :
+
+- `data/kg_reviews_ner_clean.ttl`
+- Mentions attendues : ~5,952
+
+##### 17.1.3 Fusion NER nettoyé → KG
+
+```powershell
+# Merge
+python scripts/merge_kg.py --base data/kg_inferred.ttl --add data/kg_reviews_ner_clean.ttl --out data/kg_inferred.ttl
+```
+
+#### 17.2 Sentiment analysis (DistilBERT / Transformers)
+
+##### 17.2.1 Installer dépendances
+
+```powershell
+pip install transformers torch tqdm
+```
+
+##### 17.2.2 Analyse sentiment sur toutes les reviews textuelles
+
+Modèle : `nlptown/bert-base-multilingual-uncased-sentiment`
+
+Sortie : score normalisé [-1 ; +1]
+
+```powershell
+python scripts/analyze_sentiment.py --sample 43717
+```
+
+Outputs :
+
+- `data/sentiment_stats.json`
+- `data/sentiment_by_place.json`
+
+##### 17.2.3 Intégration sentiment → KG
+
+```powershell
+# Backup avant intégration sentiment
+cp data/kg_inferred.ttl data/kg_inferred.ttl.backup_before_sentiment
+
+# Injection des propriétés tg:avgSentiment etc.
+python scripts/integrate_sentiment_to_kg.py
+```
+
 ## Lancement de l'application GraphRAG
 
 ### 1) Générer le cache d'embeddings (optionnel mais recommandé)
@@ -324,25 +440,10 @@ Il peut être généré au premier lancement, ou via l'étape "cache d'embedding
 
 ## Étapes optionnelles
 
-### Recommandation par profils (TransE)
+Les étapes optionnelles sont intégrées directement dans la pipeline :
 
-```powershell
-python scripts/build_reco_profiles.py --kg data/kg_inferred.ttl --out data/kg_reco.ttl --tsv data/reco_triples.tsv
-python scripts/train_transe.py --triples data/reco_triples.tsv --out data/recommendations_transe.json --epochs 150
-python scripts/evaluate_transe.py --triples data/reco_triples.tsv --model data/recommendations_transe.json
-```
-
-### Enrichissement NLP (NER + Sentiment)
-
-```powershell
-python scripts/extract_entities_from_reviews.py
-python scripts/filter_ner_noise.py
-python scripts/merge_kg.py --base data/kg_inferred.ttl --add data/kg_reviews_ner_clean.ttl --out data/kg_inferred.ttl
-
-pip install transformers torch tqdm
-python scripts/analyze_sentiment.py --sample 43717
-python scripts/integrate_sentiment_to_kg.py
-```
+- Étape 16 : recommandation par profils (TransE)
+- Étape 17 : enrichissement NLP (NER + Sentiment)
 
 ## Checklist de validation finale
 
