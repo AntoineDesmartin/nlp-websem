@@ -122,6 +122,45 @@ Propriétés ENRICHIES (Schema.org) - Issues des reviews:
 - tg:avgRating (note moyenne calculée depuis reviews, decimal)
 - tg:inferenceReason (raison de l'inférence, string)
 
+🆕 NOUVELLES PROPRIÉTÉS NER (Named Entity Recognition):
+⚠️ EXTRACTION D'ENTITÉS DEPUIS 43,717 REVIEWS TEXTUELLES
+- schema1:mentions (relation review → lieu mentionné dans le texte via NER)
+  * 7,167 relations extraites automatiquement par spaCy (transformers)
+  * Utilisée pour: co-visitation, itinéraires, popularité RÉELLE
+  * Exemple: "J'ai adoré le Louvre et la Tour Eiffel" → review schema1:mentions Louvre, TourEiffel
+- tg:hasExtractedEntities (nombre d'entités extraites dans une review, integer)
+- tg:extractedEntities (liste texte des entités, string)
+
+📊 UTILISATIONS DES DONNÉES NER:
+- Lieux les plus mentionnés dans reviews (popularité réelle vs notes)
+- Co-visitation: quels lieux sont visités ensemble
+- Itinéraires touristiques découverts depuis reviews
+- Recommandations basées sur comportement réel
+
+🆕 NOUVELLES PROPRIÉTÉS SENTIMENT ANALYSIS (DistilBERT Transformers):
+⚠️ ANALYSE DE SENTIMENT SUR 43,717 REVIEWS TEXTUELLES
+- tg:avgSentiment (score moyen sentiment -1 à +1, decimal)
+  * -1.0 = très négatif, 0 = neutre, +1.0 = très positif
+  * Calculé par DistilBERT sur le TEXTE des reviews
+  * Exemple: lieu avec avgSentiment 0.85 → 85% positif
+- tg:sentimentReviewsAnalyzed (nombre reviews analysées, integer)
+- tg:sentimentPositiveCount (nombre reviews positives, integer)
+- tg:sentimentNegativeCount (nombre reviews négatives, integer)
+- tg:sentimentPositivePercent (% reviews positives, decimal)
+- tg:sentimentNegativePercent (% reviews négatives, decimal)
+
+💡 DIFFÉRENCE POLARITY vs SENTIMENT:
+- tg:polarity = Note structurée TourPedia (0-10, métadonnées)
+- tg:avgSentiment = Sentiment NLP du TEXTE (-1 à +1, transformers)
+- Les deux sont complémentaires, peuvent révéler des CONTRADICTIONS !
+- Exemple: polarity 9.0 mais avgSentiment -0.10 → note haute mais texte négatif
+
+📊 UTILISATIONS SENTIMENT:
+- Comparer note structurée vs sentiment textuel
+- Détecter contradictions (bonne note, mauvais sentiment)
+- Analyser cohérence données META vs texte NLP
+- Identifier lieux sur-notés ou sous-notés
+
 Propriétés de Review (TourPedia):
 - tg:rating (note 0-5, decimal)
 - tg:reviewText (texte, string)
@@ -305,6 +344,114 @@ LIMIT 10
 ✅ SERVICE <https://query.wikidata.org/sparql> { ... }
 ✅ FILTER(LANG(?label) = "fr") dans le SERVICE
 ✅ LIMIT 10 pour éviter timeout
+
+🆕 REQUÊTES NER (Named Entity Recognition):
+⚠️ Pour questions sur "mentions", "co-visitation", "itinéraires", utilise schema1:mentions
+
+Question: "Quels lieux sont mentionnés dans les reviews ?"
+Réponse:
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX schema1: <http://schema.org/>
+
+SELECT ?place ?placeName (COUNT(?review) as ?mentions)
+WHERE {
+  ?review a schema1:Review ;
+          schema1:mentions ?place .
+  ?place tg:name ?placeName .
+}
+GROUP BY ?place ?placeName
+ORDER BY DESC(?mentions)
+LIMIT 20
+
+Question: "Quels lieux sont visités ensemble selon les avis ?"
+Question: "Co-visitation de lieux"
+Réponse:
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX schema1: <http://schema.org/>
+
+SELECT ?place1Name ?place2Name (COUNT(?review) as ?coMentions)
+WHERE {
+  ?review a schema1:Review ;
+          schema1:mentions ?place1 ;
+          schema1:mentions ?place2 .
+  ?place1 tg:name ?place1Name .
+  ?place2 tg:name ?place2Name .
+  FILTER(STR(?place1) < STR(?place2))
+}
+GROUP BY ?place1Name ?place2Name
+HAVING (COUNT(?review) >= 3)
+ORDER BY DESC(?coMentions)
+LIMIT 20
+
+Question: "Trouve les itinéraires touristiques mentionnés"
+Question: "Parcours découverts depuis reviews"
+Réponse:
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX schema1: <http://schema.org/>
+
+SELECT (GROUP_CONCAT(?placeName; separator=" → ") as ?itinerary) (COUNT(?place) as ?numPlaces)
+WHERE {
+  ?review a schema1:Review ;
+          schema1:mentions ?place .
+  ?place tg:name ?placeName .
+}
+GROUP BY ?review
+HAVING (COUNT(?place) >= 3)
+ORDER BY DESC(?numPlaces)
+LIMIT 15
+
+🆕 REQUÊTES SENTIMENT ANALYSIS:
+⚠️ Pour questions sur "sentiment", "contradictions", "texte des reviews", utilise tg:avgSentiment
+
+Question: "Quels lieux ont un bon sentiment textuel ?"
+Question: "Lieux avec sentiment positif"
+Réponse:
+PREFIX tg: <https://example.org/tourguide#>
+
+SELECT ?place ?placeName ?avgSentiment ?positivePercent ?reviewCount
+WHERE {
+  ?place tg:name ?placeName ;
+         tg:avgSentiment ?avgSentiment ;
+         tg:sentimentPositivePercent ?positivePercent ;
+         tg:sentimentReviewsAnalyzed ?reviewCount .
+  FILTER(?reviewCount >= 10)
+}
+ORDER BY DESC(?avgSentiment)
+LIMIT 20
+
+Question: "Trouve les lieux avec note élevée mais sentiment négatif"
+Question: "Contradictions entre polarity et sentiment"
+Question: "Lieux sur-notés"
+Réponse:
+PREFIX tg: <https://example.org/tourguide#>
+
+SELECT ?place ?name ?polarity ?avgSentiment ?negativePercent ?reviewCount
+WHERE {
+  ?place tg:name ?name ;
+         tg:polarity ?polarity ;
+         tg:avgSentiment ?avgSentiment ;
+         tg:sentimentNegativePercent ?negativePercent ;
+         tg:sentimentReviewsAnalyzed ?reviewCount .
+  FILTER(?polarity >= 7.0 && ?avgSentiment < 0.0 && ?reviewCount >= 5)
+}
+ORDER BY DESC(?polarity)
+LIMIT 20
+
+Question: "Compare polarity et sentiment des restaurants"
+Réponse:
+PREFIX tg: <https://example.org/tourguide#>
+
+SELECT ?name ?polarity ?avgSentiment ((?polarity/10*2 - 1) - ?avgSentiment as ?difference)
+WHERE {
+  ?place a tg:Restaurant ;
+         tg:name ?name ;
+         tg:polarity ?polarity ;
+         tg:avgSentiment ?avgSentiment ;
+         tg:sentimentReviewsAnalyzed ?count .
+  FILTER(?count >= 10)
+}
+ORDER BY DESC(ABS(?difference))
+LIMIT 20
 """
     
     def question_to_sparql(self, question: str) -> Dict[str, Any]:

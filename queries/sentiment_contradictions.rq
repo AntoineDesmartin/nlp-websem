@@ -1,0 +1,21 @@
+# Contradictions : lieux avec bonne note structurée mais sentiment négatif
+# Détecte les incohérences entre métadonnées et texte des reviews
+
+PREFIX tg: <https://example.org/tourguide#>
+
+SELECT ?name ?polarity ?avgSentiment ?negativePercent ?reviewCount
+WHERE {
+  ?place tg:name ?name ;
+         tg:polarity ?polarity ;
+         tg:avgSentiment ?avgSentiment ;
+         tg:sentimentNegativePercent ?negativePercent ;
+         tg:sentimentReviewsAnalyzed ?reviewCount .
+  
+  # Polarity haute (>= 7/10) mais sentiment négatif (< 0)
+  FILTER(?polarity >= 7.0 && ?avgSentiment < 0.0)
+  
+  # Au moins 5 reviews
+  FILTER(?reviewCount >= 5)
+}
+ORDER BY DESC(?polarity) DESC(?negativePercent)
+LIMIT 20
