@@ -457,7 +457,7 @@
                         <!-- <button onclick="askPredefined('top_restaurants')">Top Restaurants</button> -->
                         <button onclick="askPredefined('federated_wikidata')">Fédérée Wikidata</button>
                         <!-- <button onclick="askPredefined('top_rated')">Highly Rated</button> -->
-                        <button onclick="askPredefined('attractions_populaires')">Attractions Populaires</button>
+                        <!-- <button onclick="askPredefined('attractions_populaires')">Attractions Populaires</button> -->
                     </div>
                 </div>
 
@@ -863,7 +863,7 @@
                 <div class="result-card">
                     <div class="result-header">
                         <div class="result-name">${r.place_name || 'N/A'}</div>
-                        <span class="badge">${(r.score * 100).toFixed(1)}%</span>
+                        <span class="badge">Rang #${r.rank}</span>
                     </div>
                     <div class="result-details">
                         <div>Note: ${r.polarity || 'N/A'}</div>
