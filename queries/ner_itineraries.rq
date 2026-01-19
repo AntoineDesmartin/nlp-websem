@@ -1,0 +1,21 @@
+# Découverte d'itinéraires touristiques à partir des reviews
+# Extrait les séquences de lieux mentionnés dans l'ordre
+
+PREFIX schema: <http://schema.org/>
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?reviewId (GROUP_CONCAT(?placeName; separator=" → ") as ?itinerary) (COUNT(?place) as ?numPlaces)
+WHERE {
+  ?review a schema:Review ;
+          schema:mentions ?place .
+  
+  ?place tg:name ?placeName .
+  
+  # ID de la review pour grouper
+  BIND(STRAFTER(STR(?review), "/review/") AS ?reviewId)
+}
+GROUP BY ?reviewId
+HAVING (COUNT(?place) >= 3)  # Au moins 3 lieux mentionnés
+ORDER BY DESC(?numPlaces)
+LIMIT 20

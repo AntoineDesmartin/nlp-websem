@@ -140,7 +140,12 @@ class EmbeddingGraphRAGService:
             "category": "category",
             "lat": "latitude",
             "lng": "longitude",
-            "address": "address"
+            "address": "address",
+            # 🆕 Propriétés sentiment
+            "avgSentiment": "avgSentiment",
+            "sentimentReviewsAnalyzed": "sentimentReviewsAnalyzed",
+            "sentimentPositivePercent": "sentimentPositivePercent",
+            "sentimentNegativePercent": "sentimentNegativePercent",
         }
         
         for prop_name, info_key in tg_props.items():

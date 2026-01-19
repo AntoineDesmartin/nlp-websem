@@ -1,0 +1,24 @@
+# Co-visitation : Lieux fréquemment mentionnés ensemble dans les mêmes reviews
+# Utile pour recommandations "Si vous aimez X, visitez aussi Y"
+
+PREFIX schema: <http://schema.org/>
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?place1Name ?place2Name (COUNT(?review) as ?coMentions)
+WHERE {
+  # Une review qui mentionne 2 lieux différents
+  ?review a schema:Review ;
+          schema:mentions ?place1 ;
+          schema:mentions ?place2 .
+  
+  ?place1 tg:name ?place1Name .
+  ?place2 tg:name ?place2Name .
+  
+  # Éviter les doublons (place1 < place2 alphabétiquement)
+  FILTER(STR(?place1) < STR(?place2))
+}
+GROUP BY ?place1Name ?place2Name
+HAVING (COUNT(?review) >= 3)  # Au moins 3 co-mentions (baissé pour plus de résultats)
+ORDER BY DESC(?coMentions)
+LIMIT 50

@@ -101,6 +101,57 @@ async def get_stats():
         "llm_provider": "OpenRouter (GPT-4o-mini)" if GRAPHRAG_MODE == "openrouter" else None
     }
 
+@app.get("/api/ner/stats")
+async def get_ner_stats():
+    """Retourne les statistiques d'analyse NER"""
+    try:
+        import json
+        stats_file = Path(__file__).parent.parent / "data" / "ner_stats.json"
+        
+        if not stats_file.exists():
+            return {
+                "status": "not_available",
+                "message": "NER stats not generated yet. Run: python3 scripts/analyze_ner.py"
+            }
+        
+        with open(stats_file, encoding='utf-8') as f:
+            stats = json.load(f)
+        
+        return {
+            "status": "available",
+            "stats": stats
+        }
+    except FileNotFoundError:
+        return {
+            "status": "not_available",
+            "message": "NER stats not generated yet"
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.get("/api/sentiment/stats")
+async def get_sentiment_stats():
+    """Retourne les statistiques d'analyse de sentiment"""
+    try:
+        import json
+        stats_file = Path(__file__).parent.parent / "data" / "sentiment_stats.json"
+        
+        if not stats_file.exists():
+            return {
+                "status": "not_available",
+                "message": "Sentiment analysis not run yet. Run: python3 scripts/analyze_sentiment.py"
+            }
+        
+        with open(stats_file, encoding='utf-8') as f:
+            stats = json.load(f)
+        
+        return {
+            "status": "available",
+            "stats": stats
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
 @app.post("/api/ask_nl", response_model=NLResponse)
 async def ask_question_nl(request: QuestionRequest):
     """
@@ -161,6 +212,16 @@ async def get_predefined_query(query_name: str):
             "federated_wikidata": "q16_federated_enrichment.rq",  # ⭐ REQUÊTE FÉDÉRÉE (SERVICE)
             "hidden_gems": "hidden_gems.rq",  # Hidden Gems (classe inférée)
             "top_rated": "q7_highly_rated_places.rq",  # Top rated (polarity >= 7.0)
+            
+            # ✨ Requêtes NER (Named Entity Recognition)
+            "ner_top_mentions": "ner_top_mentions.rq",
+            "ner_covisitation": "ner_covisitation.rq",
+            "ner_itineraries": "ner_itineraries.rq",
+            
+            # 🧠 Requêtes Sentiment Analysis
+            "sentiment_top_positive": "sentiment_top_positive.rq",
+            "sentiment_contradictions": "sentiment_contradictions.rq",
+            "sentiment_global_stats": "sentiment_global_stats.rq",
             
             # Classes inférées Section 1 (résultats des règles SPARQL R1-R4)
             "HiddenGem": "hidden_gems.rq",

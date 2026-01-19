@@ -5,2321 +5,3791 @@
     {
       "Side": "head",
       "Rank_type": "optimistic",
-      "Metric": "z_inverse_harmonic_mean_rank",
-      "Value": 17.875758923989586
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "z_inverse_harmonic_mean_rank",
-      "Value": 4146.162538981605
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "z_inverse_harmonic_mean_rank",
-      "Value": 2784.8524539462487
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "z_inverse_harmonic_mean_rank",
-      "Value": 17.875760270539278
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "z_inverse_harmonic_mean_rank",
-      "Value": 4146.162526487105
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "z_inverse_harmonic_mean_rank",
-      "Value": 2784.8525104116366
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "z_inverse_harmonic_mean_rank",
-      "Value": 17.87575706053646
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "z_inverse_harmonic_mean_rank",
-      "Value": 4146.162533668214
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "z_inverse_harmonic_mean_rank",
-      "Value": 2784.852449008507
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
-      "Metric": "count",
-      "Value": 3594.0
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "count",
-      "Value": 3594.0
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "count",
-      "Value": 7188.0
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "count",
-      "Value": 3594.0
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "count",
-      "Value": 3594.0
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "count",
-      "Value": 7188.0
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "count",
-      "Value": 3594.0
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "count",
-      "Value": 3594.0
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "count",
-      "Value": 7188.0
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
-      "Metric": "inverse_geometric_mean_rank",
-      "Value": 0.00025355381657398026
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "inverse_geometric_mean_rank",
-      "Value": 0.3325058156095837
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "inverse_geometric_mean_rank",
-      "Value": 0.009181945250373375
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "inverse_geometric_mean_rank",
-      "Value": 0.00025355370598845184
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "inverse_geometric_mean_rank",
-      "Value": 0.3325057029724121
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "inverse_geometric_mean_rank",
-      "Value": 0.009181942790746689
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "inverse_geometric_mean_rank",
-      "Value": 0.00025355360144464637
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "inverse_geometric_mean_rank",
-      "Value": 0.33250557449245216
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "inverse_geometric_mean_rank",
-      "Value": 0.00918193802598244
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
-      "Metric": "adjusted_inverse_harmonic_mean_rank",
-      "Value": 0.0031551053386084734
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "adjusted_inverse_harmonic_mean_rank",
-      "Value": 0.657652224765575
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "adjusted_inverse_harmonic_mean_rank",
-      "Value": 0.33042356731923994
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "adjusted_inverse_harmonic_mean_rank",
-      "Value": 0.0031551055762770465
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "adjusted_inverse_harmonic_mean_rank",
-      "Value": 0.6576522227837339
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "adjusted_inverse_harmonic_mean_rank",
-      "Value": 0.3304235740188749
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "adjusted_inverse_harmonic_mean_rank",
-      "Value": 0.003155105009705464
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "adjusted_inverse_harmonic_mean_rank",
-      "Value": 0.6576522239227803
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "adjusted_inverse_harmonic_mean_rank",
-      "Value": 0.3304235667333754
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
-      "Metric": "median_absolute_deviation",
-      "Value": 5692.451217952259
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "median_absolute_deviation",
-      "Value": 0.0
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "median_absolute_deviation",
-      "Value": 496.67174319937664
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "median_absolute_deviation",
-      "Value": 5692.451171875
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "median_absolute_deviation",
-      "Value": 0.0
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "median_absolute_deviation",
-      "Value": 496.6717529296875
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "median_absolute_deviation",
-      "Value": 5692.451217952259
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "median_absolute_deviation",
-      "Value": 0.0
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "median_absolute_deviation",
-      "Value": 496.67174319937664
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
-      "Metric": "adjusted_geometric_mean_rank_index",
-      "Value": 0.2738129540185662
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "adjusted_geometric_mean_rank_index",
-      "Value": 0.9996993739050318
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "adjusted_geometric_mean_rank_index",
-      "Value": 0.9820777497115633
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "adjusted_geometric_mean_rank_index",
-      "Value": 0.2738126595082735
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "adjusted_geometric_mean_rank_index",
-      "Value": 0.9996993737440226
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "adjusted_geometric_mean_rank_index",
-      "Value": 0.9820777443431825
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "adjusted_geometric_mean_rank_index",
-      "Value": 0.273812337723803
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "adjusted_geometric_mean_rank_index",
-      "Value": 0.9996993735784377
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "adjusted_geometric_mean_rank_index",
-      "Value": 0.9820777354795772
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
-      "Metric": "variance",
-      "Value": 20917381.07953774
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "variance",
-      "Value": 3029324.8536325768
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "variance",
-      "Value": 21699375.737960134
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "variance",
-      "Value": 20917386.0
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "variance",
-      "Value": 3029325.75
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "variance",
-      "Value": 21699384.0
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "variance",
-      "Value": 20917392.63477124
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "variance",
-      "Value": 3029326.955101776
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "variance",
-      "Value": 21699393.846933465
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
-      "Metric": "adjusted_arithmetic_mean_rank_index",
-      "Value": 0.11628811684188955
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "adjusted_arithmetic_mean_rank_index",
-      "Value": 0.9635838271633959
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "adjusted_arithmetic_mean_rank_index",
-      "Value": 0.5820471260261302
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "adjusted_arithmetic_mean_rank_index",
-      "Value": 0.11628784442509299
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "adjusted_arithmetic_mean_rank_index",
-      "Value": 0.9635837799905403
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "adjusted_arithmetic_mean_rank_index",
-      "Value": 0.5820469718789254
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "adjusted_arithmetic_mean_rank_index",
-      "Value": 0.11628751782473823
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "adjusted_arithmetic_mean_rank_index",
-      "Value": 0.9635837351575154
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "adjusted_arithmetic_mean_rank_index",
-      "Value": 0.5820468057134079
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
-      "Metric": "geometric_mean_rank",
-      "Value": 3943.9359009144578
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "geometric_mean_rank",
-      "Value": 3.0074661947391736
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "geometric_mean_rank",
-      "Value": 108.90938387585528
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "geometric_mean_rank",
-      "Value": 3943.9375
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "geometric_mean_rank",
-      "Value": 3.007467269897461
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "geometric_mean_rank",
-      "Value": 108.90941619873047
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "geometric_mean_rank",
-      "Value": 3943.939247174572
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "geometric_mean_rank",
-      "Value": 3.0074683756097444
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "geometric_mean_rank",
-      "Value": 108.90946956625783
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
-      "Metric": "arithmetic_mean_rank",
-      "Value": 6568.70061213133
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "arithmetic_mean_rank",
-      "Value": 331.38619922092374
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "arithmetic_mean_rank",
-      "Value": 3450.043405676127
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "arithmetic_mean_rank",
-      "Value": 6568.70263671875
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "arithmetic_mean_rank",
-      "Value": 331.3866271972656
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "arithmetic_mean_rank",
-      "Value": 3450.044677734375
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "arithmetic_mean_rank",
-      "Value": 6568.705063995548
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "arithmetic_mean_rank",
-      "Value": 331.3870339454647
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "arithmetic_mean_rank",
-      "Value": 3450.0460489705065
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
-      "Metric": "standard_deviation",
-      "Value": 4573.552347960799
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "standard_deviation",
-      "Value": 1740.4955770218369
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "standard_deviation",
-      "Value": 4658.258874081617
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "standard_deviation",
-      "Value": 4573.552734375
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "standard_deviation",
-      "Value": 1740.495849609375
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "standard_deviation",
-      "Value": 4658.259765625
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "standard_deviation",
-      "Value": 4573.553611227405
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "standard_deviation",
-      "Value": 1740.4961807202496
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "standard_deviation",
-      "Value": 4658.260817830348
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
       "Metric": "adjusted_arithmetic_mean_rank",
-      "Value": 0.8837275281107598
+      "Value": 1.3642932053257057
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "adjusted_arithmetic_mean_rank",
-      "Value": 0.03652237027454488
+      "Value": 0.05621397792459418
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "adjusted_arithmetic_mean_rank",
-      "Value": 0.41802339752633916
+      "Value": 0.6801106272301515
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "adjusted_arithmetic_mean_rank",
-      "Value": 0.8837278004909065
+      "Value": 1.3642935551820363
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "adjusted_arithmetic_mean_rank",
-      "Value": 0.036522417442201416
+      "Value": 0.05621404542709838
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "adjusted_arithmetic_mean_rank",
-      "Value": 0.4180235516548669
+      "Value": 0.6801108406406494
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "adjusted_arithmetic_mean_rank",
-      "Value": 0.8837281270473217
+      "Value": 1.3642940350101964
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "adjusted_arithmetic_mean_rank",
-      "Value": 0.03652246227028529
+      "Value": 0.056214111438329786
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "adjusted_arithmetic_mean_rank",
-      "Value": 0.4180237178002509
+      "Value": 0.6801110927869257
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
-      "Metric": "inverse_arithmetic_mean_rank",
-      "Value": 0.00015223711035835022
+      "Metric": "arithmetic_mean_rank",
+      "Value": 10602.685757633226
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
-      "Metric": "inverse_arithmetic_mean_rank",
-      "Value": 0.003017627174429598
+      "Metric": "arithmetic_mean_rank",
+      "Value": 479.08420254124786
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
-      "Metric": "inverse_arithmetic_mean_rank",
-      "Value": 0.00028985142573996795
+      "Metric": "arithmetic_mean_rank",
+      "Value": 5540.884980087237
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
-      "Metric": "inverse_arithmetic_mean_rank",
-      "Value": 0.0001522370585007593
+      "Metric": "arithmetic_mean_rank",
+      "Value": 10602.6884765625
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
-      "Metric": "inverse_arithmetic_mean_rank",
-      "Value": 0.003017623210325837
+      "Metric": "arithmetic_mean_rank",
+      "Value": 479.08477783203125
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
-      "Metric": "inverse_arithmetic_mean_rank",
-      "Value": 0.00028985130484215915
+      "Metric": "arithmetic_mean_rank",
+      "Value": 5540.88671875
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
-      "Metric": "inverse_arithmetic_mean_rank",
-      "Value": 0.0001522370071814017
+      "Metric": "arithmetic_mean_rank",
+      "Value": 10602.692205575573
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
-      "Metric": "inverse_arithmetic_mean_rank",
-      "Value": 0.003017619573385502
+      "Metric": "arithmetic_mean_rank",
+      "Value": 479.0853404134269
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
-      "Metric": "inverse_arithmetic_mean_rank",
-      "Value": 0.0002898512036668032
+      "Metric": "arithmetic_mean_rank",
+      "Value": 5540.8887729945
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
       "Metric": "inverse_harmonic_mean_rank",
-      "Value": 0.003846689588373862
+      "Value": 0.0005799047326792509
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "inverse_harmonic_mean_rank",
-      "Value": 0.6578481217164249
+      "Value": 0.41477395057826616
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "inverse_harmonic_mean_rank",
-      "Value": 0.33084740565239945
+      "Value": 0.20767692765547274
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "inverse_harmonic_mean_rank",
-      "Value": 0.0038466898258775473
+      "Value": 0.000579904590267688
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "inverse_harmonic_mean_rank",
-      "Value": 0.6578481197357178
+      "Value": 0.41477394104003906
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "inverse_harmonic_mean_rank",
-      "Value": 0.3308474123477936
+      "Value": 0.2076769322156906
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "inverse_harmonic_mean_rank",
-      "Value": 0.0038466892596990365
+      "Value": 0.0005799045777503581
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "inverse_harmonic_mean_rank",
-      "Value": 0.6578481208741125
+      "Value": 0.41477394998382394
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "inverse_harmonic_mean_rank",
-      "Value": 0.3308474050669058
+      "Value": 0.20767692728078715
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
       "Metric": "inverse_median_rank",
-      "Value": 0.00016421709499958947
+      "Value": 8.725242125468982e-05
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "inverse_median_rank",
-      "Value": 1.0
+      "Value": 0.3333333333333333
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "inverse_median_rank",
-      "Value": 0.002976190476190476
+      "Value": 0.0006151953245155337
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "inverse_median_rank",
-      "Value": 0.00016421709733549505
+      "Value": 8.725241787033156e-05
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "inverse_median_rank",
-      "Value": 1.0
+      "Value": 0.3333333432674408
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "inverse_median_rank",
-      "Value": 0.0029761905316263437
+      "Value": 0.0006151953130029142
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "inverse_median_rank",
-      "Value": 0.00016421709499958947
+      "Value": 8.725242125468982e-05
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "inverse_median_rank",
-      "Value": 1.0
+      "Value": 0.3333333333333333
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "inverse_median_rank",
-      "Value": 0.002976190476190476
-    },
-    {
-      "Side": "head",
-      "Rank_type": "optimistic",
-      "Metric": "z_arithmetic_mean_rank",
-      "Value": 11.982378072424126
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "optimistic",
-      "Metric": "z_arithmetic_mean_rank",
-      "Value": 100.04956966369151
-    },
-    {
-      "Side": "both",
-      "Rank_type": "optimistic",
-      "Metric": "z_arithmetic_mean_rank",
-      "Value": 84.78622949997295
-    },
-    {
-      "Side": "head",
-      "Rank_type": "realistic",
-      "Metric": "z_arithmetic_mean_rank",
-      "Value": 11.98235000247908
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "realistic",
-      "Metric": "z_arithmetic_mean_rank",
-      "Value": 100.04956476570158
-    },
-    {
-      "Side": "both",
-      "Rank_type": "realistic",
-      "Metric": "z_arithmetic_mean_rank",
-      "Value": 84.78620704550198
-    },
-    {
-      "Side": "head",
-      "Rank_type": "pessimistic",
-      "Metric": "z_arithmetic_mean_rank",
-      "Value": 11.982316349436644
-    },
-    {
-      "Side": "tail",
-      "Rank_type": "pessimistic",
-      "Metric": "z_arithmetic_mean_rank",
-      "Value": 100.04956011065784
-    },
-    {
-      "Side": "both",
-      "Rank_type": "pessimistic",
-      "Metric": "z_arithmetic_mean_rank",
-      "Value": 84.78618284033531
+      "Value": 0.0006151953245155337
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
       "Metric": "harmonic_mean_rank",
-      "Value": 259.96378886988305
+      "Value": 1724.4211741122424
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "harmonic_mean_rank",
-      "Value": 1.5201077072179658
+      "Value": 2.410951793394518
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "harmonic_mean_rank",
-      "Value": 3.0225414584348806
+      "Value": 4.8151713880270695
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "harmonic_mean_rank",
-      "Value": 259.9637756347656
+      "Value": 1724.421630859375
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "harmonic_mean_rank",
-      "Value": 1.5201077461242676
+      "Value": 2.410951852798462
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "harmonic_mean_rank",
-      "Value": 3.0225412845611572
+      "Value": 4.815171241760254
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "harmonic_mean_rank",
-      "Value": 259.9638110821147
+      "Value": 1724.421634813319
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "harmonic_mean_rank",
-      "Value": 1.5201077091643203
+      "Value": 2.4109517968498255
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "harmonic_mean_rank",
-      "Value": 3.022541463783808
+      "Value": 4.815171396714483
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 8357.166425780675
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 15.558737702904983
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 360.59251289821003
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 8357.169921875
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 15.558741569519043
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 360.5927429199219
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 8357.173342052925
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 15.558746801539224
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "geometric_mean_rank",
+      "Value": 360.5927675447397
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
       "Metric": "median_rank",
-      "Value": 6089.5
+      "Value": 11461.0
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "median_rank",
-      "Value": 1.0
+      "Value": 3.0
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "median_rank",
-      "Value": 336.0
+      "Value": 1625.5
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "median_rank",
-      "Value": 6089.5
+      "Value": 11461.0
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "median_rank",
-      "Value": 1.0
+      "Value": 3.0
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "median_rank",
-      "Value": 336.0
+      "Value": 1625.5
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "median_rank",
-      "Value": 6089.5
+      "Value": 11461.0
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "median_rank",
-      "Value": 1.0
+      "Value": 3.0
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "median_rank",
-      "Value": 336.0
+      "Value": 1625.5
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 9.431572554907295e-05
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.0020873157467844136
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.00018047658516532784
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 9.43156992434524e-05
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.0020873132161796093
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.00018047653429675847
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 9.431566819171984e-05
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.0020873107892156535
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_arithmetic_mean_rank",
+      "Value": 0.00018047646162360398
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
       "Metric": "z_geometric_mean_rank",
-      "Value": 16.445839926306924
+      "Value": -34.46611651250376
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "z_geometric_mean_rank",
-      "Value": 60.02875234867153
+      "Value": 72.5643229261439
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "z_geometric_mean_rank",
-      "Value": 83.39938241700023
+      "Value": 96.65377099477266
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "z_geometric_mean_rank",
-      "Value": 16.44582223733692
+      "Value": -34.4661613671162
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "z_geometric_mean_rank",
-      "Value": 60.02875233900344
+      "Value": 72.56432288125566
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "z_geometric_mean_rank",
-      "Value": 83.39938196111001
+      "Value": 96.65376702480624
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "z_geometric_mean_rank",
-      "Value": 16.445802910216656
+      "Value": -34.466205247727274
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "z_geometric_mean_rank",
-      "Value": 60.0287523290606
+      "Value": 72.56432282051617
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "z_geometric_mean_rank",
-      "Value": 83.39938120840057
+      "Value": 96.65376659980419
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": -45.44486364923944
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 118.58685834306011
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 56.59665580439051
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": -45.44490729313125
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 118.58684986136012
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 56.596618046585704
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": -45.44496715075414
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 118.58684156703877
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "z_arithmetic_mean_rank",
+      "Value": 56.59657343542564
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": -0.6186183069587603
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 3063.9507356358613
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 2107.1617959693885
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": -0.6186193054049411
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 3063.950665073413
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 2107.1618423813807
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": -0.6186193931638284
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 3063.9507312382625
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "z_inverse_harmonic_mean_rank",
+      "Value": 2107.1617921559955
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "count",
+      "Value": 5273.0
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "count",
+      "Value": 5273.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "count",
+      "Value": 10546.0
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "count",
+      "Value": 5273.0
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "count",
+      "Value": 5273.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "count",
+      "Value": 10546.0
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "count",
+      "Value": 5273.0
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "count",
+      "Value": 5273.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "count",
+      "Value": 10546.0
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": -8.82944950782624e-05
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.4144187007946778
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.20717157802725183
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": -8.829463758503972e-05
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.4144186912506607
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.20717158259037824
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": -8.829465011073862e-05
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.41441870019987476
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_inverse_harmonic_mean_rank",
+      "Value": 0.20717157765232727
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 5991.195564981137
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 2.965204437011204
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 2408.4873039623503
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 5991.19580078125
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 2.9652044773101807
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 2408.4873046875
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 5991.195564981137
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 2.965204437011204
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "median_absolute_deviation",
+      "Value": 2408.4873039623503
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": -0.473807716846822
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.9976762362044003
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.9396632280200766
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": -0.4738083334657992
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.9976762355872384
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.9396631894242575
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": -0.4738089366951226
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.99767623475214
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_geometric_mean_rank_index",
+      "Value": 0.9396631852924083
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "variance",
+      "Value": 26102460.64560979
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "variance",
+      "Value": 2265321.214605361
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "variance",
+      "Value": 39805718.04167275
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "variance",
+      "Value": 26102456.0
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "variance",
+      "Value": 2265326.0
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "variance",
+      "Value": 39805736.0
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "variance",
+      "Value": 26102453.05697888
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "variance",
+      "Value": 2265331.5269480017
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "variance",
+      "Value": 39805746.28205299
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": -0.3643400865325854
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.943896775450735
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.3199286421050238
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": -0.3643404364339393
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.9438967079403093
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.3199284286683278
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": -0.3643409163238489
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.9438966419213315
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "adjusted_arithmetic_mean_rank_index",
+      "Value": 0.3199281764910983
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.00011965778220176896
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.06427256626437564
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.0027732134313123834
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.00011965772864641622
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.06427255272865295
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.002773211570456624
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.00011965768317476968
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.06427252867827826
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "inverse_geometric_mean_rank",
+      "Value": 0.002773211472900458
+    },
+    {
+      "Side": "head",
+      "Rank_type": "optimistic",
+      "Metric": "standard_deviation",
+      "Value": 5109.056727577977
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "optimistic",
+      "Metric": "standard_deviation",
+      "Value": 1505.0984069506424
+    },
+    {
+      "Side": "both",
+      "Rank_type": "optimistic",
+      "Metric": "standard_deviation",
+      "Value": 6309.177287227928
+    },
+    {
+      "Side": "head",
+      "Rank_type": "realistic",
+      "Metric": "standard_deviation",
+      "Value": 5109.05615234375
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "realistic",
+      "Metric": "standard_deviation",
+      "Value": 1505.0999755859375
+    },
+    {
+      "Side": "both",
+      "Rank_type": "realistic",
+      "Metric": "standard_deviation",
+      "Value": 6309.1787109375
+    },
+    {
+      "Side": "head",
+      "Rank_type": "pessimistic",
+      "Metric": "standard_deviation",
+      "Value": 5109.055984913346
+    },
+    {
+      "Side": "tail",
+      "Rank_type": "pessimistic",
+      "Metric": "standard_deviation",
+      "Value": 1505.101832750197
+    },
+    {
+      "Side": "both",
+      "Rank_type": "pessimistic",
+      "Metric": "standard_deviation",
+      "Value": 6309.179525267369
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
       "Metric": "hits_at_1",
-      "Value": 0.0005564830272676684
+      "Value": 0.00018964536317087047
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "hits_at_1",
-      "Value": 0.5114079020589872
+      "Value": 0.2998293191731462
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "hits_at_1",
-      "Value": 0.25598219254312743
+      "Value": 0.15000948226815855
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "hits_at_1",
-      "Value": 0.0005564830272676684
+      "Value": 0.00018964536317087047
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "hits_at_1",
-      "Value": 0.5114079020589872
+      "Value": 0.2998293191731462
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "hits_at_1",
-      "Value": 0.25598219254312743
+      "Value": 0.15000948226815855
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_1",
-      "Value": 0.0005564830272676684
+      "Value": 0.00018964536317087047
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_1",
-      "Value": 0.5114079020589872
+      "Value": 0.2998293191731462
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_1",
-      "Value": 0.25598219254312743
+      "Value": 0.15000948226815855
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
       "Metric": "hits_at_3",
-      "Value": 0.00333889816360601
+      "Value": 0.00018964536317087047
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "hits_at_3",
-      "Value": 0.7860322760155816
+      "Value": 0.5186800682723307
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "hits_at_3",
-      "Value": 0.3946855870895938
+      "Value": 0.2594348568177508
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "hits_at_3",
-      "Value": 0.00333889816360601
+      "Value": 0.00018964536317087047
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "hits_at_3",
-      "Value": 0.7860322760155816
+      "Value": 0.5186800682723307
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "hits_at_3",
-      "Value": 0.3946855870895938
+      "Value": 0.2594348568177508
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_3",
-      "Value": 0.00333889816360601
+      "Value": 0.00018964536317087047
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_3",
-      "Value": 0.7860322760155816
+      "Value": 0.5186800682723307
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_3",
-      "Value": 0.3946855870895938
+      "Value": 0.2594348568177508
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
       "Metric": "hits_at_5",
-      "Value": 0.0052865887590428495
+      "Value": 0.00037929072634174094
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "hits_at_5",
-      "Value": 0.8366722314969394
+      "Value": 0.5805044566660346
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "hits_at_5",
-      "Value": 0.4209794101279911
+      "Value": 0.2904418736961881
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "hits_at_5",
-      "Value": 0.0052865887590428495
+      "Value": 0.00037929072634174094
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "hits_at_5",
-      "Value": 0.8366722314969394
+      "Value": 0.5805044566660346
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "hits_at_5",
-      "Value": 0.4209794101279911
+      "Value": 0.2904418736961881
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_5",
-      "Value": 0.0052865887590428495
+      "Value": 0.00037929072634174094
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_5",
-      "Value": 0.8366722314969394
+      "Value": 0.5805044566660346
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_5",
-      "Value": 0.4209794101279911
+      "Value": 0.2904418736961881
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
       "Metric": "hits_at_10",
-      "Value": 0.00862548692264886
+      "Value": 0.0007585814526834819
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "hits_at_10",
-      "Value": 0.8845297718419588
+      "Value": 0.6064858714204437
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "hits_at_10",
-      "Value": 0.44657762938230383
+      "Value": 0.3036222264365636
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "hits_at_10",
-      "Value": 0.00862548692264886
+      "Value": 0.0007585814526834819
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "hits_at_10",
-      "Value": 0.8845297718419588
+      "Value": 0.6064858714204437
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "hits_at_10",
-      "Value": 0.44657762938230383
+      "Value": 0.3036222264365636
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_10",
-      "Value": 0.00862548692264886
+      "Value": 0.0007585814526834819
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_10",
-      "Value": 0.8845297718419588
+      "Value": 0.6064858714204437
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "hits_at_10",
-      "Value": 0.44657762938230383
+      "Value": 0.3036222264365636
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
       "Metric": "z_hits_at_k",
-      "Value": 18.230429935876455
+      "Value": 0.2941874477142945
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "z_hits_at_k",
-      "Value": 2258.0901970586447
+      "Value": 1814.974303116107
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "z_hits_at_k",
-      "Value": 1522.7632624551654
+      "Value": 1248.5802472451028
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "z_hits_at_k",
-      "Value": 18.230429935876455
+      "Value": 0.2941874477142945
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "z_hits_at_k",
-      "Value": 2258.0901970586447
+      "Value": 1814.974303116107
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "z_hits_at_k",
-      "Value": 1522.7632624551654
+      "Value": 1248.5802472451028
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "z_hits_at_k",
-      "Value": 18.230429935876455
+      "Value": 0.2941874477142945
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "z_hits_at_k",
-      "Value": 2258.0901970586447
+      "Value": 1814.974303116107
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "z_hits_at_k",
-      "Value": 1522.7632624551654
+      "Value": 1248.5802472451028
     },
     {
       "Side": "head",
       "Rank_type": "optimistic",
       "Metric": "adjusted_hits_at_k",
-      "Value": 0.00794821193826904
+      "Value": 0.00010371326668073713
     },
     {
       "Side": "tail",
       "Rank_type": "optimistic",
       "Metric": "adjusted_hits_at_k",
-      "Value": 0.8844661028590146
+      "Value": 0.606254351984094
     },
     {
       "Side": "both",
       "Rank_type": "optimistic",
       "Metric": "adjusted_hits_at_k",
-      "Value": 0.4462360162263987
+      "Value": 0.3031891834318334
     },
     {
       "Side": "head",
       "Rank_type": "realistic",
       "Metric": "adjusted_hits_at_k",
-      "Value": 0.00794821193826904
+      "Value": 0.00010371326668073713
     },
     {
       "Side": "tail",
       "Rank_type": "realistic",
       "Metric": "adjusted_hits_at_k",
-      "Value": 0.8844661028590146
+      "Value": 0.606254351984094
     },
     {
       "Side": "both",
       "Rank_type": "realistic",
       "Metric": "adjusted_hits_at_k",
-      "Value": 0.4462360162263987
+      "Value": 0.3031891834318334
     },
     {
       "Side": "head",
       "Rank_type": "pessimistic",
       "Metric": "adjusted_hits_at_k",
-      "Value": 0.00794821193826904
+      "Value": 0.00010371326668073713
     },
     {
       "Side": "tail",
       "Rank_type": "pessimistic",
       "Metric": "adjusted_hits_at_k",
-      "Value": 0.8844661028590146
+      "Value": 0.606254351984094
     },
     {
       "Side": "both",
       "Rank_type": "pessimistic",
       "Metric": "adjusted_hits_at_k",
-      "Value": 0.4462360162263987
+      "Value": 0.3031891834318334
     }
   ],
   "place_filter_mode": "rdf:type tg:Place",
-  "place_candidates_count": 3849,
+  "place_candidates_count": 4122,
   "recommendations": {
-    "https://example.org/tourguide/tourist/1": [
-      {
-        "place": "https://example.org/tourguide/place/84598",
-        "score": -6.782132148742676
-      },
-      {
-        "place": "https://example.org/tourguide/place/303680",
-        "score": -7.183999061584473
-      },
-      {
-        "place": "https://example.org/tourguide/place/251340",
-        "score": -7.4909210205078125
-      },
-      {
-        "place": "https://example.org/tourguide/place/86719",
-        "score": -7.54536771774292
-      },
-      {
-        "place": "https://example.org/tourguide/place/88247",
-        "score": -7.558167457580566
-      },
-      {
-        "place": "https://example.org/tourguide/place/83372",
-        "score": -7.562211036682129
-      },
-      {
-        "place": "https://example.org/tourguide/place/83534",
-        "score": -7.631832599639893
-      },
-      {
-        "place": "https://example.org/tourguide/place/84742",
-        "score": -7.654291152954102
-      },
-      {
-        "place": "https://example.org/tourguide/place/306942",
-        "score": -7.682453632354736
-      },
-      {
-        "place": "https://example.org/tourguide/place/467313",
-        "score": -7.6970534324646
-      }
-    ],
-    "https://example.org/tourguide/tourist/10": [
-      {
-        "place": "https://example.org/tourguide/place/87364",
-        "score": -7.465224266052246
-      },
-      {
-        "place": "https://example.org/tourguide/place/304921",
-        "score": -7.470288276672363
-      },
-      {
-        "place": "https://example.org/tourguide/place/304994",
-        "score": -7.516221046447754
-      },
-      {
-        "place": "https://example.org/tourguide/place/451970",
-        "score": -7.667166709899902
-      },
-      {
-        "place": "https://example.org/tourguide/place/85930",
-        "score": -7.677225112915039
-      },
-      {
-        "place": "https://example.org/tourguide/place/303680",
-        "score": -7.68412971496582
-      },
-      {
-        "place": "https://example.org/tourguide/place/83500",
-        "score": -7.8813276290893555
-      },
-      {
-        "place": "https://example.org/tourguide/place/87046",
-        "score": -7.884936332702637
-      },
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -7.887181282043457
-      },
-      {
-        "place": "https://example.org/tourguide/place/445738",
-        "score": -7.890045166015625
-      }
-    ],
-    "https://example.org/tourguide/tourist/12": [
-      {
-        "place": "https://example.org/tourguide/place/84598",
-        "score": -7.071660041809082
-      },
-      {
-        "place": "https://example.org/tourguide/place/307707",
-        "score": -7.237216472625732
-      },
-      {
-        "place": "https://example.org/tourguide/place/85576",
-        "score": -7.247827053070068
-      },
-      {
-        "place": "https://example.org/tourguide/place/251340",
-        "score": -7.327296733856201
-      },
-      {
-        "place": "https://example.org/tourguide/place/84742",
-        "score": -7.362359046936035
-      },
-      {
-        "place": "https://example.org/tourguide/place/88526",
-        "score": -7.383386611938477
-      },
-      {
-        "place": "https://example.org/tourguide/place/217526",
-        "score": -7.492185592651367
-      },
-      {
-        "place": "https://example.org/tourguide/place/87498",
-        "score": -7.505786895751953
-      },
-      {
-        "place": "https://example.org/tourguide/place/86556",
-        "score": -7.5252532958984375
-      },
-      {
-        "place": "https://example.org/tourguide/place/86023",
-        "score": -7.571172714233398
-      }
-    ],
-    "https://example.org/tourguide/tourist/13": [
-      {
-        "place": "https://example.org/tourguide/place/445738",
-        "score": -6.219760894775391
-      },
-      {
-        "place": "https://example.org/tourguide/place/87498",
-        "score": -7.129611968994141
-      },
-      {
-        "place": "https://example.org/tourguide/place/223036",
-        "score": -7.1415557861328125
-      },
-      {
-        "place": "https://example.org/tourguide/place/217406",
-        "score": -7.141870498657227
-      },
-      {
-        "place": "https://example.org/tourguide/place/83604",
-        "score": -7.168919563293457
-      },
-      {
-        "place": "https://example.org/tourguide/place/86827",
-        "score": -7.223394870758057
-      },
-      {
-        "place": "https://example.org/tourguide/place/83785",
-        "score": -7.226505279541016
-      },
-      {
-        "place": "https://example.org/tourguide/place/90265",
-        "score": -7.227248191833496
-      },
-      {
-        "place": "https://example.org/tourguide/place/217526",
-        "score": -7.241666316986084
-      },
-      {
-        "place": "https://example.org/tourguide/place/87364",
-        "score": -7.256792068481445
-      }
-    ],
-    "https://example.org/tourguide/tourist/14": [
-      {
-        "place": "https://example.org/tourguide/place/87364",
-        "score": -7.850063800811768
-      },
-      {
-        "place": "https://example.org/tourguide/place/91452",
-        "score": -7.9036946296691895
-      },
-      {
-        "place": "https://example.org/tourguide/place/85621",
-        "score": -7.967588424682617
-      },
-      {
-        "place": "https://example.org/tourguide/place/84094",
-        "score": -8.056527137756348
-      },
-      {
-        "place": "https://example.org/tourguide/place/87539",
-        "score": -8.18600845336914
-      },
-      {
-        "place": "https://example.org/tourguide/place/83255",
-        "score": -8.192689895629883
-      },
-      {
-        "place": "https://example.org/tourguide/place/84717",
-        "score": -8.218178749084473
-      },
-      {
-        "place": "https://example.org/tourguide/place/445738",
-        "score": -8.235254287719727
-      },
-      {
-        "place": "https://example.org/tourguide/place/223036",
-        "score": -8.243017196655273
-      },
-      {
-        "place": "https://example.org/tourguide/place/85282",
-        "score": -8.28420352935791
-      }
-    ],
-    "https://example.org/tourguide/tourist/15": [
-      {
-        "place": "https://example.org/tourguide/place/83882",
-        "score": -7.409460067749023
-      },
-      {
-        "place": "https://example.org/tourguide/place/251340",
-        "score": -7.644425392150879
-      },
-      {
-        "place": "https://example.org/tourguide/place/451970",
-        "score": -7.647109031677246
-      },
-      {
-        "place": "https://example.org/tourguide/place/303680",
-        "score": -7.927850723266602
-      },
-      {
-        "place": "https://example.org/tourguide/place/86232",
-        "score": -7.959474563598633
-      },
-      {
-        "place": "https://example.org/tourguide/place/86500",
-        "score": -8.121747016906738
-      },
-      {
-        "place": "https://example.org/tourguide/place/459965",
-        "score": -8.140592575073242
-      },
-      {
-        "place": "https://example.org/tourguide/place/91201",
-        "score": -8.153498649597168
-      },
-      {
-        "place": "https://example.org/tourguide/place/83807",
-        "score": -8.158498764038086
-      },
-      {
-        "place": "https://example.org/tourguide/place/83549",
-        "score": -8.160118103027344
-      }
-    ],
-    "https://example.org/tourguide/tourist/18": [
-      {
-        "place": "https://example.org/tourguide/place/468015",
-        "score": -6.965973854064941
-      },
-      {
-        "place": "https://example.org/tourguide/place/91452",
-        "score": -7.03787088394165
-      },
-      {
-        "place": "https://example.org/tourguide/place/84259",
-        "score": -7.360610008239746
-      },
-      {
-        "place": "https://example.org/tourguide/place/250401",
-        "score": -7.450449466705322
-      },
-      {
-        "place": "https://example.org/tourguide/place/83928",
-        "score": -7.555765151977539
-      },
-      {
-        "place": "https://example.org/tourguide/place/304077",
-        "score": -7.6107306480407715
-      },
-      {
-        "place": "https://example.org/tourguide/place/85933",
-        "score": -7.638465881347656
-      },
-      {
-        "place": "https://example.org/tourguide/place/455089",
-        "score": -7.688495635986328
-      },
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -7.697769641876221
-      },
-      {
-        "place": "https://example.org/tourguide/place/307234",
-        "score": -7.698525428771973
-      }
-    ],
-    "https://example.org/tourguide/tourist/19": [
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -6.889248847961426
-      },
-      {
-        "place": "https://example.org/tourguide/place/87532",
-        "score": -7.822908401489258
-      },
-      {
-        "place": "https://example.org/tourguide/place/459351",
-        "score": -7.833441734313965
-      },
-      {
-        "place": "https://example.org/tourguide/place/87364",
-        "score": -7.936066150665283
-      },
-      {
-        "place": "https://example.org/tourguide/place/308261",
-        "score": -7.963232040405273
-      },
-      {
-        "place": "https://example.org/tourguide/place/468281",
-        "score": -8.090005874633789
-      },
-      {
-        "place": "https://example.org/tourguide/place/84453",
-        "score": -8.095184326171875
-      },
-      {
-        "place": "https://example.org/tourguide/place/84094",
-        "score": -8.149187088012695
-      },
-      {
-        "place": "https://example.org/tourguide/place/85840",
-        "score": -8.16462516784668
-      },
-      {
-        "place": "https://example.org/tourguide/place/250401",
-        "score": -8.234926223754883
-      }
-    ],
-    "https://example.org/tourguide/tourist/2": [
-      {
-        "place": "https://example.org/tourguide/place/84598",
-        "score": -6.684403896331787
-      },
-      {
-        "place": "https://example.org/tourguide/place/85272",
-        "score": -7.083304405212402
-      },
-      {
-        "place": "https://example.org/tourguide/place/223036",
-        "score": -7.109616756439209
-      },
-      {
-        "place": "https://example.org/tourguide/place/251340",
-        "score": -7.11868953704834
-      },
-      {
-        "place": "https://example.org/tourguide/place/463694",
-        "score": -7.224980354309082
-      },
-      {
-        "place": "https://example.org/tourguide/place/468015",
-        "score": -7.290703296661377
-      },
-      {
-        "place": "https://example.org/tourguide/place/87119",
-        "score": -7.38477087020874
-      },
-      {
-        "place": "https://example.org/tourguide/place/305768",
-        "score": -7.4216389656066895
-      },
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -7.456136703491211
-      },
-      {
-        "place": "https://example.org/tourguide/place/84952",
-        "score": -7.4627203941345215
-      }
-    ],
-    "https://example.org/tourguide/tourist/20": [
-      {
-        "place": "https://example.org/tourguide/place/445738",
-        "score": -7.600922107696533
-      },
-      {
-        "place": "https://example.org/tourguide/place/251340",
-        "score": -7.798924446105957
-      },
-      {
-        "place": "https://example.org/tourguide/place/84737",
-        "score": -7.972827434539795
-      },
-      {
-        "place": "https://example.org/tourguide/place/252467",
-        "score": -8.047229766845703
-      },
-      {
-        "place": "https://example.org/tourguide/place/83785",
-        "score": -8.112733840942383
-      },
-      {
-        "place": "https://example.org/tourguide/place/85576",
-        "score": -8.228023529052734
-      },
-      {
-        "place": "https://example.org/tourguide/place/305768",
-        "score": -8.26841926574707
-      },
-      {
-        "place": "https://example.org/tourguide/place/84349",
-        "score": -8.300370216369629
-      },
-      {
-        "place": "https://example.org/tourguide/place/466997",
-        "score": -8.319165229797363
-      },
-      {
-        "place": "https://example.org/tourguide/place/83679",
-        "score": -8.32187271118164
-      }
-    ],
-    "https://example.org/tourguide/tourist/22": [
-      {
-        "place": "https://example.org/tourguide/place/307707",
-        "score": -7.641842842102051
-      },
-      {
-        "place": "https://example.org/tourguide/place/223036",
-        "score": -7.7285614013671875
-      },
-      {
-        "place": "https://example.org/tourguide/place/251340",
-        "score": -7.791015625
-      },
-      {
-        "place": "https://example.org/tourguide/place/250277",
-        "score": -7.909379005432129
-      },
-      {
-        "place": "https://example.org/tourguide/place/86248",
-        "score": -7.984424591064453
-      },
-      {
-        "place": "https://example.org/tourguide/place/304077",
-        "score": -8.003600120544434
-      },
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -8.032044410705566
-      },
-      {
-        "place": "https://example.org/tourguide/place/85531",
-        "score": -8.074979782104492
-      },
-      {
-        "place": "https://example.org/tourguide/place/457924",
-        "score": -8.082986831665039
-      },
-      {
-        "place": "https://example.org/tourguide/place/462447",
-        "score": -8.117822647094727
-      }
-    ],
-    "https://example.org/tourguide/tourist/23": [
-      {
-        "place": "https://example.org/tourguide/place/305768",
-        "score": -6.779760837554932
-      },
-      {
-        "place": "https://example.org/tourguide/place/84094",
-        "score": -7.417745590209961
-      },
-      {
-        "place": "https://example.org/tourguide/place/251340",
-        "score": -7.4428791999816895
-      },
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -7.60620641708374
-      },
-      {
-        "place": "https://example.org/tourguide/place/304994",
-        "score": -7.613644599914551
-      },
-      {
-        "place": "https://example.org/tourguide/place/303680",
-        "score": -7.638031959533691
-      },
-      {
-        "place": "https://example.org/tourguide/place/84856",
-        "score": -7.862622261047363
-      },
-      {
-        "place": "https://example.org/tourguide/place/252467",
-        "score": -7.905259609222412
-      },
-      {
-        "place": "https://example.org/tourguide/place/251370",
-        "score": -7.911196708679199
-      },
-      {
-        "place": "https://example.org/tourguide/place/83882",
-        "score": -7.951663017272949
-      }
-    ],
-    "https://example.org/tourguide/tourist/25": [
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -7.127126693725586
-      },
-      {
-        "place": "https://example.org/tourguide/place/468646",
-        "score": -7.313602447509766
-      },
-      {
-        "place": "https://example.org/tourguide/place/220640",
-        "score": -7.402878284454346
-      },
-      {
-        "place": "https://example.org/tourguide/place/307005",
-        "score": -7.4084062576293945
-      },
-      {
-        "place": "https://example.org/tourguide/place/223038",
-        "score": -7.438938140869141
-      },
+    "https://example.org/tourguide/author/tourist_dutch_autumn_budget": [
       {
         "place": "https://example.org/tourguide/place/84866",
-        "score": -7.452871799468994
+        "score": -7.163365364074707
       },
       {
-        "place": "https://example.org/tourguide/place/86314",
-        "score": -7.455636978149414
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -7.335878849029541
       },
       {
-        "place": "https://example.org/tourguide/place/306564",
-        "score": -7.464616298675537
+        "place": "https://example.org/tourguide/place/87814",
+        "score": -7.424192428588867
       },
       {
-        "place": "https://example.org/tourguide/place/84869",
-        "score": -7.469419002532959
+        "place": "https://example.org/tourguide/place/83417",
+        "score": -7.571002960205078
       },
       {
-        "place": "https://example.org/tourguide/place/303680",
-        "score": -7.509070873260498
+        "place": "https://example.org/tourguide/place/84607",
+        "score": -7.583732604980469
+      },
+      {
+        "place": "https://example.org/tourguide/place/83908",
+        "score": -7.597634315490723
+      },
+      {
+        "place": "https://example.org/tourguide/place/83639",
+        "score": -7.700461387634277
+      },
+      {
+        "place": "https://example.org/tourguide/place/83839",
+        "score": -7.747809410095215
+      },
+      {
+        "place": "https://example.org/tourguide/place/83888",
+        "score": -7.772907733917236
+      },
+      {
+        "place": "https://example.org/tourguide/place/88634",
+        "score": -7.779404163360596
       }
     ],
-    "https://example.org/tourguide/tourist/26": [
+    "https://example.org/tourguide/author/tourist_dutch_autumn_luxury": [
       {
-        "place": "https://example.org/tourguide/place/445738",
-        "score": -6.798791885375977
+        "place": "https://example.org/tourguide/place/83843",
+        "score": -6.3047685623168945
       },
       {
-        "place": "https://example.org/tourguide/place/304077",
-        "score": -7.065954208374023
+        "place": "https://example.org/tourguide/place/87552",
+        "score": -6.55873441696167
       },
       {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -7.132126808166504
+        "place": "https://example.org/tourguide/place/84820",
+        "score": -6.644595146179199
       },
       {
-        "place": "https://example.org/tourguide/place/83981",
-        "score": -7.17650842666626
+        "place": "https://example.org/tourguide/place/83919",
+        "score": -6.716402053833008
       },
       {
-        "place": "https://example.org/tourguide/place/83827",
-        "score": -7.288410663604736
+        "place": "https://example.org/tourguide/place/89569",
+        "score": -6.815150260925293
       },
       {
-        "place": "https://example.org/tourguide/place/90478",
-        "score": -7.328910827636719
+        "place": "https://example.org/tourguide/place/87763",
+        "score": -6.845828056335449
       },
       {
-        "place": "https://example.org/tourguide/place/304994",
-        "score": -7.3344831466674805
+        "place": "https://example.org/tourguide/place/83612",
+        "score": -6.898792266845703
       },
       {
-        "place": "https://example.org/tourguide/place/85840",
-        "score": -7.407054424285889
+        "place": "https://example.org/tourguide/place/83443",
+        "score": -6.910656929016113
       },
       {
-        "place": "https://example.org/tourguide/place/83679",
-        "score": -7.419490337371826
+        "place": "https://example.org/tourguide/place/88916",
+        "score": -6.915736198425293
       },
       {
-        "place": "https://example.org/tourguide/place/84117",
-        "score": -7.424339294433594
+        "place": "https://example.org/tourguide/place/86969",
+        "score": -6.932963848114014
       }
     ],
-    "https://example.org/tourguide/tourist/27": [
+    "https://example.org/tourguide/author/tourist_dutch_autumn_medium": [
       {
-        "place": "https://example.org/tourguide/place/307707",
-        "score": -7.300877571105957
+        "place": "https://example.org/tourguide/place/85086",
+        "score": -7.697089195251465
       },
       {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -7.426557540893555
+        "place": "https://example.org/tourguide/place/83377",
+        "score": -7.947129249572754
       },
       {
-        "place": "https://example.org/tourguide/place/445738",
-        "score": -7.497605323791504
+        "place": "https://example.org/tourguide/place/83628",
+        "score": -8.0316801071167
       },
       {
-        "place": "https://example.org/tourguide/place/449084",
-        "score": -7.669773578643799
+        "place": "https://example.org/tourguide/place/83465",
+        "score": -8.03708267211914
       },
       {
-        "place": "https://example.org/tourguide/place/304077",
-        "score": -7.761388301849365
+        "place": "https://example.org/tourguide/place/84255",
+        "score": -8.102575302124023
       },
       {
-        "place": "https://example.org/tourguide/place/83679",
-        "score": -7.765224456787109
+        "place": "https://example.org/tourguide/place/89865",
+        "score": -8.103372573852539
       },
       {
-        "place": "https://example.org/tourguide/place/462447",
-        "score": -7.909384250640869
+        "place": "https://example.org/tourguide/place/90668",
+        "score": -8.122997283935547
       },
       {
-        "place": "https://example.org/tourguide/place/460313",
-        "score": -7.915036678314209
-      },
-      {
-        "place": "https://example.org/tourguide/place/305768",
-        "score": -7.997091293334961
-      },
-      {
-        "place": "https://example.org/tourguide/place/85395",
-        "score": -8.015705108642578
-      }
-    ],
-    "https://example.org/tourguide/tourist/28": [
-      {
-        "place": "https://example.org/tourguide/place/84598",
-        "score": -6.353374004364014
-      },
-      {
-        "place": "https://example.org/tourguide/place/468015",
-        "score": -6.539144515991211
-      },
-      {
-        "place": "https://example.org/tourguide/place/85621",
-        "score": -6.909850120544434
-      },
-      {
-        "place": "https://example.org/tourguide/place/83882",
-        "score": -7.1315107345581055
-      },
-      {
-        "place": "https://example.org/tourguide/place/83603",
-        "score": -7.175753593444824
-      },
-      {
-        "place": "https://example.org/tourguide/place/84020",
-        "score": -7.196130752563477
-      },
-      {
-        "place": "https://example.org/tourguide/place/83583",
-        "score": -7.258388042449951
-      },
-      {
-        "place": "https://example.org/tourguide/place/307856",
-        "score": -7.289872169494629
-      },
-      {
-        "place": "https://example.org/tourguide/place/217406",
-        "score": -7.290996551513672
-      },
-      {
-        "place": "https://example.org/tourguide/place/84166",
-        "score": -7.311896324157715
-      }
-    ],
-    "https://example.org/tourguide/tourist/29": [
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -6.465054512023926
-      },
-      {
-        "place": "https://example.org/tourguide/place/445738",
-        "score": -6.688225269317627
-      },
-      {
-        "place": "https://example.org/tourguide/place/83583",
-        "score": -6.9594550132751465
-      },
-      {
-        "place": "https://example.org/tourguide/place/304921",
-        "score": -7.2515788078308105
-      },
-      {
-        "place": "https://example.org/tourguide/place/466997",
-        "score": -7.289243698120117
-      },
-      {
-        "place": "https://example.org/tourguide/place/88148",
-        "score": -7.289851665496826
-      },
-      {
-        "place": "https://example.org/tourguide/place/84453",
-        "score": -7.333640098571777
-      },
-      {
-        "place": "https://example.org/tourguide/place/84902",
-        "score": -7.344795227050781
-      },
-      {
-        "place": "https://example.org/tourguide/place/251834",
-        "score": -7.409186363220215
-      },
-      {
-        "place": "https://example.org/tourguide/place/89900",
-        "score": -7.423141002655029
-      }
-    ],
-    "https://example.org/tourguide/tourist/4": [
-      {
-        "place": "https://example.org/tourguide/place/83534",
-        "score": -7.074762344360352
-      },
-      {
-        "place": "https://example.org/tourguide/place/251340",
-        "score": -7.107114791870117
-      },
-      {
-        "place": "https://example.org/tourguide/place/83604",
-        "score": -7.3546648025512695
-      },
-      {
-        "place": "https://example.org/tourguide/place/84737",
-        "score": -7.39229679107666
-      },
-      {
-        "place": "https://example.org/tourguide/place/87537",
-        "score": -7.497163772583008
-      },
-      {
-        "place": "https://example.org/tourguide/place/86076",
-        "score": -7.534023761749268
-      },
-      {
-        "place": "https://example.org/tourguide/place/83882",
-        "score": -7.570296764373779
-      },
-      {
-        "place": "https://example.org/tourguide/place/85933",
-        "score": -7.572620868682861
-      },
-      {
-        "place": "https://example.org/tourguide/place/85437",
-        "score": -7.578127384185791
-      },
-      {
-        "place": "https://example.org/tourguide/place/84071",
-        "score": -7.603769302368164
-      }
-    ],
-    "https://example.org/tourguide/tourist/5": [
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -7.586989879608154
-      },
-      {
-        "place": "https://example.org/tourguide/place/87364",
-        "score": -7.828315258026123
-      },
-      {
-        "place": "https://example.org/tourguide/place/252013",
-        "score": -8.012653350830078
-      },
-      {
-        "place": "https://example.org/tourguide/place/220644",
-        "score": -8.177374839782715
-      },
-      {
-        "place": "https://example.org/tourguide/place/251340",
-        "score": -8.229613304138184
-      },
-      {
-        "place": "https://example.org/tourguide/place/251617",
-        "score": -8.259330749511719
-      },
-      {
-        "place": "https://example.org/tourguide/place/85707",
-        "score": -8.298015594482422
-      },
-      {
-        "place": "https://example.org/tourguide/place/88113",
-        "score": -8.313302993774414
-      },
-      {
-        "place": "https://example.org/tourguide/place/454038",
-        "score": -8.314011573791504
-      },
-      {
-        "place": "https://example.org/tourguide/place/251580",
-        "score": -8.347124099731445
-      }
-    ],
-    "https://example.org/tourguide/tourist/6": [
-      {
-        "place": "https://example.org/tourguide/place/445738",
-        "score": -7.23788595199585
-      },
-      {
-        "place": "https://example.org/tourguide/place/252013",
-        "score": -7.299407482147217
-      },
-      {
-        "place": "https://example.org/tourguide/place/223036",
-        "score": -7.4305548667907715
-      },
-      {
-        "place": "https://example.org/tourguide/place/86076",
-        "score": -7.602523326873779
-      },
-      {
-        "place": "https://example.org/tourguide/place/83482",
-        "score": -7.807474136352539
-      },
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -7.880287170410156
-      },
-      {
-        "place": "https://example.org/tourguide/place/87364",
-        "score": -7.886373519897461
-      },
-      {
-        "place": "https://example.org/tourguide/place/250401",
-        "score": -7.888611793518066
-      },
-      {
-        "place": "https://example.org/tourguide/place/84916",
-        "score": -7.889278411865234
-      },
-      {
-        "place": "https://example.org/tourguide/place/85226",
-        "score": -7.915236473083496
-      }
-    ],
-    "https://example.org/tourguide/tourist/7": [
-      {
-        "place": "https://example.org/tourguide/place/85933",
-        "score": -7.324453353881836
-      },
-      {
-        "place": "https://example.org/tourguide/place/304077",
-        "score": -7.675807952880859
-      },
-      {
-        "place": "https://example.org/tourguide/place/451970",
-        "score": -7.759772300720215
-      },
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -7.777869701385498
-      },
-      {
-        "place": "https://example.org/tourguide/place/303680",
-        "score": -7.849602699279785
-      },
-      {
-        "place": "https://example.org/tourguide/place/83785",
-        "score": -7.919455051422119
-      },
-      {
-        "place": "https://example.org/tourguide/place/456077",
-        "score": -7.93627405166626
-      },
-      {
-        "place": "https://example.org/tourguide/place/85840",
-        "score": -8.103523254394531
-      },
-      {
-        "place": "https://example.org/tourguide/place/91358",
-        "score": -8.126288414001465
-      },
-      {
-        "place": "https://example.org/tourguide/place/456459",
-        "score": -8.146685600280762
-      }
-    ],
-    "https://example.org/tourguide/tourist/8": [
-      {
-        "place": "https://example.org/tourguide/place/307707",
-        "score": -7.273125171661377
-      },
-      {
-        "place": "https://example.org/tourguide/place/87537",
-        "score": -7.799221038818359
-      },
-      {
-        "place": "https://example.org/tourguide/place/466189",
-        "score": -7.878870487213135
+        "place": "https://example.org/tourguide/place/87799",
+        "score": -8.162954330444336
       },
       {
         "place": "https://example.org/tourguide/place/83887",
-        "score": -8.043460845947266
+        "score": -8.187430381774902
       },
       {
-        "place": "https://example.org/tourguide/place/83785",
-        "score": -8.073657989501953
-      },
-      {
-        "place": "https://example.org/tourguide/place/84853",
-        "score": -8.099520683288574
-      },
-      {
-        "place": "https://example.org/tourguide/place/84717",
-        "score": -8.16494369506836
-      },
-      {
-        "place": "https://example.org/tourguide/place/86314",
-        "score": -8.174337387084961
-      },
-      {
-        "place": "https://example.org/tourguide/place/223036",
-        "score": -8.189895629882812
-      },
-      {
-        "place": "https://example.org/tourguide/place/466997",
-        "score": -8.204407691955566
+        "place": "https://example.org/tourguide/place/85349",
+        "score": -8.209970474243164
       }
     ],
-    "https://example.org/tourguide/tourist/9": [
+    "https://example.org/tourguide/author/tourist_dutch_spring_budget": [
       {
-        "place": "https://example.org/tourguide/place/463789",
-        "score": -6.815711498260498
+        "place": "https://example.org/tourguide/place/90753",
+        "score": -6.870845317840576
       },
       {
-        "place": "https://example.org/tourguide/place/83604",
-        "score": -6.841020107269287
+        "place": "https://example.org/tourguide/place/87552",
+        "score": -6.908327102661133
       },
       {
-        "place": "https://example.org/tourguide/place/84393",
-        "score": -7.026821136474609
+        "place": "https://example.org/tourguide/place/87007",
+        "score": -6.953113555908203
       },
       {
-        "place": "https://example.org/tourguide/place/87416",
-        "score": -7.0490570068359375
+        "place": "https://example.org/tourguide/place/90298",
+        "score": -7.116575717926025
       },
       {
-        "place": "https://example.org/tourguide/place/86162",
-        "score": -7.111174583435059
+        "place": "https://example.org/tourguide/place/90211",
+        "score": -7.136682033538818
       },
       {
-        "place": "https://example.org/tourguide/place/85513",
-        "score": -7.152362823486328
+        "place": "https://example.org/tourguide/place/83819",
+        "score": -7.164012432098389
       },
       {
-        "place": "https://example.org/tourguide/place/86672",
-        "score": -7.16233491897583
+        "place": "https://example.org/tourguide/place/83789",
+        "score": -7.203332424163818
       },
       {
-        "place": "https://example.org/tourguide/place/86759",
-        "score": -7.225675582885742
+        "place": "https://example.org/tourguide/place/84276",
+        "score": -7.317563056945801
       },
       {
-        "place": "https://example.org/tourguide/place/83882",
-        "score": -7.246035575866699
+        "place": "https://example.org/tourguide/place/83621",
+        "score": -7.321666717529297
       },
       {
-        "place": "https://example.org/tourguide/place/85616",
-        "score": -7.246041774749756
+        "place": "https://example.org/tourguide/place/85546",
+        "score": -7.370855331420898
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_dutch_spring_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -6.686052322387695
+      },
+      {
+        "place": "https://example.org/tourguide/place/87072",
+        "score": -7.3153276443481445
+      },
+      {
+        "place": "https://example.org/tourguide/place/83853",
+        "score": -7.3215556144714355
+      },
+      {
+        "place": "https://example.org/tourguide/place/83670",
+        "score": -7.364371299743652
+      },
+      {
+        "place": "https://example.org/tourguide/place/85174",
+        "score": -7.391364097595215
+      },
+      {
+        "place": "https://example.org/tourguide/place/84083",
+        "score": -7.490081787109375
+      },
+      {
+        "place": "https://example.org/tourguide/place/83407",
+        "score": -7.584127426147461
+      },
+      {
+        "place": "https://example.org/tourguide/place/84358",
+        "score": -7.614891052246094
+      },
+      {
+        "place": "https://example.org/tourguide/place/303740",
+        "score": -7.615190029144287
+      },
+      {
+        "place": "https://example.org/tourguide/place/307709",
+        "score": -7.639622688293457
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_dutch_spring_medium": [
+      {
+        "place": "https://example.org/tourguide/place/83391",
+        "score": -7.5532097816467285
+      },
+      {
+        "place": "https://example.org/tourguide/place/87814",
+        "score": -7.937238693237305
+      },
+      {
+        "place": "https://example.org/tourguide/place/83663",
+        "score": -7.952386856079102
+      },
+      {
+        "place": "https://example.org/tourguide/place/307922",
+        "score": -7.976996898651123
+      },
+      {
+        "place": "https://example.org/tourguide/place/84378",
+        "score": -8.092101097106934
+      },
+      {
+        "place": "https://example.org/tourguide/place/84157",
+        "score": -8.109176635742188
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -8.13429069519043
+      },
+      {
+        "place": "https://example.org/tourguide/place/83406",
+        "score": -8.171504974365234
+      },
+      {
+        "place": "https://example.org/tourguide/place/84310",
+        "score": -8.25801944732666
+      },
+      {
+        "place": "https://example.org/tourguide/place/83366",
+        "score": -8.25853157043457
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_dutch_summer_budget": [
+      {
+        "place": "https://example.org/tourguide/place/83685",
+        "score": -7.0959906578063965
+      },
+      {
+        "place": "https://example.org/tourguide/place/84960",
+        "score": -7.452044486999512
+      },
+      {
+        "place": "https://example.org/tourguide/place/84194",
+        "score": -7.662546634674072
+      },
+      {
+        "place": "https://example.org/tourguide/place/87814",
+        "score": -7.679884433746338
+      },
+      {
+        "place": "https://example.org/tourguide/place/83879",
+        "score": -7.691387176513672
+      },
+      {
+        "place": "https://example.org/tourguide/place/83753",
+        "score": -7.762043476104736
+      },
+      {
+        "place": "https://example.org/tourguide/place/83391",
+        "score": -7.862395286560059
+      },
+      {
+        "place": "https://example.org/tourguide/place/84223",
+        "score": -7.869300842285156
+      },
+      {
+        "place": "https://example.org/tourguide/place/83649",
+        "score": -7.933097839355469
+      },
+      {
+        "place": "https://example.org/tourguide/place/90668",
+        "score": -7.938317775726318
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_dutch_summer_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/83351",
+        "score": -6.615440845489502
+      },
+      {
+        "place": "https://example.org/tourguide/place/84354",
+        "score": -7.255037307739258
+      },
+      {
+        "place": "https://example.org/tourguide/place/88928",
+        "score": -7.3601908683776855
+      },
+      {
+        "place": "https://example.org/tourguide/place/88298",
+        "score": -7.4245500564575195
+      },
+      {
+        "place": "https://example.org/tourguide/place/87122",
+        "score": -7.459973335266113
+      },
+      {
+        "place": "https://example.org/tourguide/place/85833",
+        "score": -7.462836265563965
+      },
+      {
+        "place": "https://example.org/tourguide/place/220626",
+        "score": -7.468042850494385
+      },
+      {
+        "place": "https://example.org/tourguide/place/83406",
+        "score": -7.481426239013672
+      },
+      {
+        "place": "https://example.org/tourguide/place/83628",
+        "score": -7.491729736328125
+      },
+      {
+        "place": "https://example.org/tourguide/place/83787",
+        "score": -7.543679714202881
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_dutch_summer_medium": [
+      {
+        "place": "https://example.org/tourguide/place/83881",
+        "score": -7.911628246307373
+      },
+      {
+        "place": "https://example.org/tourguide/place/84083",
+        "score": -7.97894811630249
+      },
+      {
+        "place": "https://example.org/tourguide/place/83672",
+        "score": -7.989959716796875
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -7.990786075592041
+      },
+      {
+        "place": "https://example.org/tourguide/place/84228",
+        "score": -8.051563262939453
+      },
+      {
+        "place": "https://example.org/tourguide/place/83819",
+        "score": -8.146773338317871
+      },
+      {
+        "place": "https://example.org/tourguide/place/85548",
+        "score": -8.196565628051758
+      },
+      {
+        "place": "https://example.org/tourguide/place/83682",
+        "score": -8.250823020935059
+      },
+      {
+        "place": "https://example.org/tourguide/place/84763",
+        "score": -8.255845069885254
+      },
+      {
+        "place": "https://example.org/tourguide/place/83751",
+        "score": -8.284231185913086
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_dutch_winter_budget": [
+      {
+        "place": "https://example.org/tourguide/place/83870",
+        "score": -6.407498359680176
+      },
+      {
+        "place": "https://example.org/tourguide/place/84643",
+        "score": -6.622815132141113
+      },
+      {
+        "place": "https://example.org/tourguide/place/83858",
+        "score": -6.646420478820801
+      },
+      {
+        "place": "https://example.org/tourguide/place/83628",
+        "score": -6.664858341217041
+      },
+      {
+        "place": "https://example.org/tourguide/place/220687",
+        "score": -6.666324138641357
+      },
+      {
+        "place": "https://example.org/tourguide/place/85070",
+        "score": -6.791613578796387
+      },
+      {
+        "place": "https://example.org/tourguide/place/84866",
+        "score": -6.824596405029297
+      },
+      {
+        "place": "https://example.org/tourguide/place/84189",
+        "score": -6.856420993804932
+      },
+      {
+        "place": "https://example.org/tourguide/place/87073",
+        "score": -6.898181438446045
+      },
+      {
+        "place": "https://example.org/tourguide/place/85453",
+        "score": -6.91379976272583
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_dutch_winter_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/87799",
+        "score": -7.940770149230957
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -8.06294059753418
+      },
+      {
+        "place": "https://example.org/tourguide/place/84946",
+        "score": -8.0895414352417
+      },
+      {
+        "place": "https://example.org/tourguide/place/83406",
+        "score": -8.098648071289062
+      },
+      {
+        "place": "https://example.org/tourguide/place/87497",
+        "score": -8.125638961791992
+      },
+      {
+        "place": "https://example.org/tourguide/place/89321",
+        "score": -8.141332626342773
+      },
+      {
+        "place": "https://example.org/tourguide/place/83408",
+        "score": -8.159332275390625
+      },
+      {
+        "place": "https://example.org/tourguide/place/84025",
+        "score": -8.17802619934082
+      },
+      {
+        "place": "https://example.org/tourguide/place/85107",
+        "score": -8.198418617248535
+      },
+      {
+        "place": "https://example.org/tourguide/place/83683",
+        "score": -8.200811386108398
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_dutch_winter_medium": [
+      {
+        "place": "https://example.org/tourguide/place/83626",
+        "score": -8.223553657531738
+      },
+      {
+        "place": "https://example.org/tourguide/place/83807",
+        "score": -8.352316856384277
+      },
+      {
+        "place": "https://example.org/tourguide/place/83653",
+        "score": -8.497706413269043
+      },
+      {
+        "place": "https://example.org/tourguide/place/84097",
+        "score": -8.530549049377441
+      },
+      {
+        "place": "https://example.org/tourguide/place/85497",
+        "score": -8.533055305480957
+      },
+      {
+        "place": "https://example.org/tourguide/place/83649",
+        "score": -8.544828414916992
+      },
+      {
+        "place": "https://example.org/tourguide/place/87553",
+        "score": -8.636725425720215
+      },
+      {
+        "place": "https://example.org/tourguide/place/85697",
+        "score": -8.64415454864502
+      },
+      {
+        "place": "https://example.org/tourguide/place/83645",
+        "score": -8.688145637512207
+      },
+      {
+        "place": "https://example.org/tourguide/place/84189",
+        "score": -8.745609283447266
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_autumn_budget": [
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -6.775676727294922
+      },
+      {
+        "place": "https://example.org/tourguide/place/84500",
+        "score": -7.024207592010498
+      },
+      {
+        "place": "https://example.org/tourguide/place/85345",
+        "score": -7.035149574279785
+      },
+      {
+        "place": "https://example.org/tourguide/place/84478",
+        "score": -7.076138496398926
+      },
+      {
+        "place": "https://example.org/tourguide/place/83639",
+        "score": -7.096817970275879
+      },
+      {
+        "place": "https://example.org/tourguide/place/83400",
+        "score": -7.141489505767822
+      },
+      {
+        "place": "https://example.org/tourguide/place/86018",
+        "score": -7.2002949714660645
+      },
+      {
+        "place": "https://example.org/tourguide/place/86930",
+        "score": -7.267669200897217
+      },
+      {
+        "place": "https://example.org/tourguide/place/304235",
+        "score": -7.303763389587402
+      },
+      {
+        "place": "https://example.org/tourguide/place/90543",
+        "score": -7.333756923675537
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_autumn_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/84787",
+        "score": -7.196722507476807
+      },
+      {
+        "place": "https://example.org/tourguide/place/85717",
+        "score": -7.252090930938721
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.3172526359558105
+      },
+      {
+        "place": "https://example.org/tourguide/place/83829",
+        "score": -7.4471282958984375
+      },
+      {
+        "place": "https://example.org/tourguide/place/84461",
+        "score": -7.575198173522949
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -7.609364032745361
+      },
+      {
+        "place": "https://example.org/tourguide/place/83619",
+        "score": -7.770898818969727
+      },
+      {
+        "place": "https://example.org/tourguide/place/84083",
+        "score": -7.7893476486206055
+      },
+      {
+        "place": "https://example.org/tourguide/place/85887",
+        "score": -7.831189155578613
+      },
+      {
+        "place": "https://example.org/tourguide/place/84153",
+        "score": -7.835792064666748
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_autumn_medium": [
+      {
+        "place": "https://example.org/tourguide/place/84776",
+        "score": -8.270669937133789
+      },
+      {
+        "place": "https://example.org/tourguide/place/83649",
+        "score": -8.334020614624023
+      },
+      {
+        "place": "https://example.org/tourguide/place/85697",
+        "score": -8.559554100036621
+      },
+      {
+        "place": "https://example.org/tourguide/place/89293",
+        "score": -8.713077545166016
+      },
+      {
+        "place": "https://example.org/tourguide/place/84640",
+        "score": -9.029669761657715
+      },
+      {
+        "place": "https://example.org/tourguide/place/83956",
+        "score": -9.037409782409668
+      },
+      {
+        "place": "https://example.org/tourguide/place/88932",
+        "score": -9.03760814666748
+      },
+      {
+        "place": "https://example.org/tourguide/place/84267",
+        "score": -9.048755645751953
+      },
+      {
+        "place": "https://example.org/tourguide/place/83444",
+        "score": -9.079211235046387
+      },
+      {
+        "place": "https://example.org/tourguide/place/83404",
+        "score": -9.094812393188477
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_spring_budget": [
+      {
+        "place": "https://example.org/tourguide/place/85548",
+        "score": -7.160888671875
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.429965019226074
+      },
+      {
+        "place": "https://example.org/tourguide/place/90463",
+        "score": -7.730029582977295
+      },
+      {
+        "place": "https://example.org/tourguide/place/84467",
+        "score": -7.738034248352051
+      },
+      {
+        "place": "https://example.org/tourguide/place/85664",
+        "score": -7.755557060241699
+      },
+      {
+        "place": "https://example.org/tourguide/place/89293",
+        "score": -7.75564432144165
+      },
+      {
+        "place": "https://example.org/tourguide/place/83400",
+        "score": -7.767102241516113
+      },
+      {
+        "place": "https://example.org/tourguide/place/307447",
+        "score": -7.7748308181762695
+      },
+      {
+        "place": "https://example.org/tourguide/place/84776",
+        "score": -7.78749942779541
+      },
+      {
+        "place": "https://example.org/tourguide/place/84948",
+        "score": -7.808056354522705
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_spring_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -7.113000869750977
+      },
+      {
+        "place": "https://example.org/tourguide/place/84083",
+        "score": -7.213091850280762
+      },
+      {
+        "place": "https://example.org/tourguide/place/87497",
+        "score": -7.2484660148620605
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.250901222229004
+      },
+      {
+        "place": "https://example.org/tourguide/place/84478",
+        "score": -7.299962043762207
+      },
+      {
+        "place": "https://example.org/tourguide/place/83388",
+        "score": -7.375110626220703
+      },
+      {
+        "place": "https://example.org/tourguide/place/83853",
+        "score": -7.376538276672363
+      },
+      {
+        "place": "https://example.org/tourguide/place/83628",
+        "score": -7.500239372253418
+      },
+      {
+        "place": "https://example.org/tourguide/place/84268",
+        "score": -7.563586235046387
+      },
+      {
+        "place": "https://example.org/tourguide/place/84811",
+        "score": -7.580155849456787
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_spring_medium": [
+      {
+        "place": "https://example.org/tourguide/place/83807",
+        "score": -8.415438652038574
+      },
+      {
+        "place": "https://example.org/tourguide/place/87687",
+        "score": -9.159829139709473
+      },
+      {
+        "place": "https://example.org/tourguide/place/83406",
+        "score": -9.257453918457031
+      },
+      {
+        "place": "https://example.org/tourguide/place/84105",
+        "score": -9.259119987487793
+      },
+      {
+        "place": "https://example.org/tourguide/place/89293",
+        "score": -9.31804084777832
+      },
+      {
+        "place": "https://example.org/tourguide/place/89369",
+        "score": -9.424659729003906
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -9.45932388305664
+      },
+      {
+        "place": "https://example.org/tourguide/place/85068",
+        "score": -9.475724220275879
+      },
+      {
+        "place": "https://example.org/tourguide/place/83870",
+        "score": -9.515892028808594
+      },
+      {
+        "place": "https://example.org/tourguide/place/83404",
+        "score": -9.523580551147461
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_summer_budget": [
+      {
+        "place": "https://example.org/tourguide/place/90463",
+        "score": -7.414587020874023
+      },
+      {
+        "place": "https://example.org/tourguide/place/87076",
+        "score": -7.770476818084717
+      },
+      {
+        "place": "https://example.org/tourguide/place/83814",
+        "score": -7.772366523742676
+      },
+      {
+        "place": "https://example.org/tourguide/place/220627",
+        "score": -7.84276008605957
+      },
+      {
+        "place": "https://example.org/tourguide/place/84093",
+        "score": -7.868965148925781
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.962133407592773
+      },
+      {
+        "place": "https://example.org/tourguide/place/84715",
+        "score": -7.986592769622803
+      },
+      {
+        "place": "https://example.org/tourguide/place/89452",
+        "score": -8.006680488586426
+      },
+      {
+        "place": "https://example.org/tourguide/place/85243",
+        "score": -8.039728164672852
+      },
+      {
+        "place": "https://example.org/tourguide/place/90543",
+        "score": -8.096031188964844
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_summer_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/90304",
+        "score": -7.565895080566406
+      },
+      {
+        "place": "https://example.org/tourguide/place/90774",
+        "score": -7.5808916091918945
+      },
+      {
+        "place": "https://example.org/tourguide/place/85437",
+        "score": -7.595446586608887
+      },
+      {
+        "place": "https://example.org/tourguide/place/84104",
+        "score": -7.6265482902526855
+      },
+      {
+        "place": "https://example.org/tourguide/place/90250",
+        "score": -7.779815673828125
+      },
+      {
+        "place": "https://example.org/tourguide/place/84866",
+        "score": -7.938591957092285
+      },
+      {
+        "place": "https://example.org/tourguide/place/84478",
+        "score": -8.029906272888184
+      },
+      {
+        "place": "https://example.org/tourguide/place/84949",
+        "score": -8.036897659301758
+      },
+      {
+        "place": "https://example.org/tourguide/place/83981",
+        "score": -8.068093299865723
+      },
+      {
+        "place": "https://example.org/tourguide/place/84461",
+        "score": -8.077590942382812
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_summer_medium": [
+      {
+        "place": "https://example.org/tourguide/place/83356",
+        "score": -9.246963500976562
+      },
+      {
+        "place": "https://example.org/tourguide/place/83691",
+        "score": -9.284883499145508
+      },
+      {
+        "place": "https://example.org/tourguide/place/83991",
+        "score": -9.320060729980469
+      },
+      {
+        "place": "https://example.org/tourguide/place/83649",
+        "score": -9.394927978515625
+      },
+      {
+        "place": "https://example.org/tourguide/place/84599",
+        "score": -9.741936683654785
+      },
+      {
+        "place": "https://example.org/tourguide/place/83379",
+        "score": -9.743110656738281
+      },
+      {
+        "place": "https://example.org/tourguide/place/83879",
+        "score": -9.748677253723145
+      },
+      {
+        "place": "https://example.org/tourguide/place/83682",
+        "score": -9.770414352416992
+      },
+      {
+        "place": "https://example.org/tourguide/place/85789",
+        "score": -9.77903938293457
+      },
+      {
+        "place": "https://example.org/tourguide/place/84474",
+        "score": -9.819183349609375
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_winter_budget": [
+      {
+        "place": "https://example.org/tourguide/place/84129",
+        "score": -7.641590118408203
+      },
+      {
+        "place": "https://example.org/tourguide/place/83406",
+        "score": -7.717988967895508
+      },
+      {
+        "place": "https://example.org/tourguide/place/88660",
+        "score": -7.77829647064209
+      },
+      {
+        "place": "https://example.org/tourguide/place/85914",
+        "score": -7.8645758628845215
+      },
+      {
+        "place": "https://example.org/tourguide/place/84016",
+        "score": -7.878020763397217
+      },
+      {
+        "place": "https://example.org/tourguide/place/89293",
+        "score": -7.964250564575195
+      },
+      {
+        "place": "https://example.org/tourguide/place/84474",
+        "score": -7.986151695251465
+      },
+      {
+        "place": "https://example.org/tourguide/place/83362",
+        "score": -8.030061721801758
+      },
+      {
+        "place": "https://example.org/tourguide/place/84715",
+        "score": -8.063844680786133
+      },
+      {
+        "place": "https://example.org/tourguide/place/83630",
+        "score": -8.092713356018066
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_winter_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.2106146812438965
+      },
+      {
+        "place": "https://example.org/tourguide/place/87282",
+        "score": -7.281606197357178
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -7.330108642578125
+      },
+      {
+        "place": "https://example.org/tourguide/place/90813",
+        "score": -7.404356002807617
+      },
+      {
+        "place": "https://example.org/tourguide/place/84075",
+        "score": -7.559135437011719
+      },
+      {
+        "place": "https://example.org/tourguide/place/83953",
+        "score": -7.616964340209961
+      },
+      {
+        "place": "https://example.org/tourguide/place/86280",
+        "score": -7.62254524230957
+      },
+      {
+        "place": "https://example.org/tourguide/place/84123",
+        "score": -7.637592315673828
+      },
+      {
+        "place": "https://example.org/tourguide/place/83683",
+        "score": -7.646996974945068
+      },
+      {
+        "place": "https://example.org/tourguide/place/84948",
+        "score": -7.6657915115356445
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_english_winter_medium": [
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -8.220223426818848
+      },
+      {
+        "place": "https://example.org/tourguide/place/85365",
+        "score": -8.449565887451172
+      },
+      {
+        "place": "https://example.org/tourguide/place/84030",
+        "score": -8.540580749511719
+      },
+      {
+        "place": "https://example.org/tourguide/place/83995",
+        "score": -8.617231369018555
+      },
+      {
+        "place": "https://example.org/tourguide/place/84028",
+        "score": -8.62565803527832
+      },
+      {
+        "place": "https://example.org/tourguide/place/90450",
+        "score": -8.732698440551758
+      },
+      {
+        "place": "https://example.org/tourguide/place/86421",
+        "score": -8.826961517333984
+      },
+      {
+        "place": "https://example.org/tourguide/place/84440",
+        "score": -8.857422828674316
+      },
+      {
+        "place": "https://example.org/tourguide/place/84834",
+        "score": -8.906725883483887
+      },
+      {
+        "place": "https://example.org/tourguide/place/83631",
+        "score": -8.929061889648438
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_autumn_budget": [
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.26135778427124
+      },
+      {
+        "place": "https://example.org/tourguide/place/83991",
+        "score": -7.375669002532959
+      },
+      {
+        "place": "https://example.org/tourguide/place/85837",
+        "score": -7.407711982727051
+      },
+      {
+        "place": "https://example.org/tourguide/place/83646",
+        "score": -7.6547136306762695
+      },
+      {
+        "place": "https://example.org/tourguide/place/83435",
+        "score": -7.7905683517456055
+      },
+      {
+        "place": "https://example.org/tourguide/place/84171",
+        "score": -7.891874313354492
+      },
+      {
+        "place": "https://example.org/tourguide/place/83684",
+        "score": -7.899480819702148
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -7.944650650024414
+      },
+      {
+        "place": "https://example.org/tourguide/place/84832",
+        "score": -8.008943557739258
+      },
+      {
+        "place": "https://example.org/tourguide/place/83626",
+        "score": -8.044414520263672
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_autumn_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/83973",
+        "score": -8.10835075378418
+      },
+      {
+        "place": "https://example.org/tourguide/place/84478",
+        "score": -8.109127044677734
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -8.13170337677002
+      },
+      {
+        "place": "https://example.org/tourguide/place/84787",
+        "score": -8.139810562133789
+      },
+      {
+        "place": "https://example.org/tourguide/place/83751",
+        "score": -8.17756175994873
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -8.194555282592773
+      },
+      {
+        "place": "https://example.org/tourguide/place/83321",
+        "score": -8.299747467041016
+      },
+      {
+        "place": "https://example.org/tourguide/place/83935",
+        "score": -8.306679725646973
+      },
+      {
+        "place": "https://example.org/tourguide/place/306227",
+        "score": -8.314376831054688
+      },
+      {
+        "place": "https://example.org/tourguide/place/83666",
+        "score": -8.315061569213867
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_autumn_medium": [
+      {
+        "place": "https://example.org/tourguide/place/84717",
+        "score": -8.520928382873535
+      },
+      {
+        "place": "https://example.org/tourguide/place/84228",
+        "score": -8.752425193786621
+      },
+      {
+        "place": "https://example.org/tourguide/place/83796",
+        "score": -8.8921480178833
+      },
+      {
+        "place": "https://example.org/tourguide/place/86626",
+        "score": -8.922969818115234
+      },
+      {
+        "place": "https://example.org/tourguide/place/84025",
+        "score": -8.957340240478516
+      },
+      {
+        "place": "https://example.org/tourguide/place/83861",
+        "score": -8.969186782836914
+      },
+      {
+        "place": "https://example.org/tourguide/place/89048",
+        "score": -9.038643836975098
+      },
+      {
+        "place": "https://example.org/tourguide/place/84726",
+        "score": -9.089553833007812
+      },
+      {
+        "place": "https://example.org/tourguide/place/84928",
+        "score": -9.110747337341309
+      },
+      {
+        "place": "https://example.org/tourguide/place/85914",
+        "score": -9.289851188659668
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_spring_budget": [
+      {
+        "place": "https://example.org/tourguide/place/90550",
+        "score": -6.743969917297363
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.3493852615356445
+      },
+      {
+        "place": "https://example.org/tourguide/place/84715",
+        "score": -7.529351234436035
+      },
+      {
+        "place": "https://example.org/tourguide/place/83628",
+        "score": -7.651546955108643
+      },
+      {
+        "place": "https://example.org/tourguide/place/84094",
+        "score": -7.719140529632568
+      },
+      {
+        "place": "https://example.org/tourguide/place/83407",
+        "score": -7.767179489135742
+      },
+      {
+        "place": "https://example.org/tourguide/place/84010",
+        "score": -7.855360984802246
+      },
+      {
+        "place": "https://example.org/tourguide/place/84236",
+        "score": -7.908111095428467
+      },
+      {
+        "place": "https://example.org/tourguide/place/84296",
+        "score": -7.926181316375732
+      },
+      {
+        "place": "https://example.org/tourguide/place/84610",
+        "score": -7.940698623657227
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_spring_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/83388",
+        "score": -7.807021141052246
+      },
+      {
+        "place": "https://example.org/tourguide/place/84104",
+        "score": -7.856359481811523
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.883172035217285
+      },
+      {
+        "place": "https://example.org/tourguide/place/85793",
+        "score": -8.222817420959473
+      },
+      {
+        "place": "https://example.org/tourguide/place/84083",
+        "score": -8.278510093688965
+      },
+      {
+        "place": "https://example.org/tourguide/place/85697",
+        "score": -8.28651237487793
+      },
+      {
+        "place": "https://example.org/tourguide/place/84818",
+        "score": -8.348820686340332
+      },
+      {
+        "place": "https://example.org/tourguide/place/84759",
+        "score": -8.365705490112305
+      },
+      {
+        "place": "https://example.org/tourguide/place/84458",
+        "score": -8.36644458770752
+      },
+      {
+        "place": "https://example.org/tourguide/place/84018",
+        "score": -8.366462707519531
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_spring_medium": [
+      {
+        "place": "https://example.org/tourguide/place/83953",
+        "score": -8.655962944030762
+      },
+      {
+        "place": "https://example.org/tourguide/place/83377",
+        "score": -8.850584983825684
+      },
+      {
+        "place": "https://example.org/tourguide/place/87402",
+        "score": -8.899360656738281
+      },
+      {
+        "place": "https://example.org/tourguide/place/90668",
+        "score": -9.361202239990234
+      },
+      {
+        "place": "https://example.org/tourguide/place/85218",
+        "score": -9.421134948730469
+      },
+      {
+        "place": "https://example.org/tourguide/place/84093",
+        "score": -9.45063591003418
+      },
+      {
+        "place": "https://example.org/tourguide/place/84228",
+        "score": -9.522356033325195
+      },
+      {
+        "place": "https://example.org/tourguide/place/86738",
+        "score": -9.545406341552734
+      },
+      {
+        "place": "https://example.org/tourguide/place/83804",
+        "score": -9.548763275146484
+      },
+      {
+        "place": "https://example.org/tourguide/place/84478",
+        "score": -9.616308212280273
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_summer_budget": [
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -6.929689407348633
+      },
+      {
+        "place": "https://example.org/tourguide/place/86094",
+        "score": -6.995845317840576
+      },
+      {
+        "place": "https://example.org/tourguide/place/86935",
+        "score": -7.486616611480713
+      },
+      {
+        "place": "https://example.org/tourguide/place/84236",
+        "score": -7.504393577575684
+      },
+      {
+        "place": "https://example.org/tourguide/place/83400",
+        "score": -7.647521018981934
+      },
+      {
+        "place": "https://example.org/tourguide/place/84715",
+        "score": -7.764264106750488
+      },
+      {
+        "place": "https://example.org/tourguide/place/84474",
+        "score": -7.767651557922363
+      },
+      {
+        "place": "https://example.org/tourguide/place/85477",
+        "score": -7.806781768798828
+      },
+      {
+        "place": "https://example.org/tourguide/place/87905",
+        "score": -7.8238091468811035
+      },
+      {
+        "place": "https://example.org/tourguide/place/84248",
+        "score": -7.830203533172607
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_summer_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -7.471724987030029
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.668591499328613
+      },
+      {
+        "place": "https://example.org/tourguide/place/83997",
+        "score": -7.763211250305176
+      },
+      {
+        "place": "https://example.org/tourguide/place/83400",
+        "score": -7.823172569274902
+      },
+      {
+        "place": "https://example.org/tourguide/place/83666",
+        "score": -7.857585906982422
+      },
+      {
+        "place": "https://example.org/tourguide/place/83256",
+        "score": -7.920848369598389
+      },
+      {
+        "place": "https://example.org/tourguide/place/83973",
+        "score": -7.936044216156006
+      },
+      {
+        "place": "https://example.org/tourguide/place/90298",
+        "score": -8.051515579223633
+      },
+      {
+        "place": "https://example.org/tourguide/place/89321",
+        "score": -8.06596565246582
+      },
+      {
+        "place": "https://example.org/tourguide/place/84097",
+        "score": -8.067646026611328
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_summer_medium": [
+      {
+        "place": "https://example.org/tourguide/place/84216",
+        "score": -7.761875152587891
+      },
+      {
+        "place": "https://example.org/tourguide/place/84657",
+        "score": -8.264930725097656
+      },
+      {
+        "place": "https://example.org/tourguide/place/83787",
+        "score": -8.427873611450195
+      },
+      {
+        "place": "https://example.org/tourguide/place/83400",
+        "score": -8.442742347717285
+      },
+      {
+        "place": "https://example.org/tourguide/place/88916",
+        "score": -8.666948318481445
+      },
+      {
+        "place": "https://example.org/tourguide/place/89379",
+        "score": -8.70966625213623
+      },
+      {
+        "place": "https://example.org/tourguide/place/83625",
+        "score": -8.825078964233398
+      },
+      {
+        "place": "https://example.org/tourguide/place/83686",
+        "score": -8.83076286315918
+      },
+      {
+        "place": "https://example.org/tourguide/place/83678",
+        "score": -8.833702087402344
+      },
+      {
+        "place": "https://example.org/tourguide/place/84948",
+        "score": -8.926865577697754
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_winter_budget": [
+      {
+        "place": "https://example.org/tourguide/place/84363",
+        "score": -7.68238639831543
+      },
+      {
+        "place": "https://example.org/tourguide/place/83447",
+        "score": -7.794047832489014
+      },
+      {
+        "place": "https://example.org/tourguide/place/83807",
+        "score": -7.840302467346191
+      },
+      {
+        "place": "https://example.org/tourguide/place/84839",
+        "score": -7.883194923400879
+      },
+      {
+        "place": "https://example.org/tourguide/place/83688",
+        "score": -7.943023681640625
+      },
+      {
+        "place": "https://example.org/tourguide/place/85390",
+        "score": -7.981138229370117
+      },
+      {
+        "place": "https://example.org/tourguide/place/84241",
+        "score": -7.991132736206055
+      },
+      {
+        "place": "https://example.org/tourguide/place/86022",
+        "score": -8.028215408325195
+      },
+      {
+        "place": "https://example.org/tourguide/place/83969",
+        "score": -8.075159072875977
+      },
+      {
+        "place": "https://example.org/tourguide/place/86461",
+        "score": -8.075942039489746
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_winter_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.765505313873291
+      },
+      {
+        "place": "https://example.org/tourguide/place/85717",
+        "score": -8.31771183013916
+      },
+      {
+        "place": "https://example.org/tourguide/place/83406",
+        "score": -8.327071189880371
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -8.332732200622559
+      },
+      {
+        "place": "https://example.org/tourguide/place/84866",
+        "score": -8.536681175231934
+      },
+      {
+        "place": "https://example.org/tourguide/place/84818",
+        "score": -8.546649932861328
+      },
+      {
+        "place": "https://example.org/tourguide/place/85107",
+        "score": -8.564634323120117
+      },
+      {
+        "place": "https://example.org/tourguide/place/83787",
+        "score": -8.597526550292969
+      },
+      {
+        "place": "https://example.org/tourguide/place/83366",
+        "score": -8.613669395446777
+      },
+      {
+        "place": "https://example.org/tourguide/place/83917",
+        "score": -8.614372253417969
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_french_winter_medium": [
+      {
+        "place": "https://example.org/tourguide/place/84105",
+        "score": -8.883525848388672
+      },
+      {
+        "place": "https://example.org/tourguide/place/85640",
+        "score": -9.314085006713867
+      },
+      {
+        "place": "https://example.org/tourguide/place/87073",
+        "score": -9.351404190063477
+      },
+      {
+        "place": "https://example.org/tourguide/place/84683",
+        "score": -9.42531967163086
+      },
+      {
+        "place": "https://example.org/tourguide/place/84083",
+        "score": -9.452923774719238
+      },
+      {
+        "place": "https://example.org/tourguide/place/83379",
+        "score": -9.460065841674805
+      },
+      {
+        "place": "https://example.org/tourguide/place/83799",
+        "score": -9.490732192993164
+      },
+      {
+        "place": "https://example.org/tourguide/place/83934",
+        "score": -9.539688110351562
+      },
+      {
+        "place": "https://example.org/tourguide/place/83838",
+        "score": -9.5663423538208
+      },
+      {
+        "place": "https://example.org/tourguide/place/84041",
+        "score": -9.576300621032715
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_autumn_budget": [
+      {
+        "place": "https://example.org/tourguide/place/86920",
+        "score": -6.2659430503845215
+      },
+      {
+        "place": "https://example.org/tourguide/place/86044",
+        "score": -6.3186469078063965
+      },
+      {
+        "place": "https://example.org/tourguide/place/84344",
+        "score": -6.37966251373291
+      },
+      {
+        "place": "https://example.org/tourguide/place/83417",
+        "score": -6.478097438812256
+      },
+      {
+        "place": "https://example.org/tourguide/place/89134",
+        "score": -6.5020432472229
+      },
+      {
+        "place": "https://example.org/tourguide/place/85489",
+        "score": -6.574102878570557
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -6.595913410186768
+      },
+      {
+        "place": "https://example.org/tourguide/place/84113",
+        "score": -6.6335248947143555
+      },
+      {
+        "place": "https://example.org/tourguide/place/83820",
+        "score": -6.703207015991211
+      },
+      {
+        "place": "https://example.org/tourguide/place/308151",
+        "score": -6.707674026489258
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_autumn_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/84145",
+        "score": -6.3551225662231445
+      },
+      {
+        "place": "https://example.org/tourguide/place/86738",
+        "score": -6.98562479019165
+      },
+      {
+        "place": "https://example.org/tourguide/place/84016",
+        "score": -7.255967140197754
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -7.360836982727051
+      },
+      {
+        "place": "https://example.org/tourguide/place/83829",
+        "score": -7.419507026672363
+      },
+      {
+        "place": "https://example.org/tourguide/place/83400",
+        "score": -7.4462432861328125
+      },
+      {
+        "place": "https://example.org/tourguide/place/84427",
+        "score": -7.497912883758545
+      },
+      {
+        "place": "https://example.org/tourguide/place/83443",
+        "score": -7.562413215637207
+      },
+      {
+        "place": "https://example.org/tourguide/place/83646",
+        "score": -7.562440872192383
+      },
+      {
+        "place": "https://example.org/tourguide/place/84866",
+        "score": -7.572055816650391
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_autumn_medium": [
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -7.854935646057129
+      },
+      {
+        "place": "https://example.org/tourguide/place/84208",
+        "score": -7.997503280639648
+      },
+      {
+        "place": "https://example.org/tourguide/place/84643",
+        "score": -8.250896453857422
+      },
+      {
+        "place": "https://example.org/tourguide/place/83682",
+        "score": -8.264309883117676
+      },
+      {
+        "place": "https://example.org/tourguide/place/84102",
+        "score": -8.33837890625
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -8.352806091308594
+      },
+      {
+        "place": "https://example.org/tourguide/place/83674",
+        "score": -8.410393714904785
+      },
+      {
+        "place": "https://example.org/tourguide/place/85568",
+        "score": -8.457332611083984
+      },
+      {
+        "place": "https://example.org/tourguide/place/85474",
+        "score": -8.498945236206055
+      },
+      {
+        "place": "https://example.org/tourguide/place/84025",
+        "score": -8.51954174041748
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_spring_budget": [
+      {
+        "place": "https://example.org/tourguide/place/83843",
+        "score": -7.220812797546387
+      },
+      {
+        "place": "https://example.org/tourguide/place/89293",
+        "score": -7.336968898773193
+      },
+      {
+        "place": "https://example.org/tourguide/place/87046",
+        "score": -7.337853908538818
+      },
+      {
+        "place": "https://example.org/tourguide/place/87905",
+        "score": -7.400974273681641
+      },
+      {
+        "place": "https://example.org/tourguide/place/90668",
+        "score": -7.455572128295898
+      },
+      {
+        "place": "https://example.org/tourguide/place/83753",
+        "score": -7.498325347900391
+      },
+      {
+        "place": "https://example.org/tourguide/place/220681",
+        "score": -7.503442764282227
+      },
+      {
+        "place": "https://example.org/tourguide/place/84097",
+        "score": -7.5034871101379395
+      },
+      {
+        "place": "https://example.org/tourguide/place/86195",
+        "score": -7.5305891036987305
+      },
+      {
+        "place": "https://example.org/tourguide/place/85989",
+        "score": -7.532035827636719
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_spring_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/84643",
+        "score": -7.349623680114746
+      },
+      {
+        "place": "https://example.org/tourguide/place/88726",
+        "score": -7.579934120178223
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.722405910491943
+      },
+      {
+        "place": "https://example.org/tourguide/place/85251",
+        "score": -7.722631454467773
+      },
+      {
+        "place": "https://example.org/tourguide/place/84610",
+        "score": -7.7261552810668945
+      },
+      {
+        "place": "https://example.org/tourguide/place/85548",
+        "score": -7.859170436859131
+      },
+      {
+        "place": "https://example.org/tourguide/place/83997",
+        "score": -7.920754432678223
+      },
+      {
+        "place": "https://example.org/tourguide/place/85243",
+        "score": -7.921097755432129
+      },
+      {
+        "place": "https://example.org/tourguide/place/83406",
+        "score": -7.951505184173584
+      },
+      {
+        "place": "https://example.org/tourguide/place/86195",
+        "score": -7.953740119934082
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_spring_medium": [
+      {
+        "place": "https://example.org/tourguide/place/83691",
+        "score": -7.542440891265869
+      },
+      {
+        "place": "https://example.org/tourguide/place/83435",
+        "score": -7.768959999084473
+      },
+      {
+        "place": "https://example.org/tourguide/place/84607",
+        "score": -8.204901695251465
+      },
+      {
+        "place": "https://example.org/tourguide/place/86609",
+        "score": -8.265740394592285
+      },
+      {
+        "place": "https://example.org/tourguide/place/84145",
+        "score": -8.279369354248047
+      },
+      {
+        "place": "https://example.org/tourguide/place/84777",
+        "score": -8.430377960205078
+      },
+      {
+        "place": "https://example.org/tourguide/place/83849",
+        "score": -8.48128890991211
+      },
+      {
+        "place": "https://example.org/tourguide/place/85086",
+        "score": -8.496465682983398
+      },
+      {
+        "place": "https://example.org/tourguide/place/84255",
+        "score": -8.513350486755371
+      },
+      {
+        "place": "https://example.org/tourguide/place/84384",
+        "score": -8.530879020690918
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_summer_budget": [
+      {
+        "place": "https://example.org/tourguide/place/89678",
+        "score": -6.481266975402832
+      },
+      {
+        "place": "https://example.org/tourguide/place/89569",
+        "score": -7.021856307983398
+      },
+      {
+        "place": "https://example.org/tourguide/place/304958",
+        "score": -7.047501564025879
+      },
+      {
+        "place": "https://example.org/tourguide/place/84695",
+        "score": -7.108752727508545
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.129500389099121
+      },
+      {
+        "place": "https://example.org/tourguide/place/83799",
+        "score": -7.184632778167725
+      },
+      {
+        "place": "https://example.org/tourguide/place/87378",
+        "score": -7.2077317237854
+      },
+      {
+        "place": "https://example.org/tourguide/place/85959",
+        "score": -7.210102081298828
+      },
+      {
+        "place": "https://example.org/tourguide/place/88434",
+        "score": -7.230018615722656
+      },
+      {
+        "place": "https://example.org/tourguide/place/83881",
+        "score": -7.336867332458496
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_summer_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/84866",
+        "score": -6.639308929443359
+      },
+      {
+        "place": "https://example.org/tourguide/place/84073",
+        "score": -6.91251277923584
+      },
+      {
+        "place": "https://example.org/tourguide/place/89321",
+        "score": -7.063512802124023
+      },
+      {
+        "place": "https://example.org/tourguide/place/83653",
+        "score": -7.154245853424072
+      },
+      {
+        "place": "https://example.org/tourguide/place/84063",
+        "score": -7.161079406738281
+      },
+      {
+        "place": "https://example.org/tourguide/place/84236",
+        "score": -7.217166900634766
+      },
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.257953643798828
+      },
+      {
+        "place": "https://example.org/tourguide/place/83953",
+        "score": -7.286331653594971
+      },
+      {
+        "place": "https://example.org/tourguide/place/90668",
+        "score": -7.313021183013916
+      },
+      {
+        "place": "https://example.org/tourguide/place/86602",
+        "score": -7.330231666564941
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_summer_medium": [
+      {
+        "place": "https://example.org/tourguide/place/84005",
+        "score": -8.715902328491211
+      },
+      {
+        "place": "https://example.org/tourguide/place/83640",
+        "score": -8.795336723327637
+      },
+      {
+        "place": "https://example.org/tourguide/place/84643",
+        "score": -8.836227416992188
+      },
+      {
+        "place": "https://example.org/tourguide/place/84383",
+        "score": -8.892099380493164
+      },
+      {
+        "place": "https://example.org/tourguide/place/86164",
+        "score": -8.964107513427734
+      },
+      {
+        "place": "https://example.org/tourguide/place/83991",
+        "score": -8.975858688354492
+      },
+      {
+        "place": "https://example.org/tourguide/place/84866",
+        "score": -9.024703979492188
+      },
+      {
+        "place": "https://example.org/tourguide/place/86009",
+        "score": -9.05849838256836
+      },
+      {
+        "place": "https://example.org/tourguide/place/84113",
+        "score": -9.06192684173584
+      },
+      {
+        "place": "https://example.org/tourguide/place/85568",
+        "score": -9.090890884399414
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_winter_budget": [
+      {
+        "place": "https://example.org/tourguide/place/83953",
+        "score": -6.843040466308594
+      },
+      {
+        "place": "https://example.org/tourguide/place/84097",
+        "score": -6.847956657409668
+      },
+      {
+        "place": "https://example.org/tourguide/place/84066",
+        "score": -7.054900646209717
+      },
+      {
+        "place": "https://example.org/tourguide/place/84094",
+        "score": -7.167649745941162
+      },
+      {
+        "place": "https://example.org/tourguide/place/87905",
+        "score": -7.265947341918945
+      },
+      {
+        "place": "https://example.org/tourguide/place/84715",
+        "score": -7.28195333480835
+      },
+      {
+        "place": "https://example.org/tourguide/place/88147",
+        "score": -7.394959449768066
+      },
+      {
+        "place": "https://example.org/tourguide/place/84644",
+        "score": -7.406424522399902
+      },
+      {
+        "place": "https://example.org/tourguide/place/84121",
+        "score": -7.428530216217041
+      },
+      {
+        "place": "https://example.org/tourguide/place/85805",
+        "score": -7.460684776306152
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_winter_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/84093",
+        "score": -6.984773635864258
+      },
+      {
+        "place": "https://example.org/tourguide/place/85833",
+        "score": -7.414119243621826
+      },
+      {
+        "place": "https://example.org/tourguide/place/84458",
+        "score": -7.454896926879883
+      },
+      {
+        "place": "https://example.org/tourguide/place/84948",
+        "score": -7.502864360809326
+      },
+      {
+        "place": "https://example.org/tourguide/place/83406",
+        "score": -7.532238960266113
+      },
+      {
+        "place": "https://example.org/tourguide/place/83807",
+        "score": -7.61447286605835
+      },
+      {
+        "place": "https://example.org/tourguide/place/85065",
+        "score": -7.674037933349609
+      },
+      {
+        "place": "https://example.org/tourguide/place/83642",
+        "score": -7.684029579162598
+      },
+      {
+        "place": "https://example.org/tourguide/place/84097",
+        "score": -7.69398307800293
+      },
+      {
+        "place": "https://example.org/tourguide/place/85548",
+        "score": -7.713184356689453
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_italian_winter_medium": [
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -8.091032028198242
+      },
+      {
+        "place": "https://example.org/tourguide/place/83377",
+        "score": -8.405860900878906
+      },
+      {
+        "place": "https://example.org/tourguide/place/84145",
+        "score": -8.412088394165039
+      },
+      {
+        "place": "https://example.org/tourguide/place/84153",
+        "score": -8.432546615600586
+      },
+      {
+        "place": "https://example.org/tourguide/place/87378",
+        "score": -8.739852905273438
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -8.793962478637695
+      },
+      {
+        "place": "https://example.org/tourguide/place/84235",
+        "score": -8.80950927734375
+      },
+      {
+        "place": "https://example.org/tourguide/place/89321",
+        "score": -8.82546615600586
+      },
+      {
+        "place": "https://example.org/tourguide/place/84094",
+        "score": -8.86768627166748
+      },
+      {
+        "place": "https://example.org/tourguide/place/89569",
+        "score": -8.868730545043945
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_spanish_autumn_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.020514965057373
+      },
+      {
+        "place": "https://example.org/tourguide/place/83356",
+        "score": -7.350634574890137
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -7.378155708312988
+      },
+      {
+        "place": "https://example.org/tourguide/place/83384",
+        "score": -7.383991241455078
+      },
+      {
+        "place": "https://example.org/tourguide/place/83353",
+        "score": -7.399110794067383
+      },
+      {
+        "place": "https://example.org/tourguide/place/84083",
+        "score": -7.409698963165283
+      },
+      {
+        "place": "https://example.org/tourguide/place/83628",
+        "score": -7.428051948547363
+      },
+      {
+        "place": "https://example.org/tourguide/place/85349",
+        "score": -7.469104290008545
+      },
+      {
+        "place": "https://example.org/tourguide/place/83823",
+        "score": -7.483734130859375
+      },
+      {
+        "place": "https://example.org/tourguide/place/86237",
+        "score": -7.4897284507751465
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_spanish_autumn_medium": [
+      {
+        "place": "https://example.org/tourguide/place/307709",
+        "score": -8.252087593078613
+      },
+      {
+        "place": "https://example.org/tourguide/place/84063",
+        "score": -8.405887603759766
+      },
+      {
+        "place": "https://example.org/tourguide/place/87032",
+        "score": -8.483443260192871
+      },
+      {
+        "place": "https://example.org/tourguide/place/87799",
+        "score": -8.489094734191895
+      },
+      {
+        "place": "https://example.org/tourguide/place/86602",
+        "score": -8.500059127807617
+      },
+      {
+        "place": "https://example.org/tourguide/place/83694",
+        "score": -8.548215866088867
+      },
+      {
+        "place": "https://example.org/tourguide/place/85086",
+        "score": -8.600604057312012
+      },
+      {
+        "place": "https://example.org/tourguide/place/90298",
+        "score": -8.601768493652344
+      },
+      {
+        "place": "https://example.org/tourguide/place/83803",
+        "score": -8.630512237548828
+      },
+      {
+        "place": "https://example.org/tourguide/place/84041",
+        "score": -8.641655921936035
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_spanish_spring_budget": [
+      {
+        "place": "https://example.org/tourguide/place/84710",
+        "score": -7.036164283752441
+      },
+      {
+        "place": "https://example.org/tourguide/place/86720",
+        "score": -7.072450160980225
+      },
+      {
+        "place": "https://example.org/tourguide/place/84610",
+        "score": -7.2802629470825195
+      },
+      {
+        "place": "https://example.org/tourguide/place/84034",
+        "score": -7.3036298751831055
+      },
+      {
+        "place": "https://example.org/tourguide/place/85689",
+        "score": -7.313412189483643
+      },
+      {
+        "place": "https://example.org/tourguide/place/83400",
+        "score": -7.349444389343262
+      },
+      {
+        "place": "https://example.org/tourguide/place/89931",
+        "score": -7.359462738037109
+      },
+      {
+        "place": "https://example.org/tourguide/place/85147",
+        "score": -7.363110542297363
+      },
+      {
+        "place": "https://example.org/tourguide/place/83695",
+        "score": -7.379767894744873
+      },
+      {
+        "place": "https://example.org/tourguide/place/90668",
+        "score": -7.386178970336914
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_spanish_spring_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/83646",
+        "score": -7.3266096115112305
+      },
+      {
+        "place": "https://example.org/tourguide/place/86365",
+        "score": -7.657902717590332
+      },
+      {
+        "place": "https://example.org/tourguide/place/85453",
+        "score": -7.659718036651611
+      },
+      {
+        "place": "https://example.org/tourguide/place/85548",
+        "score": -7.706859588623047
+      },
+      {
+        "place": "https://example.org/tourguide/place/83830",
+        "score": -7.769157409667969
+      },
+      {
+        "place": "https://example.org/tourguide/place/83628",
+        "score": -7.7774457931518555
+      },
+      {
+        "place": "https://example.org/tourguide/place/86164",
+        "score": -7.795178413391113
+      },
+      {
+        "place": "https://example.org/tourguide/place/84866",
+        "score": -7.8204240798950195
+      },
+      {
+        "place": "https://example.org/tourguide/place/85676",
+        "score": -7.82829475402832
+      },
+      {
+        "place": "https://example.org/tourguide/place/83356",
+        "score": -7.8297529220581055
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_spanish_spring_medium": [
+      {
+        "place": "https://example.org/tourguide/place/83399",
+        "score": -7.861838340759277
+      },
+      {
+        "place": "https://example.org/tourguide/place/83649",
+        "score": -8.163565635681152
+      },
+      {
+        "place": "https://example.org/tourguide/place/89059",
+        "score": -8.23607063293457
+      },
+      {
+        "place": "https://example.org/tourguide/place/83853",
+        "score": -8.47233772277832
+      },
+      {
+        "place": "https://example.org/tourguide/place/83652",
+        "score": -8.518060684204102
+      },
+      {
+        "place": "https://example.org/tourguide/place/86044",
+        "score": -8.540755271911621
+      },
+      {
+        "place": "https://example.org/tourguide/place/83393",
+        "score": -8.562200546264648
+      },
+      {
+        "place": "https://example.org/tourguide/place/88916",
+        "score": -8.705554008483887
+      },
+      {
+        "place": "https://example.org/tourguide/place/83663",
+        "score": -8.71345329284668
+      },
+      {
+        "place": "https://example.org/tourguide/place/83819",
+        "score": -8.759665489196777
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_spanish_summer_budget": [
+      {
+        "place": "https://example.org/tourguide/place/83888",
+        "score": -6.701758861541748
+      },
+      {
+        "place": "https://example.org/tourguide/place/83400",
+        "score": -6.834244728088379
+      },
+      {
+        "place": "https://example.org/tourguide/place/87497",
+        "score": -6.94152307510376
+      },
+      {
+        "place": "https://example.org/tourguide/place/83843",
+        "score": -7.091578960418701
+      },
+      {
+        "place": "https://example.org/tourguide/place/83786",
+        "score": -7.128532409667969
+      },
+      {
+        "place": "https://example.org/tourguide/place/83664",
+        "score": -7.163834571838379
+      },
+      {
+        "place": "https://example.org/tourguide/place/85548",
+        "score": -7.229060173034668
+      },
+      {
+        "place": "https://example.org/tourguide/place/84005",
+        "score": -7.250981330871582
+      },
+      {
+        "place": "https://example.org/tourguide/place/86738",
+        "score": -7.272729396820068
+      },
+      {
+        "place": "https://example.org/tourguide/place/85243",
+        "score": -7.279269218444824
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_spanish_summer_medium": [
+      {
+        "place": "https://example.org/tourguide/place/84291",
+        "score": -7.962763786315918
+      },
+      {
+        "place": "https://example.org/tourguide/place/83992",
+        "score": -8.07082748413086
+      },
+      {
+        "place": "https://example.org/tourguide/place/84316",
+        "score": -8.138639450073242
+      },
+      {
+        "place": "https://example.org/tourguide/place/85946",
+        "score": -8.186213493347168
+      },
+      {
+        "place": "https://example.org/tourguide/place/83400",
+        "score": -8.19682788848877
+      },
+      {
+        "place": "https://example.org/tourguide/place/85548",
+        "score": -8.249332427978516
+      },
+      {
+        "place": "https://example.org/tourguide/place/83691",
+        "score": -8.307991981506348
+      },
+      {
+        "place": "https://example.org/tourguide/place/84041",
+        "score": -8.311305046081543
+      },
+      {
+        "place": "https://example.org/tourguide/place/87818",
+        "score": -8.350635528564453
+      },
+      {
+        "place": "https://example.org/tourguide/place/83435",
+        "score": -8.363384246826172
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_spanish_winter_budget": [
+      {
+        "place": "https://example.org/tourguide/place/83393",
+        "score": -7.34965705871582
+      },
+      {
+        "place": "https://example.org/tourguide/place/83653",
+        "score": -7.405070781707764
+      },
+      {
+        "place": "https://example.org/tourguide/place/83359",
+        "score": -7.43113374710083
+      },
+      {
+        "place": "https://example.org/tourguide/place/86609",
+        "score": -7.443037986755371
+      },
+      {
+        "place": "https://example.org/tourguide/place/87678",
+        "score": -7.5016889572143555
+      },
+      {
+        "place": "https://example.org/tourguide/place/83904",
+        "score": -7.5555100440979
+      },
+      {
+        "place": "https://example.org/tourguide/place/89293",
+        "score": -7.564898490905762
+      },
+      {
+        "place": "https://example.org/tourguide/place/85073",
+        "score": -7.684630393981934
+      },
+      {
+        "place": "https://example.org/tourguide/place/85548",
+        "score": -7.688163757324219
+      },
+      {
+        "place": "https://example.org/tourguide/place/85509",
+        "score": -7.689291477203369
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_spanish_winter_luxury": [
+      {
+        "place": "https://example.org/tourguide/place/83991",
+        "score": -6.539470672607422
+      },
+      {
+        "place": "https://example.org/tourguide/place/86343",
+        "score": -6.551544666290283
+      },
+      {
+        "place": "https://example.org/tourguide/place/84449",
+        "score": -6.5793137550354
+      },
+      {
+        "place": "https://example.org/tourguide/place/85236",
+        "score": -6.629058361053467
+      },
+      {
+        "place": "https://example.org/tourguide/place/84866",
+        "score": -6.710745811462402
+      },
+      {
+        "place": "https://example.org/tourguide/place/85664",
+        "score": -6.76934814453125
+      },
+      {
+        "place": "https://example.org/tourguide/place/84063",
+        "score": -6.834469318389893
+      },
+      {
+        "place": "https://example.org/tourguide/place/84123",
+        "score": -6.875692367553711
+      },
+      {
+        "place": "https://example.org/tourguide/place/84644",
+        "score": -7.021891117095947
+      },
+      {
+        "place": "https://example.org/tourguide/place/84378",
+        "score": -7.023287296295166
+      }
+    ],
+    "https://example.org/tourguide/author/tourist_spanish_winter_medium": [
+      {
+        "place": "https://example.org/tourguide/place/85548",
+        "score": -8.149421691894531
+      },
+      {
+        "place": "https://example.org/tourguide/place/83430",
+        "score": -8.204968452453613
+      },
+      {
+        "place": "https://example.org/tourguide/place/83626",
+        "score": -8.243142127990723
+      },
+      {
+        "place": "https://example.org/tourguide/place/84066",
+        "score": -8.460559844970703
+      },
+      {
+        "place": "https://example.org/tourguide/place/83807",
+        "score": -8.522428512573242
+      },
+      {
+        "place": "https://example.org/tourguide/place/83365",
+        "score": -8.690305709838867
+      },
+      {
+        "place": "https://example.org/tourguide/place/83865",
+        "score": -8.705789566040039
+      },
+      {
+        "place": "https://example.org/tourguide/place/83880",
+        "score": -8.724960327148438
+      },
+      {
+        "place": "https://example.org/tourguide/place/84183",
+        "score": -8.74393081665039
+      },
+      {
+        "place": "https://example.org/tourguide/place/84354",
+        "score": -8.745601654052734
       }
     ]
   }

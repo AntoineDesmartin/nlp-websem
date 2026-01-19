@@ -19,7 +19,7 @@ def main() -> None:
     ap.add_argument("--triples_tsv", default="data/reco_triples.tsv")
     ap.add_argument("--relation", default="https://example.org/tourguide#likesPlace")
     ap.add_argument("--model", default="TransE", help="TransE / DistMult / RESCAL / TransR ...")
-    ap.add_argument("--epochs", type=int, default=200)
+    ap.add_argument("--epochs", type=int, default=50)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--topk", type=int, default=10)
     ap.add_argument("--out_json", default="data/recommendations.json")

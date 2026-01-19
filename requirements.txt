@@ -13,3 +13,8 @@ fastapi
 uvicorn[standard]
 httpx 
 rdflib
+
+spacy
+
+
+transformers 

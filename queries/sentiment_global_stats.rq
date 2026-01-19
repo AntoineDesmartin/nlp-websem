@@ -1,0 +1,17 @@
+# Statistiques globales d'analyse de sentiment
+# Affiche les stats NLP sur l'ensemble des reviews analysées
+
+PREFIX tg: <https://example.org/tourguide#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?label ?totalReviews ?positivePercent ?neutralPercent ?negativePercent ?avgScore ?contradictions
+WHERE {
+  ?stats a tg:SentimentStatistics ;
+         rdfs:label ?label ;
+         tg:totalReviewsAnalyzed ?totalReviews ;
+         tg:positivePercentage ?positivePercent ;
+         tg:neutralPercentage ?neutralPercent ;
+         tg:negativePercentage ?negativePercent ;
+         tg:averageSentimentScore ?avgScore ;
+         tg:contradictionsFound ?contradictions .
+}

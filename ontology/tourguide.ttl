@@ -253,6 +253,27 @@ tg:reviewDetailsURL a owl:DatatypeProperty, owl:FunctionalProperty ;
   rdfs:domain tg:Review ; rdfs:range xsd:anyURI ;
   rdfs:label "review details URL"@en, "URL des détails de l'avis"@fr .
 
+# ==========================================
+# Propriétés NER (Named Entity Recognition)
+# ==========================================
+
+tg:hasExtractedEntities a owl:DatatypeProperty, owl:FunctionalProperty ;
+  rdfs:domain tg:Review ; rdfs:range xsd:integer ;
+  rdfs:label "has extracted entities count"@en, "nombre d'entités extraites"@fr ;
+  rdfs:comment "Number of named entities extracted from the review text by NER"@en .
+
+tg:extractedEntities a owl:DatatypeProperty ;
+  rdfs:domain tg:Review ; rdfs:range xsd:string ;
+  rdfs:label "extracted entities list"@en, "liste des entités extraites"@fr ;
+  rdfs:comment "Comma-separated list of entities extracted by NER with their types"@en .
+
+# Alignement avec schema:mentions (standard Schema.org)
+# Note: schema:mentions est une ObjectProperty de Schema.org
+# On déclare juste qu'on l'utilise pour la compatibilité
+schema:mentions a owl:ObjectProperty ;
+  rdfs:label "mentions"@en, "mentionne"@fr ;
+  rdfs:comment "A review mentions a place (extracted by NER)"@en .
+
 # Nouvelles propriétés pour enrichir le modèle
 tg:priceLevel a owl:DatatypeProperty, owl:FunctionalProperty ;
   rdfs:domain tg:Restaurant ; rdfs:range xsd:integer ;

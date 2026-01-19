@@ -461,6 +461,34 @@
                     </div>
                 </div>
 
+                <!-- Séparation visuelle -->
+                <div style="border-top: 1px dashed #e5e7eb; margin: 1.5rem 0;"></div>
+
+                <!-- 🔍 NOUVEAU : Requêtes NER -->
+                <div style="margin-bottom: 1rem;">
+                    <div style="font-weight: 600; color: #dc2626; margin-bottom: 0.5rem;">🔍 Analyses NER (Named Entity
+                        Recognition)</div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                        <button onclick="askPredefined('ner_top_mentions')">Top Lieux Mentionnés</button>
+                        <button onclick="askPredefined('ner_covisitation')">Co-visitation</button>
+                        <button onclick="askPredefined('ner_itineraries')">Itinéraires Découverts</button>
+                    </div>
+                </div>
+
+                <!-- Séparation visuelle -->
+                <div style="border-top: 1px dashed #e5e7eb; margin: 1.5rem 0;"></div>
+
+                <!-- 🧠 NOUVEAU : Requêtes Sentiment -->
+                <div style="margin-bottom: 1rem;">
+                    <div style="font-weight: 600; color: #8b5cf6; margin-bottom: 0.5rem;">🧠 Analyses Sentiment
+                        (DistilBERT Transformers)</div>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                        <button onclick="askPredefined('sentiment_top_positive')">Top Sentiment Positif</button>
+                        <button onclick="askPredefined('sentiment_contradictions')">Contradictions Détectées</button>
+                        <button onclick="askPredefined('sentiment_global_stats')">Stats Globales</button>
+                    </div>
+                </div>
+
                 <!-- <textarea id="customSparql" placeholder="Ou pose ta propre question en langage naturel..."
                     style="margin-top: 1rem;"></textarea>
                 <button onclick="askCustom()" style="margin-top: 0.5rem;">Exécuter</button> -->
@@ -785,7 +813,10 @@
             if (!results || results.length === 0) return '<div class="empty-state">Aucun résultat</div>';
 
             return results.map(r => {
-                const name = r.name || r.placeName || r.label || 'Sans nom';
+                // Gérer différents formats de noms (standard + NER)
+                const name = r.name || r.placeName || r.label ||
+                    r.place1Name || r.place2Name || r.itinerary ||
+                    r.reviewId || 'Sans nom';
                 const badges = [];
 
                 // Badges pour classes inférées
@@ -799,6 +830,34 @@
                 if (r.numReviews || r.reviewCount) details.push(`<div class="detail-item">${r.numReviews || r.reviewCount} avis</div>`);
                 if (r.avgRating) details.push(`<div class="detail-item">Moyenne: ${parseFloat(r.avgRating).toFixed(1)}</div>`);
                 if (r.wikidataLink) details.push(`<div class="detail-item"><a href="${r.wikidataLink}" class="link-external" target="_blank">Wikidata</a></div>`);
+
+                // NER-specific fields
+                if (r.coMentions) details.push(`<div class="detail-item">🔗 ${r.coMentions} co-mentions</div>`);
+                if (r.place1Name && r.place2Name) {
+                    return `
+                        <div class="result-card">
+                            <div class="result-header">
+                                <div class="result-name">${r.place1Name} ↔ ${r.place2Name}</div>
+                            </div>
+                            <div class="result-details">
+                                <div class="detail-item">🔗 ${r.coMentions} fois mentionnés ensemble</div>
+                            </div>
+                        </div>
+                    `;
+                }
+                if (r.itinerary) {
+                    return `
+                        <div class="result-card">
+                            <div class="result-header">
+                                <div class="result-name">📍 ${r.itinerary}</div>
+                            </div>
+                            <div class="result-details">
+                                <div class="detail-item">${r.numPlaces} lieux</div>
+                                <div class="detail-item">Review: ${r.reviewId}</div>
+                            </div>
+                        </div>
+                    `;
+                }
 
                 // Raison d'inférence
                 let reasonSection = '';

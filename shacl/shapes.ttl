@@ -4,6 +4,7 @@
 @prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
 
 ########################
 # City
@@ -317,4 +318,33 @@ tgsh:ReviewShape a sh:NodeShape ;
     sh:minCount 0 ;
     sh:maxCount 1 ;
     sh:message "reviewDetailsURL must be a valid URI." ;
+  ] ;
+
+  # ==========================================
+  # Propriétés NER (Named Entity Recognition)
+  # ==========================================
+
+  sh:property [
+    sh:path tg:hasExtractedEntities ;
+    sh:datatype xsd:integer ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:minInclusive 0 ;
+    sh:message "hasExtractedEntities must be a non-negative integer (count of NER entities)." ;
+  ] ;
+
+  sh:property [
+    sh:path tg:extractedEntities ;
+    sh:datatype xsd:string ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:message "extractedEntities must be a string (comma-separated list of NER entities)." ;
+  ] ;
+
+  sh:property [
+    sh:path schema:mentions ;
+    sh:nodeKind sh:IRI ;
+    sh:class tg:Place ;
+    sh:minCount 0 ;
+    sh:message "schema:mentions must reference existing Place instances (extracted by NER)." ;
   ] .

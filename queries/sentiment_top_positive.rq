@@ -1,0 +1,18 @@
+# Top lieux par sentiment textuel (analyse NLP)
+# Compare le sentiment des reviews au lieu de la note structurée
+
+PREFIX tg: <https://example.org/tourguide#>
+
+SELECT ?place ?name ?polarity ?avgSentiment ?positivePercent ?reviewCount
+WHERE {
+  ?place tg:name ?name ;
+         tg:polarity ?polarity ;
+         tg:avgSentiment ?avgSentiment ;
+         tg:sentimentPositivePercent ?positivePercent ;
+         tg:sentimentReviewsAnalyzed ?reviewCount .
+  
+  # Au moins 10 reviews pour être significatif
+  FILTER(?reviewCount >= 10)
+}
+ORDER BY DESC(?avgSentiment)
+LIMIT 20
