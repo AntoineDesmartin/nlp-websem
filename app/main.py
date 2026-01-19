@@ -316,6 +316,103 @@ async def get_linked_data():
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/api/recommendations")
+async def get_personalized_recommendations(
+    nationality: str,
+    season: str,
+    budget: str,
+    top_k: int = 10
+):
+    """
+    Obtient des recommandations personnalisées basées sur le profil utilisateur
+    
+    Args:
+        nationality: Code pays (FR, IT, ES, NL, GB)
+        season: Saison de visite (spring, summer, autumn, winter)
+        budget: Niveau de budget (budget, medium, luxury)
+        top_k: Nombre de recommandations à retourner
+    """
+    try:
+        # Validation des paramètres
+        valid_nationalities = ['FR', 'IT', 'ES', 'NL', 'GB']
+        valid_seasons = ['spring', 'summer', 'autumn', 'winter']
+        valid_budgets = ['budget', 'medium', 'luxury']
+        
+        if nationality not in valid_nationalities:
+            raise HTTPException(status_code=400, detail=f"Nationalité invalide. Valeurs acceptées: {valid_nationalities}")
+        if season not in valid_seasons:
+            raise HTTPException(status_code=400, detail=f"Saison invalide. Valeurs acceptées: {valid_seasons}")
+        if budget not in valid_budgets:
+            raise HTTPException(status_code=400, detail=f"Budget invalide. Valeurs acceptées: {valid_budgets}")
+        
+        # Créer un profil de touriste virtuel
+        tourist_profile = {
+            "nationality": nationality,
+            "season": season,
+            "budget": budget
+        }
+        
+        # Trouver le touriste correspondant au profil
+        matching_tourist = reco_service.find_tourist_by_profile(nationality, season, budget)
+        
+        if not matching_tourist:
+            raise HTTPException(
+                status_code=404, 
+                detail=f"Aucun touriste trouvé pour le profil: {nationality}, {season}, {budget}"
+            )
+        
+        # Récupérer plus de recommandations pour compenser les lieux inconnus
+        # On demande 3x plus pour être sûr d'avoir assez de lieux valides
+        recommendations = reco_service.get_recommendations_for_tourist(matching_tourist, top_k=top_k * 3)
+        
+        if not recommendations:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Aucune recommandation disponible pour ce profil"
+            )
+        
+        # Enrichir avec les infos des lieux et filtrer les inconnus
+        enriched_recs = []
+        for rec in recommendations:
+            place_uri = rec["place_uri"]
+            if place_uri:
+                try:
+                    place_details = sparql_client.get_place_details(place_uri)
+                    place_name = place_details.get("name", place_details.get("http://www.w3.org/2000/01/rdf-schema#label", ""))
+                    
+                    # Filtrer les lieux inconnus
+                    if place_name and place_name != "Inconnu" and place_name != "Lieu inconnu":
+                        enriched_recs.append({
+                            **rec,
+                            "place_name": place_name,
+                            "polarity": place_details.get("polarity", place_details.get("https://example.org/tourguide#polarity", "N/A"))
+                        })
+                        
+                        # Arrêter quand on a assez de recommandations valides
+                        if len(enriched_recs) >= top_k:
+                            break
+                except Exception:
+                    # Ignorer les lieux qui causent des erreurs
+                    continue
+        
+        # Si on n'a pas assez de recommandations valides
+        if len(enriched_recs) == 0:
+            raise HTTPException(
+                status_code=404,
+                detail="Aucun lieu valide trouvé pour ce profil"
+            )
+        
+        return {
+            "profile": tourist_profile,
+            "tourist_uri": matching_tourist,
+            "recommendations": enriched_recs,
+            "count": len(enriched_recs)
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/api/recommendations/sample")
 async def get_sample_recommendation():
     """Obtient une recommandation exemple"""

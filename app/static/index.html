@@ -511,8 +511,97 @@
         <div id="tab-reco" class="tab-content">
             <div class="card">
                 <div class="card-title">Recommandations par Link Prediction (TransE)</div>
+                <p style="color: #666; margin-bottom: 1.5rem;">
+                    Obtenez des recommandations personnalisées basées sur votre profil de touriste.
+                </p>
 
-                <button onclick="getSampleRecommendation()">Obtenir Recommandation Exemple</button>
+                <!-- Formulaire de profil -->
+                <div style="margin-bottom: 2rem;">
+                    <!-- Nationalité -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.75rem; color: #374151;">
+                            1. Votre nationalité :
+                        </label>
+                        <div id="nationalitySelector" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <button class="nationality-btn" data-nationality="FR" onclick="selectNationality('FR')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-size: 1.5rem;">🇫🇷</span>
+                                <span>France</span>
+                            </button>
+                            <button class="nationality-btn" data-nationality="GB" onclick="selectNationality('GB')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-size: 1.5rem;">🇬🇧</span>
+                                <span>Royaume-Uni</span>
+                            </button>
+                            <button class="nationality-btn" data-nationality="NL" onclick="selectNationality('NL')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-size: 1.5rem;">🇳🇱</span>
+                                <span>Pays-Bas</span>
+                            </button>
+                            <button class="nationality-btn" data-nationality="IT" onclick="selectNationality('IT')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-size: 1.5rem;">🇮🇹</span>
+                                <span>Italie</span>
+                            </button>
+                            <button class="nationality-btn" data-nationality="ES" onclick="selectNationality('ES')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 0.5rem;">
+                                <span style="font-size: 1.5rem;">🇪🇸</span>
+                                <span>Espagne</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Saison -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.75rem; color: #374151;">
+                            2. Quand visitez-vous Paris ?
+                        </label>
+                        <div id="seasonSelector" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <button class="season-btn" data-season="spring" onclick="selectSeason('spring')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s;">
+                                🌸 Printemps
+                            </button>
+                            <button class="season-btn" data-season="summer" onclick="selectSeason('summer')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s;">
+                                ☀️ Été
+                            </button>
+                            <button class="season-btn" data-season="autumn" onclick="selectSeason('autumn')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s;">
+                                🍂 Automne
+                            </button>
+                            <button class="season-btn" data-season="winter" onclick="selectSeason('winter')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s;">
+                                ❄️ Hiver
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Budget -->
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.75rem; color: #374151;">
+                            3. Votre budget :
+                        </label>
+                        <div id="budgetSelector" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <button class="budget-btn" data-budget="budget" onclick="selectBudget('budget')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s;">
+                                💰 Économique
+                            </button>
+                            <button class="budget-btn" data-budget="medium" onclick="selectBudget('medium')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s;">
+                                💳 Moyen
+                            </button>
+                            <button class="budget-btn" data-budget="luxury" onclick="selectBudget('luxury')"
+                                style="padding: 0.75rem 1.25rem; border: 2px solid #e5e7eb; border-radius: 8px; background: white; cursor: pointer; transition: all 0.2s;">
+                                💎 Luxe
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="getPersonalizedRecommendation()"
+                    style="padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 1rem;">
+                    🎯 Obtenir une recommandation pour mon profil
+                </button>
 
                 <div id="recoLoading" class="loading"></div>
                 <div id="recoResults"></div>
@@ -745,6 +834,140 @@
             }
         }
 
+        // Variables globales pour le profil utilisateur
+        let userProfile = {
+            nationality: null,
+            season: null,
+            budget: null
+        };
+
+        // Sélection de nationalité
+        function selectNationality(nationality) {
+            userProfile.nationality = nationality;
+
+            // Mise à jour visuelle
+            document.querySelectorAll('.nationality-btn').forEach(btn => {
+                if (btn.dataset.nationality === nationality) {
+                    btn.style.borderColor = '#667eea';
+                    btn.style.background = '#f3f4f6';
+                    btn.style.fontWeight = '600';
+                } else {
+                    btn.style.borderColor = '#e5e7eb';
+                    btn.style.background = 'white';
+                    btn.style.fontWeight = '400';
+                }
+            });
+        }
+
+        // Sélection de saison
+        function selectSeason(season) {
+            userProfile.season = season;
+
+            // Mise à jour visuelle
+            document.querySelectorAll('.season-btn').forEach(btn => {
+                if (btn.dataset.season === season) {
+                    btn.style.borderColor = '#667eea';
+                    btn.style.background = '#f3f4f6';
+                    btn.style.fontWeight = '600';
+                } else {
+                    btn.style.borderColor = '#e5e7eb';
+                    btn.style.background = 'white';
+                    btn.style.fontWeight = '400';
+                }
+            });
+        }
+
+        // Sélection de budget
+        function selectBudget(budget) {
+            userProfile.budget = budget;
+
+            // Mise à jour visuelle
+            document.querySelectorAll('.budget-btn').forEach(btn => {
+                if (btn.dataset.budget === budget) {
+                    btn.style.borderColor = '#667eea';
+                    btn.style.background = '#f3f4f6';
+                    btn.style.fontWeight = '600';
+                } else {
+                    btn.style.borderColor = '#e5e7eb';
+                    btn.style.background = 'white';
+                    btn.style.fontWeight = '400';
+                }
+            });
+        }
+
+        // Obtenir recommandation personnalisée
+        async function getPersonalizedRecommendation() {
+            const loading = document.getElementById('recoLoading');
+            const results = document.getElementById('recoResults');
+
+            // Validation
+            if (!userProfile.nationality || !userProfile.season || !userProfile.budget) {
+                results.innerHTML = `<div style="color: #ef4444; padding: 1rem; background: #fef2f2; border-radius: 8px; margin-top: 1rem;">
+                    ⚠️ Veuillez sélectionner votre nationalité, la saison et votre budget avant de continuer.
+                </div>`;
+                return;
+            }
+
+            loading.classList.add('show');
+            loading.textContent = '⏳ Génération de recommandations personnalisées...';
+            results.innerHTML = '';
+
+            try {
+                const response = await fetch(`/api/recommendations?nationality=${userProfile.nationality}&season=${userProfile.season}&budget=${userProfile.budget}`);
+
+                if (!response.ok) {
+                    throw new Error(`Erreur ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                loading.classList.remove('show');
+
+                const nationalityFlags = {
+                    'FR': '🇫🇷 France',
+                    'GB': '🇬🇧 Royaume-Uni',
+                    'NL': '🇳🇱 Pays-Bas',
+                    'IT': '🇮🇹 Italie',
+                    'ES': '🇪🇸 Espagne'
+                };
+
+                const seasonLabels = {
+                    'spring': '🌸 Printemps',
+                    'summer': '☀️ Été',
+                    'autumn': '🍂 Automne',
+                    'winter': '❄️ Hiver'
+                };
+
+                const budgetLabels = {
+                    'budget': '💰 Économique',
+                    'medium': '💳 Moyen',
+                    'luxury': '💎 Luxe'
+                };
+
+                results.innerHTML = `
+                    <div style="margin: 1.5rem 0; padding: 1rem; background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%); border-radius: 8px; border-left: 4px solid #667eea;">
+                        <div style="font-weight: 600; margin-bottom: 0.5rem;">🎯 Votre profil</div>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.9rem;">
+                            <span>${nationalityFlags[userProfile.nationality]}</span>
+                            <span>•</span>
+                            <span>${seasonLabels[userProfile.season]}</span>
+                            <span>•</span>
+                            <span>${budgetLabels[userProfile.budget]}</span>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <strong>✨ ${data.count} recommandations personnalisées</strong>
+                        <span class="enrichment-badge">🔮 Link Prediction (TransE)</span>
+                    </div>
+                    ${renderRecommendations(data.recommendations)}
+                `;
+            } catch (error) {
+                loading.classList.remove('show');
+                results.innerHTML = `<div style="color: #ef4444; padding: 1rem; background: #fef2f2; border-radius: 8px; margin-top: 1rem;">
+                    ❌ ${error.message}
+                </div>`;
+            }
+        }
+
         // Recommandations
         async function getSampleRecommendation() {
             const loading = document.getElementById('recoLoading');
@@ -966,7 +1189,6 @@
                 <div class="result-card">
                     <div class="result-header">
                         <div class="result-name">${r.place_name || 'N/A'}</div>
-                        <span class="badge">Rang #${r.rank}</span>
                     </div>
                     <div class="result-details">
                         <div>Note: ${r.polarity || 'N/A'}</div>

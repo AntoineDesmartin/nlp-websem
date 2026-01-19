@@ -2,7 +2,7 @@
 Service de recommandation basé sur les prédictions TransE
 """
 import json
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from pathlib import Path
 
 class RecommendationService:
@@ -21,6 +21,48 @@ class RecommendationService:
     def get_all_tourists(self) -> List[str]:
         """Retourne la liste de tous les touristes"""
         return list(self.recommendations.keys())
+    
+    def find_tourist_by_profile(self, nationality: str, season: str, budget: str) -> Optional[str]:
+        """
+        Trouve un touriste correspondant au profil demandé
+        
+        Args:
+            nationality: Code pays (US, GB, DE, IT, ES, FR, NL)
+            season: Saison (spring, summer, autumn, winter)
+            budget: Budget (budget, medium, luxury)
+            
+        Returns:
+            URI du touriste correspondant ou None
+        """
+        # Mapping des codes pays vers les langues utilisées dans le KG
+        nationality_to_language = {
+            'US': 'english',
+            'GB': 'english', 
+            'DE': 'dutch',  # Approximation
+            'IT': 'italian',
+            'ES': 'spanish',
+            'FR': 'french',
+            'NL': 'dutch'
+        }
+        
+        language = nationality_to_language.get(nationality, 'english')
+        
+        # Construire le pattern de recherche
+        # Format: tourist_dutch_autumn_budget
+        tourist_pattern = f"tourist_{language}_{season}_{budget}"
+        
+        # Chercher dans les URIs de touristes
+        for tourist_uri in self.recommendations.keys():
+            if tourist_pattern in tourist_uri:
+                return tourist_uri
+        
+        # Si pas trouvé, essayer sans le budget (fallback)
+        tourist_pattern_no_budget = f"tourist_{language}_{season}"
+        for tourist_uri in self.recommendations.keys():
+            if tourist_pattern_no_budget in tourist_uri:
+                return tourist_uri
+        
+        return None
     
     def get_recommendations_for_tourist(self, tourist_uri: str, top_k: int = 10) -> List[Dict[str, Any]]:
         """Récupère les top-K recommandations pour un touriste"""
